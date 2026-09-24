@@ -1,0 +1,28 @@
+AXIS-768 Optimized Implementation
+
+This directory contains the AXIS-768 implementation for mainstream 64-bit PC
+software builds. It preserves the ICCS CryptHash API and can be built with the
+included Makefile.
+
+The current optimized code uses the common AXIS core in axis_core.c. For
+AXIS-768, the public CryptHash path routes byte-aligned messages through the
+validated SoA fast path. AVX2 builds use the 8x32-bit SoA block, while portable
+builds use the scalar SoA block; both preserve the alternating message schedule
+and special tail handling of the reference implementation.
+The byte-aligned absorption, blank-round, and digest-generation paths use the
+32-time-beat fast path so AXIS-768 is optimized with the same block-processing
+strategy as the other AXIS instances.
+For byte-aligned pure message blocks, the implementation packs each 48-bit
+message chunk directly into the two 32-beat message tapes; best-available
+builds use BMI2 PEXT for this triplet-to-pair extraction.
+
+Optimization levels are selected at compile time with AXIS_OPT_LEVEL:
+- 1: portable optimized, no AVX2/BMI2/native intrinsics.
+- 2: AVX2 optimized, no BMI2/native tuning.
+- 3: best available, enables native target tuning and BMI2 when available.
+
+The Makefile exposes the same levels as `make portable`, `make avx2`, and
+`make best`; plain `make` defaults to best available.
+The optimized build configurations are kept for reproducible portable, AVX2,
+and best-available builds, while correctness for AXIS-768 is checked against
+the same known-answer test vectors as the reference implementation.

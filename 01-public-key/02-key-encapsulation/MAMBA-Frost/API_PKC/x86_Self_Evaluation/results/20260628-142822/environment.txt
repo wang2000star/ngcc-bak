@@ -1,0 +1,92 @@
+date: 2026-06-28T14:28:22Z
+hostname: ubuntu
+uname: Linux ubuntu 6.8.0-124-generic #124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 21:05:19 UTC  x86_64 x86_64 x86_64 GNU/Linux
+shell: /bin/bash
+pwd: /home/ubuntu/桌面/NGCC/Frost
+
+os-release:
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+
+gcc --version:
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+make --version:
+GNU Make 4.3
+为 x86_64-pc-linux-gnu 编译
+Copyright (C) 1988-2020 Free Software Foundation, Inc.
+许可证：GPLv3+：GNU 通用公共许可证第 3 版或更新版本<http://gnu.org/licenses/gpl.html>。
+本软件是自由软件：您可以自由修改和重新发布它。
+在法律允许的范围内没有其他保证。
+
+cmake --version:
+cmake version 3.22.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+lscpu:
+架构：                                   x86_64
+CPU 运行模式：                           32-bit, 64-bit
+Address sizes:                           45 bits physical, 48 bits virtual
+字节序：                                 Little Endian
+CPU:                                     16
+在线 CPU 列表：                          0-15
+厂商 ID：                                AuthenticAMD
+型号名称：                               AMD Ryzen 7 9700X 8-Core Processor
+CPU 系列：                               26
+型号：                                   68
+每个核的线程数：                         1
+每个座的核数：                           2
+座：                                     8
+步进：                                   0
+BogoMIPS：                               7599.83
+标记：                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext ibpb vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 clzero arat avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor fsrm avx512_vp2intersect
+超管理器厂商：                           VMware
+虚拟化类型：                             完全
+L1d 缓存：                               768 KiB (16 instances)
+L1i 缓存：                               512 KiB (16 instances)
+L2 缓存：                                16 MiB (16 instances)
+L3 缓存：                                256 MiB (8 instances)
+NUMA 节点：                              1
+NUMA 节点0 CPU：                         0-15
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Vulnerable
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Not affected
+
+nproc: 16
+
+free -h:
+               total        used        free      shared  buff/cache   available
+内存：       15Gi       3.5Gi       8.7Gi       179Mi       3.4Gi        11Gi
+交换：      2.0Gi          0B       2.0Gi
+
+AVX2: yes
+AES-NI: yes

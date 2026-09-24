@@ -1,0 +1,295 @@
+﻿Affinity target: logical CPU 0 (mask 0x1)
+Executable: ngcc_bench.exe
+Started: 2026-06-25T10:48:03.5156639+08:00
+RUN ngcc_bench.exe -a iphe-512 -t 1000 -l 32
+AFFINITY_SET pid=1664 mask=0x1 alg=iphe-512 size=32
+EXIT code= alg=iphe-512 size=32
+COPIED_JSON source=reports/Iphe-512_20260625_104803.json dest=iphe_512_32_20260625_104803_528.json
+RUN ngcc_bench.exe -a iphe-512 -t 1000 -l 128
+AFFINITY_SET pid=53752 mask=0x1 alg=iphe-512 size=128
+EXIT code= alg=iphe-512 size=128
+COPIED_JSON source=reports/Iphe-512_20260625_104804.json dest=iphe_512_128_20260625_104804_040.json
+RUN ngcc_bench.exe -a iphe-512 -t 1000 -l 512
+AFFINITY_SET pid=11336 mask=0x1 alg=iphe-512 size=512
+EXIT code= alg=iphe-512 size=512
+COPIED_JSON source=reports/Iphe-512_20260625_104804.json dest=iphe_512_512_20260625_104804_430.json
+RUN ngcc_bench.exe -a iphe-512 -t 1000 -l 1024
+AFFINITY_SET pid=30972 mask=0x1 alg=iphe-512 size=1024
+EXIT code= alg=iphe-512 size=1024
+COPIED_JSON source=reports/Iphe-512_20260625_104804.json dest=iphe_512_1024_20260625_104804_814.json
+RUN ngcc_bench.exe -a iphe-512 -t 1000 -l 4096
+AFFINITY_SET pid=22360 mask=0x1 alg=iphe-512 size=4096
+EXIT code= alg=iphe-512 size=4096
+COPIED_JSON source=reports/Iphe-512_20260625_104805.json dest=iphe_512_4096_20260625_104805_159.json
+RUN ngcc_bench.exe -a iphe-512 -t 1000 -l 8192
+AFFINITY_SET pid=12916 mask=0x1 alg=iphe-512 size=8192
+EXIT code= alg=iphe-512 size=8192
+COPIED_JSON source=reports/Iphe-512_20260625_104805.json dest=iphe_512_8192_20260625_104805_696.json
+RUN ngcc_bench.exe -a iphe-512 -t 1000 -l 16384
+AFFINITY_SET pid=5584 mask=0x1 alg=iphe-512 size=16384
+EXIT code= alg=iphe-512 size=16384
+COPIED_JSON source=reports/Iphe-512_20260625_104806.json dest=iphe_512_16384_20260625_104806_318.json
+RUN ngcc_bench.exe -a iphe-512 -t 1000 -l 65536
+AFFINITY_SET pid=15696 mask=0x1 alg=iphe-512 size=65536
+EXIT code= alg=iphe-512 size=65536
+COPIED_JSON source=reports/Iphe-512_20260625_104807.json dest=iphe_512_65536_20260625_104807_243.json
+RUN ngcc_bench.exe -a iphe-768 -t 1000 -l 32
+AFFINITY_SET pid=34460 mask=0x1 alg=iphe-768 size=32
+EXIT code= alg=iphe-768 size=32
+COPIED_JSON source=reports/Iphe-768_20260625_104810.json dest=iphe_768_32_20260625_104810_089.json
+RUN ngcc_bench.exe -a iphe-768 -t 1000 -l 128
+AFFINITY_SET pid=32676 mask=0x1 alg=iphe-768 size=128
+EXIT code= alg=iphe-768 size=128
+COPIED_JSON source=reports/Iphe-768_20260625_104810.json dest=iphe_768_128_20260625_104810_506.json
+RUN ngcc_bench.exe -a iphe-768 -t 1000 -l 512
+AFFINITY_SET pid=48332 mask=0x1 alg=iphe-768 size=512
+EXIT code= alg=iphe-768 size=512
+COPIED_JSON source=reports/Iphe-768_20260625_104811.json dest=iphe_768_512_20260625_104811_430.json
+RUN ngcc_bench.exe -a iphe-768 -t 1000 -l 1024
+AFFINITY_SET pid=8160 mask=0x1 alg=iphe-768 size=1024
+EXIT code= alg=iphe-768 size=1024
+COPIED_JSON source=reports/Iphe-768_20260625_104812.json dest=iphe_768_1024_20260625_104811_852.json
+RUN ngcc_bench.exe -a iphe-768 -t 1000 -l 4096
+AFFINITY_SET pid=39608 mask=0x1 alg=iphe-768 size=4096
+EXIT code= alg=iphe-768 size=4096
+COPIED_JSON source=reports/Iphe-768_20260625_104812.json dest=iphe_768_4096_20260625_104812_279.json
+RUN ngcc_bench.exe -a iphe-768 -t 1000 -l 8192
+AFFINITY_SET pid=39892 mask=0x1 alg=iphe-768 size=8192
+EXIT code= alg=iphe-768 size=8192
+COPIED_JSON source=reports/Iphe-768_20260625_104812.json dest=iphe_768_8192_20260625_104812_798.json
+RUN ngcc_bench.exe -a iphe-768 -t 1000 -l 16384
+AFFINITY_SET pid=20840 mask=0x1 alg=iphe-768 size=16384
+EXIT code= alg=iphe-768 size=16384
+COPIED_JSON source=reports/Iphe-768_20260625_104813.json dest=iphe_768_16384_20260625_104813_591.json
+RUN ngcc_bench.exe -a iphe-768 -t 1000 -l 65536
+AFFINITY_SET pid=32268 mask=0x1 alg=iphe-768 size=65536
+EXIT code= alg=iphe-768 size=65536
+COPIED_JSON source=reports/Iphe-768_20260625_104814.json dest=iphe_768_65536_20260625_104814_631.json
+RUN ngcc_bench.exe -a iphe-1024 -t 1000 -l 32
+AFFINITY_SET pid=20296 mask=0x1 alg=iphe-1024 size=32
+EXIT code= alg=iphe-1024 size=32
+COPIED_JSON source=reports/Iphe-1024_20260625_104818.json dest=iphe_1024_32_20260625_104817_933.json
+RUN ngcc_bench.exe -a iphe-1024 -t 1000 -l 128
+AFFINITY_SET pid=33264 mask=0x1 alg=iphe-1024 size=128
+EXIT code= alg=iphe-1024 size=128
+COPIED_JSON source=reports/Iphe-1024_20260625_104818.json dest=iphe_1024_128_20260625_104818_373.json
+RUN ngcc_bench.exe -a iphe-1024 -t 1000 -l 512
+AFFINITY_SET pid=41244 mask=0x1 alg=iphe-1024 size=512
+EXIT code= alg=iphe-1024 size=512
+COPIED_JSON source=reports/Iphe-1024_20260625_104818.json dest=iphe_1024_512_20260625_104818_747.json
+RUN ngcc_bench.exe -a iphe-1024 -t 1000 -l 1024
+AFFINITY_SET pid=44816 mask=0x1 alg=iphe-1024 size=1024
+EXIT code= alg=iphe-1024 size=1024
+COPIED_JSON source=reports/Iphe-1024_20260625_104819.json dest=iphe_1024_1024_20260625_104819_169.json
+RUN ngcc_bench.exe -a iphe-1024 -t 1000 -l 4096
+AFFINITY_SET pid=48120 mask=0x1 alg=iphe-1024 size=4096
+EXIT code= alg=iphe-1024 size=4096
+COPIED_JSON source=reports/Iphe-1024_20260625_104819.json dest=iphe_1024_4096_20260625_104819_606.json
+RUN ngcc_bench.exe -a iphe-1024 -t 1000 -l 8192
+AFFINITY_SET pid=34600 mask=0x1 alg=iphe-1024 size=8192
+EXIT code= alg=iphe-1024 size=8192
+COPIED_JSON source=reports/Iphe-1024_20260625_104820.json dest=iphe_1024_8192_20260625_104820_386.json
+RUN ngcc_bench.exe -a iphe-1024 -t 1000 -l 16384
+AFFINITY_SET pid=45228 mask=0x1 alg=iphe-1024 size=16384
+EXIT code= alg=iphe-1024 size=16384
+COPIED_JSON source=reports/Iphe-1024_20260625_104821.json dest=iphe_1024_16384_20260625_104821_257.json
+RUN ngcc_bench.exe -a iphe-1024 -t 1000 -l 65536
+AFFINITY_SET pid=46240 mask=0x1 alg=iphe-1024 size=65536
+EXIT code= alg=iphe-1024 size=65536
+COPIED_JSON source=reports/Iphe-1024_20260625_104822.json dest=iphe_1024_65536_20260625_104822_478.json
+RUN ngcc_bench.exe -a iphe-512-perf -t 1000 -l 32
+AFFINITY_SET pid=22516 mask=0x1 alg=iphe-512-perf size=32
+EXIT code= alg=iphe-512-perf size=32
+COPIED_JSON source=reports/Iphe-512-Performance_20260625_104827.json dest=iphe_512_perf_32_20260625_104827_516.json
+RUN ngcc_bench.exe -a iphe-512-perf -t 1000 -l 128
+AFFINITY_SET pid=11392 mask=0x1 alg=iphe-512-perf size=128
+EXIT code= alg=iphe-512-perf size=128
+COPIED_JSON source=reports/Iphe-512-Performance_20260625_104828.json dest=iphe_512_perf_128_20260625_104827_882.json
+RUN ngcc_bench.exe -a iphe-512-perf -t 1000 -l 512
+AFFINITY_SET pid=12856 mask=0x1 alg=iphe-512-perf size=512
+EXIT code= alg=iphe-512-perf size=512
+COPIED_JSON source=reports/Iphe-512-Performance_20260625_104828.json dest=iphe_512_perf_512_20260625_104828_241.json
+RUN ngcc_bench.exe -a iphe-512-perf -t 1000 -l 1024
+AFFINITY_SET pid=45976 mask=0x1 alg=iphe-512-perf size=1024
+EXIT code= alg=iphe-512-perf size=1024
+COPIED_JSON source=reports/Iphe-512-Performance_20260625_104828.json dest=iphe_512_perf_1024_20260625_104828_669.json
+RUN ngcc_bench.exe -a iphe-512-perf -t 1000 -l 4096
+AFFINITY_SET pid=28348 mask=0x1 alg=iphe-512-perf size=4096
+EXIT code= alg=iphe-512-perf size=4096
+COPIED_JSON source=reports/Iphe-512-Performance_20260625_104829.json dest=iphe_512_perf_4096_20260625_104829_166.json
+RUN ngcc_bench.exe -a iphe-512-perf -t 1000 -l 8192
+AFFINITY_SET pid=29608 mask=0x1 alg=iphe-512-perf size=8192
+EXIT code= alg=iphe-512-perf size=8192
+COPIED_JSON source=reports/Iphe-512-Performance_20260625_104829.json dest=iphe_512_perf_8192_20260625_104829_641.json
+RUN ngcc_bench.exe -a iphe-512-perf -t 1000 -l 16384
+AFFINITY_SET pid=45508 mask=0x1 alg=iphe-512-perf size=16384
+EXIT code= alg=iphe-512-perf size=16384
+COPIED_JSON source=reports/Iphe-512-Performance_20260625_104830.json dest=iphe_512_perf_16384_20260625_104830_038.json
+RUN ngcc_bench.exe -a iphe-512-perf -t 1000 -l 65536
+AFFINITY_SET pid=50772 mask=0x1 alg=iphe-512-perf size=65536
+EXIT code= alg=iphe-512-perf size=65536
+COPIED_JSON source=reports/Iphe-512-Performance_20260625_104830.json dest=iphe_512_perf_65536_20260625_104830_474.json
+RUN ngcc_bench.exe -a iphe-768-perf -t 1000 -l 32
+AFFINITY_SET pid=39524 mask=0x1 alg=iphe-768-perf size=32
+EXIT code= alg=iphe-768-perf size=32
+COPIED_JSON source=reports/Iphe-768-Performance_20260625_104831.json dest=iphe_768_perf_32_20260625_104831_055.json
+RUN ngcc_bench.exe -a iphe-768-perf -t 1000 -l 128
+AFFINITY_SET pid=2232 mask=0x1 alg=iphe-768-perf size=128
+EXIT code= alg=iphe-768-perf size=128
+COPIED_JSON source=reports/Iphe-768-Performance_20260625_104831.json dest=iphe_768_perf_128_20260625_104831_446.json
+RUN ngcc_bench.exe -a iphe-768-perf -t 1000 -l 512
+AFFINITY_SET pid=20704 mask=0x1 alg=iphe-768-perf size=512
+EXIT code= alg=iphe-768-perf size=512
+COPIED_JSON source=reports/Iphe-768-Performance_20260625_104831.json dest=iphe_768_perf_512_20260625_104831_803.json
+RUN ngcc_bench.exe -a iphe-768-perf -t 1000 -l 1024
+AFFINITY_SET pid=34324 mask=0x1 alg=iphe-768-perf size=1024
+EXIT code= alg=iphe-768-perf size=1024
+COPIED_JSON source=reports/Iphe-768-Performance_20260625_104832.json dest=iphe_768_perf_1024_20260625_104832_169.json
+RUN ngcc_bench.exe -a iphe-768-perf -t 1000 -l 4096
+AFFINITY_SET pid=27896 mask=0x1 alg=iphe-768-perf size=4096
+EXIT code= alg=iphe-768-perf size=4096
+COPIED_JSON source=reports/Iphe-768-Performance_20260625_104832.json dest=iphe_768_perf_4096_20260625_104832_583.json
+RUN ngcc_bench.exe -a iphe-768-perf -t 1000 -l 8192
+AFFINITY_SET pid=11516 mask=0x1 alg=iphe-768-perf size=8192
+EXIT code= alg=iphe-768-perf size=8192
+COPIED_JSON source=reports/Iphe-768-Performance_20260625_104833.json dest=iphe_768_perf_8192_20260625_104833_142.json
+RUN ngcc_bench.exe -a iphe-768-perf -t 1000 -l 16384
+AFFINITY_SET pid=17092 mask=0x1 alg=iphe-768-perf size=16384
+EXIT code= alg=iphe-768-perf size=16384
+COPIED_JSON source=reports/Iphe-768-Performance_20260625_104833.json dest=iphe_768_perf_16384_20260625_104833_556.json
+RUN ngcc_bench.exe -a iphe-768-perf -t 1000 -l 65536
+AFFINITY_SET pid=38288 mask=0x1 alg=iphe-768-perf size=65536
+EXIT code= alg=iphe-768-perf size=65536
+COPIED_JSON source=reports/Iphe-768-Performance_20260625_104834.json dest=iphe_768_perf_65536_20260625_104834_046.json
+RUN ngcc_bench.exe -a iphe-1024-perf -t 1000 -l 32
+AFFINITY_SET pid=26228 mask=0x1 alg=iphe-1024-perf size=32
+EXIT code= alg=iphe-1024-perf size=32
+COPIED_JSON source=reports/Iphe-1024-Performance_20260625_104834.json dest=iphe_1024_perf_32_20260625_104834_841.json
+RUN ngcc_bench.exe -a iphe-1024-perf -t 1000 -l 128
+AFFINITY_SET pid=44680 mask=0x1 alg=iphe-1024-perf size=128
+EXIT code= alg=iphe-1024-perf size=128
+COPIED_JSON source=reports/Iphe-1024-Performance_20260625_104835.json dest=iphe_1024_perf_128_20260625_104835_265.json
+RUN ngcc_bench.exe -a iphe-1024-perf -t 1000 -l 512
+AFFINITY_SET pid=35252 mask=0x1 alg=iphe-1024-perf size=512
+EXIT code= alg=iphe-1024-perf size=512
+COPIED_JSON source=reports/Iphe-1024-Performance_20260625_104835.json dest=iphe_1024_perf_512_20260625_104835_719.json
+RUN ngcc_bench.exe -a iphe-1024-perf -t 1000 -l 1024
+AFFINITY_SET pid=50792 mask=0x1 alg=iphe-1024-perf size=1024
+EXIT code= alg=iphe-1024-perf size=1024
+COPIED_JSON source=reports/Iphe-1024-Performance_20260625_104836.json dest=iphe_1024_perf_1024_20260625_104836_183.json
+RUN ngcc_bench.exe -a iphe-1024-perf -t 1000 -l 4096
+AFFINITY_SET pid=34868 mask=0x1 alg=iphe-1024-perf size=4096
+EXIT code= alg=iphe-1024-perf size=4096
+COPIED_JSON source=reports/Iphe-1024-Performance_20260625_104836.json dest=iphe_1024_perf_4096_20260625_104836_582.json
+RUN ngcc_bench.exe -a iphe-1024-perf -t 1000 -l 8192
+AFFINITY_SET pid=40644 mask=0x1 alg=iphe-1024-perf size=8192
+EXIT code= alg=iphe-1024-perf size=8192
+COPIED_JSON source=reports/Iphe-1024-Performance_20260625_104837.json dest=iphe_1024_perf_8192_20260625_104836_983.json
+RUN ngcc_bench.exe -a iphe-1024-perf -t 1000 -l 16384
+AFFINITY_SET pid=37072 mask=0x1 alg=iphe-1024-perf size=16384
+EXIT code= alg=iphe-1024-perf size=16384
+COPIED_JSON source=reports/Iphe-1024-Performance_20260625_104837.json dest=iphe_1024_perf_16384_20260625_104837_388.json
+RUN ngcc_bench.exe -a iphe-1024-perf -t 1000 -l 65536
+AFFINITY_SET pid=42364 mask=0x1 alg=iphe-1024-perf size=65536
+EXIT code= alg=iphe-1024-perf size=65536
+COPIED_JSON source=reports/Iphe-1024-Performance_20260625_104838.json dest=iphe_1024_perf_65536_20260625_104837_831.json
+RUN ngcc_bench.exe -a iphe-512-res -t 1000 -l 32
+AFFINITY_SET pid=3032 mask=0x1 alg=iphe-512-res size=32
+EXIT code= alg=iphe-512-res size=32
+COPIED_JSON source=reports/Iphe-512-Resource_20260625_104838.json dest=iphe_512_res_32_20260625_104838_601.json
+RUN ngcc_bench.exe -a iphe-512-res -t 1000 -l 128
+AFFINITY_SET pid=44852 mask=0x1 alg=iphe-512-res size=128
+EXIT code= alg=iphe-512-res size=128
+COPIED_JSON source=reports/Iphe-512-Resource_20260625_104839.json dest=iphe_512_res_128_20260625_104839_115.json
+RUN ngcc_bench.exe -a iphe-512-res -t 1000 -l 512
+AFFINITY_SET pid=16748 mask=0x1 alg=iphe-512-res size=512
+EXIT code= alg=iphe-512-res size=512
+COPIED_JSON source=reports/Iphe-512-Resource_20260625_104839.json dest=iphe_512_res_512_20260625_104839_600.json
+RUN ngcc_bench.exe -a iphe-512-res -t 1000 -l 1024
+AFFINITY_SET pid=43680 mask=0x1 alg=iphe-512-res size=1024
+EXIT code= alg=iphe-512-res size=1024
+COPIED_JSON source=reports/Iphe-512-Resource_20260625_104840.json dest=iphe_512_res_1024_20260625_104839_965.json
+RUN ngcc_bench.exe -a iphe-512-res -t 1000 -l 4096
+AFFINITY_SET pid=33744 mask=0x1 alg=iphe-512-res size=4096
+EXIT code= alg=iphe-512-res size=4096
+COPIED_JSON source=reports/Iphe-512-Resource_20260625_104840.json dest=iphe_512_res_4096_20260625_104840_381.json
+RUN ngcc_bench.exe -a iphe-512-res -t 1000 -l 8192
+AFFINITY_SET pid=15796 mask=0x1 alg=iphe-512-res size=8192
+EXIT code= alg=iphe-512-res size=8192
+COPIED_JSON source=reports/Iphe-512-Resource_20260625_104841.json dest=iphe_512_res_8192_20260625_104841_033.json
+RUN ngcc_bench.exe -a iphe-512-res -t 1000 -l 16384
+AFFINITY_SET pid=7628 mask=0x1 alg=iphe-512-res size=16384
+EXIT code= alg=iphe-512-res size=16384
+COPIED_JSON source=reports/Iphe-512-Resource_20260625_104841.json dest=iphe_512_res_16384_20260625_104841_767.json
+RUN ngcc_bench.exe -a iphe-512-res -t 1000 -l 65536
+AFFINITY_SET pid=20120 mask=0x1 alg=iphe-512-res size=65536
+EXIT code= alg=iphe-512-res size=65536
+COPIED_JSON source=reports/Iphe-512-Resource_20260625_104843.json dest=iphe_512_res_65536_20260625_104842_939.json
+RUN ngcc_bench.exe -a iphe-768-res -t 1000 -l 32
+AFFINITY_SET pid=25232 mask=0x1 alg=iphe-768-res size=32
+EXIT code= alg=iphe-768-res size=32
+COPIED_JSON source=reports/Iphe-768-Resource_20260625_104847.json dest=iphe_768_res_32_20260625_104847_120.json
+RUN ngcc_bench.exe -a iphe-768-res -t 1000 -l 128
+AFFINITY_SET pid=46412 mask=0x1 alg=iphe-768-res size=128
+EXIT code= alg=iphe-768-res size=128
+COPIED_JSON source=reports/Iphe-768-Resource_20260625_104848.json dest=iphe_768_res_128_20260625_104847_847.json
+RUN ngcc_bench.exe -a iphe-768-res -t 1000 -l 512
+AFFINITY_SET pid=12512 mask=0x1 alg=iphe-768-res size=512
+EXIT code= alg=iphe-768-res size=512
+COPIED_JSON source=reports/Iphe-768-Resource_20260625_104848.json dest=iphe_768_res_512_20260625_104848_260.json
+RUN ngcc_bench.exe -a iphe-768-res -t 1000 -l 1024
+AFFINITY_SET pid=50828 mask=0x1 alg=iphe-768-res size=1024
+EXIT code= alg=iphe-768-res size=1024
+COPIED_JSON source=reports/Iphe-768-Resource_20260625_104848.json dest=iphe_768_res_1024_20260625_104848_709.json
+RUN ngcc_bench.exe -a iphe-768-res -t 1000 -l 4096
+AFFINITY_SET pid=37212 mask=0x1 alg=iphe-768-res size=4096
+EXIT code= alg=iphe-768-res size=4096
+COPIED_JSON source=reports/Iphe-768-Resource_20260625_104849.json dest=iphe_768_res_4096_20260625_104849_175.json
+RUN ngcc_bench.exe -a iphe-768-res -t 1000 -l 8192
+AFFINITY_SET pid=41756 mask=0x1 alg=iphe-768-res size=8192
+EXIT code= alg=iphe-768-res size=8192
+COPIED_JSON source=reports/Iphe-768-Resource_20260625_104849.json dest=iphe_768_res_8192_20260625_104849_792.json
+RUN ngcc_bench.exe -a iphe-768-res -t 1000 -l 16384
+AFFINITY_SET pid=30384 mask=0x1 alg=iphe-768-res size=16384
+EXIT code= alg=iphe-768-res size=16384
+COPIED_JSON source=reports/Iphe-768-Resource_20260625_104850.json dest=iphe_768_res_16384_20260625_104850_684.json
+RUN ngcc_bench.exe -a iphe-768-res -t 1000 -l 65536
+AFFINITY_SET pid=29980 mask=0x1 alg=iphe-768-res size=65536
+EXIT code= alg=iphe-768-res size=65536
+COPIED_JSON source=reports/Iphe-768-Resource_20260625_104852.json dest=iphe_768_res_65536_20260625_104852_103.json
+RUN ngcc_bench.exe -a iphe-1024-res -t 1000 -l 32
+AFFINITY_SET pid=29872 mask=0x1 alg=iphe-1024-res size=32
+EXIT code= alg=iphe-1024-res size=32
+COPIED_JSON source=reports/Iphe-1024-Resource_20260625_104858.json dest=iphe_1024_res_32_20260625_104858_141.json
+RUN ngcc_bench.exe -a iphe-1024-res -t 1000 -l 128
+AFFINITY_SET pid=1908 mask=0x1 alg=iphe-1024-res size=128
+EXIT code= alg=iphe-1024-res size=128
+COPIED_JSON source=reports/Iphe-1024-Resource_20260625_104858.json dest=iphe_1024_res_128_20260625_104858_563.json
+RUN ngcc_bench.exe -a iphe-1024-res -t 1000 -l 512
+AFFINITY_SET pid=42196 mask=0x1 alg=iphe-1024-res size=512
+EXIT code= alg=iphe-1024-res size=512
+COPIED_JSON source=reports/Iphe-1024-Resource_20260625_104859.json dest=iphe_1024_res_512_20260625_104858_964.json
+RUN ngcc_bench.exe -a iphe-1024-res -t 1000 -l 1024
+AFFINITY_SET pid=42812 mask=0x1 alg=iphe-1024-res size=1024
+EXIT code= alg=iphe-1024-res size=1024
+COPIED_JSON source=reports/Iphe-1024-Resource_20260625_104859.json dest=iphe_1024_res_1024_20260625_104859_564.json
+RUN ngcc_bench.exe -a iphe-1024-res -t 1000 -l 4096
+AFFINITY_SET pid=44424 mask=0x1 alg=iphe-1024-res size=4096
+EXIT code= alg=iphe-1024-res size=4096
+COPIED_JSON source=reports/Iphe-1024-Resource_20260625_104900.json dest=iphe_1024_res_4096_20260625_104859_999.json
+RUN ngcc_bench.exe -a iphe-1024-res -t 1000 -l 8192
+AFFINITY_SET pid=50548 mask=0x1 alg=iphe-1024-res size=8192
+EXIT code= alg=iphe-1024-res size=8192
+COPIED_JSON source=reports/Iphe-1024-Resource_20260625_104900.json dest=iphe_1024_res_8192_20260625_104900_653.json
+RUN ngcc_bench.exe -a iphe-1024-res -t 1000 -l 16384
+AFFINITY_SET pid=45576 mask=0x1 alg=iphe-1024-res size=16384
+EXIT code= alg=iphe-1024-res size=16384
+COPIED_JSON source=reports/Iphe-1024-Resource_20260625_104901.json dest=iphe_1024_res_16384_20260625_104901_617.json
+RUN ngcc_bench.exe -a iphe-1024-res -t 1000 -l 65536
+AFFINITY_SET pid=31768 mask=0x1 alg=iphe-1024-res size=65536
+EXIT code= alg=iphe-1024-res size=65536
+COPIED_JSON source=reports/Iphe-1024-Resource_20260625_104903.json dest=iphe_1024_res_65536_20260625_104903_173.json
+Finished: 2026-06-25T10:49:11.1468356+08:00
+Copied JSON reports: 72
+Captured logs: 144
+

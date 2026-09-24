@@ -1,0 +1,36 @@
+{
+	"Algorithms overview":	{
+		"Algorithm_name":	"Iphe-512-Performance",
+		"Developed by":	"ICCS",
+		"Block size":	184,
+		"Digest Length":	64
+	},
+	"Functional test report":	{
+		"long input":	true,
+		"short input":	true
+	},
+	"Performance evaluation":	{
+		"Hash perf evaluation":	{
+			"Cycle measurement":	{
+				"avg_cycles":	106427.96,
+				"min_cycles":	74702,
+				"max_cycles":	11671607
+			},
+			"Throughput":	{
+				"throuput":	"3545.31 Mbps",
+				"run_times":	1000
+			}
+		}
+	},
+	"Memory evaluation":	{
+		"Static segments":	{
+			"text_size":	6944,
+			"data_size":	704,
+			"bss_size":	0
+		},
+		"Dynamic usage":	{
+			"heap_peak":	2560000,
+			"stack_peak":	458752
+		}
+	}
+}

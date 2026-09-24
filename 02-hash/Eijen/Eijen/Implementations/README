@@ -1,0 +1,8 @@
+Eijen implementation material for the ICCS cryptographic hash submission format.
+
+Directory layout:
+- Reference_Implementation/Eijen-*: ISO C99 reference implementations using the required CryptHash API.
+- Optimized_Implementation/Eijen-*: x86-64 optimized implementations using the same CryptHash API.
+- Additional_Implementation/: no additional implementation is submitted in this package.
+
+Run scripts/build_all.sh from the package root to build all instance packages.

@@ -1,0 +1,23 @@
+host=x86_64 cc=gcc freq_kHz=0  start=2026-06-23T20:56:28Z
+==== DKEM ====
+[DKEM-128 | Reference] KAT=PASS | avg_us keygen=66.72 enc=80.21 dec=94.73 avg_cyc keygen=159721 enc=192088 dec=226929 peak_rss_kb=1868 | static(text=34813 data=744 bss=200 total=35757)
+[DKEM-256 | Reference] KAT=PASS | avg_us keygen=212.80 enc=211.79 dec=229.81 avg_cyc keygen=509765 enc=507604 dec=550777 peak_rss_kb=1872 | static(text=36013 data=744 bss=200 total=36957)
+[DKEM-512 | Reference] KAT=PASS | avg_us keygen=648.52 enc=689.76 dec=741.85 avg_cyc keygen=1555048 enc=1654277 dec=1778708 peak_rss_kb=1876 | static(text=37517 data=744 bss=200 total=38461)
+[DKEM-128 | Optimized] KAT=PASS | avg_us keygen=40.21 enc=43.31 dec=45.00 avg_cyc keygen=105171 enc=113311 dec=117731 peak_rss_kb=1876 | static(text=129921 data=728 bss=200 total=130849)
+[DKEM-256 | Optimized] KAT=PASS | avg_us keygen=131.72 enc=132.42 dec=135.09 avg_cyc keygen=329137 enc=330887 dec=337571 peak_rss_kb=1876 | static(text=132115 data=728 bss=200 total=133043)
+[DKEM-512 | Optimized] KAT=PASS | avg_us keygen=549.65 enc=565.40 dec=569.88 avg_cyc keygen=1317471 enc=1355246 dec=1365954 peak_rss_kb=1876 | static(text=122239 data=728 bss=200 total=123167)
+==== ADKEX ====
+[ADKEX-128 | Reference] KAT=PASS | avg_us handshake=517.10 avg_cyc handshake=1245094 peak_rss_kb=1876 | static(text=39302 data=728 bss=200 total=40230)
+[ADKEX-256 | Reference] KAT=PASS | avg_us handshake=1286.29 avg_cyc handshake=3099054 peak_rss_kb=1876 | static(text=40518 data=728 bss=200 total=41446)
+[ADKEX-512 | Reference] KAT=PASS | avg_us handshake=4406.24 avg_cyc handshake=10691576 peak_rss_kb=1876 | static(text=42126 data=728 bss=200 total=43054)
+[ADKEX-128 | Optimized] KAT=PASS | avg_us handshake=297.87 avg_cyc handshake=777327 peak_rss_kb=1876 | static(text=127581 data=728 bss=200 total=128509)
+[ADKEX-256 | Optimized] KAT=PASS | avg_us handshake=903.70 avg_cyc handshake=2188102 peak_rss_kb=1876 | static(text=129462 data=728 bss=200 total=130390)
+[ADKEX-512 | Optimized] KAT=PASS | avg_us handshake=3364.96 avg_cyc handshake=8809006 peak_rss_kb=1876 | static(text=125375 data=728 bss=200 total=126303)
+==== DKEX ====
+[DKEX-128 | Reference] KAT=PASS | avg_us handshake=1484.11 avg_cyc handshake=3605164 peak_rss_kb=1876 | static(text=63314 data=736 bss=200 total=64250)
+[DKEX-256 | Reference] KAT=PASS | avg_us handshake=3245.92 avg_cyc handshake=7801719 peak_rss_kb=1880 | static(text=64362 data=736 bss=200 total=65298)
+[DKEX-512 | Reference] KAT=PASS | avg_us handshake=4304.16 avg_cyc handshake=10939769 peak_rss_kb=1884 | static(text=65634 data=736 bss=200 total=66570)
+[DKEX-128 | Optimized] KAT=PASS | avg_us handshake=1001.11 avg_cyc handshake=2461035 peak_rss_kb=1876 | static(text=187631 data=744 bss=232 total=188607)
+[DKEX-256 | Optimized] KAT=PASS | avg_us handshake=2179.76 avg_cyc handshake=5705900 peak_rss_kb=1956 | static(text=187480 data=744 bss=232 total=188456)
+[DKEX-512 | Optimized] KAT=PASS | avg_us handshake=3268.28 avg_cyc handshake=7989899 peak_rss_kb=1928 | static(text=180900 data=736 bss=232 total=181868)
+end=2026-06-23T20:59:36Z

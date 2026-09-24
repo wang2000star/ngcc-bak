@@ -1,0 +1,211 @@
+Iphe-768 perf archive audit
+Generated: 2026-06-24T11:30:53.5013304+08:00
+
+===== ar t =====
+CryptHash_AlgorithmInstance.c.obj
+
+===== nm -S --size-sort =====
+
+CryptHash_AlgorithmInstance.c.obj:
+
+===== size -A =====
+CryptHash_AlgorithmInstance.c.obj   (ex API_CryptHash\Implementations\Optimized_Implementation\libiphe_768_perf.a):
+section                                                                      size   addr
+.text                                                                        7040      0
+.data                                                                           0      0
+.bss                                                                            0      0
+.gnu.lto_.profile.f7aaaa1f                                                     15      0
+.gnu.lto_.icf.f7aaaa1f                                                        214      0
+.gnu.lto_.ipa_sra.f7aaaa1f                                                    114      0
+.gnu.lto_.inline.f7aaaa1f                                                     561      0
+.gnu.lto_.jmpfuncs.f7aaaa1f                                                   594      0
+.gnu.lto_.pureconst.f7aaaa1f                                                   47      0
+.gnu.lto_.ipa_modref.f7aaaa1f                                                 167      0
+.gnu.lto_.lto.f7aaaa1f                                                          8      0
+.gnu.lto_C.0.f7aaaa1f                                                         483      0
+.gnu.lto_GM_DST.1.f7aaaa1f                                                    117      0
+.gnu.lto_red16.2.f7aaaa1f                                                     816      0
+.gnu.lto_red32.3.f7aaaa1f                                                     373      0
+.gnu.lto_wr_wp.4.f7aaaa1f                                                    1515      0
+.gnu.lto_round_g2.5.f7aaaa1f                                                 1285      0
+.gnu.lto_round_g4.6.f7aaaa1f                                                 1493      0
+.gnu.lto_round_g8.7.f7aaaa1f                                                 1642      0
+.gnu.lto_round_g16.8.f7aaaa1f                                                1392      0
+.gnu.lto_round_g32.9.f7aaaa1f                                                 873      0
+.gnu.lto_CryptHash_AlgorithmInstance_permutation_iphe768_perf.10.f7aaaa1f     691      0
+.gnu.lto_load_padded_word.11.f7aaaa1f                                        1453      0
+.gnu.lto_CryptHash_iphe768_perf.12.f7aaaa1f                                  1845      0
+.gnu.lto_.symbol_nodes.f7aaaa1f                                               267      0
+.gnu.lto_.refs.f7aaaa1f                                                        52      0
+.gnu.lto_.decls.f7aaaa1f                                                     2693      0
+.gnu.lto_.symtab.f7aaaa1f                                                     106      0
+.gnu.lto_.ext_symtab.f7aaaa1f                                                   5      0
+.gnu.lto_.opts                                                                258      0
+.xdata                                                                         88      0
+.pdata                                                                         24      0
+.rdata                                                                        544      0
+.rdata$zzz                                                                     48      0
+Total                                                                       26823
+
+
+
+===== objdump -h =====
+In archive API_CryptHash\Implementations\Optimized_Implementation\libiphe_768_perf.a:
+
+CryptHash_AlgorithmInstance.c.obj:     file format pe-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00001b80  0000000000000000  0000000000000000  00000564  2**4
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  0000000000000000  0000000000000000  00000000  2**4
+                  ALLOC, LOAD, DATA
+  2 .bss          00000000  0000000000000000  0000000000000000  00000000  2**4
+                  ALLOC
+  3 .gnu.lto_.profile.f7aaaa1f 0000000f  0000000000000000  0000000000000000  000020e4  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+  4 .gnu.lto_.icf.f7aaaa1f 000000d6  0000000000000000  0000000000000000  000020f3  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+  5 .gnu.lto_.ipa_sra.f7aaaa1f 00000072  0000000000000000  0000000000000000  000021c9  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+  6 .gnu.lto_.inline.f7aaaa1f 00000231  0000000000000000  0000000000000000  0000223b  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+  7 .gnu.lto_.jmpfuncs.f7aaaa1f 00000252  0000000000000000  0000000000000000  0000246c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+  8 .gnu.lto_.pureconst.f7aaaa1f 0000002f  0000000000000000  0000000000000000  000026be  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+  9 .gnu.lto_.ipa_modref.f7aaaa1f 000000a7  0000000000000000  0000000000000000  000026ed  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 10 .gnu.lto_.lto.f7aaaa1f 00000008  0000000000000000  0000000000000000  00002794  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 11 .gnu.lto_C.0.f7aaaa1f 000001e3  0000000000000000  0000000000000000  0000279c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 12 .gnu.lto_GM_DST.1.f7aaaa1f 00000075  0000000000000000  0000000000000000  0000297f  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 13 .gnu.lto_red16.2.f7aaaa1f 00000330  0000000000000000  0000000000000000  000029f4  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 14 .gnu.lto_red32.3.f7aaaa1f 00000175  0000000000000000  0000000000000000  00002d24  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 15 .gnu.lto_wr_wp.4.f7aaaa1f 000005eb  0000000000000000  0000000000000000  00002e99  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 16 .gnu.lto_round_g2.5.f7aaaa1f 00000505  0000000000000000  0000000000000000  00003484  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 17 .gnu.lto_round_g4.6.f7aaaa1f 000005d5  0000000000000000  0000000000000000  00003989  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 18 .gnu.lto_round_g8.7.f7aaaa1f 0000066a  0000000000000000  0000000000000000  00003f5e  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 19 .gnu.lto_round_g16.8.f7aaaa1f 00000570  0000000000000000  0000000000000000  000045c8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 20 .gnu.lto_round_g32.9.f7aaaa1f 00000369  0000000000000000  0000000000000000  00004b38  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 21 .gnu.lto_CryptHash_AlgorithmInstance_permutation_iphe768_perf.10.f7aaaa1f 000002b3  0000000000000000  0000000000000000  00004ea1  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 22 .gnu.lto_load_padded_word.11.f7aaaa1f 000005ad  0000000000000000  0000000000000000  00005154  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 23 .gnu.lto_CryptHash_iphe768_perf.12.f7aaaa1f 00000735  0000000000000000  0000000000000000  00005701  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 24 .gnu.lto_.symbol_nodes.f7aaaa1f 0000010b  0000000000000000  0000000000000000  00005e36  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 25 .gnu.lto_.refs.f7aaaa1f 00000034  0000000000000000  0000000000000000  00005f41  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 26 .gnu.lto_.decls.f7aaaa1f 00000a85  0000000000000000  0000000000000000  00005f75  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 27 .gnu.lto_.symtab.f7aaaa1f 0000006a  0000000000000000  0000000000000000  000069fa  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 28 .gnu.lto_.ext_symtab.f7aaaa1f 00000005  0000000000000000  0000000000000000  00006a64  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 29 .gnu.lto_.opts 00000102  0000000000000000  0000000000000000  00006a69  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, EXCLUDE
+ 30 .xdata        00000058  0000000000000000  0000000000000000  00006b6b  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 31 .pdata        00000018  0000000000000000  0000000000000000  00006bc3  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 32 .rdata        00000220  0000000000000000  0000000000000000  00006bdb  2**5
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 33 .rdata$zzz    00000030  0000000000000000  0000000000000000  00006dfb  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+===== objdump -t =====
+In archive API_CryptHash\Implementations\Optimized_Implementation\libiphe_768_perf.a:
+
+CryptHash_AlgorithmInstance.c.obj:     file format pe-x86-64
+
+SYMBOL TABLE:
+[  0](sec -2)(fl 0x00)(ty    0)(scl 103) (nx 1) 0x0000000000000000 CryptHash_AlgorithmInstance.c
+File 
+[  2](sec  1)(fl 0x00)(ty   20)(scl   2) (nx 1) 0x0000000000000000 CryptHash_AlgorithmInstance_permutation_iphe768_perf
+AUX tagndx 0 ttlsiz 0x0 lnnos 0 next 6
+[  4](sec 33)(fl 0x00)(ty    0)(scl   3) (nx 0) 0x0000000000000060 C
+[  5](sec 33)(fl 0x00)(ty    0)(scl   3) (nx 0) 0x0000000000000000 GM_DST
+[  6](sec  1)(fl 0x00)(ty   20)(scl   2) (nx 1) 0x0000000000001810 CryptHash_iphe768_perf
+AUX tagndx 0 ttlsiz 0x0 lnnos 0 next 0
+[  8](sec  1)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .text
+AUX scnlen 0x1b77 nreloc 11 nlnno 0
+[ 10](sec  2)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .data
+AUX scnlen 0x0 nreloc 0 nlnno 0
+[ 12](sec  3)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .bss
+AUX scnlen 0x0 nreloc 0 nlnno 0
+[ 14](sec  4)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.profile.f7aaaa1f
+AUX scnlen 0xf nreloc 0 nlnno 0
+[ 16](sec  5)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.icf.f7aaaa1f
+AUX scnlen 0xd6 nreloc 0 nlnno 0
+[ 18](sec  6)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.ipa_sra.f7aaaa1f
+AUX scnlen 0x72 nreloc 0 nlnno 0
+[ 20](sec  7)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.inline.f7aaaa1f
+AUX scnlen 0x231 nreloc 0 nlnno 0
+[ 22](sec  8)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.jmpfuncs.f7aaaa1f
+AUX scnlen 0x252 nreloc 0 nlnno 0
+[ 24](sec  9)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.pureconst.f7aaaa1f
+AUX scnlen 0x2f nreloc 0 nlnno 0
+[ 26](sec 10)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.ipa_modref.f7aaaa1f
+AUX scnlen 0xa7 nreloc 0 nlnno 0
+[ 28](sec 11)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.lto.f7aaaa1f
+AUX scnlen 0x8 nreloc 0 nlnno 0
+[ 30](sec 12)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_C.0.f7aaaa1f
+AUX scnlen 0x1e3 nreloc 0 nlnno 0
+[ 32](sec 13)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_GM_DST.1.f7aaaa1f
+AUX scnlen 0x75 nreloc 0 nlnno 0
+[ 34](sec 14)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_red16.2.f7aaaa1f
+AUX scnlen 0x330 nreloc 0 nlnno 0
+[ 36](sec 15)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_red32.3.f7aaaa1f
+AUX scnlen 0x175 nreloc 0 nlnno 0
+[ 38](sec 16)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_wr_wp.4.f7aaaa1f
+AUX scnlen 0x5eb nreloc 0 nlnno 0
+[ 40](sec 17)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_round_g2.5.f7aaaa1f
+AUX scnlen 0x505 nreloc 0 nlnno 0
+[ 42](sec 18)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_round_g4.6.f7aaaa1f
+AUX scnlen 0x5d5 nreloc 0 nlnno 0
+[ 44](sec 19)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_round_g8.7.f7aaaa1f
+AUX scnlen 0x66a nreloc 0 nlnno 0
+[ 46](sec 20)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_round_g16.8.f7aaaa1f
+AUX scnlen 0x570 nreloc 0 nlnno 0
+[ 48](sec 21)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_round_g32.9.f7aaaa1f
+AUX scnlen 0x369 nreloc 0 nlnno 0
+[ 50](sec 22)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_CryptHash_AlgorithmInstance_permutation_iphe768_perf.10.f7aaaa1f
+AUX scnlen 0x2b3 nreloc 0 nlnno 0
+[ 52](sec 23)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_load_padded_word.11.f7aaaa1f
+AUX scnlen 0x5ad nreloc 0 nlnno 0
+[ 54](sec 24)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_CryptHash_iphe768_perf.12.f7aaaa1f
+AUX scnlen 0x735 nreloc 0 nlnno 0
+[ 56](sec 25)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.symbol_nodes.f7aaaa1f
+AUX scnlen 0x10b nreloc 0 nlnno 0
+[ 58](sec 26)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.refs.f7aaaa1f
+AUX scnlen 0x34 nreloc 0 nlnno 0
+[ 60](sec 27)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.decls.f7aaaa1f
+AUX scnlen 0xa85 nreloc 0 nlnno 0
+[ 62](sec 28)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.symtab.f7aaaa1f
+AUX scnlen 0x6a nreloc 0 nlnno 0
+[ 64](sec 29)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.ext_symtab.f7aaaa1f
+AUX scnlen 0x5 nreloc 0 nlnno 0
+[ 66](sec 30)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .gnu.lto_.opts
+AUX scnlen 0x102 nreloc 0 nlnno 0
+[ 68](sec 31)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .xdata
+AUX scnlen 0x58 nreloc 0 nlnno 0
+[ 70](sec 32)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .pdata
+AUX scnlen 0x18 nreloc 6 nlnno 0
+[ 72](sec 33)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .rdata
+AUX scnlen 0x220 nreloc 0 nlnno 0
+[ 74](sec 34)(fl 0x00)(ty    0)(scl   3) (nx 1) 0x0000000000000000 .rdata$zzz
+AUX scnlen 0x2b nreloc 0 nlnno 0
+
+

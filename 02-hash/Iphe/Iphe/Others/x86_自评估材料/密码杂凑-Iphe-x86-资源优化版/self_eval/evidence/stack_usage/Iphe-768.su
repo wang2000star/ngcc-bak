@@ -1,0 +1,4 @@
+C:\Users\23292\Desktop\ngcc_bench\Implementations\Optimized_Implementation\Resource_Implementation\Iphe-768\CryptHash_AlgorithmInstance.c:24:15:S	80	static
+C:\Users\23292\Desktop\ngcc_bench\Implementations\Optimized_Implementation\Resource_Implementation\Iphe-768\CryptHash_AlgorithmInstance.c:91:5:CryptHash_iphe768_res.constprop	640	static
+harness.c:3:38:run	8	static
+harness.c:7:5:main	160	static

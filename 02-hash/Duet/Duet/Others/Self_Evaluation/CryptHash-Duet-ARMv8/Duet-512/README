@@ -1,0 +1,11 @@
+# Duet-512 NEON
+
+Status: retained for Duet-512 v2 on ARM NEON.
+
+The 3-column permutation stores two columns in one `uint64x2_t` and keeps the
+third column in a scalar lane. The final `l64` rotate/xor layer now uses scalar
+`ROR` per packed lane instead of NEON variable-shift rotate emulation. This v2
+version is KAT-clean and faster than the pure-C v2 path on the local ARM
+machine.
+
+See `../Evaluation_Report.md` for validation commands and benchmark results.

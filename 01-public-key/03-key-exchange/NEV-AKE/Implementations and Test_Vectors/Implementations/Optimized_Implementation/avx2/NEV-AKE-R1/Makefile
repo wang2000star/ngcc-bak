@@ -1,0 +1,70 @@
+CC=/usr/bin/gcc
+
+CFLAGS += -Wno-incompatible-pointer-types -mavx2 -mpopcnt -mbmi2 -msse2 -march=native -mtune=native -O3 -fomit-frame-pointer -std=c99
+INCLUDES = -I. -Isymmetrics -Ispeed_test -Ikat_test
+
+SPEED_TARGETS = speed-nev-512-1409-sha3
+KAT_TARGETS = PQCgenKAT_kex-nev-512-1409-iccs
+
+all: $(SPEED_TARGETS) $(KAT_TARGETS)
+
+SOURCES = poly.c ntt.c owpke.c verify.c sample.c pack.c cca.c cpa.c
+AKE = owkem.c ake.c
+HEADERS = params.h poly.h ntt.h owpke.h verify.h api.h align.h sample.h pack.h randombytes.h symmetrics/fips202.h symmetrics/hashkdf.h symmetrics/auxfunc.h speed_test/cpucycles.h speed_test/speed_print.h kat_test/drng.h kat_test/KEX_AlgorithmInstance.h
+SYMMETRICS = symmetrics/hashkdf.c symmetrics/fips202.c symmetrics/auxfunc.c
+TEST_SPEED = speed_test/test_speed.c speed_test/cpucycles.c speed_test/speed_print.c
+RANDOM = randombytes.c
+DRANDOM = kat_test/rng.c kat_test/drng.c
+KAT = kat_test/KAT_KEX.c kat_test/KEX_AlgorithmInstance.c kat_test/KEX_AlgorithmInstance.h
+
+speed-nev-512-769-c-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=1 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+speed-nev-1024-769-c-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=2 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+speed-nev-2048-769-c-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=3 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+speed-nev-512-1409-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=4 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+speed-nev-1024-1409-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=5 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+speed-nev-2048-1409-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=6 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+speed-nev-512-769-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=7 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+speed-nev-1024-769-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=8 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+speed-nev-2048-769-sha3: $(HEADERS) $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=9 -DUSE_SHA3 -o $@ $(SOURCES) $(AKE) $(SYMMETRICS) $(TEST_SPEED) $(RANDOM)
+
+PQCgenKAT_kex-nev-512-769-c-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=1 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+PQCgenKAT_kex-nev-1024-769-c-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=2 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+PQCgenKAT_kex-nev-2048-769-c-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=3 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+PQCgenKAT_kex-nev-512-1409-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=4 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+PQCgenKAT_kex-nev-1024-1409-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=5 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+PQCgenKAT_kex-nev-2048-1409-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=6 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+PQCgenKAT_kex-nev-512-769-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=7 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+PQCgenKAT_kex-nev-1024-769-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=8 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+PQCgenKAT_kex-nev-2048-769-iccs: $(KAT) $(SOURCES) $(AKE) $(SYMMETRICS) $(HEADERS) $(DRANDOM)
+	$(CC) $(CFLAGS) $(INCLUDES) -DPARAMS=9 -DUSE_ICCS $(SOURCES) $(AKE) $(SYMMETRICS) $(DRANDOM) $(KAT) -o $@
+
+SPEED: $(SPEED_TARGETS)
+	@echo "test speed..."
+	./$(SPEED_TARGETS)
+
+KAT: $(KAT_TARGETS)
+	@echo "generate kat files..."
+	./$(KAT_TARGETS)
+
+.PHONY: clean SPEED KAT all
+
+clean:
+	-rm -f $(SPEED_TARGETS) $(KAT_TARGETS)
+	-rm -rf output

@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libmock_mlkex.so -o tests/mock/libmock_mlkex.so CMakeFiles/mock_mlkex.dir/tests/mock/mock_mlkex.c.o 

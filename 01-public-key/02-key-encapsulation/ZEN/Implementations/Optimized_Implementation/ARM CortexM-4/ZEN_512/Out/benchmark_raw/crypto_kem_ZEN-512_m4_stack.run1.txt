@@ -1,0 +1,44 @@
++ openocd -f st_nucleo_l4r5.cfg -c program elf/crypto_kem_ZEN-512_m4_stack.elf verify reset exit
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+trst_only separate trst_push_pull
+
+Info : STLINK V2J35M26 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.239139
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : clock speed 480 kHz
+Info : stlink_dap_op_connect(connect)
+Info : SWD DPIDR 0x2ba01477
+Info : [stm32l4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32l4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32l4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+[stm32l4x.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08011390 msp: 0x200a0000
+** Programming Started **
+Info : device idcode = 0x10036470 (STM32L4R/L4Sxx - Rev Y : 0x1003)
+Info : RDP level 0 (0xAA)
+Info : flash size = 2048 KiB
+Info : flash mode : dual-bank
+Warn : Adding extra erase range, 0x08013e50 .. 0x08013fff
+** Programming Finished **
+** Verify Started **
+** Verified OK **
+** Resetting Target **
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+shutdown command invoked
+==========================
+keypair stack usage:
+38856
+encaps stack usage:
+33888
+decaps stack usage:
+38176
+OK KEYS
+#

@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/ngcc_cli_regression_test.dir/tests/test_cli_regression.c.o  -o ngcc_cli_regression_test  libngcc_test_support.a 

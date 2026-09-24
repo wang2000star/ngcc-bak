@@ -1,0 +1,9 @@
+# Duet-1024 NEON
+
+Status: retained for Duet-1024 v2 on ARM NEON.
+
+Six columns are represented as three `uint64x2_t` pairs. The permutation uses
+the v2 S-box and NEON row rotations, then applies `l64` with scalar `ROR` per
+packed lane to avoid NEON variable-shift rotate emulation.
+
+See `../Evaluation_Report.md` for validation commands and benchmark results.

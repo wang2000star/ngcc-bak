@@ -1,0 +1,163 @@
+% Environment summary block
+\begin{verbatim}
+date: 2026-06-28T12:28:15Z
+uname: Linux ubuntu 6.8.0-124-generic #124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 21:05:19 UTC  x86_64 x86_64 x86_64 GNU/Linux
+
+架构：                                   x86_64
+CPU 运行模式：                           32-bit, 64-bit
+Address sizes:                           45 bits physical, 48 bits virtual
+字节序：                                 Little Endian
+CPU:                                     16
+在线 CPU 列表：                          0-15
+厂商 ID：                                AuthenticAMD
+型号名称：                               AMD Ryzen 7 9700X 8-Core Processor
+CPU 系列：                               26
+型号：                                   68
+每个核的线程数：                         1
+每个座的核数：                           2
+座：                                     8
+步进：                                   0
+BogoMIPS：                               7599.83
+标记：                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext ibpb vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 clzero arat avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor fsrm avx512_vp2intersect
+超管理器厂商：                           VMware
+虚拟化类型：                             完全
+L1d 缓存：                               768 KiB (16 instances)
+L1i 缓存：                               512 KiB (16 instances)
+L2 缓存：                                16 MiB (16 instances)
+L3 缓存：                                256 MiB (8 instances)
+\end{verbatim}
+% Reference performance table
+\begin{tabular}{llrrrr}
+Instance & Operation & Mean & Median & Min & Max \\
+MAMBA-Viper-128 & keygen & 183394.32 & 157317.00 & 155036 & 1075757 \
+MAMBA-Viper-128 & encaps & 268197.80 & 224195.00 & 221535 & 1127816 \
+MAMBA-Viper-128 & decaps & 321688.84 & 269034.00 & 267515 & 1481588 \
+MAMBA-Viper-128 & keygen & 183394.32 & 157317.00 & 155036 & 1075757 \
+MAMBA-Viper-128 & encaps & 268197.80 & 224195.00 & 221535 & 1127816 \
+MAMBA-Viper-128 & decaps & 321688.84 & 269034.00 & 267515 & 1481588 \
+MAMBA-Viper-192 & keygen & 363928.03 & 294114.00 & 292593 & 1819780 \
+MAMBA-Viper-192 & encaps & 474492.36 & 391011.00 & 387591 & 1929979 \
+MAMBA-Viper-192 & decaps & 551300.85 & 453711.00 & 451430 & 5619699 \
+MAMBA-Viper-128 & keygen & 183394.32 & 157317.00 & 155036 & 1075757 \
+MAMBA-Viper-128 & encaps & 268197.80 & 224195.00 & 221535 & 1127816 \
+MAMBA-Viper-128 & decaps & 321688.84 & 269034.00 & 267515 & 1481588 \
+MAMBA-Viper-192 & keygen & 363928.03 & 294114.00 & 292593 & 1819780 \
+MAMBA-Viper-192 & encaps & 474492.36 & 391011.00 & 387591 & 1929979 \
+MAMBA-Viper-192 & decaps & 551300.85 & 453711.00 & 451430 & 5619699 \
+MAMBA-Viper-256 & keygen & 598685.09 & 477269.00 & 474229 & 2135934 \
+MAMBA-Viper-256 & encaps & 711759.99 & 598107.00 & 593547 & 5932432 \
+MAMBA-Viper-256 & decaps & 822771.92 & 676765.00 & 672585 & 3030055 \
+MAMBA-Viper-128 & keygen & 183394.32 & 157317.00 & 155036 & 1075757 \
+MAMBA-Viper-128 & encaps & 268197.80 & 224195.00 & 221535 & 1127816 \
+MAMBA-Viper-128 & decaps & 321688.84 & 269034.00 & 267515 & 1481588 \
+MAMBA-Viper-192 & keygen & 363928.03 & 294114.00 & 292593 & 1819780 \
+MAMBA-Viper-192 & encaps & 474492.36 & 391011.00 & 387591 & 1929979 \
+MAMBA-Viper-192 & decaps & 551300.85 & 453711.00 & 451430 & 5619699 \
+MAMBA-Viper-256 & keygen & 598685.09 & 477269.00 & 474229 & 2135934 \
+MAMBA-Viper-256 & encaps & 711759.99 & 598107.00 & 593547 & 5932432 \
+MAMBA-Viper-256 & decaps & 822771.92 & 676765.00 & 672585 & 3030055 \
+MAMBA-Viper-384 & keygen & 1610597.58 & 1433329.50 & 1333011 & 4893535 \
+MAMBA-Viper-384 & encaps & 1861053.95 & 1934919.00 & 1536307 & 7065188 \
+MAMBA-Viper-384 & decaps & 2048077.19 & 2094895.00 & 1673104 & 7999208 \
+MAMBA-Viper-128 & keygen & 183394.32 & 157317.00 & 155036 & 1075757 \
+MAMBA-Viper-128 & encaps & 268197.80 & 224195.00 & 221535 & 1127816 \
+MAMBA-Viper-128 & decaps & 321688.84 & 269034.00 & 267515 & 1481588 \
+MAMBA-Viper-192 & keygen & 363928.03 & 294114.00 & 292593 & 1819780 \
+MAMBA-Viper-192 & encaps & 474492.36 & 391011.00 & 387591 & 1929979 \
+MAMBA-Viper-192 & decaps & 551300.85 & 453711.00 & 451430 & 5619699 \
+MAMBA-Viper-256 & keygen & 598685.09 & 477269.00 & 474229 & 2135934 \
+MAMBA-Viper-256 & encaps & 711759.99 & 598107.00 & 593547 & 5932432 \
+MAMBA-Viper-256 & decaps & 822771.92 & 676765.00 & 672585 & 3030055 \
+MAMBA-Viper-384 & keygen & 1610597.58 & 1433329.50 & 1333011 & 4893535 \
+MAMBA-Viper-384 & encaps & 1861053.95 & 1934919.00 & 1536307 & 7065188 \
+MAMBA-Viper-384 & decaps & 2048077.19 & 2094895.00 & 1673104 & 7999208 \
+MAMBA-Viper-512 & keygen & 2626236.58 & 2611684.00 & 2146573 & 6518760 \
+MAMBA-Viper-512 & encaps & 2911320.55 & 2881667.50 & 2398888 & 5709757 \
+MAMBA-Viper-512 & decaps & 3076687.64 & 3043354.50 & 2566084 & 5815774 \
+\end{tabular}
+% Optimized performance table
+\begin{tabular}{llrrrr}
+Instance & Operation & Mean & Median & Min & Max \\
+MAMBA-Viper-128 & keygen & 139341.45 & 118558.00 & 117037 & 1033197 \
+MAMBA-Viper-128 & encaps & 199195.50 & 166436.00 & 163776 & 1076897 \
+MAMBA-Viper-128 & decaps & 235052.62 & 184296.00 & 182395 & 5158008 \
+MAMBA-Viper-128 & keygen & 139341.45 & 118558.00 & 117037 & 1033197 \
+MAMBA-Viper-128 & encaps & 199195.50 & 166436.00 & 163776 & 1076897 \
+MAMBA-Viper-128 & decaps & 235052.62 & 184296.00 & 182395 & 5158008 \
+MAMBA-Viper-192 & keygen & 236711.75 & 202915.00 & 201775 & 1532507 \
+MAMBA-Viper-192 & encaps & 326718.86 & 269414.00 & 266754 & 6119768 \
+MAMBA-Viper-192 & decaps & 336537.08 & 286324.00 & 284235 & 1267653 \
+MAMBA-Viper-128 & keygen & 139341.45 & 118558.00 & 117037 & 1033197 \
+MAMBA-Viper-128 & encaps & 199195.50 & 166436.00 & 163776 & 1076897 \
+MAMBA-Viper-128 & decaps & 235052.62 & 184296.00 & 182395 & 5158008 \
+MAMBA-Viper-192 & keygen & 236711.75 & 202915.00 & 201775 & 1532507 \
+MAMBA-Viper-192 & encaps & 326718.86 & 269414.00 & 266754 & 6119768 \
+MAMBA-Viper-192 & decaps & 336537.08 & 286324.00 & 284235 & 1267653 \
+MAMBA-Viper-256 & keygen & 350508.25 & 303994.00 & 303233 & 926799 \
+MAMBA-Viper-256 & encaps & 459548.02 & 378472.00 & 374292 & 1677664 \
+MAMBA-Viper-256 & decaps & 490317.49 & 394051.00 & 391011 & 1492607 \
+MAMBA-Viper-128 & keygen & 139341.45 & 118558.00 & 117037 & 1033197 \
+MAMBA-Viper-128 & encaps & 199195.50 & 166436.00 & 163776 & 1076897 \
+MAMBA-Viper-128 & decaps & 235052.62 & 184296.00 & 182395 & 5158008 \
+MAMBA-Viper-192 & keygen & 236711.75 & 202915.00 & 201775 & 1532507 \
+MAMBA-Viper-192 & encaps & 326718.86 & 269414.00 & 266754 & 6119768 \
+MAMBA-Viper-192 & decaps & 336537.08 & 286324.00 & 284235 & 1267653 \
+MAMBA-Viper-256 & keygen & 350508.25 & 303994.00 & 303233 & 926799 \
+MAMBA-Viper-256 & encaps & 459548.02 & 378472.00 & 374292 & 1677664 \
+MAMBA-Viper-256 & decaps & 490317.49 & 394051.00 & 391011 & 1492607 \
+MAMBA-Viper-384 & keygen & 970319.34 & 811472.50 & 805963 & 3544944 \
+MAMBA-Viper-384 & encaps & 1085221.63 & 929461.00 & 923379 & 2488186 \
+MAMBA-Viper-384 & decaps & 1115836.44 & 950739.00 & 935540 & 2528465 \
+MAMBA-Viper-128 & keygen & 139341.45 & 118558.00 & 117037 & 1033197 \
+MAMBA-Viper-128 & encaps & 199195.50 & 166436.00 & 163776 & 1076897 \
+MAMBA-Viper-128 & decaps & 235052.62 & 184296.00 & 182395 & 5158008 \
+MAMBA-Viper-192 & keygen & 236711.75 & 202915.00 & 201775 & 1532507 \
+MAMBA-Viper-192 & encaps & 326718.86 & 269414.00 & 266754 & 6119768 \
+MAMBA-Viper-192 & decaps & 336537.08 & 286324.00 & 284235 & 1267653 \
+MAMBA-Viper-256 & keygen & 350508.25 & 303994.00 & 303233 & 926799 \
+MAMBA-Viper-256 & encaps & 459548.02 & 378472.00 & 374292 & 1677664 \
+MAMBA-Viper-256 & decaps & 490317.49 & 394051.00 & 391011 & 1492607 \
+MAMBA-Viper-384 & keygen & 970319.34 & 811472.50 & 805963 & 3544944 \
+MAMBA-Viper-384 & encaps & 1085221.63 & 929461.00 & 923379 & 2488186 \
+MAMBA-Viper-384 & decaps & 1115836.44 & 950739.00 & 935540 & 2528465 \
+MAMBA-Viper-512 & keygen & 1512984.13 & 1320661.50 & 1256633 & 7697494 \
+MAMBA-Viper-512 & encaps & 1676770.46 & 1517117.00 & 1401030 & 5170168 \
+MAMBA-Viper-512 & decaps & 1695217.93 & 1544097.00 & 1405209 & 7017308 \
+\end{tabular}
+% Sizes table
+\begin{tabular}{llrrrr}
+Implementation & Instance & PK & SK & SS & CT \\
+Reference & MAMBA-Viper-128 & 608 & 1424 & 16 & 736 \
+Reference & MAMBA-Viper-192 & 992 & 2200 & 24 & 1088 \
+Reference & MAMBA-Viper-256 & 1312 & 2912 & 32 & 1472 \
+Reference & MAMBA-Viper-384 & 2496 & 5488 & 48 & 2656 \
+Reference & MAMBA-Viper-512 & 3200 & 7040 & 64 & 3456 \
+Optimized & MAMBA-Viper-128 & 608 & 1424 & 16 & 736 \
+Optimized & MAMBA-Viper-192 & 992 & 2200 & 24 & 1088 \
+Optimized & MAMBA-Viper-256 & 1312 & 2912 & 32 & 1472 \
+Optimized & MAMBA-Viper-384 & 2496 & 5488 & 48 & 2656 \
+Optimized & MAMBA-Viper-512 & 3200 & 7040 & 64 & 3456 \
+\end{tabular}
+% Test status summary block
+\begin{verbatim}
+[20:28:17] KAT Reference MAMBA-Viper-192
+[20:28:18] KAT Reference MAMBA-Viper-256
+[20:28:20] KAT Reference MAMBA-Viper-384
+[20:28:21] KAT Reference MAMBA-Viper-512
+[20:28:23] KAT Optimized MAMBA-Viper-128
+[20:28:26] KAT Optimized MAMBA-Viper-192
+[20:28:29] KAT Optimized MAMBA-Viper-256
+[20:28:32] KAT Optimized MAMBA-Viper-384
+[20:28:35] KAT Optimized MAMBA-Viper-512
+# x86 Self-Evaluation Summary
+
+Result directory: /home/ubuntu/桌面/NGCC/Viper/x86_Self_Evaluation/results/20260628-202815
+Runs: 1000
+Warmup: 100
+AVX2: yes
+
+## Status
+PASS
+
+Implicit rejection: see api_check.log and benchmark logs
+\end{verbatim}

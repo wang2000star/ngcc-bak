@@ -1,0 +1,390 @@
+NSS-HQC implementations
+=======================
+
+This directory contains the NSS-HQC KEM implementations for the API_PKC
+submission package.
+
+The implementation package contains both a reference implementation and a
+behavior-aligned optimized implementation for four parameter sets:
+
+- HQC-128
+- HQC-256
+- HQC-384
+- HQC-512
+
+
+Directory layout
+----------------
+
+The implementation directory is organized as follows:
+
+    Implementations/
+      README
+      Reference_Implementation/
+        HQC-128/
+        HQC-256/
+        HQC-384/
+        HQC-512/
+      Optimized_Implementation/
+        HQC-128/
+        HQC-256/
+        HQC-384/
+        HQC-512/
+
+The corresponding known-answer test files are provided in the package-level
+Test_Vectors directory:
+
+    Test_Vectors/
+      KAT_KEM_HQC-128.txt
+      KAT_KEM_HQC-256.txt
+      KAT_KEM_HQC-384.txt
+      KAT_KEM_HQC-512.txt
+
+
+Implementation trees
+--------------------
+
+Reference_Implementation contains the portable reference implementation.
+
+Optimized_Implementation is behavior-aligned with Reference_Implementation for
+all four NSS-HQC instances. It preserves the same external API, parameter
+sizes, ciphertext format, and KAT behavior.
+
+Each implementation tree contains four parameter-set directories:
+
+    HQC-128/
+    HQC-256/
+    HQC-384/
+    HQC-512/
+
+Each parameter-set directory contains the API_PKC KEM interface files:
+
+    KAT_KEM.c
+    KEM_AlgorithmInstance.c
+    KEM_AlgorithmInstance.h
+    auxfunc.c
+    auxfunc.h
+    drng.c
+    drng.h
+    Makefile
+
+and the NSS-HQC algorithm source files used by that instance.
+
+
+API_PKC interface
+-----------------
+
+Each instance uses the API_PKC KEM_AlgorithmInstance interface:
+
+    kem_get_pk_len_bytes
+    kem_get_sk_len_bytes
+    kem_get_ss_len_bytes
+    kem_get_ct_len_bytes
+    kem_keygen
+    kem_enc
+    kem_dec
+
+The API_PKC template files KAT_KEM.c, auxfunc.c/.h, and drng.c/.h are kept in
+each instance directory.
+
+The submitted KEM sizes are:
+
+    HQC-128: pk = 3713,  sk = 3777,  ss = 32,  ct = 5185
+    HQC-256: pk = 6844,  sk = 6908,  ss = 32,  ct = 9084
+    HQC-384: pk = 15371, sk = 15467, ss = 48,  ct = 18571
+    HQC-512: pk = 27302, sk = 27430, ss = 64,  ct = 31462
+
+Here ct denotes the full KEM ciphertext length.
+
+
+Build environment
+-----------------
+
+The implementations were built and tested on Windows with MSYS2 UCRT64.
+
+Open an MSYS2 UCRT64 shell and check the environment with:
+
+    echo $MSYSTEM
+    which gcc
+    gcc --version
+    which make
+    make --version
+
+The expected MSYS2 environment is UCRT64, with gcc available under /ucrt64/bin.
+
+
+Experiment 1: single-instance build and self-test
+-------------------------------------------------
+
+This experiment checks whether one selected instance can be compiled and run
+through its self-test.
+
+For example, to test the reference HQC-128 instance:
+
+    cd Implementations/Reference_Implementation/HQC-128
+    make clean
+    make selftest
+
+The same procedure can be repeated for every other instance:
+
+    cd Implementations/Reference_Implementation/HQC-256
+    make clean
+    make selftest
+
+    cd Implementations/Reference_Implementation/HQC-384
+    make clean
+    make selftest
+
+    cd Implementations/Reference_Implementation/HQC-512
+    make clean
+    make selftest
+
+and for the optimized implementation tree:
+
+    cd Implementations/Optimized_Implementation/HQC-128
+    make clean
+    make selftest
+
+    cd Implementations/Optimized_Implementation/HQC-256
+    make clean
+    make selftest
+
+    cd Implementations/Optimized_Implementation/HQC-384
+    make clean
+    make selftest
+
+    cd Implementations/Optimized_Implementation/HQC-512
+    make clean
+    make selftest
+
+A successful self-test means that key generation, encapsulation, and
+decapsulation complete successfully and that the shared secrets match on valid
+ciphertexts.
+
+
+Experiment 2: KAT generation for one instance
+---------------------------------------------
+
+This experiment generates the known-answer test file for one selected instance.
+
+For example, to generate the KAT for the reference HQC-128 instance:
+
+    cd Implementations/Reference_Implementation/HQC-128
+    make clean
+    make kat
+
+The generated KAT file is written to the instance output directory:
+
+    output/KAT_KEM_HQC-128.txt
+
+The same procedure is used for HQC-256, HQC-384, and HQC-512 by entering the
+corresponding parameter-set directory and running:
+
+    make clean
+    make kat
+
+
+Experiment 3: KAT generation for all eight instances
+----------------------------------------------------
+
+This experiment generates KAT files for all reference and optimized instances.
+
+In MSYS2 UCRT64, from the package root, run:
+
+    cd Implementations/Reference_Implementation/HQC-128
+    make clean
+    make kat
+
+    cd ../HQC-256
+    make clean
+    make kat
+
+    cd ../HQC-384
+    make clean
+    make kat
+
+    cd ../HQC-512
+    make clean
+    make kat
+
+Then run the same commands for the optimized tree:
+
+    cd ../../Optimized_Implementation/HQC-128
+    make clean
+    make kat
+
+    cd ../HQC-256
+    make clean
+    make kat
+
+    cd ../HQC-384
+    make clean
+    make kat
+
+    cd ../HQC-512
+    make clean
+    make kat
+
+After this experiment, each instance has a generated KAT file under its own
+output directory.
+
+
+Experiment 4: Reference/Optimized KAT comparison
+------------------------------------------------
+
+This experiment checks that the reference and optimized implementations produce
+byte-identical KAT files.
+
+On Windows PowerShell, from the package root, run:
+
+    fc.exe /b Implementations\Reference_Implementation\HQC-128\output\KAT_KEM_HQC-128.txt Implementations\Optimized_Implementation\HQC-128\output\KAT_KEM_HQC-128.txt
+
+    fc.exe /b Implementations\Reference_Implementation\HQC-256\output\KAT_KEM_HQC-256.txt Implementations\Optimized_Implementation\HQC-256\output\KAT_KEM_HQC-256.txt
+
+    fc.exe /b Implementations\Reference_Implementation\HQC-384\output\KAT_KEM_HQC-384.txt Implementations\Optimized_Implementation\HQC-384\output\KAT_KEM_HQC-384.txt
+
+    fc.exe /b Implementations\Reference_Implementation\HQC-512\output\KAT_KEM_HQC-512.txt Implementations\Optimized_Implementation\HQC-512\output\KAT_KEM_HQC-512.txt
+
+The expected result for each comparison is:
+
+    FC: no differences encountered
+
+or the corresponding localized Windows message indicating that no differences
+were found.
+
+
+Experiment 5: submitted Test_Vectors verification
+-------------------------------------------------
+
+The final submitted KAT files are collected under the package-level
+Test_Vectors directory:
+
+    Test_Vectors/KAT_KEM_HQC-128.txt
+    Test_Vectors/KAT_KEM_HQC-256.txt
+    Test_Vectors/KAT_KEM_HQC-384.txt
+    Test_Vectors/KAT_KEM_HQC-512.txt
+
+The submitted Test_Vectors files are checked against the reference output files
+with:
+
+    fc.exe /b Test_Vectors\KAT_KEM_HQC-128.txt Implementations\Reference_Implementation\HQC-128\output\KAT_KEM_HQC-128.txt
+
+    fc.exe /b Test_Vectors\KAT_KEM_HQC-256.txt Implementations\Reference_Implementation\HQC-256\output\KAT_KEM_HQC-256.txt
+
+    fc.exe /b Test_Vectors\KAT_KEM_HQC-384.txt Implementations\Reference_Implementation\HQC-384\output\KAT_KEM_HQC-384.txt
+
+    fc.exe /b Test_Vectors\KAT_KEM_HQC-512.txt Implementations\Reference_Implementation\HQC-512\output\KAT_KEM_HQC-512.txt
+
+Each comparison should report no differences.
+
+
+Experiment 6: KAT format and length verification
+------------------------------------------------
+
+Each KAT file follows the API_PKC KAT format. Each record contains fields such
+as:
+
+    Count
+    Seed_Len
+    Seed
+    PK_Len
+    PK
+    SK_Len
+    SK
+    SS_Len
+    SS
+    CT_Len
+    CT
+
+The expected length fields are:
+
+    HQC-128: PK_Len = 3713,  SK_Len = 3777,  SS_Len = 32, CT_Len = 5185
+    HQC-256: PK_Len = 6844,  SK_Len = 6908,  SS_Len = 32, CT_Len = 9084
+    HQC-384: PK_Len = 15371, SK_Len = 15467, SS_Len = 48, CT_Len = 18571
+    HQC-512: PK_Len = 27302, SK_Len = 27430, SS_Len = 64, CT_Len = 31462
+
+On Windows PowerShell, these fields can be checked by inspecting the beginning
+of a KAT file, for example:
+
+    Get-Content Test_Vectors\KAT_KEM_HQC-128.txt -TotalCount 30
+
+The expected beginning of a KAT file contains:
+
+    Count = 0
+    Seed_Len = 64
+    Seed = ...
+    PK_Len = ...
+    PK = ...
+    SK_Len = ...
+    SK = ...
+    SS_Len = ...
+    SS = ...
+    CT_Len = ...
+    CT = ...
+
+
+Experiment 7: KAT SHA256 verification
+-------------------------------------
+
+The SHA256 hashes of the submitted KAT files are:
+
+    HQC-128:
+    66A0FE8816A982506B0D799C43FCDD18D0434FC54B12FC1E2CC50C0603AF8BFC
+
+    HQC-256:
+    8CDFACEA8444ED8E1380B9CE3CDB4F1EE270ACFD35BCD39BB50AC3C4E00C9454
+
+    HQC-384:
+    9CE17CCF09E019AB564A4FE0F5799B52054DC8F865DEC790C69AA272188DC8E5
+
+    HQC-512:
+    E3D01CB3F70F06C548AB50CDEE8028CD53974789572DE9604ACDB7E5A4A9D3D1
+
+They can be verified on Windows PowerShell with:
+
+    Get-FileHash Test_Vectors\KAT_KEM_HQC-128.txt -Algorithm SHA256
+    Get-FileHash Test_Vectors\KAT_KEM_HQC-256.txt -Algorithm SHA256
+    Get-FileHash Test_Vectors\KAT_KEM_HQC-384.txt -Algorithm SHA256
+    Get-FileHash Test_Vectors\KAT_KEM_HQC-512.txt -Algorithm SHA256
+
+
+Experiment 8: external API smoke test
+-------------------------------------
+
+This experiment checks the external KEM_AlgorithmInstance API.
+
+For each instance, a small external test program can include
+KEM_AlgorithmInstance.h, allocate buffers according to the returned lengths,
+and call:
+
+    kem_keygen
+    kem_enc
+    kem_dec
+
+The test checks:
+
+1. kem_keygen returns success;
+2. kem_enc returns success;
+3. kem_dec returns success on a valid ciphertext;
+4. the shared secret from encapsulation matches the shared secret from
+   decapsulation;
+5. decapsulation on a tampered ciphertext does not crash.
+
+This verifies that the submitted API can be called externally through the
+API_PKC KEM_AlgorithmInstance interface.
+
+
+Summary of validation
+---------------------
+
+The submitted NSS-HQC implementation was validated as follows:
+
+1. All eight instances compile and run self-tests.
+2. All eight instances generate API_PKC-format KAT files.
+3. Reference and optimized KAT files are byte-identical for all four parameter
+   sets.
+4. The package-level Test_Vectors files are byte-identical to the reference
+   generated KAT files.
+5. The KAT length fields match the submitted NSS-HQC parameter sizes.
+6. The external KEM_AlgorithmInstance API smoke test passes for all eight
+   instances.

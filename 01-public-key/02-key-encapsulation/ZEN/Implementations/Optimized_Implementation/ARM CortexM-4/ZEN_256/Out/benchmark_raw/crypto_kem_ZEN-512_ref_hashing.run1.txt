@@ -1,0 +1,1891 @@
++ openocd -f st_nucleo_l4r5.cfg -c program elf/crypto_kem_ZEN-512_ref_hashing.elf verify reset exit
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+trst_only separate trst_push_pull
+
+Info : STLINK V2J35M26 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.237574
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : clock speed 480 kHz
+Info : stlink_dap_op_connect(connect)
+Info : SWD DPIDR 0x2ba01477
+Info : [stm32l4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32l4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32l4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+[stm32l4x.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x0800f670 msp: 0x200a0000
+** Programming Started **
+Info : device idcode = 0x10036470 (STM32L4R/L4Sxx - Rev Y : 0x1003)
+Info : RDP level 0 (0xAA)
+Info : flash size = 2048 KiB
+Info : flash mode : dual-bank
+Info : Padding image section 1 at 0x08010ebc with 4 bytes (bank write end alignment)
+Warn : Adding extra erase range, 0x08010ec0 .. 0x08010fff
+** Programming Finished **
+** Verify Started **
+** Verified OK **
+** Resetting Target **
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+shutdown command invoked
+==========================
+keypair cycles:
+3797743
+keypair hash cycles:
+637656
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930373
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667550
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930337
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797667
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481954
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+5508139
+keypair hash cycles:
+1888314
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+5223054
+keypair hash cycles:
+1679852
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667550
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797669
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481954
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4937969
+keypair hash cycles:
+1471390
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930374
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367837
+keypair hash cycles:
+1054466
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481955
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367799
+keypair hash cycles:
+1054466
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930378
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082751
+keypair hash cycles:
+846003
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367837
+keypair hash cycles:
+1054504
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4652884
+keypair hash cycles:
+1262928
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367799
+keypair hash cycles:
+1054466
+keypair func cycles:
+0
+encaps cycles:
+1667547
+encaps hash cycles:
+529879
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797667
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797666
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4652884
+keypair hash cycles:
+1262928
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930373
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667552
+encaps hash cycles:
+529883
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082753
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4937969
+keypair hash cycles:
+1471390
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930378
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667551
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797670
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667552
+encaps hash cycles:
+529884
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082749
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4652884
+keypair hash cycles:
+1262928
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930378
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367799
+keypair hash cycles:
+1054466
+keypair func cycles:
+0
+encaps cycles:
+1667550
+encaps hash cycles:
+529882
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797665
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367799
+keypair hash cycles:
+1054466
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4937969
+keypair hash cycles:
+1471390
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4652884
+keypair hash cycles:
+1262928
+keypair func cycles:
+0
+encaps cycles:
+1667550
+encaps hash cycles:
+529882
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797667
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367837
+keypair hash cycles:
+1054466
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667548
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797669
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930378
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797666
+keypair hash cycles:
+637541
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367800
+keypair hash cycles:
+1054467
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4937969
+keypair hash cycles:
+1471390
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667552
+encaps hash cycles:
+529845
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797666
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4937969
+keypair hash cycles:
+1471390
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930337
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797666
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667549
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797668
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4937969
+keypair hash cycles:
+1471390
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930337
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797667
+keypair hash cycles:
+637580
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4367799
+keypair hash cycles:
+1054466
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4652884
+keypair hash cycles:
+1262928
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4652884
+keypair hash cycles:
+1262928
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930374
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797666
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667522
+encaps hash cycles:
+529854
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930377
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667550
+encaps hash cycles:
+529882
+encaps func cycles:
+0
+decaps cycles:
+13930338
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082751
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930378
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082714
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930375
+decaps hash cycles:
+481915
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930374
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+4082752
+keypair hash cycles:
+846004
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+decaps cycles:
+13930376
+decaps hash cycles:
+481916
+decaps func cycles:
+0
+OK KEYS
++
+keypair cycles:
+3797629
+keypair hash cycles:
+637542
+keypair func cycles:
+0
+encaps cycles:
+1667512
+encaps hash cycles:
+529844
+encaps func cycles:
+0
+
+warning: timed out waiting for '#'

@@ -1,0 +1,16 @@
+instance=AFS_KEX_C256_AVX2
+function=KEX
+ntests=1000
+func_kat=PASS
+rounds=4
+cycles_kex=724698
+ops_kex=3571.40
+size_pk=3136
+size_sk=6338
+size_msg1=1440
+size_msg2=1472
+size_msg3=32
+size_msg4=0
+size_msg_total=2944
+size_ss=32
+peak_rss_bytes=2732032

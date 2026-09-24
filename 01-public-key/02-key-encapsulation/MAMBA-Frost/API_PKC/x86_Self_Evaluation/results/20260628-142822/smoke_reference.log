@@ -1,0 +1,81 @@
+==> cd API_PKC && make smoke
+make -C Implementations/Reference_Implementation/MAMBA-Frost-128 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-192 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-256 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-384 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-512 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-128 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-192 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-256 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-384 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-512 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-128: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-192: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-256: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-384: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-512: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-CC-128: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-CC-192: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-CC-256: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-CC-384: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512”
+ulimit -s unlimited; ./test_kem_api 5
+MAMBA-Frost-CC-512: 5 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512”

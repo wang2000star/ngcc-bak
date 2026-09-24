@@ -1,0 +1,16 @@
+=========== BENCHMARK RESULTS (1000 tests) ===========
+KEYGEN RESULTS:
+        average: 2966367.000000
+        max: 3831618
+        min: 2812865
+        range: 1018753
+ENCAPSULATION RESULTS:
+        average: 2947939.500000
+        max: 3573192
+        min: 2801442
+        range: 771750
+DECAPSULATION RESULTS:
+        average: 2990398.250000
+        max: 3612378
+        min: 2841258
+        range: 771120

@@ -1,0 +1,9 @@
+# Duet-1024 AVX2
+
+Status: retained for Duet-1024 v2 on x86 AVX2.
+
+Six columns are represented as `lo=[c0..c3]` and `hi=[c4,c5,0,0]`; the
+permutation uses the v2 S-box, AVX2 row rotations, precomputed `l64`
+rotate-count tables, and a fused `C1` handoff from `f1` to `f2`.
+
+See `../Evaluation_Report.md` for validation commands and benchmark results.

@@ -1,0 +1,70 @@
+# This file.
+./README
+
+# Additional implementation of Litchi
+#(Currently, there is no additional code implementations)
+./Additional_Implementation/
+
+# Optimized implementation of Litchi-512
+./Optimized_Implementation/Litchi-512/litchi_512.c
+./Optimized_Implementation/Litchi-512/litchi_512.h
+./Optimized_Implementation/Litchi-512/main.c
+./Optimized_Implementation/Litchi-512/README.txt
+
+# Optimized implementation of Litchi-768
+./Optimized_Implementation/Litchi-768/litchi_768.c
+./Optimized_Implementation/Litchi-768/litchi_768.h
+./Optimized_Implementation/Litchi-768/main.c
+./Optimized_Implementation/Litchi-768/README.txt
+
+# Optimized implementation of Litchi-1024
+./Optimized_Implementation/Litchi-1024/litchi_1024.c
+./Optimized_Implementation/Litchi-1024/litchi_1024.h
+./Optimized_Implementation/Litchi-1024/main.c
+./Optimized_Implementation/Litchi-1024/README.txt
+
+# Optimized implementation of Litchi-XOF
+./Optimized_Implementation/Litchi-XOF/litchi_xof.c
+./Optimized_Implementation/Litchi-XOF/litchi_xof.h
+./Optimized_Implementation/Litchi-XOF/main.c
+./Optimized_Implementation/Litchi-XOF/README.txt
+
+# Reference implementation of Litchi-512
+./Reference_Implementation/Litchi-512/CryptHash_AlgorithmInstance.c
+./Reference_Implementation/Litchi-512/CryptHash_AlgorithmInstance.h
+./Reference_Implementation/Litchi-512/drng.c
+./Reference_Implementation/Litchi-512/drng.h
+./Reference_Implementation/Litchi-512/KAT_CryptHash.c
+./Reference_Implementation/Litchi-512/litchi_512.c
+./Reference_Implementation/Litchi-512/litchi_512.h
+./Reference_Implementation/Litchi-512/README.txt
+
+# Reference implementation of Litchi-768
+./Reference_Implementation/Litchi-768/CryptHash_AlgorithmInstance.c
+./Reference_Implementation/Litchi-768/CryptHash_AlgorithmInstance.h
+./Reference_Implementation/Litchi-768/drng.c
+./Reference_Implementation/Litchi-768/drng.h
+./Reference_Implementation/Litchi-768/KAT_CryptHash.c
+./Reference_Implementation/Litchi-768/litchi_768.c
+./Reference_Implementation/Litchi-768/litchi_768.h
+./Reference_Implementation/Litchi-768/README.txt
+
+# Reference implementation of Litchi-1024
+./Reference_Implementation/Litchi-1024/CryptHash_AlgorithmInstance.c
+./Reference_Implementation/Litchi-1024/CryptHash_AlgorithmInstance.h
+./Reference_Implementation/Litchi-1024/drng.c
+./Reference_Implementation/Litchi-1024/drng.h
+./Reference_Implementation/Litchi-1024/KAT_CryptHash.c
+./Reference_Implementation/Litchi-1024/litchi_1024.c
+./Reference_Implementation/Litchi-1024/litchi_1024.h
+./Reference_Implementation/Litchi-1024/README.txt
+
+# Reference implementation of Litchi-XOF
+./Reference_Implementation/Litchi-XOF/CryptHash_AlgorithmInstance.c
+./Reference_Implementation/Litchi-XOF/CryptHash_AlgorithmInstance.h
+./Reference_Implementation/Litchi-XOF/drng.c
+./Reference_Implementation/Litchi-XOF/drng.h
+./Reference_Implementation/Litchi-XOF/KAT_CryptHash.c
+./Reference_Implementation/Litchi-XOF/litchi_xof.c
+./Reference_Implementation/Litchi-XOF/litchi_xof.h
+./Reference_Implementation/Litchi-XOF/README.txt

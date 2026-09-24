@@ -1,0 +1,405 @@
+RUN mode=light round=1 alg=iphe-512-res size=32 affinity=0x1
+AFFINITY_SET pid=44444 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=17024 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-512-res size=512 affinity=0x1
+AFFINITY_SET pid=30416 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=40700 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-512-res size=4096 affinity=0x1
+AFFINITY_SET pid=49404 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=27188 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-512-res size=16384 affinity=0x1
+AFFINITY_SET pid=41072 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-512-res size=65536 affinity=0x1
+AFFINITY_SET pid=34996 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-768-res size=32 affinity=0x1
+AFFINITY_SET pid=26284 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=44668 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=54192 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-768-res size=1024 affinity=0x1
+AFFINITY_SET pid=38100 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=35156 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-768-res size=8192 affinity=0x1
+AFFINITY_SET pid=10120 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-768-res size=16384 affinity=0x1
+AFFINITY_SET pid=43680 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-768-res size=65536 affinity=0x1
+AFFINITY_SET pid=13616 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-1024-res size=32 affinity=0x1
+AFFINITY_SET pid=3812 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=42680 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=15772 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-1024-res size=1024 affinity=0x1
+AFFINITY_SET pid=51448 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-1024-res size=4096 affinity=0x1
+AFFINITY_SET pid=31944 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-1024-res size=8192 affinity=0x1
+AFFINITY_SET pid=41792 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-1024-res size=16384 affinity=0x1
+AFFINITY_SET pid=26568 mask=0x1
+EXIT code=0
+RUN mode=light round=1 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=54204 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-512-res size=32 affinity=0x1
+AFFINITY_SET pid=16588 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=40804 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-512-res size=512 affinity=0x1
+AFFINITY_SET pid=51856 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=26644 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-512-res size=4096 affinity=0x1
+AFFINITY_SET pid=51532 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=40992 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-512-res size=16384 affinity=0x1
+AFFINITY_SET pid=37748 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-512-res size=65536 affinity=0x1
+AFFINITY_SET pid=35828 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-768-res size=32 affinity=0x1
+AFFINITY_SET pid=33596 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=30180 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=52052 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-768-res size=1024 affinity=0x1
+AFFINITY_SET pid=34680 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=9856 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-768-res size=8192 affinity=0x1
+AFFINITY_SET pid=33568 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-768-res size=16384 affinity=0x1
+AFFINITY_SET pid=51964 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-768-res size=65536 affinity=0x1
+AFFINITY_SET pid=38108 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-1024-res size=32 affinity=0x1
+AFFINITY_SET pid=10560 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=49772 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=2948 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-1024-res size=1024 affinity=0x1
+AFFINITY_SET pid=21128 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-1024-res size=4096 affinity=0x1
+AFFINITY_SET pid=43832 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-1024-res size=8192 affinity=0x1
+AFFINITY_SET pid=51748 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-1024-res size=16384 affinity=0x1
+AFFINITY_SET pid=35180 mask=0x1
+EXIT code=0
+RUN mode=light round=2 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=50936 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-512-res size=32 affinity=0x1
+AFFINITY_SET pid=43212 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=8100 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-512-res size=512 affinity=0x1
+AFFINITY_SET pid=4596 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=53912 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-512-res size=4096 affinity=0x1
+AFFINITY_SET pid=15164 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=34820 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-512-res size=16384 affinity=0x1
+AFFINITY_SET pid=39328 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-512-res size=65536 affinity=0x1
+AFFINITY_SET pid=5408 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-768-res size=32 affinity=0x1
+AFFINITY_SET pid=37604 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=12208 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=5176 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-768-res size=1024 affinity=0x1
+AFFINITY_SET pid=23812 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=33032 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-768-res size=8192 affinity=0x1
+AFFINITY_SET pid=42980 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-768-res size=16384 affinity=0x1
+AFFINITY_SET pid=49544 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-768-res size=65536 affinity=0x1
+AFFINITY_SET pid=48720 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-1024-res size=32 affinity=0x1
+AFFINITY_SET pid=2608 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=33124 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=21216 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-1024-res size=1024 affinity=0x1
+AFFINITY_SET pid=13596 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-1024-res size=4096 affinity=0x1
+AFFINITY_SET pid=33668 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-1024-res size=8192 affinity=0x1
+AFFINITY_SET pid=12960 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-1024-res size=16384 affinity=0x1
+AFFINITY_SET pid=49312 mask=0x1
+EXIT code=0
+RUN mode=light round=3 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=26972 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=44144 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=11532 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=36092 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=33268 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=33776 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=31376 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-512-res size=128 affinity=0x1
+AFFINITY_SET pid=40284 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=39964 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=51724 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=32944 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=39784 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=33928 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=11336 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-512-res size=1024 affinity=0x1
+AFFINITY_SET pid=48148 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=51948 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=32208 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=34708 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=50752 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=33116 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=49468 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-512-res size=8192 affinity=0x1
+AFFINITY_SET pid=15848 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=41876 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=49924 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=34260 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=21064 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=37020 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=13640 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-768-res size=128 affinity=0x1
+AFFINITY_SET pid=49032 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=51876 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=47468 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=9856 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=27524 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=48268 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=32236 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-768-res size=4096 affinity=0x1
+AFFINITY_SET pid=53892 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=45268 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=47956 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=23020 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=17532 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=46952 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=860 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-768-res size=512 affinity=0x1
+AFFINITY_SET pid=10120 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=26400 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=30512 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=3568 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=44296 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=49596 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=22816 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-1024-res size=128 affinity=0x1
+AFFINITY_SET pid=25336 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=33008 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=15256 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=39352 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=45992 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=22260 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=22492 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-1024-res size=512 affinity=0x1
+AFFINITY_SET pid=45960 mask=0x1
+EXIT code=0
+RUN mode=focus round=1 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=3012 mask=0x1
+EXIT code=0
+RUN mode=focus round=2 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=34196 mask=0x1
+EXIT code=0
+RUN mode=focus round=3 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=27164 mask=0x1
+EXIT code=0
+RUN mode=focus round=4 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=42892 mask=0x1
+EXIT code=0
+RUN mode=focus round=5 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=39552 mask=0x1
+EXIT code=0
+RUN mode=focus round=6 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=11192 mask=0x1
+EXIT code=0
+RUN mode=focus round=7 alg=iphe-1024-res size=65536 affinity=0x1
+AFFINITY_SET pid=1664 mask=0x1
+EXIT code=0

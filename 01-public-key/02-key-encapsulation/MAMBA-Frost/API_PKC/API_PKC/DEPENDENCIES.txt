@@ -1,0 +1,54 @@
+MAMBA-Frost API_PKC dependency statement
+========================================
+
+Scope
+-----
+API_PKC is a single submission package containing the MAMBA-Frost and
+MAMBA-Frost-CC KEM families. Each AlgorithmInstance directory is self-contained
+and does not include files from the repository-root Frost/ or Frost-CC/ trees at
+build time.
+
+External dependencies
+---------------------
+* C compiler: GCC or Clang with ISO C99 support; API_PKC compile-time checks use the C99-compatible `FROST_STATIC_ASSERT` macro and builds use `-Wpedantic -Wall -Wextra`.
+* Build tool: POSIX make and standard POSIX shell utilities.
+* Operating system: Linux/x86_64 for the default audit commands.
+* OpenSSL: not required and not used.
+
+Official API_PKC sources
+------------------------
+* drng.c/drng.h are copied from the official API_PKC template in every instance.
+* auxfunc.c/auxfunc.h are copied from the official API_PKC template in every
+  instance.
+* KAT_KEM.c is the official KEM KAT harness with OUTPUT_BLANK_TEST_VECTORS set
+  to 0 through KEM_AlgorithmInstance.h.
+
+Randomness
+----------
+Frost byte-oriented randombytes() calls are routed by randombytes_adapter.c to
+get_random_number(&drng_algorithm, ..., bits). The adapter requests exactly
+8 * nbytes bits and does not use rand(), /dev/urandom, getrandom(), OpenSSL, or
+the original Frost test randombytes implementation for KAT generation.
+
+Hash/XOF auxiliary functions
+----------------------------
+common/sha3/fips202.c is an API_PKC auxiliary adapter: shake128() and shake256()
+call pseudoXOF(output_len_bits, input, input_len_bits, output). The default
+reference and optimized builds do not compile a standalone Keccak implementation
+for these SHAKE entry points. Optional AVX2 Keccak times4 sources may be present
+in copied optimized source subsets, but the package Makefiles do not compile them
+on the default AES-128 matrix-expansion path.
+
+Reference vs optimized implementation
+-------------------------------------
+* Reference_Implementation uses scalar/reference arithmetic and portable C core
+  code; it does not require AVX2, AES-NI, x86 inline assembly, or OpenSSL.
+* Optimized_Implementation uses the AVX2/AES-NI optimized Frost core path with
+  -mavx2 and -maes. Optimized tests first build/run the check_avx2 helper so
+  unsupported CPUs fail clearly.
+
+Third-party notice
+------------------
+This package contains Frost/Frost-CC source subsets from this repository and the
+official API_PKC template sources. No additional third-party library dependency
+is introduced by this API_PKC wrapper package.

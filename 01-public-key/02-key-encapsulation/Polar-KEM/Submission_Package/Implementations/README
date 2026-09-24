@@ -1,0 +1,90 @@
+Polar-KEM functional evaluation implementation
+==============================================
+
+This tree contains the official-API reference and portable optimized
+implementations of PolarKEM-128, PolarKEM-256, and PolarKEM-512.  It provides
+a reproducible implementation profile for interface integration, correctness
+validation, known-answer testing, and preliminary performance evaluation.
+
+Directory layout
+----------------
+
+* Reference_Implementation/PolarKEM-{128,256,512}
+* Optimized_Implementation/PolarKEM-{128,256,512}
+
+Every instance is self-contained.  In particular, each instance carries the
+unmodified official API_PKC KAT driver and auxiliary implementation alongside
+the Polar-KEM sources.  Do not replace the official files with local variants.
+
+Official-file integrity (SHA-256)
+--------------------------------
+
+The following hashes identify the API_PKC files used for this rectification:
+
+    KAT_KEM.c  62E33B3557C1D7BDB1F16FEA4FFA050829A502C4EDD0104813A0192FADA4213D
+    auxfunc.c   27446371ECCF14383E5A333DFED6333ED9A2232580D0A52C1C681BC2074A8368
+    auxfunc.h   39986E91D9AF503EAFB568B0C18E50EB9AB5FCECA140DDD26924343A09284E74
+    drng.c      0DF0AC78C828BD43BF05724398FA530767D753AA7801A1D1FA5D621321EC797E
+    drng.h      D758AA7F5618BB781960FB7193B536897A09B1FDD7ACCA5AD8A45495D0E147A7
+
+Building all six directories
+----------------------------
+
+On a POSIX system with a C99 compiler and GNU-compatible make:
+
+    ./build_all.sh
+    ./build_all.sh --run
+    ./build_all.sh --sanitize
+    ./build_all.sh --clean
+
+On Windows with GCC available on PATH:
+
+    powershell -ExecutionPolicy Bypass -File .\build_all.ps1
+    powershell -ExecutionPolicy Bypass -File .\build_all.ps1 -RunKAT
+    powershell -ExecutionPolicy Bypass -File .\build_all.ps1 -Sanitize
+    powershell -ExecutionPolicy Bypass -File .\build_all.ps1 -Clean
+
+The normal build uses C99 plus -Wall, -Wextra, -Wpedantic, and -Werror.  The
+sanitizer mode additionally enables AddressSanitizer and UndefinedBehaviorSanitizer
+where supported by the selected GCC/Clang toolchain.
+
+Sanitizer waiver: ASan and UBSan instrument the official KAT driver and every
+project-owned translation unit.  The checksummed official auxfunc.c and drng.c
+also remain instrumented, but are compiled with -fno-sanitize=shift because the
+upstream SM3 rotate macro contains a shift-by-32 expression.  Modifying that
+macro would violate the byte-for-byte official-file requirement; all other
+enabled ASan/UBSan checks remain active and the final executable links both
+runtimes.
+
+KAT output
+----------
+
+Running an instance creates output/KAT_KEM_PolarKEM-*.txt beneath that
+instance directory.  The official driver creates ten records from its fixed
+seed sequence.  Reference and optimized output for a parameter set must be
+byte-for-byte identical.
+
+Evaluation scope and specification alignment / 评估范围与规范对应
+--------------------------------------------------------------
+
+Only Construction D level 0 is active; all higher-level coefficients are
+fixed to zero.  The public transform is represented by a compact public seed
+for an exact signed permutation.  This choice supports functional consistency
+testing.  PolarKEM-128 and PolarKEM-256 use q = 12289; PolarKEM-512 uses
+q = 18433.  None of the instances uses an NTT.  The frozen submission paper
+and rectification report are the normative sources for the algorithm design,
+parameter rationale, and security analysis.
+
+本目录代码用于官方接口集成、正确性验证、已知答案测试和初步性能评估。
+算法设计、参数依据与安全性分析以冻结的算法文本及整改说明为准。
+
+Security statement boundary / 安全声明边界
+----------------------------------------
+
+This README records implementation, build, and interoperability details.  It
+does not add to or replace the security claims and analyses in the frozen
+submission paper.  Evaluation and use of this implementation should therefore
+be considered together with the paper and the rectification report.
+
+本 README 仅说明实现、构建与接口互操作细节，不增加或替代冻结算法文本中的
+安全性声明与分析。对本实现的评估和使用应结合算法文本及整改说明进行。

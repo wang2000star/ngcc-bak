@@ -1,0 +1,62 @@
+====================================================================================================
+  MAMBA  Consolidated Security Estimates  (Full-mode, my_params, 2026-06-30)
+====================================================================================================
+
+Environment:
+  - Estimator: lattice-estimator (Sage)
+  - Primal + BKW: MATZOV cost model
+  - dual + d-hyb: ADPS16 cost model  (MATZOV dual GJ21.short_vectors() not available)
+  - Errors: zero-mean Uniform(-Δ/2, Δ/2), same variance as exact Uniform(-Δ/2+1, Δ/2)
+  - BKW uses μ=0; Uniform mean offset = 0 ensures compatibility
+  - Parameters from: estimator/backups/my_params.py (tuned, 2026-06-30)
+
+Parameters:
+  Profile     n      q      η_s  η_r  Δ_pk  Δ_u  |pk|  |sendB|  |rec|
+  MAMBA-128  1024   8192    2    2    16     8   2080   2336    256
+  MAMBA-192  1024   8192    3    3     8     8   1840   2096    256
+  MAMBA-256  1024   8192    7    7     8     8   1984   2240    256
+  MAMBA-384  2048   8192    2    2     4     4   4128   4640    512
+  MAMBA-512  2048   8192    5    5     2     2   4128   4640    512
+
+====================================================================================================
+  Scheme    Tgt   primal     dual    d-hyb      BKW  MATZOV C  MATZOV Q  Mgn C  Mgn Q  C-SVP C  C-SVP Q   beta
+                                        (ADPS16)(ADPS16) (MATZOV) (MATZOV)
+----------------------------------------------------------------------------------------------------
+  MAMBA-128  128   272.1    289.8    263.5    315.1    272.1    251.1  +144.1  +123.1    243.1    227.9    860
+  MAMBA-192  192   279.3    297.7    271.0    331.6    279.3    258.4   +87.3   +66.4    271.0    234.5    885
+  MAMBA-256  256   294.3    289.4    283.0    367.3    294.3    273.9   +38.3   +17.9    283.0    248.6    938
+  MAMBA-384  384   538.6    747.9    495.0       --    538.6    512.5  +154.6  +128.5    495.0    465.1   1755
+  MAMBA-512  512   525.1    773.3    498.6       --    525.1    512.5   +13.1    +0.5    498.6    465.1   1755
+----------------------------------------------------------------------------------------------------
+
+Column definitions:
+  primal   = min(usvp, bdd) under MATZOV cost model
+  dual     = dual attack under ADPS16
+  d-hyb    = dual-hybrid attack under ADPS16
+  BKW      = coded-BKW under MATZOV
+  MATZOV C = classical security: min(usvp, bdd) under MATZOV
+  MATZOV Q = quantum security:   0.292 × β  (β from MATZOV primal)
+  Mgn C    = MATZOV C - Target
+  Mgn Q    = MATZOV Q - Target (negative = below target)
+  C-SVP C  = classical CoreSVP: min(dual, d-hyb) under ADPS16
+  C-SVP Q  = quantum CoreSVP:   0.265 × β  (β from MATZOV primal)
+  beta     = BKZ block size from MATZOV primal (usvp or bdd)
+
+Key findings:
+  1. MAMBA-128: n=1024, Delta=16, eta=2 — MATZOV C=292.6, Q=272.4 — fully secure ✅
+  2. MAMBA-192: n=1024, Delta=8, eta=2 — MATZOV C=272.1, Q=251.1 — fully secure ✅
+  3. MAMBA-256: n=1024, Delta=8, eta=7 — MATZOV C=294.3, Q=273.9 — fully secure ✅
+     (eta=7 needed; eta=4/5 with Delta=4 failed quantum margin)
+  4. MAMBA-384: n=2048, Delta=4, eta=2 — MATZOV C=538.6, Q=512.5 — fully secure ✅
+  5. MAMBA-512: n=2048, Delta=2, eta=5 — MATZOV C=525.1, Q=512.5, Mgn Q=+0.5 ⚠️
+     (classical +13.1, quantum marginal +0.5; beta hit 1755 ceiling)
+  6. ADPS16 d-hyb is the strongest classical attack for all profiles
+  6. ADPS16 d-hyb is the strongest classical attack for all profiles
+  7. ADPS16 dual overflows at n=2048 (beta=1751)
+
+====================================================================================================
+Generated: 2026-06-30
+Script:     estimator/scripts/full_myparams.py
+Parameters: estimator/backups/my_params.py
+Raw log:    /tmp/full_myparams_final.log
+====================================================================================================

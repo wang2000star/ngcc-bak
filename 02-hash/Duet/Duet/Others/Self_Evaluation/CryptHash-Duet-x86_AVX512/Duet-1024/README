@@ -1,0 +1,9 @@
+# Duet-1024 AVX512
+
+Status: retained for Duet-1024 v2 on x86 AVX512.
+
+Each row packs six columns into one AVX512 register. The permutation uses the
+v2 S-box, AVX512 row permutations, precomputed `l64` rotate-count tables,
+`_mm512_rolv_epi64`, and `vpternlogq` for the final three-way XOR.
+
+See `../Evaluation_Report.md` for validation commands and benchmark results.

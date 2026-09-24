@@ -1,0 +1,837 @@
++ openocd -f st_nucleo_l4r5.cfg -c program elf/crypto_kem_ZEN-128_ref_speed.elf verify reset exit
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+trst_only separate trst_push_pull
+
+Info : STLINK V2J35M26 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.239139
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : clock speed 480 kHz
+Info : stlink_dap_op_connect(connect)
+Info : SWD DPIDR 0x2ba01477
+Info : [stm32l4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32l4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32l4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+[stm32l4x.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08009f9c msp: 0x200a0000
+** Programming Started **
+Info : device idcode = 0x10036470 (STM32L4R/L4Sxx - Rev Y : 0x1003)
+Info : RDP level 0 (0xAA)
+Info : flash size = 2048 KiB
+Info : flash mode : dual-bank
+Warn : Adding extra erase range, 0x0800a070 .. 0x0800afff
+** Programming Finished **
+** Verify Started **
+** Verified OK **
+** Resetting Target **
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+shutdown command invoked
+==========================
+keypair cycles:
+582600
+encaps cycles:
+387046
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+741389
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+714924
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287853
+OK KEYS
++
+keypair cycles:
+609065
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387143
+decaps cycles:
+1287815
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+794319
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287854
+OK KEYS
++
+keypair cycles:
+609065
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+688459
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387144
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287853
+OK KEYS
++
+keypair cycles:
+609065
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+688459
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+661994
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+661994
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387146
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+661994
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287850
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387146
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+714924
+encaps cycles:
+387107
+decaps cycles:
+1287852
+OK KEYS
++
+keypair cycles:
+582600
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+688459
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582610
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387142
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+661994
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287846
+OK KEYS
++
+keypair cycles:
+582600
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+661994
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387154
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287847
+OK KEYS
++
+keypair cycles:
+582600
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+582599
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+661994
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+635529
+encaps cycles:
+387105
+decaps cycles:
+1287814
+OK KEYS
++
+keypair cycles:
+609064
+encaps cycles:
+387107
+decaps cycles:
+1287814
+OK KEYS
++
+#

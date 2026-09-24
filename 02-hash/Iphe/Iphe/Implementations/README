@@ -1,0 +1,15 @@
+Iphe 实现代码目录
+=================
+
+Reference_Implementation/
+  ISO C99 参考实现，覆盖 Iphe-512、Iphe-768、Iphe-1024。
+
+Optimized_Implementation/
+  性能优化实现，覆盖 Iphe-512、Iphe-768、Iphe-1024。
+
+Additional_Implementation/
+  Iphe 资源优化实现。该实现也属于 x86 优化实现的一种；为保留三版本组织，
+  本次单独列入此目录，覆盖 Iphe-512、Iphe-768、Iphe-1024。
+
+每个 Iphe-[AlgorithmInstance] 文件夹均为独立实例目录，包含算法源码、官方接口
+与 KAT/DRNG 辅助源码、自测程序、README.md 和可直接使用的 CMakeLists.txt。

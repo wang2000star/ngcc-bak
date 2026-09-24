@@ -1,0 +1,72 @@
+# NTRE Optimized Implementation
+
+This directory contains the x86_64 AVX2-oriented optimized implementation packages for the NTRE Key Encapsulation Mechanism.
+
+## Layout
+
+This source package contains optimized implementations for the following NTRE instances:
+
+* `NTRE-128`
+* `NTRE-256`
+* `NTRE-512`
+
+The optimized implementation packages keep the same NGCC KEM API as the reference implementations.
+
+The current optimized code uses the documented optimized build profile and an AVX2 assembly layer for small polynomial arithmetic hot paths. NTT, inverse NTT, base multiplication, packing, CBD, and mod-2 decode still use the audited C code path.
+
+## Files Provided by Each Instance
+
+Each NTRE instance provides:
+
+* `KEM_AlgorithmInstance.c`
+* `KEM_AlgorithmInstance.h`
+* NGCC fixed support files:
+
+  * `KAT_KEM.c`
+  * `auxfunc.*`
+  * `drng.*`
+* NTRE-specific arithmetic and symmetric-code files under `src/`
+* `Makefile`
+* `test/`
+
+## Build
+
+From an instance directory, run:
+
+```sh
+make clean all
+make test
+make kat
+```
+
+Some Makefiles only build the test binary when `make test` is invoked from the instance directory. If the Makefile does not execute the test binary automatically, run the produced test executable manually.
+
+## Performance Records
+
+Repository-level performance records are stored in:
+
+```text
+../Benchmark_Results/
+```
+
+The benchmark script is:
+
+```text
+../Benchmark_Results/run_ntre_benchmarks.sh
+```
+
+This script measures all three NTRE instances through the NGCC `kem_*` API and records both:
+
+* NGCC document profile: reference `gcc -O2` versus optimized `gcc -O3` with AVX2, LTO, native tuning, and frame-pointer omission.
+* Same-flags sanity profile: both implementations built with the optimized flags, to separate compiler-option effects from source-level differences.
+
+## Generated Files
+
+The following are build or generated test artifacts and should not be kept in the source package:
+
+* `bin/`
+* `output/`
+* `test/test_ntre`
+* object files and other compiler outputs
+
+Test vectors intended for delivery should live outside this source tree, for example in the repository-level `Test_Vectors/` directory.

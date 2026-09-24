@@ -1,0 +1,4 @@
+﻿version,algorithm_id,instance,text_bytes,data_bytes,bss_bytes,static_section_bytes,stack_peak_static_analysis_bytes,algorithm_peak_memory_upper_bound_bytes,process_working_set_peak_bytes,process_commit_peak_bytes,process_metric_scope,source_json,notes
+Reference,iphe-512,Iphe-512,1536,372,0,1908,1408,3316,2555904,454656,"process-level note, not algorithm memory",../ngcc_json/iphe_512_128_20260625_104804_040.json,Reference 的栈峰值静态分析值已计入最深 6 层递归 S。
+Reference,iphe-768,Iphe-768,1536,372,0,1908,1392,3300,2555904,458752,"process-level note, not algorithm memory",../ngcc_json/iphe_768_128_20260625_104810_506.json,Reference 的栈峰值静态分析值已计入最深 6 层递归 S。
+Reference,iphe-1024,Iphe-1024,1600,372,0,1972,1392,3364,3715072,692224,"process-level note, not algorithm memory",../ngcc_json/iphe_1024_128_20260625_104818_373.json,Reference 的栈峰值静态分析值已计入最深 6 层递归 S。

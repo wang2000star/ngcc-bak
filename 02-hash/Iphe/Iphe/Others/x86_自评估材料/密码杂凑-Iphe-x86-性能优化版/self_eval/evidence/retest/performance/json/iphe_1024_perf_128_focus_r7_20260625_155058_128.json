@@ -1,0 +1,12 @@
+{
+  "algorithm": "iphe-1024-perf",
+  "name": "Iphe-1024-Performance",
+  "input_bytes": 128,
+  "times": 1000,
+  "average_cycles": 5201.653000,
+  "min_cycles": 4613,
+  "max_cycles": 36584,
+  "throughput_mbps": 633.702581,
+  "digest_bits": 1024,
+  "library_path": "API_CryptHash/libiphe_1024.a"
+}

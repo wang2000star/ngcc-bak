@@ -1,0 +1,76 @@
+AXIS Optimized Implementations
+
+Instances included:
+- AXIS-512
+- AXIS-768
+- AXIS-1024
+
+The current optimized implementation is a 64-bit PC build of the AXIS core. It
+preserves the ICCS CryptHash interface and the same external behavior as the
+reference implementation.
+Each algorithm instance directory is self-contained and includes
+axis_zero32_expr_word_generated.h for the generated 32-beat zero-message update
+equations used by axis_core.c.
+
+Current optimization stage:
+- 192-bit register shifts are composed with word-level operations instead of
+  per-bit loops.
+- The default AXIS-512, AXIS-768, and AXIS-1024 parameter sets use fixed tap
+  positions for the UpdateFull fast path.
+- A 32-time-beat tape/block path is used for single-message message absorption
+  and blank-round processing. It computes 32-bit t0/t1 feedback tapes and
+  composes the shifted register state in one step.
+- Byte-aligned input fragments are copied into the message buffer directly.
+- Message-only 32-beat blocks are packed from bytes directly instead of reading
+  every padded bit through the generic padding accessor.
+- The hot UpdateFull path computes each register's S-box and t0/t1 tap parity
+  from one shared tap extraction pass.
+- The CryptHash one-shot path avoids copying byte-aligned messages before
+  padding/absorption. AXIS-512, AXIS-768, and AXIS-1024 use validated
+  byte-aligned SoA fast paths; AVX2 builds use the 8x32-bit SoA block, and
+  portable builds fall back to the scalar SoA block.
+- On BMI2-capable x86 builds, byte-aligned AXIS-512 message blocks use PEXT to
+  pack the even/odd message bit streams from one reversed 64-bit load.
+- On byte-aligned AXIS-768 messages, pure message blocks are packed directly
+  from 48-bit chunks into the two 32-beat message tapes. Best-available builds
+  use BMI2 PEXT for the triplet-to-pair extraction, while AVX2-only and
+  portable builds use the same mapping without BMI2.
+- AXIS-1024 byte-aligned pure message blocks use the same-message AVX2 kernel,
+  avoiding construction of alternating message lanes when both input bits are
+  identical.
+- Blank rounds and digest-generation rounds use a dedicated zero-message
+  32-beat block path.
+- On AVX2-capable x86 builds, the hot UpdateFull path computes the 32-beat
+  tap mix and compose/writeback steps over the 8x32-bit split
+  structure-of-arrays state.
+- Byte-aligned one-shot hashing uses a structure-of-arrays state path so the
+  32-beat AVX2 block can keep register words in contiguous vectors across the
+  whole absorb/blank/digest sequence.
+- The structure-of-arrays state is 32-byte aligned, allowing aligned AVX2
+  loads/stores in the one-shot and byte-aligned final fast paths.
+- On AVX2 builds, the validated AXIS-512 byte-aligned fast path uses a split
+  8x32-bit structure-of-arrays state so one vector covers all eight AXIS
+  registers for the 32-beat tap-mix and compose step.
+- The 8x32-bit SoA block builds the feedback vector with AVX2 lane permutes and
+  blends, avoiding the former per-register sbox/tape spill arrays in the
+  active byte-aligned fast path.
+- The AXIS-512 byte-aligned SoA absorb loop separates padding-tail,
+  pure-message, and low residual blocks so long messages avoid a per-block
+  padding/message branch.
+- The pure-message SoA absorb loop walks byte blocks with a descending pointer
+  and updates the bit offset once per run, avoiding per-block top-index
+  arithmetic in the long-message hot path.
+- AXIS-768 and AXIS-1024 byte-aligned messages use the same validated SoA
+  public API path as AXIS-512, with AVX2 enabled when selected by the build
+  configuration and scalar SoA used by portable builds.
+- The SoA 32-beat block is force-inlined so zero-round and digest loops benefit
+  from constant zero message tapes.
+- The SoA 32-beat block avoids one-use stack temporaries for predecessor and
+  wraparound S-box sequences in the feedback calculation.
+- The AVX2 SoA tap-mix spill buffer is 32-byte aligned so vector stores do not
+  need the unaligned-store path.
+- Fixed four-lane spill copies in the legacy 4x64-bit SoA helper are manually
+  unrolled; the active AVX2 byte-aligned path uses the 8x32-bit state above.
+- The optimized Makefiles expose portable, AVX2, and best-available build
+  targets. Plain `make` defaults to the best-available build for mainstream
+  64-bit PC processors.

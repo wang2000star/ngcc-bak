@@ -1,0 +1,18 @@
+## codex/-api_pkc...origin/codex/-api_pkc
+ M x86_Self_Evaluation/run_api_pkc_self_eval.sh
+?? x86_Self_Evaluation/results/20260628-142822.zip
+?? x86_Self_Evaluation/results/20260628-142822/
+?? x86_Self_Evaluation/results/20260628-150128/
+37fadad Add x86 API_PKC self-evaluation harness
+9c69376 Make API_PKC submission C99 compatible
+a974e1f Fix Frost-CC lower-level API sizes and complete API_PKC audit
+e29c983 Audit and fix API_PKC Frost submission package
+5bdd0b5 Adapt API_PKC Frost-CC KEM wrappers
+4758dff Add API_PKC optimized AVX2 wrappers
+1a85d49 Add API_PKC KEM submission wrappers
+9aed1cf speed update
+397fbc9 DFREst Update
+9a6d466 SecEst Update
+37fadadba296f300caed150192c8bcd86d5ba4c0
+ x86_Self_Evaluation/run_api_pkc_self_eval.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)

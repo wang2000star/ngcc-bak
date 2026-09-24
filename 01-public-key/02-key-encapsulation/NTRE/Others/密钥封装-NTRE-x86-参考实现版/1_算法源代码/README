@@ -1,0 +1,155 @@
+# NTRE Reference Implementation
+
+This directory contains the reference implementation of the NTRE Key Encapsulation Mechanism.
+
+The reference implementation is intended to provide a clear, portable, and reproducible C implementation of the NTRE algorithm. It focuses on logical correctness, interface completeness, and readability. It does not use platform-specific assembly code, AVX2 intrinsics, or hardware-specific optimization techniques.
+
+## 1. Directory Layout
+
+This source package contains the following NTRE instances:
+
+```text
+NTRE-128/
+NTRE-256/
+NTRE-512/
+```
+
+Each instance provides an independent reference implementation of the corresponding NTRE parameter set.
+
+A typical instance directory contains:
+
+```text
+KEM_AlgorithmInstance.c
+KEM_AlgorithmInstance.h
+KAT_KEM.c
+Makefile
+auxfunc.c / auxfunc.h
+drng.c / drng.h
+src/
+test/
+```
+
+The `src/` directory contains NTRE-specific arithmetic, encoding/decoding, sampling, polynomial, NTT, reduction, and symmetric primitive related source files.
+
+The `test/` directory contains auxiliary test code for checking the correctness of the implementation.
+
+## 2. Implemented Interfaces
+
+Each NTRE instance follows the NGCC KEM-style interface and provides the following core operations:
+
+```text
+kem_keygen
+kem_enc
+kem_dec
+```
+
+Their meanings are:
+
+```text
+kem_keygen: generate a public key and a secret key
+kem_enc:    encapsulate a shared secret under a public key
+kem_dec:    decapsulate a shared secret from a ciphertext using the secret key
+```
+
+The implementation also provides the required parameter-query interfaces, such as functions for obtaining the public key length, secret key length, ciphertext length, and shared secret length.
+
+## 3. Build Requirements
+
+The reference implementation is written in ISO C99.
+
+The recommended compiler configuration is:
+
+```bash
+gcc -O2 -std=c99 -Wpedantic -Wall -Wextra \
+    -Wno-unused-parameter -Wno-unused-result
+```
+
+The following tools are required:
+
+```text
+gcc
+make
+cmp
+sha256sum
+```
+
+No external third-party cryptographic library is required.
+
+## 4. Build Instructions
+
+Enter the directory of a specific NTRE instance, for example:
+
+```bash
+cd NTRE-128
+```
+
+Then run:
+
+```bash
+make clean all
+```
+
+To build and run the functional test, run:
+
+```bash
+make test
+```
+
+To generate the KAT output, run:
+
+```bash
+make kat
+```
+
+or directly run the generated KAT executable if the Makefile only builds the binary:
+
+```bash
+bin/KAT_KEM
+```
+
+The same procedure applies to:
+
+```text
+NTRE-128/
+NTRE-256/
+NTRE-512/
+```
+
+## 5. Functional Correctness Test
+
+The reference implementation supports known-answer test validation.
+
+After running the KAT executable, the generated output should be compared with the corresponding test vector file under the self-evaluation data package, for example:
+
+```bash
+cmp output/KAT_KEM_NTRE-128.txt ../Test_Vectors/KAT_KEM_NTRE-128.txt
+cmp output/KAT_KEM_NTRE-256.txt ../Test_Vectors/KAT_KEM_NTRE-256.txt
+cmp output/KAT_KEM_NTRE-512.txt ../Test_Vectors/KAT_KEM_NTRE-512.txt
+```
+
+A successful comparison produces no output from `cmp`.
+
+The delivered KAT test vectors are expected to be stored outside this source directory, for example in:
+
+```text
+Test_Vectors/
+```
+
+## 6. Generated Files
+
+The following files and directories are generated during build or test execution and are not part of the source code package:
+
+```text
+bin/
+output/
+test/test_ntre
+*.o
+*.a
+*.so
+```
+
+They can be removed by running:
+
+```bash
+make clean
+```

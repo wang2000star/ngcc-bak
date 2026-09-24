@@ -1,0 +1,1 @@
+NGCC API_PKC internal tests live under NGCC_API/. They are not part of the official KAT generator; they verify API lengths, writebacks, error-code ranges, and implicit-rejection return behavior against each instance directory.

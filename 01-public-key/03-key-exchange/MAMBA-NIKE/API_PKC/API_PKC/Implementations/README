@@ -1,0 +1,48 @@
+MAMBA-NIKE NGCC API Implementations
+====================================
+
+1. Reference Implementation
+---------------------------
+Portable C99 implementation used as the canonical KAT source.  Polynomial
+multiplication uses coefficient-domain Toom-Cook-4 followed by negacyclic
+folding and the q-1 mask.
+
+2. Optimized Implementation
+---------------------------
+The x86-64 AVX2 build keeps the same protocol and external encoding but uses:
+
+  - AVX2 ChaCha20 assembly for noise-stream generation;
+  - poly_mul_small(), a fixed-loop direct negacyclic multiplication backend;
+  - four 256-bit accumulators, processing 64 output coefficients per block;
+  - 16-bit lane wraparound followed by one q-1 mask.
+
+No secret coefficient is skipped, and the accessed addresses depend only on
+the public ring dimension and loop indices.  When AVX2 is disabled, the same
+source uses the existing Toom-Cook-4 fallback.
+
+Build Commands
+--------------
+  # Reference
+  cd Reference_Implementation/MAMBA-NIKE-128
+  make clean && make
+  ./KAT_KEX
+
+  # Optimized AVX2
+  cd Optimized_Implementation/MAMBA-NIKE-128
+  make clean && make AVX2=1
+  ./KAT_KEX
+
+  # Optimized portable fallback
+  make clean && make AVX2=0
+
+KAT Rule
+--------
+Reference is the only canonical KAT generator.  Every Optimized profile must
+match the corresponding file under ../../Test_Vectors/ byte for byte.
+
+Frozen Constraints
+------------------
+The current optimization does not modify parameters.json, profile-specific
+params.h files, protocol semantics, or the KAT format.  The submitted package
+contains only the Reference and Optimized x86 tracks.  AVX-512, NEON, and
+further SHAKE/SIMD work are out of scope.

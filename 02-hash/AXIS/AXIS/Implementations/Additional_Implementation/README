@@ -1,0 +1,5 @@
+Additional Implementations
+
+No additional software or hardware platform implementation is included for this
+algorithm. This directory is reserved for future 32-bit embedded, hardware, or
+other platform ports, as allowed by the submission requirements.

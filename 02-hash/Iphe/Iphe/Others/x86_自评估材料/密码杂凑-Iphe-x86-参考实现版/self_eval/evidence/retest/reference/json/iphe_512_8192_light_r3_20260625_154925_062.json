@@ -1,0 +1,12 @@
+{
+  "algorithm": "iphe-512",
+  "name": "Iphe-512",
+  "input_bytes": 8192,
+  "times": 1000,
+  "average_cycles": 727152.247000,
+  "min_cycles": 466880,
+  "max_cycles": 11880292,
+  "throughput_mbps": 294.151178,
+  "digest_bits": 512,
+  "library_path": "API_CryptHash/libiphe_512.a"
+}

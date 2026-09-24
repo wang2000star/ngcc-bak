@@ -1,0 +1,25 @@
+AXIS-512 Optimized Implementation
+
+This directory contains the AXIS-512 implementation for mainstream 64-bit PC
+software builds. It preserves the ICCS CryptHash API and can be built with the
+included Makefile.
+
+The current optimized code uses the 32-time-beat tape path in axis_core.c,
+the CryptHash one-shot path for byte-aligned messages, and BMI2 PEXT message
+packing when the selected optimization level permits it. AVX2 builds also
+vectorize the 32-beat tap mix and compose/writeback work over the 8x32-bit
+split structure-of-arrays state.
+
+Optimization levels are selected at compile time with AXIS_OPT_LEVEL:
+- 1: portable optimized, no AVX2/BMI2/native intrinsics.
+- 2: AVX2 optimized, no BMI2/native tuning.
+- 3: best available, enables native target tuning and BMI2 when available.
+
+The Makefile exposes the same levels as `make portable`, `make avx2`, and
+`make best`; plain `make` defaults to best available.
+Byte-aligned one-shot hashing uses an AVX2 8x32-bit split structure-of-arrays
+state so one vector covers all eight AXIS registers in the hot 32-beat block.
+Long byte-aligned pure-message runs walk byte blocks with a descending pointer
+so the hot absorb loop avoids repeated top-bit index arithmetic. The
+long-message AVX2 paths keep the split state vectors in local registers across
+the pure-message loop.

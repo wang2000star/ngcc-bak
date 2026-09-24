@@ -1,0 +1,81 @@
+OPENCM3DIR ?= /root/chinese_pqc/scabbard/Cortex-M4/libopencm3
+OPENCM3NAME = opencm3_stm32f4
+OPENCM3FILE = $(OPENCM3DIR)/lib/lib$(OPENCM3NAME).a
+COMMON_DIR = ../../common
+LINKER_SCRIPT = ../../stm32f405x6.ld
+ASM_MUL ?= mult_notoom_128_16.s
+SPEED_RUN_COUNT ?= 50
+SCABBARD_ASM_FLAG = $(if $(ASM_MUL),1,0)
+
+PREFIX ?= arm-none-eabi
+CC = $(PREFIX)-gcc
+OBJCOPY = $(PREFIX)-objcopy
+SIZE = $(PREFIX)-size
+
+ARCH_FLAGS = -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16
+CFLAGS += -O3 -Wall -Wextra -Wimplicit-function-declaration \
+          -Wredundant-decls -Wmissing-prototypes -Wstrict-prototypes \
+          -Wundef -Wshadow -fno-common -ffunction-sections -fdata-sections \
+          -fomit-frame-pointer -fstack-usage -DSTM32F4 -DRUN_COUNT=$(SPEED_RUN_COUNT) -DSCABBARD_USE_ASM_MUL=$(SCABBARD_ASM_FLAG) $(ARCH_FLAGS) \
+          -I. -I$(COMMON_DIR) -I$(OPENCM3DIR)/include
+LDFLAGS += --static -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group \
+           -T$(LINKER_SCRIPT) -nostartfiles -Wl,--gc-sections \
+           $(ARCH_FLAGS) -L$(OPENCM3DIR)/lib -lm -l$(OPENCM3NAME)
+KEM_SOURCES = \
+    auxfunc.c \
+    cbd.c \
+    crypto_kem.c \
+    drng.c \
+    indcpa.c \
+    KEM_scabbard256.c \
+    packing.c \
+    poly.c \
+    minal.c \
+    poly_mul.c \
+    $(ASM_MUL) \
+    polyvec.c \
+    $(COMMON_DIR)/randombytes.c \
+    verify.c
+
+COMMON_BOARD_SOURCES = \
+    $(COMMON_DIR)/hal-stm32f4.c \
+    $(COMMON_DIR)/syscalls.c
+
+.PHONY: all test speed stack clean size-test size-speed size-stack
+
+all: test speed stack
+
+test: test.elf test.bin size-test
+
+speed: speed.elf speed.bin size-speed
+
+stack: stack.elf stack.bin size-stack
+
+test.elf: $(KEM_SOURCES) board_test.c $(COMMON_BOARD_SOURCES) $(COMMON_DIR)/hal.h $(COMMON_DIR)/syscalls.c $(COMMON_DIR)/randombytes.h $(LINKER_SCRIPT) $(OPENCM3FILE)
+	$(CC) -o $@ $(CFLAGS) $(KEM_SOURCES) board_test.c $(COMMON_BOARD_SOURCES) $(LDFLAGS)
+
+speed.elf: $(KEM_SOURCES) board_speed.c $(COMMON_BOARD_SOURCES) $(COMMON_DIR)/hal.h $(COMMON_DIR)/syscalls.c $(COMMON_DIR)/randombytes.h $(LINKER_SCRIPT) $(OPENCM3FILE)
+	$(CC) -o $@ $(CFLAGS) $(KEM_SOURCES) board_speed.c $(COMMON_BOARD_SOURCES) $(LDFLAGS)
+
+stack.elf: $(KEM_SOURCES) board_stack.c $(COMMON_BOARD_SOURCES) $(COMMON_DIR)/hal.h $(COMMON_DIR)/syscalls.c $(COMMON_DIR)/randombytes.h $(LINKER_SCRIPT) $(OPENCM3FILE)
+	$(CC) -o $@ $(CFLAGS) $(KEM_SOURCES) board_stack.c $(COMMON_BOARD_SOURCES) $(LDFLAGS)
+
+%.bin: %.elf
+	$(OBJCOPY) -Obinary $< $@
+
+size-test: test.elf
+	$(SIZE) test.elf
+
+size-speed: speed.elf
+	$(SIZE) speed.elf
+
+size-stack: stack.elf
+	$(SIZE) stack.elf
+
+$(OPENCM3FILE):
+	mkdir -p .pyshim
+	ln -sf /usr/bin/python3 .pyshim/python
+	PATH="$(CURDIR)/.pyshim:$$PATH" $(MAKE) -C $(OPENCM3DIR)
+
+clean:
+	rm -rf test.elf test.bin speed.elf speed.bin stack.elf stack.bin *.su .pyshim

@@ -1,0 +1,12 @@
+{
+  "algorithm": "iphe-1024-res",
+  "name": "Iphe-1024-Resource",
+  "input_bytes": 16384,
+  "times": 1000,
+  "average_cycles": 2148720.523000,
+  "min_cycles": 1955196,
+  "max_cycles": 16167356,
+  "throughput_mbps": 199.099713,
+  "digest_bits": 1024,
+  "library_path": "API_CryptHash/libiphe_1024.a"
+}

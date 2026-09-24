@@ -1,0 +1,36 @@
+{
+	"Algorithms overview":	{
+		"Algorithm_name":	"Iphe-1024-Performance",
+		"Developed by":	"ICCS",
+		"Block size":	120,
+		"Digest Length":	128
+	},
+	"Functional test report":	{
+		"long input":	true,
+		"short input":	true
+	},
+	"Performance evaluation":	{
+		"Hash perf evaluation":	{
+			"Cycle measurement":	{
+				"avg_cycles":	444685.654,
+				"min_cycles":	427094,
+				"max_cycles":	1155672
+			},
+			"Throughput":	{
+				"throuput":	"3326.83 Mbps",
+				"run_times":	1000
+			}
+		}
+	},
+	"Memory evaluation":	{
+		"Static segments":	{
+			"text_size":	8416,
+			"data_size":	808,
+			"bss_size":	0
+		},
+		"Dynamic usage":	{
+			"heap_peak":	2555904,
+			"stack_peak":	454656
+		}
+	}
+}

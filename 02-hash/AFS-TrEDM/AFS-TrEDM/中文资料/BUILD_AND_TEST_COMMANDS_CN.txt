@@ -1,0 +1,110 @@
+AFS-TrEDM-S6 编译、测试命令
+============================
+
+以下命令均从解压后的项目根目录执行，例如：
+
+  cd AFS-TrEDM_Submission_v2.0
+
+1. 编译和快速测试
+-----------------
+
+  for b in 512 768 1024; do
+    make -C Implementations/Reference_Implementation/AFS-TrEDM-$b clean all
+    make -C Implementations/Reference_Implementation/AFS-TrEDM-$b run-quick
+
+    make -C Implementations/Optimized_Implementation/AFS-TrEDM-$b clean all \
+      quick_test_avx2 hash_cli_avx2 benchmark_avx2
+    make -C Implementations/Optimized_Implementation/AFS-TrEDM-$b run-quick
+    ./Implementations/Optimized_Implementation/AFS-TrEDM-$b/quick_test_avx2
+
+    make -C Implementations/Additional_Implementation/Batch_Multibuffer/AFS-TrEDM-$b \
+      clean all-portable
+    make -C Implementations/Additional_Implementation/Batch_Multibuffer/AFS-TrEDM-$b \
+      run-quick-batch16-avx512
+  done
+
+注意：Batch16 AVX512 不要在根目录直接敲 quick_test_batch16_avx512；
+应使用上面的 make target，或写完整路径。run-quick-batch16-avx512
+在不支持 AVX512F 的主机上会跳过或给出受保护的提示。
+
+2. 完整正确性回归
+-----------------
+
+  bash scripts/ci_correctness_s6.sh /tmp/afs_tredm_s6/ci_correctness
+
+3. KAT 生成和验证
+-----------------
+
+清理后的提交包采用《密码杂凑算法提交要求》中的扁平 Test_Vectors
+命名方式，即：
+
+  Test_Vectors/KAT_2_12_AFS-TrEDM-512.txt
+  Test_Vectors/KAT_2_23_AFS-TrEDM-512.txt
+  Test_Vectors/KAT_2_33_AFS-TrEDM-512.txt
+  Test_Vectors/KAT_Loop_AFS-TrEDM-512.txt
+
+768 和 1024 实例同理。
+
+各实例目录中的 KAT_CryptHash.c 保持与 ICCS API_CryptHash.zip 中
+提供的辅助程序逐字节一致。每次运行 ./kat 会一次性生成四类必需
+KAT 到实例本地 output/ 目录；脚本随后复制到扁平 Test_Vectors 目录。
+
+生成：
+
+  MODE=full \
+  STAGE_DIR=/tmp/afs_tredm_s6/generate_s6_kat/stage \
+  LOG_DIR=/tmp/afs_tredm_s6/generate_s6_kat/logs \
+  bash scripts/generate_s6_kat.sh
+
+验证：
+
+  MODE=full \
+  STAGE_DIR=/tmp/afs_tredm_s6/verify_s6_kat/stage \
+  LOG_DIR=/tmp/afs_tredm_s6/verify_s6_kat/logs \
+  bash scripts/verify_s6_kat.sh
+
+4. 性能测试，包括 SHA3-512 baseline
+------------------------------------
+
+  bash scripts/run_live_perf_tables_s6.sh \
+    --root "$(pwd)" \
+    --mode full \
+    --instances 512,768,1024 \
+    --include-sha3 \
+    --include-sha3-reference
+
+终端会输出四张表：Cycles per Byte、Cycles per Hash、Throughput、Latency。
+包含 AFS-TrEDM-S6 512/768/1024 的 Reference、opt64、AVX2 hybrid、
+Batch16 AVX512 norm，以及 SHA3-512 Reference C、XKCP CompactFIPS202、
+OpenSSL EVP。
+
+Batch16 AVX512 norm 是 16 路 multi-buffer normalized throughput。
+延迟、cycles/hash、cpb 都是按 16-message batch 归一化后的每消息值，
+不是 single-message latency。
+
+5. 性能结果校验
+---------------
+
+  PYTHONDONTWRITEBYTECODE=1 python3 tools/perf/check_live_metadata.py \
+    --root "$(pwd)" \
+    --live-dir docs/perf/live/latest
+
+  PYTHONDONTWRITEBYTECODE=1 python3 tools/verify_s6_perf_report.py \
+    --root "$(pwd)" \
+    --markdown docs/perf/AFS-TrEDM-S6_Performance_Report.md \
+    --terminal docs/perf/live/latest/terminal_output.txt \
+    --live-raw docs/perf/live/latest/live_perf_raw.csv
+
+6. S6 规格工具校验
+-------------------
+
+以下工具均为自包含脚本，建议从项目根目录运行：
+
+  python3 tools/gen_s6_iv.py
+  python3 tools/check_round_constants.py
+  python3 tools/check_s6_algebra.py
+
+7. 最终总验证
+-------------
+
+  bash scripts/final_validation_s6.sh "$(pwd)"

@@ -1,0 +1,112 @@
+AFS-TrEDM-S6 Build and Test Commands
+====================================
+
+All commands below should be executed from the extracted project root directory, for example:
+
+  cd AFS-TrEDM_Submission_v2.0
+
+1. Build and quick tests
+------------------------
+
+  for b in 512 768 1024; do
+    make -C Implementations/Reference_Implementation/AFS-TrEDM-$b clean all
+    make -C Implementations/Reference_Implementation/AFS-TrEDM-$b run-quick
+
+    make -C Implementations/Optimized_Implementation/AFS-TrEDM-$b clean all \
+      quick_test_avx2 hash_cli_avx2 benchmark_avx2
+    make -C Implementations/Optimized_Implementation/AFS-TrEDM-$b run-quick
+    ./Implementations/Optimized_Implementation/AFS-TrEDM-$b/quick_test_avx2
+
+    make -C Implementations/Additional_Implementation/Batch_Multibuffer/AFS-TrEDM-$b \
+      clean all-portable
+    make -C Implementations/Additional_Implementation/Batch_Multibuffer/AFS-TrEDM-$b \
+      run-quick-batch16-avx512
+  done
+
+Note: For Batch16 AVX512, do not run quick_test_batch16_avx512 directly
+from the project root directory. Use the make target above, or invoke the
+executable with its full path. The run-quick-batch16-avx512 target will skip
+or print a guarded message on hosts that do not support AVX512F.
+
+2. Full correctness regression
+------------------------------
+
+  bash scripts/ci_correctness_s6.sh /tmp/afs_tredm_s6/ci_correctness
+
+3. KAT generation and verification
+----------------------------------
+
+The cleaned submission package uses the flat Test_Vectors naming convention
+specified in the Cryptographic Hash Algorithm Submission Requirements, namely:
+
+  Test_Vectors/KAT_2_12_AFS-TrEDM-512.txt
+  Test_Vectors/KAT_2_23_AFS-TrEDM-512.txt
+  Test_Vectors/KAT_2_33_AFS-TrEDM-512.txt
+  Test_Vectors/KAT_Loop_AFS-TrEDM-512.txt
+
+The 768-bit and 1024-bit instances use the same naming pattern.
+
+The per-instance KAT_CryptHash.c files are kept byte-identical to the
+ICCS API_CryptHash.zip helper.  Each ./kat run generates all four
+required KAT files into the instance-local output/ directory; the
+script copies them into the flat Test_Vectors directory.
+
+Generation:
+
+  MODE=full \
+  STAGE_DIR=/tmp/afs_tredm_s6/generate_s6_kat/stage \
+  LOG_DIR=/tmp/afs_tredm_s6/generate_s6_kat/logs \
+  bash scripts/generate_s6_kat.sh
+
+Verification:
+
+  MODE=full \
+  STAGE_DIR=/tmp/afs_tredm_s6/verify_s6_kat/stage \
+  LOG_DIR=/tmp/afs_tredm_s6/verify_s6_kat/logs \
+  bash scripts/verify_s6_kat.sh
+
+4. Performance tests, including the SHA3-512 baseline
+-----------------------------------------------------
+
+  bash scripts/run_live_perf_tables_s6.sh \
+    --root "$(pwd)" \
+    --mode full \
+    --instances 512,768,1024 \
+    --include-sha3 \
+    --include-sha3-reference
+
+The terminal will print four tables: Cycles per Byte, Cycles per Hash,
+Throughput, and Latency. The tables include the Reference, opt64, AVX2 hybrid,
+and Batch16 AVX512 norm results for AFS-TrEDM-S6 512/768/1024, as well as
+SHA3-512 Reference C, XKCP CompactFIPS202, and OpenSSL EVP.
+
+Batch16 AVX512 norm is 16-way multi-buffer normalized throughput. Latency,
+cycles/hash, and cpb are per-message values normalized over a 16-message batch,
+not single-message latency.
+
+5. Performance result validation
+--------------------------------
+
+  PYTHONDONTWRITEBYTECODE=1 python3 tools/perf/check_live_metadata.py \
+    --root "$(pwd)" \
+    --live-dir docs/perf/live/latest
+
+  PYTHONDONTWRITEBYTECODE=1 python3 tools/verify_s6_perf_report.py \
+    --root "$(pwd)" \
+    --markdown docs/perf/AFS-TrEDM-S6_Performance_Report.md \
+    --terminal docs/perf/live/latest/terminal_output.txt \
+    --live-raw docs/perf/live/latest/live_perf_raw.csv
+
+6. S6 specification utility checks
+----------------------------------
+
+These tools are self-contained and are expected to be run from the project root:
+
+  python3 tools/gen_s6_iv.py
+  python3 tools/check_round_constants.py
+  python3 tools/check_s6_algebra.py
+
+7. Final overall validation
+---------------------------
+
+  bash scripts/final_validation_s6.sh "$(pwd)"

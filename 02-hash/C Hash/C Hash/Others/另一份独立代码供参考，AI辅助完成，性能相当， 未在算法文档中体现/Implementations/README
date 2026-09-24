@@ -1,0 +1,50 @@
+C-HASH Implementations
+======================
+
+Directory Structure
+-------------------
+Implementations/
+|-- Reference_Implementation/
+|   |-- C-HASH-512/     C-Hash-512 reference implementation
+|   |-- C-HASH-1024/    C-Hash-1024 reference implementation
+|-- Optimized_Implementation/
+|   |-- C-HASH-512/     C-Hash-512 performance-optimized (AVX2)
+|   |-- C-HASH-1024/    C-Hash-1024 performance-optimized (AVX2)
+|-- Additional_Implementation/
+    |-- C-HASH-512/     C-Hash-512 resource-optimized (-Os)
+    |-- C-HASH-1024/    C-Hash-1024 resource-optimized (-Os)
+
+Build Instructions
+------------------
+
+Reference Implementation:
+    gcc -O2 -std=c99 -Wpedantic -Wall -Wextra -o c-hash \
+        c-hash.c CryptHash_AlgorithmInstance.c drng.c -lm
+
+Optimized Implementation:
+    gcc -O3 -march=x86-64 -mavx2 -mtune=native -flto \
+        -fomit-frame-pointer -std=c99 -o c-hash \
+        c-hash.c CryptHash_AlgorithmInstance.c drng.c -lm
+
+Additional (Resource-Optimized) Implementation:
+    gcc -Os -march=x86-64 -mavx2 -flto \
+        -fomit-frame-pointer -std=c99 -o c-hash \
+        c-hash.c CryptHash_AlgorithmInstance.c drng.c -lm
+
+Files per Instance
+------------------
+c-hash.c                    Core algorithm implementation
+c-hash.h                    Public API header
+CryptHash_AlgorithmInstance.c  ICCS API wrapper
+CryptHash_AlgorithmInstance.h  ICCS API header
+drng.c                      Deterministic Random Number Generator
+drng.h                      DRNG header
+KAT_CryptHash.c             Known Answer Test vector generator
+README.txt                  Instance-specific notes
+
+Test Vector Generation
+----------------------
+Compile and run KAT_CryptHash.c to generate test vectors:
+    gcc -O2 -o kat_gen KAT_CryptHash.c c-hash.c \
+        CryptHash_AlgorithmInstance.c drng.c -lm
+    ./kat_gen

@@ -1,0 +1,257 @@
+desc: --pages-as-heap=yes
+cmd: ./lwekem256-test_basic
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=4096
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=0
+mem_heap_B=28672
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=0
+mem_heap_B=36864
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=0
+mem_heap_B=45056
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=0
+mem_heap_B=49152
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=0
+mem_heap_B=221184
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=0
+mem_heap_B=262144
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=0
+mem_heap_B=278528
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=0
+mem_heap_B=282624
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=0
+mem_heap_B=286720
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n1: 286720 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 286720 0x0: ???
+#-----------
+snapshot=10
+#-----------
+time=0
+mem_heap_B=323584
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=0
+mem_heap_B=327680
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=0
+mem_heap_B=331776
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=0
+mem_heap_B=331776
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=peak
+n2: 331776 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 327680 0x0: ???
+ n0: 4096 0x4029DC0: ??? (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+#-----------
+snapshot=14
+#-----------
+time=0
+mem_heap_B=327680
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=0
+mem_heap_B=327680
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=67960
+mem_heap_B=335872
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=68947
+mem_heap_B=356352
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=69032
+mem_heap_B=360448
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=69087
+mem_heap_B=364544
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=69142
+mem_heap_B=372736
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=73254
+mem_heap_B=2502656
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=73321
+mem_heap_B=4067328
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=73376
+mem_heap_B=4390912
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n3: 4390912 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n3: 4063232 0x403069C: mmap (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+  n1: 2150400 0x4012F4B: _dl_map_object_from_fd (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+   n2: 2150400 0x4014555: _dl_map_object (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+    n1: 2129920 0x400DA3C: openaux (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+     n1: 2129920 0x400C542: _dl_catch_exception (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+      n1: 2129920 0x400DED4: _dl_map_object_deps (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+       n1: 2129920 0x402CE29: dl_main (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+        n1: 2129920 0x4029745: _dl_sysdep_start (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+         n1: 2129920 0x402B161: _dl_start (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+          n0: 2129920 0x4029DC7: ??? (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+    n0: 20480 in 1 place, below massif's threshold (1.00%)
+  n1: 1904640 0x40130BA: _dl_map_object_from_fd (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+   n2: 1904640 0x4014555: _dl_map_object (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+    n1: 1888256 0x400DA3C: openaux (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+     n1: 1888256 0x400C542: _dl_catch_exception (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+      n1: 1888256 0x400DED4: _dl_map_object_deps (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+       n1: 1888256 0x402CE29: dl_main (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+        n1: 1888256 0x4029745: _dl_sysdep_start (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+         n1: 1888256 0x402B161: _dl_start (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+          n0: 1888256 0x4029DC7: ??? (in /nix/store/pdwlyjkmc6icc0wb5gaw08m9ynqrg683-glibc-2.40-218/lib/ld-linux-x86-64.so.2)
+    n0: 16384 in 1 place, below massif's threshold (1.00%)
+  n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n0: 327680 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=24
+#-----------
+time=73431
+mem_heap_B=4415488
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=73776
+mem_heap_B=4468736
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=82272
+mem_heap_B=4481024
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=200320
+mem_heap_B=4616192
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty

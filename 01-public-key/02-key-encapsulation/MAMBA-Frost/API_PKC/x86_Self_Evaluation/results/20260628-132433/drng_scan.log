@@ -1,0 +1,828 @@
+/workspace/Frost/API_PKC/DEPENDENCIES.txt:28:Frost byte-oriented randombytes() calls are routed by randombytes_adapter.c to
+/workspace/Frost/API_PKC/DEPENDENCIES.txt:29:get_random_number(&drng_algorithm, ..., bits). The adapter requests exactly
+/workspace/Frost/API_PKC/DEPENDENCIES.txt:31:the original Frost test randombytes implementation for KAT generation.
+/workspace/Frost/API_PKC/SELF_EVALUATION.md:52:## DRNG and auxiliary-function use
+/workspace/Frost/API_PKC/SELF_EVALUATION.md:54:* KAT randomness uses the official DRNG through `get_random_number()` via the
+/workspace/Frost/API_PKC/SELF_EVALUATION.md:55:  local `randombytes_adapter.c` bridge.
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/README.md:45:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/README.md:45:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/README.md:4:adapter calls the existing Frost-192 core directly. `randombytes_adapter.c`
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/README.md:4:adapter calls the existing Frost-128 core directly. `randombytes_adapter.c`
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/README.md:45:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/README.md:4:adapter calls the existing Frost-512 core directly. `randombytes_adapter.c`
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/README.md:45:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/README.md:4:adapter calls the existing Frost-384 core directly. `randombytes_adapter.c`
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/README.md:45:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/KAT_KEM: binary file matches
+grep: /workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/test_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/Makefile:19:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/README.md:4:adapter calls the existing Frost-256 core directly. `randombytes_adapter.c`
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/README.md:47:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/README.md:47:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/test_perf.c:12:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/test_perf.c:68:        fprintf(stderr, "%s: DRNG init failed\n", ALGORITHM_INSTANCE);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/README.md:47:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/common_optimized.mk:39:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/common_optimized_cc.mk:36:API_SOURCES := KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/README.md:47:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/README.md:118:The KAT RNG is the official API_PKC DRNG (`drng.c`) through
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/README.md:119:`randombytes_adapter.c`; Frost/Frost-CC hash/XOF calls are routed to the
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/Frost-CC/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/Frost-CC/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/README.md:47:KAT mode uses the official API_PKC DRNG through `randombytes_adapter.c`. Frost-CC `shake128`/`shake256` call sites are routed by `common/sha3/fips202.c` to `pseudoXOF()` from the official `auxfunc.c`.
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/common/random/random.h:6:int randombytes(unsigned char* random_array, unsigned long long nbytes);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/KAT_KEM: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/Frost/src/kem.c:238:    if (randombytes(randomness, CRYPTO_BYTES + BYTES_SEED_SE + BYTES_SEED_A) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/Frost/src/kem.c:345:    if (randombytes(mu, BYTES_MU + BYTES_SALT) != 0)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/test_kem_api.c:8:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+grep: /workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/perf_kem_api: binary file matches
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/randombytes_adapter.c:1:/* Adapt Frost's byte-oriented RNG request to the official API_PKC DRNG. */
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/randombytes_adapter.c:5:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/randombytes_adapter.c:7:int randombytes(unsigned char *output, unsigned long long output_len_bytes)
+/workspace/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/randombytes_adapter.c:12:    return get_random_number(&drng_algorithm, output, output_len_bytes * 8ULL);
+/workspace/Frost/API_PKC/Official_Template/KEM_AlgorithmInstance.c:15:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Official_Template/KEM_AlgorithmInstance.c:16:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Official_Template/KEM_AlgorithmInstance.c:19:// get_random_number(&drng_algorithm, random_number, random_number_len_bits);
+/workspace/Frost/API_PKC/Official_Template/KEX_AlgorithmInstance.c:15:// DRNG_ctx for generating pseudorandom numbers within the KEX protocol
+/workspace/Frost/API_PKC/Official_Template/KEX_AlgorithmInstance.c:16:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Official_Template/KEX_AlgorithmInstance.c:19:// get_random_number(&drng_algorithm, random_number, random_number_len_bits);
+/workspace/Frost/API_PKC/Official_Template/SIG_AlgorithmInstance.c:15:// DRNG_ctx for generating pseudorandom numbers within the SIG scheme
+/workspace/Frost/API_PKC/Official_Template/SIG_AlgorithmInstance.c:16:extern DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Official_Template/SIG_AlgorithmInstance.c:19:// get_random_number(&drng_algorithm, random_number, random_number_len_bits);
+/workspace/Frost/API_PKC/Official_Template/KAT_SIG.c:40:// DRNG_ctx for generating pseudorandom numbers within the SIG scheme
+/workspace/Frost/API_PKC/Official_Template/KAT_SIG.c:41:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Official_Template/KAT_SIG.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Official_Template/KAT_SIG.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Official_Template/KAT_SIG.c:50:	// DRNG_ctx for generating message
+/workspace/Frost/API_PKC/Official_Template/KAT_SIG.c:51:	DRNG_ctx drng_msg;
+/workspace/Frost/API_PKC/Official_Template/KAT_SIG.c:107:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Official_Template/KAT_SIG.c:109:		get_random_number(&drng_msg, m, m_len_bytes * 8);
+/workspace/Frost/API_PKC/Official_Template/README.txt:56:4.  For non-byte-aligned data operations (e.g., DRNG outputs), the most
+/workspace/Frost/API_PKC/Official_Template/KAT_KEX.c:42:// DRNG_ctx for generating pseudorandom numbers within the KEX protocol
+/workspace/Frost/API_PKC/Official_Template/KAT_KEX.c:43:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Official_Template/KAT_KEX.c:49:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Official_Template/KAT_KEX.c:50:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Official_Template/KAT_KEX.c:120:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/Official_Template/drng.h:12:#ifndef DRNG_H
+/workspace/Frost/API_PKC/Official_Template/drng.h:13:#define DRNG_H
+/workspace/Frost/API_PKC/Official_Template/drng.h:27:    } DRNG_ctx;
+/workspace/Frost/API_PKC/Official_Template/drng.h:29:    /// @brief  Initialize Deterministic Random Number Generator (DRNG)
+/workspace/Frost/API_PKC/Official_Template/drng.h:30:    ///         This function must be called before the first call of the get_random_number()
+/workspace/Frost/API_PKC/Official_Template/drng.h:31:    /// @param[in,out] drng Unique name of the DRNG
+/workspace/Frost/API_PKC/Official_Template/drng.h:35:    int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes);
+/workspace/Frost/API_PKC/Official_Template/drng.h:38:    /// @param[in] drng Initialized DRNG
+/workspace/Frost/API_PKC/Official_Template/drng.h:42:    int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits);
+/workspace/Frost/API_PKC/Official_Template/drng.c:18:#define DRNG_SUCCESS 0
+/workspace/Frost/API_PKC/Official_Template/drng.c:19:#define DRNG_MEMORY_ALLOCATION_FAILED -2
+/workspace/Frost/API_PKC/Official_Template/drng.c:220:            return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Official_Template/drng.c:234:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Official_Template/drng.c:237:static int SM3_DRNG_Instantiate(DRNG_ctx *drng, const unsigned char *nonce, unsigned long long nonce_len_bytes)
+/workspace/Frost/API_PKC/Official_Template/drng.c:248:        return DRNG_MEMORY_ALLOCATION_FAILED;
+/workspace/Frost/API_PKC/Official_Template/drng.c:262:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Official_Template/drng.c:265:static int SM3_DRNG_Generate(DRNG_ctx *drng, unsigned long long requested_no_of_bits, unsigned char *return_bits)
+/workspace/Frost/API_PKC/Official_Template/drng.c:314:    return DRNG_SUCCESS;
+/workspace/Frost/API_PKC/Official_Template/drng.c:317:int init_random_number(DRNG_ctx *drng, const unsigned char *seed, unsigned long long seed_len_bytes)
+/workspace/Frost/API_PKC/Official_Template/drng.c:319:    return SM3_DRNG_Instantiate(drng, seed, seed_len_bytes);
+/workspace/Frost/API_PKC/Official_Template/drng.c:322:int get_random_number(DRNG_ctx *drng, unsigned char *random_number, unsigned long long random_number_len_bits)
+/workspace/Frost/API_PKC/Official_Template/drng.c:324:    return SM3_DRNG_Generate(drng, random_number_len_bits, random_number);
+/workspace/Frost/API_PKC/Official_Template/KAT_KEM.c:41:// DRNG_ctx for generating pseudorandom numbers within the KEM scheme
+/workspace/Frost/API_PKC/Official_Template/KAT_KEM.c:42:DRNG_ctx drng_algorithm;
+/workspace/Frost/API_PKC/Official_Template/KAT_KEM.c:48:	// DRNG_ctx for generating seed
+/workspace/Frost/API_PKC/Official_Template/KAT_KEM.c:49:	DRNG_ctx drng_seed;
+/workspace/Frost/API_PKC/Official_Template/KAT_KEM.c:98:		get_random_number(&drng_seed, seed, SEED_LEN_BYTES * 8);
+/workspace/Frost/API_PKC/README.md:6:API_PKC KEM interface, unmodified official KAT/DRNG/auxiliary sources, the small

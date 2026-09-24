@@ -1,0 +1,108 @@
+[Reference NTRE-128] make clean all test
+make: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-128'
+rm -rf bin
+make -C test clean
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-128/test'
+rm -f test_ntre
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-128/test'
+mkdir -p bin
+cc -O2 -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter -I . -I src -o bin/KAT_KEM src/poly.c src/ntt.c src/symmetric.c KEM_AlgorithmInstance.c auxfunc.c drng.c KAT_KEM.c
+make -C test
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-128/test'
+cc -O2 -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter -I .. -I ../src -o test_ntre ../src/poly.c ../src/ntt.c ../src/symmetric.c ../KEM_AlgorithmInstance.c ../auxfunc.c ../drng.c test.c
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-128/test'
+make: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-128'
+[Reference NTRE-128] KAT
+
+Files have been saved in the 'output' folder within the working directory.
+[Reference NTRE-128] KAT cmp ok
+[Reference NTRE-256] make clean all test
+make: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-256'
+rm -rf bin
+make -C test clean
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-256/test'
+rm -f test_ntre
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-256/test'
+mkdir -p bin
+cc -O2 -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter -I . -I src -o bin/KAT_KEM src/poly.c src/ntt.c src/symmetric.c KEM_AlgorithmInstance.c auxfunc.c drng.c KAT_KEM.c
+make -C test
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-256/test'
+cc -O2 -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter -I .. -I ../src -o test_ntre ../src/poly.c ../src/ntt.c ../src/symmetric.c ../KEM_AlgorithmInstance.c ../auxfunc.c ../drng.c test.c
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-256/test'
+make: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-256'
+[Reference NTRE-256] KAT
+
+Files have been saved in the 'output' folder within the working directory.
+[Reference NTRE-256] KAT cmp ok
+[Reference NTRE-512] make clean all test
+make: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-512'
+rm -rf bin
+make -C test clean
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-512/test'
+rm -f test_ntre
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-512/test'
+mkdir -p bin
+cc -O2 -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter -I . -I src -o bin/KAT_KEM src/poly.c src/ntt.c src/symmetric.c KEM_AlgorithmInstance.c auxfunc.c drng.c KAT_KEM.c
+make -C test
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-512/test'
+cc -O2 -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter -I .. -I ../src -o test_ntre ../src/poly.c ../src/ntt.c ../src/symmetric.c ../KEM_AlgorithmInstance.c ../auxfunc.c ../drng.c test.c
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-512/test'
+make: Leaving directory '/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-512'
+[Reference NTRE-512] KAT
+
+Files have been saved in the 'output' folder within the working directory.
+[Reference NTRE-512] KAT cmp ok
+[Optimized NTRE-128] make clean all test
+make: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-128'
+rm -rf bin output
+make -C test clean
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-128/test'
+rm -f test_ntre
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-128/test'
+mkdir -p bin
+cc -O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result -I . -I src -o bin/KAT_KEM src/poly.c src/ntt.c src/symmetric.c KEM_AlgorithmInstance.c auxfunc.c drng.c asm/add.s KAT_KEM.c
+make -C test
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-128/test'
+cc -O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result -I .. -I ../src -o test_ntre ../src/poly.c ../src/ntt.c ../src/symmetric.c ../KEM_AlgorithmInstance.c ../auxfunc.c ../drng.c ../asm/add.s test.c
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-128/test'
+make: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-128'
+[Optimized NTRE-128] KAT
+
+Files have been saved in the 'output' folder within the working directory.
+[Optimized NTRE-128] KAT cmp ok
+[Optimized NTRE-256] make clean all test
+make: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-256'
+rm -rf bin output
+make -C test clean
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-256/test'
+rm -f test_ntre
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-256/test'
+mkdir -p bin
+cc -O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result -I . -I src -o bin/KAT_KEM src/poly.c src/ntt.c src/symmetric.c KEM_AlgorithmInstance.c auxfunc.c drng.c asm/add.s KAT_KEM.c
+make -C test
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-256/test'
+cc -O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result -I .. -I ../src -o test_ntre ../src/poly.c ../src/ntt.c ../src/symmetric.c ../KEM_AlgorithmInstance.c ../auxfunc.c ../drng.c ../asm/add.s test.c
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-256/test'
+make: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-256'
+[Optimized NTRE-256] KAT
+
+Files have been saved in the 'output' folder within the working directory.
+[Optimized NTRE-256] KAT cmp ok
+[Optimized NTRE-512] make clean all test
+make: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-512'
+rm -rf bin output
+make -C test clean
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-512/test'
+rm -f test_ntre
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-512/test'
+mkdir -p bin
+cc -O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result -I . -I src -o bin/KAT_KEM src/poly.c src/ntt.c src/symmetric.c KEM_AlgorithmInstance.c auxfunc.c drng.c asm/add.s KAT_KEM.c
+make -C test
+make[1]: Entering directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-512/test'
+cc -O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result -I .. -I ../src -o test_ntre ../src/poly.c ../src/ntt.c ../src/symmetric.c ../KEM_AlgorithmInstance.c ../auxfunc.c ../drng.c ../asm/add.s test.c
+make[1]: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-512/test'
+make: Leaving directory '/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-512'
+[Optimized NTRE-512] KAT
+
+Files have been saved in the 'output' folder within the working directory.
+[Optimized NTRE-512] KAT cmp ok

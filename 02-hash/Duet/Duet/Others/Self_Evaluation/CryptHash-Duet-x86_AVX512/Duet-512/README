@@ -1,0 +1,18 @@
+# Duet-512 AVX512
+
+Status: retained for Duet-512 on x86 AVX512VL.
+
+This variant keeps the Duet-512 three-column row packing in 256-bit vectors,
+but uses AVX512VL instructions for the hot `l64` layer: `vprolvq` for variable
+64-bit rotates and `vpternlogq` for three-way XOR. It also carries the optimized
+AVX2 absorb path that keeps `C1` in the permutation buffer for the second
+permutation.
+
+Build with Clang or GCC and AVX512 feature flags, for example:
+
+```sh
+clang -O3 -std=c99 -Wall -Wextra -pedantic \
+  -mavx512f -mavx512vl -mavx512dq -mavx512bw -mbmi -mbmi2 -madx
+```
+
+See `../Evaluation_Report.md` for validation commands and benchmark results.

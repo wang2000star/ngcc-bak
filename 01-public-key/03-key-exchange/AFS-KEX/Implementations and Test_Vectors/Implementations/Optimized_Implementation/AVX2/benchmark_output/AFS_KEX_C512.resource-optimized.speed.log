@@ -1,0 +1,115 @@
+instance: AFS_KEX_C512
+implementation: optimized
+
+gen_matrix
+median: 831296 cycles/ticks
+average: 856062 cycles/ticks
+
+poly_getnoise_eta1
+median: 13018 cycles/ticks
+average: 13108 cycles/ticks
+
+poly_getnoise_eta2
+median: 12988 cycles/ticks
+average: 13045 cycles/ticks
+
+poly_ntt
+median: 658 cycles/ticks
+average: 658 cycles/ticks
+
+poly_invntt_tomont
+median: 748 cycles/ticks
+average: 750 cycles/ticks
+
+polyvec_basemul_acc_montgomery
+median: 2522 cycles/ticks
+average: 2546 cycles/ticks
+
+poly_tomsg
+median: 26668 cycles/ticks
+average: 26846 cycles/ticks
+
+poly_frommsg
+median: 2990 cycles/ticks
+average: 3003 cycles/ticks
+
+poly_tobytes
+median: 172 cycles/ticks
+average: 172 cycles/ticks
+
+poly_frombytes
+median: 160 cycles/ticks
+average: 159 cycles/ticks
+
+polyvec_compress
+median: 10776 cycles/ticks
+average: 10846 cycles/ticks
+
+polyvec_decompress
+median: 15172 cycles/ticks
+average: 15247 cycles/ticks
+
+encode_bw32
+median: 92 cycles/ticks
+average: 92 cycles/ticks
+
+decode_bw32
+median: 1550 cycles/ticks
+average: 1554 cycles/ticks
+
+indcpa_keypair_derand
+median: 978084 cycles/ticks
+average: 996104 cycles/ticks
+
+indcpa_enc
+median: 988180 cycles/ticks
+average: 997950 cycles/ticks
+
+indcpa_dec
+median: 51518 cycles/ticks
+average: 51791 cycles/ticks
+
+crypto_kem_keypair
+median: 984156 cycles/ticks
+average: 998652 cycles/ticks
+
+crypto_kem_enc
+median: 1014490 cycles/ticks
+average: 1025407 cycles/ticks
+
+crypto_kem_dec
+median: 1139250 cycles/ticks
+average: 1144486 cycles/ticks
+
+kex_init_a
+median: 1954730 cycles/ticks
+average: 1978083 cycles/ticks
+
+kex_init_b
+median: 1954376 cycles/ticks
+average: 1975042 cycles/ticks
+
+kex_generate_pass1_msg_a
+median: 1015092 cycles/ticks
+average: 1029897 cycles/ticks
+
+kex_generate_pass2_msg_b
+median: 2173316 cycles/ticks
+average: 2179911 cycles/ticks
+
+kex_generate_pass3_msg_a
+median: 2115692 cycles/ticks
+average: 2123875 cycles/ticks
+
+kex_generate_pass4_msg_b
+median: 957146 cycles/ticks
+average: 970107 cycles/ticks
+
+kex_derive_ss_a
+median: 40 cycles/ticks
+average: 40 cycles/ticks
+
+kex_derive_ss_b
+median: 40 cycles/ticks
+average: 39 cycles/ticks
+

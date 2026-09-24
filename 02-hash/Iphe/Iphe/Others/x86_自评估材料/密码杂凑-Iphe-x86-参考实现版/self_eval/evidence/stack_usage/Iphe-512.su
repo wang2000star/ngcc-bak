@@ -1,0 +1,3 @@
+C:\Users\23292\Desktop\ngcc_bench\Implementations\Reference_Implementation\Iphe-512\CryptHash_AlgorithmInstance.c:46:15:S	80	static
+C:\Users\23292\Desktop\ngcc_bench\Implementations\Reference_Implementation\Iphe-512\CryptHash_AlgorithmInstance.c:52:6:CryptHash_AlgorithmInstance_permutation_iphe512	400	static
+C:\Users\23292\Desktop\ngcc_bench\Implementations\Reference_Implementation\Iphe-512\CryptHash_AlgorithmInstance.c:141:5:CryptHash_iphe512	528	static

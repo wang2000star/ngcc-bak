@@ -1,0 +1,12 @@
+Running bench for Iphe-512-Performance
+Functional self-test PASS
+average cycles 156381.63, Mbps 2734.49
+Running bench for Iphe-512-Performance
+Functional self-test PASS
+average cycles 498857.48, Mbps 3429.91
+Running bench for Iphe-768-Performance
+Functional self-test PASS
+average cycles 3261.68, Mbps 250.71
+Running bench for Iphe-768-Performance
+Functional self-test PASS
+average cycles 2243.36, Mbps 1439.82

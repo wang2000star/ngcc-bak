@@ -1,0 +1,271 @@
+ 
+****************************************
+Report : qor
+Design : hash_top
+Version: P-2019.03
+Date   : Mon Jun 29 12:15:02 2026
+****************************************
+
+
+  Timing Path Group 'node_clock'
+  -----------------------------------
+  Levels of Logic:              20.00
+  Critical Path Length:          1.55
+  Critical Path Slack:           0.01
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:        112
+  Hierarchical Port Count:      30099
+  Leaf Cell Count:              85533
+  Buf/Inv Cell Count:           17138
+  Buf Cell Count:                9491
+  Inv Cell Count:                7647
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:     79116
+  Sequential Cell Count:         6417
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    14598.033595
+  Noncombinational Area:  5441.273977
+  Buf/Inv Area:           1896.247299
+  Total Buffer Area:          1050.55
+  Total Inverter Area:         845.70
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:             20039.307572
+  Design Area:           20039.307572
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         86252
+  Nets With Violations:             2
+  Max Trans Violations:             2
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: node53
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.06
+  Logic Optimization:                 20.94
+  Mapping Optimization:              201.71
+  -----------------------------------------
+  Overall Compile Time:              567.22
+  Overall Compile Wall Clock Time:   275.97
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
+ 
+****************************************
+Report : area
+Design : hash_top
+Version: P-2019.03
+Date   : Mon Jun 29 12:15:10 2026
+****************************************
+
+Library(s) Used:
+
+    scc12nsfe_96sdb_6tc16p52_enhance_rvt_ssg_v0p72_125c_ccs (File: /export/eda/edalib/smic/12nmSFe/phy_rebuild/scc12nsfe_96sdb_6tc16p52_enhance_rvt/V1P2A/Liberty/0.8v/scc12nsfe_96sdb_6tc16p52_enhance_rvt_ssg_v0p72_125c_ccs.db)
+    scc12nsfe_96sdb_6tc16p52_enhance_ulvt_ssg_v0p72_125c_ccs (File: /export/eda/edalib/smic/12nmSFe/phy_rebuild/scc12nsfe_96sdb_6tc16p52_enhance_ulvt/V1P2A/Liberty/0.8v/scc12nsfe_96sdb_6tc16p52_enhance_ulvt_ssg_v0p72_125c_ccs.db)
+    scc12nsfe_96sdb_6tc16p52_enhance_lvt_ssg_v0p72_125c_ccs (File: /export/eda/edalib/smic/12nmSFe/phy_rebuild/scc12nsfe_96sdb_6tc16p52_enhance_lvt/V1P2A/Liberty/0.8v/scc12nsfe_96sdb_6tc16p52_enhance_lvt_ssg_v0p72_125c_ccs.db)
+
+Number of ports:                        30451
+Number of nets:                        109008
+Number of cells:                        86206
+Number of combinational cells:          79116
+Number of sequential cells:              6417
+Number of macros/black boxes:               0
+Number of buf/inv:                      17138
+Number of references:                       8
+
+Combinational area:              14598.033595
+Buf/Inv area:                     1896.247299
+Noncombinational area:            5441.273977
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 20039.307572
+Total area:                 undefined
+ 
+****************************************
+Report : area
+Design : hash_top
+Version: P-2019.03
+Date   : Mon Jun 29 12:15:10 2026
+****************************************
+
+Library(s) Used:
+
+    scc12nsfe_96sdb_6tc16p52_enhance_rvt_ssg_v0p72_125c_ccs (File: /export/eda/edalib/smic/12nmSFe/phy_rebuild/scc12nsfe_96sdb_6tc16p52_enhance_rvt/V1P2A/Liberty/0.8v/scc12nsfe_96sdb_6tc16p52_enhance_rvt_ssg_v0p72_125c_ccs.db)
+    scc12nsfe_96sdb_6tc16p52_enhance_ulvt_ssg_v0p72_125c_ccs (File: /export/eda/edalib/smic/12nmSFe/phy_rebuild/scc12nsfe_96sdb_6tc16p52_enhance_ulvt/V1P2A/Liberty/0.8v/scc12nsfe_96sdb_6tc16p52_enhance_ulvt_ssg_v0p72_125c_ccs.db)
+    scc12nsfe_96sdb_6tc16p52_enhance_lvt_ssg_v0p72_125c_ccs (File: /export/eda/edalib/smic/12nmSFe/phy_rebuild/scc12nsfe_96sdb_6tc16p52_enhance_lvt/V1P2A/Liberty/0.8v/scc12nsfe_96sdb_6tc16p52_enhance_lvt_ssg_v0p72_125c_ccs.db)
+
+Number of ports:                        30451
+Number of nets:                        109008
+Number of cells:                        86206
+Number of combinational cells:          79116
+Number of sequential cells:              6417
+Number of macros/black boxes:               0
+Number of buf/inv:                      17138
+Number of references:                       8
+
+Combinational area:              14598.033595
+Buf/Inv area:                     1896.247299
+Noncombinational area:            5441.273977
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 20039.307572
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area            Local cell area
+                                  -------------------  ----------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-  Black-
+                                  Total       Total    national    national   boxes   Design
+--------------------------------  ----------  -------  ----------  ---------  ------  -------------------------------------------
+hash_top                          20039.3076    100.0     17.5841     0.0000  0.0000  hash_top
+u_axi                               293.1794      1.5    189.6284   100.8968  0.0000  LLH_axi_slave_0
+u_axi/aclk_cg_clock_0                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_axi_slave_0_2
+u_axi/aclk_cg_clock_1                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_axi_slave_0_1
+u_axi/aclk_cg_clock_2                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_axi_slave_0_0
+u_core                            13768.1513     68.7   8309.7724  4349.5835  0.0000  LLH_hash_core_0
+u_core/clk_cg_clock_0                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_hash_core_0_5
+u_core/clk_cg_clock_1                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_hash_core_0_4
+u_core/clk_cg_clock_2                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_hash_core_0_3
+u_core/clk_cg_clock_3                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_hash_core_0_2
+u_core/clk_cg_clock_4                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_hash_core_0_1
+u_core/clk_cg_clock_5                 0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_hash_core_0_0
+u_core/u_shift_1024_0                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_23
+u_core/u_shift_1024_1                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_22
+u_core/u_shift_1024_10               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_13
+u_core/u_shift_1024_11               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_12
+u_core/u_shift_1024_12               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_11
+u_core/u_shift_1024_13               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_10
+u_core/u_shift_1024_14               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_9
+u_core/u_shift_1024_15               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_8
+u_core/u_shift_1024_16               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_7
+u_core/u_shift_1024_17               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_6
+u_core/u_shift_1024_18               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_5
+u_core/u_shift_1024_19               14.2664      0.1     14.2664     0.0000  0.0000  LLH_barrel_shifter_1024_4
+u_core/u_shift_1024_2                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_21
+u_core/u_shift_1024_20               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_3
+u_core/u_shift_1024_21               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_2
+u_core/u_shift_1024_22               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_1
+u_core/u_shift_1024_23               14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_0
+u_core/u_shift_1024_3                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_20
+u_core/u_shift_1024_4                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_19
+u_core/u_shift_1024_5                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_18
+u_core/u_shift_1024_6                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_17
+u_core/u_shift_1024_7                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_16
+u_core/u_shift_1024_8                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_15
+u_core/u_shift_1024_9                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_1024_14
+u_core/u_shift_256_0                  4.0919      0.0      4.0919     0.0000  0.0000  LLH_barrel_shifter_256_23
+u_core/u_shift_256_1                  6.7461      0.0      6.7461     0.0000  0.0000  LLH_barrel_shifter_256_22
+u_core/u_shift_256_10                10.2851      0.1     10.2851     0.0000  0.0000  LLH_barrel_shifter_256_13
+u_core/u_shift_256_11                 9.5109      0.0      9.5109     0.0000  0.0000  LLH_barrel_shifter_256_12
+u_core/u_shift_256_12                 5.6402      0.0      5.6402     0.0000  0.0000  LLH_barrel_shifter_256_11
+u_core/u_shift_256_13                 6.5249      0.0      6.5249     0.0000  0.0000  LLH_barrel_shifter_256_10
+u_core/u_shift_256_14                 4.4237      0.0      4.4237     0.0000  0.0000  LLH_barrel_shifter_256_9
+u_core/u_shift_256_15                 5.4190      0.0      5.4190     0.0000  0.0000  LLH_barrel_shifter_256_8
+u_core/u_shift_256_16                 4.8660      0.0      4.8660     0.0000  0.0000  LLH_barrel_shifter_256_7
+u_core/u_shift_256_17                 7.9626      0.0      7.9626     0.0000  0.0000  LLH_barrel_shifter_256_6
+u_core/u_shift_256_18                 7.2991      0.0      7.2991     0.0000  0.0000  LLH_barrel_shifter_256_5
+u_core/u_shift_256_19                 9.8427      0.0      9.8427     0.0000  0.0000  LLH_barrel_shifter_256_4
+u_core/u_shift_256_2                  5.9720      0.0      5.9720     0.0000  0.0000  LLH_barrel_shifter_256_21
+u_core/u_shift_256_20                 5.9720      0.0      5.9720     0.0000  0.0000  LLH_barrel_shifter_256_3
+u_core/u_shift_256_21                 3.7601      0.0      3.7601     0.0000  0.0000  LLH_barrel_shifter_256_2
+u_core/u_shift_256_22                 4.4237      0.0      4.4237     0.0000  0.0000  LLH_barrel_shifter_256_1
+u_core/u_shift_256_23                 9.5109      0.0      9.5109     0.0000  0.0000  LLH_barrel_shifter_256_0
+u_core/u_shift_256_3                  9.1791      0.0      9.1791     0.0000  0.0000  LLH_barrel_shifter_256_20
+u_core/u_shift_256_4                  5.0872      0.0      5.0872     0.0000  0.0000  LLH_barrel_shifter_256_19
+u_core/u_shift_256_5                  9.5109      0.0      9.5109     0.0000  0.0000  LLH_barrel_shifter_256_18
+u_core/u_shift_256_6                  3.9813      0.0      3.9813     0.0000  0.0000  LLH_barrel_shifter_256_17
+u_core/u_shift_256_7                  8.4050      0.0      8.4050     0.0000  0.0000  LLH_barrel_shifter_256_16
+u_core/u_shift_256_8                  7.7414      0.0      7.7414     0.0000  0.0000  LLH_barrel_shifter_256_15
+u_core/u_shift_256_9                  7.2991      0.0      7.2991     0.0000  0.0000  LLH_barrel_shifter_256_14
+u_core/u_shift_512_0                  7.2991      0.0      7.2991     0.0000  0.0000  LLH_barrel_shifter_512_23
+u_core/u_shift_512_1                 12.0545      0.1     12.0545     0.0000  0.0000  LLH_barrel_shifter_512_22
+u_core/u_shift_512_10                13.9346      0.1     13.9346     0.0000  0.0000  LLH_barrel_shifter_512_13
+u_core/u_shift_512_11                10.7274      0.1     10.7274     0.0000  0.0000  LLH_barrel_shifter_512_12
+u_core/u_shift_512_12                 7.1885      0.0      7.1885     0.0000  0.0000  LLH_barrel_shifter_512_11
+u_core/u_shift_512_13                12.9393      0.1     12.9393     0.0000  0.0000  LLH_barrel_shifter_512_10
+u_core/u_shift_512_14                13.3816      0.1     13.3816     0.0000  0.0000  LLH_barrel_shifter_512_9
+u_core/u_shift_512_15                 7.5203      0.0      7.5203     0.0000  0.0000  LLH_barrel_shifter_512_8
+u_core/u_shift_512_16                11.2804      0.1     11.2804     0.0000  0.0000  LLH_barrel_shifter_512_7
+u_core/u_shift_512_17                 7.6308      0.0      7.6308     0.0000  0.0000  LLH_barrel_shifter_512_6
+u_core/u_shift_512_18                 7.9626      0.0      7.9626     0.0000  0.0000  LLH_barrel_shifter_512_5
+u_core/u_shift_512_19                12.2757      0.1     12.2757     0.0000  0.0000  LLH_barrel_shifter_512_4
+u_core/u_shift_512_2                 11.3910      0.1     11.3910     0.0000  0.0000  LLH_barrel_shifter_512_21
+u_core/u_shift_512_20                10.8380      0.1     10.8380     0.0000  0.0000  LLH_barrel_shifter_512_3
+u_core/u_shift_512_21                12.8287      0.1     12.8287     0.0000  0.0000  LLH_barrel_shifter_512_2
+u_core/u_shift_512_22                13.3816      0.1     13.3816     0.0000  0.0000  LLH_barrel_shifter_512_1
+u_core/u_shift_512_23                10.8380      0.1     10.8380     0.0000  0.0000  LLH_barrel_shifter_512_0
+u_core/u_shift_512_3                 12.7181      0.1     12.7181     0.0000  0.0000  LLH_barrel_shifter_512_20
+u_core/u_shift_512_4                  8.7368      0.0      8.7368     0.0000  0.0000  LLH_barrel_shifter_512_19
+u_core/u_shift_512_5                 11.5016      0.1     11.5016     0.0000  0.0000  LLH_barrel_shifter_512_18
+u_core/u_shift_512_6                 11.1698      0.1     11.1698     0.0000  0.0000  LLH_barrel_shifter_512_17
+u_core/u_shift_512_7                  7.7414      0.0      7.7414     0.0000  0.0000  LLH_barrel_shifter_512_16
+u_core/u_shift_512_8                 11.0592      0.1     11.0592     0.0000  0.0000  LLH_barrel_shifter_512_15
+u_core/u_shift_512_9                 14.0452      0.1     14.0452     0.0000  0.0000  LLH_barrel_shifter_512_14
+u_core/u_shift_768_0                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_23
+u_core/u_shift_768_1                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_22
+u_core/u_shift_768_10                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_13
+u_core/u_shift_768_11                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_12
+u_core/u_shift_768_12                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_11
+u_core/u_shift_768_13                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_10
+u_core/u_shift_768_14                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_9
+u_core/u_shift_768_15                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_8
+u_core/u_shift_768_16                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_7
+u_core/u_shift_768_17                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_6
+u_core/u_shift_768_18                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_5
+u_core/u_shift_768_19                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_4
+u_core/u_shift_768_2                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_21
+u_core/u_shift_768_20                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_3
+u_core/u_shift_768_21                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_2
+u_core/u_shift_768_22                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_1
+u_core/u_shift_768_23                14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_0
+u_core/u_shift_768_3                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_20
+u_core/u_shift_768_4                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_19
+u_core/u_shift_768_5                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_18
+u_core/u_shift_768_6                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_17
+u_core/u_shift_768_7                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_16
+u_core/u_shift_768_8                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_15
+u_core/u_shift_768_9                 14.1558      0.1     14.1558     0.0000  0.0000  LLH_barrel_shifter_768_14
+u_msg_padder                       5960.3928     29.7   4977.5617   979.2922  0.0000  LLH_msg_padder_0
+u_msg_padder/clk_cg_clock_0           0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_msg_padder_0_3
+u_msg_padder/clk_cg_clock_1           0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_msg_padder_0_2
+u_msg_padder/clk_cg_clock_2           0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_msg_padder_0_1
+u_msg_padder/clk_cg_clock_3           0.8847      0.0      0.0000     0.8847  0.0000  LLH_SNPS_CLOCK_GATE_HIGH_LLH_msg_padder_0_0
+--------------------------------  ----------  -------  ----------  ---------  ------  -------------------------------------------
+Total                                                  14598.0336  5441.2740  0.0000
+
+1

@@ -1,0 +1,14 @@
+*build
+*__pycache__*
+.cursor/
+**/kat_sig
+
+# Implementations: local dev/test tools (see Implementations/README.md Packaging note)
+Implementations/**/kem/correct_test.c
+Implementations/**/kem/gen_invq_table.c
+Implementations/**/loom/test_loom.c
+Implementations/**/sig/KAT_SIG.c
+Implementations/**/sig/Makefile
+Implementations/**/sig/output/
+Implementations/**/build/bin/output/
+

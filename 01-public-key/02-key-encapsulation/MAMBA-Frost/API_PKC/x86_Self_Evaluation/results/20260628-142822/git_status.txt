@@ -1,0 +1,111 @@
+## codex/-api_pkc...origin/codex/-api_pkc
+ M API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-128.txt
+ M API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-192.txt
+ M API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-256.txt
+ M API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-384.txt
+ M API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-512.txt
+ M API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-384.txt
+ M API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-512.txt
+ M x86_Self_Evaluation/run_api_pkc_self_eval.sh
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384/test_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/KAT_KEM
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/check_avx2
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/output/
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/perf_kem_api
+?? API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384/test_kem_api
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/KAT_KEM
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/output/
+?? API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512/test_kem_api
+?? x86_Self_Evaluation/results/20260628-141115/
+?? x86_Self_Evaluation/results/20260628-142822/
+37fadad Add x86 API_PKC self-evaluation harness
+9c69376 Make API_PKC submission C99 compatible
+a974e1f Fix Frost-CC lower-level API sizes and complete API_PKC audit
+e29c983 Audit and fix API_PKC Frost submission package
+5bdd0b5 Adapt API_PKC Frost-CC KEM wrappers
+4758dff Add API_PKC optimized AVX2 wrappers
+1a85d49 Add API_PKC KEM submission wrappers
+9aed1cf speed update
+397fbc9 DFREst Update
+9a6d466 SecEst Update
+37fadadba296f300caed150192c8bcd86d5ba4c0
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-128.txt    | 1 +
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-192.txt    | 1 +
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-256.txt    | 1 +
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-384.txt    | 1 +
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-512.txt    | 1 +
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-384.txt | 1 +
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-512.txt | 1 +
+ x86_Self_Evaluation/run_api_pkc_self_eval.sh       | 2 +-
+ 8 files changed, 8 insertions(+), 1 deletion(-)

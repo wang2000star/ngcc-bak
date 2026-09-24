@@ -1,0 +1,211 @@
+{
+  "evidence": {},
+  "metadata": {
+    "agreement_trials": 5000,
+    "avx2_available": true,
+    "compiler": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+    "compiler_path": "/usr/bin/x86_64-linux-gnu-gcc-14",
+    "machine": "x86_64",
+    "mode": "quick",
+    "parameters_sha256": "a34156a3dcc6c80328e5bf8814d7c1aa4764dd1ac8e257c455000e124194ffdd",
+    "platform": "Linux-4.4.0-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "repository_root": "/mnt/data/mamba_eval_work/MAMBA-NIKE",
+    "sanitizers_available": true,
+    "scheme": "MAMBA-NIKE",
+    "scope": "x86 Reference and AVX2 Optimized implementations",
+    "selected_profiles": [
+      "MAMBA-NIKE-128",
+      "MAMBA-NIKE-192",
+      "MAMBA-NIKE-256",
+      "MAMBA-NIKE-384",
+      "MAMBA-NIKE-512"
+    ],
+    "timestamp_utc": "2026-06-30T14:42:47.061864+00:00"
+  },
+  "overall_status": "PASS",
+  "profiles": [
+    {
+      "delta_pk": 16,
+      "delta_u": 8,
+      "eta_r": 2,
+      "eta_s": 2,
+      "helper_bytes": 256,
+      "kat_suffix": 2752,
+      "level": 128,
+      "log2q": 13,
+      "m1_bytes": 1568,
+      "n": 1024,
+      "name": "MAMBA-NIKE-128",
+      "pk_bytes": 1184,
+      "q": 8192,
+      "sk_api_bytes": 3232,
+      "ss_bytes": 32,
+      "t_pk": 9,
+      "t_u": 10,
+      "t_v": 6
+    },
+    {
+      "delta_pk": 8,
+      "delta_u": 8,
+      "eta_r": 3,
+      "eta_s": 3,
+      "helper_bytes": 256,
+      "kat_suffix": 2880,
+      "level": 192,
+      "log2q": 13,
+      "m1_bytes": 1568,
+      "n": 1024,
+      "name": "MAMBA-NIKE-192",
+      "pk_bytes": 1312,
+      "q": 8192,
+      "sk_api_bytes": 3360,
+      "ss_bytes": 32,
+      "t_pk": 10,
+      "t_u": 10,
+      "t_v": 6
+    },
+    {
+      "delta_pk": 8,
+      "delta_u": 8,
+      "eta_r": 7,
+      "eta_s": 7,
+      "helper_bytes": 256,
+      "kat_suffix": 2880,
+      "level": 256,
+      "log2q": 13,
+      "m1_bytes": 1568,
+      "n": 1024,
+      "name": "MAMBA-NIKE-256",
+      "pk_bytes": 1312,
+      "q": 8192,
+      "sk_api_bytes": 3360,
+      "ss_bytes": 32,
+      "t_pk": 10,
+      "t_u": 10,
+      "t_v": 6
+    },
+    {
+      "delta_pk": 4,
+      "delta_u": 4,
+      "eta_r": 2,
+      "eta_s": 2,
+      "helper_bytes": 512,
+      "kat_suffix": 6208,
+      "level": 384,
+      "log2q": 13,
+      "m1_bytes": 3360,
+      "n": 2048,
+      "name": "MAMBA-NIKE-384",
+      "pk_bytes": 2848,
+      "q": 8192,
+      "sk_api_bytes": 6944,
+      "ss_bytes": 48,
+      "t_pk": 11,
+      "t_u": 11,
+      "t_v": 6
+    },
+    {
+      "delta_pk": 4,
+      "delta_u": 4,
+      "eta_r": 5,
+      "eta_s": 5,
+      "helper_bytes": 512,
+      "kat_suffix": 6208,
+      "level": 512,
+      "log2q": 13,
+      "m1_bytes": 3360,
+      "n": 2048,
+      "name": "MAMBA-NIKE-512",
+      "pk_bytes": 2848,
+      "q": 8192,
+      "sk_api_bytes": 6944,
+      "ss_bytes": 64,
+      "t_pk": 11,
+      "t_u": 11,
+      "t_v": 6
+    }
+  ],
+  "results": [
+    {
+      "command": [],
+      "details": "compiler=x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0; make=/usr/bin/make; bash=/usr/bin/bash; AVX2=True; ASan/UBSan=True; NumPy=installed",
+      "duration_seconds": 0.007416125999952783,
+      "name": "Dependencies",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "only the Reference and Optimized x86 tracks are present with all five profiles",
+      "duration_seconds": 0.0006780560001971025,
+      "name": "x86-only package layout",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "parameters.json and 10 submitted headers are aligned",
+      "duration_seconds": 0.0014868769999338838,
+      "name": "Frozen parameter alignment",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "Reference is portable coefficient-domain C and uses Toom-Cook-4 only",
+      "duration_seconds": 0.011901161999958276,
+      "name": "Reference implementation boundary",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "Optimized profiles contain AVX2 small-CBD multiplication and portable Toom fallback",
+      "duration_seconds": 0.0007235040000068693,
+      "name": "Optimized implementation boundary",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "15 canonical KAT files match their recorded sizes and SHA-256 digests",
+      "duration_seconds": 0.0034148580000419315,
+      "name": "Canonical KAT manifest integrity",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "recorded MATZOV classical/quantum values match the code-aligned report",
+      "duration_seconds": 0.0009464890001709136,
+      "name": "Security-estimator record alignment",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "3 clean profile builds completed across 3 implementation modes",
+      "duration_seconds": 6.746273381000037,
+      "name": "Quick clean-build smoke test",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "3 NGCC API normal/negative test executions passed",
+      "duration_seconds": 5.54989089899982,
+      "name": "Quick NGCC API smoke test",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "command": [],
+      "details": "27 protected files remained byte-for-byte unchanged",
+      "duration_seconds": 0.005274858999882781,
+      "name": "Protected-file immutability",
+      "required": true,
+      "status": "PASS"
+    }
+  ]
+}

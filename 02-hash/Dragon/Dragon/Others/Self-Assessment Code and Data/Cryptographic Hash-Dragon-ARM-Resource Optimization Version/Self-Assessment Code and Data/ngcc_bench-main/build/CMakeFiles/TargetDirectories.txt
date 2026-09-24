@@ -1,0 +1,16 @@
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/test.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/ngcc_bench.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/ngcc_test_support.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/ngcc_unit_tests.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/mock_mlkem.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/mock_mldsa.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/mock_hash_only.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/ngcc_cli_regression_test.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/mock_mlkex.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/rebuild_cache.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/edit_cache.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/ngcc_mock_mldsa_test.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/mock_ngcc.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/ngcc_mock_mlkem_test.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/ngcc_mock_mlkex_test.dir
+/home/firefly/HASHFin/ngcc_bench-main/build/CMakeFiles/ngcc_stability_profile.dir

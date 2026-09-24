@@ -1,0 +1,34 @@
+## work
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-128.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-192.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-256.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-384.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-512.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-128.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-192.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-256.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-384.txt
+ D API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-512.txt
+?? x86_Self_Evaluation/
+280795f Make API_PKC submission C99 compatible
+027e6d9 API_PKC: adjust secret-key layout/sizes, add smoke tests, and update docs/test targets
+5bdd0b5 Adapt API_PKC Frost-CC KEM wrappers
+4758dff Add API_PKC optimized AVX2 wrappers
+1a85d49 Add API_PKC KEM submission wrappers
+9aed1cf speed update
+397fbc9 DFREst Update
+9a6d466 SecEst Update
+10484f5 Add files via upload
+42b3001 Update Frost documentation for five-profile u16 parameter set
+280795f610707bf75060ea56ead1cb47acfcb459
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-128.txt    | 119 --------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-192.txt    | 119 --------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-256.txt    | 119 --------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-384.txt    | 119 --------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-512.txt    | 119 --------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-128.txt | 120 ---------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-192.txt | 120 ---------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-256.txt | 120 ---------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-384.txt | 119 --------------------
+ API_PKC/Test_Vectors/KAT_KEM_MAMBA-Frost-CC-512.txt | 119 --------------------
+ 10 files changed, 1193 deletions(-)

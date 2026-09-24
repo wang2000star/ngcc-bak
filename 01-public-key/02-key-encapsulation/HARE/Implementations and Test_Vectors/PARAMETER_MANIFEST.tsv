@@ -1,0 +1,5 @@
+instance	alias	status	backend	n	k_bytes	w	wr	we	n1	n2	alpha	comp_n	comp_k	comp_r	seed_bytes	salt_bytes	ss_bytes	pk_bytes	sk_api_expanded_bytes	sk_seed_reconstruction_bytes	ct_bytes	dfr_bound	dfr_model
+HARE-128-kr	HARE-2	active	kr	20899	16	79	79	145	32	640	11	51	41	2	16	16	16	2629	2677	16	4688	<2^-130	Model-2
+HARE-256-kr	HARE-5	active	kr	52379	32	131	131	224	81	640	9	51	41	2	32	32	32	6580	6676	32	11790	<2^-258	Model-1
+HARE-384-kr	HARE-7	active	kr	104869	48	193	193	361	91	1152	15	51	41	2	48	48	48	13157	13301	48	23693	<2^-384	Model-1
+HARE-512-kr	HARE-9	active	kr	173981	64	259	259	449	151	1152	13	51	41	2	64	64	64	21812	22004	64	39294	<2^-519	Model-1

@@ -1,0 +1,161 @@
+==> cd API_PKC && make kat-repro
+make -C Implementations/Reference_Implementation/MAMBA-Frost-128 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-192 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-256 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-384 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-512 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-128 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-192 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-256 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-384 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384”
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-512 all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512”
+make[1]: 对“all”无需做任何事。
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-128.txt output/KAT_KEM_MAMBA-Frost-128.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-192.txt output/KAT_KEM_MAMBA-Frost-192.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-256.txt output/KAT_KEM_MAMBA-Frost-256.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-384.txt output/KAT_KEM_MAMBA-Frost-384.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-512.txt output/KAT_KEM_MAMBA-Frost-512.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-CC-128.txt output/KAT_KEM_MAMBA-Frost-CC-128.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-CC-192.txt output/KAT_KEM_MAMBA-Frost-CC-192.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-CC-256.txt output/KAT_KEM_MAMBA-Frost-CC-256.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-CC-384.txt output/KAT_KEM_MAMBA-Frost-CC-384.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512”
+rm -rf output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mv output output.first
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+cmp output.first/KAT_KEM_MAMBA-Frost-CC-512.txt output/KAT_KEM_MAMBA-Frost-CC-512.txt
+rm -rf output.first
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512”

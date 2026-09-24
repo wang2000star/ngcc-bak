@@ -1,0 +1,8 @@
+# Duet-768 AVX2
+
+Status: retained for Duet-768 v2 on x86 AVX2.
+
+Six columns are represented as `lo=[c0..c3]` and `hi=[c4,c5,0,0]`; the
+permutation uses the v2 S-box and AVX2 row rotations.
+
+See `../Evaluation_Report.md` for validation commands and benchmark results.

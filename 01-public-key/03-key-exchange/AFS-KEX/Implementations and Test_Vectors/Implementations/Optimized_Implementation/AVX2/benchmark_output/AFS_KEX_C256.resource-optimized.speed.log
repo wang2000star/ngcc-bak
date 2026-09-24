@@ -1,0 +1,115 @@
+instance: AFS_KEX_C256
+implementation: optimized
+
+gen_matrix
+median: 231438 cycles/ticks
+average: 239709 cycles/ticks
+
+poly_getnoise_eta1
+median: 5406 cycles/ticks
+average: 5836 cycles/ticks
+
+poly_getnoise_eta2
+median: 5388 cycles/ticks
+average: 5417 cycles/ticks
+
+poly_ntt
+median: 226 cycles/ticks
+average: 239 cycles/ticks
+
+poly_invntt_tomont
+median: 242 cycles/ticks
+average: 242 cycles/ticks
+
+polyvec_basemul_acc_montgomery
+median: 308 cycles/ticks
+average: 309 cycles/ticks
+
+poly_tomsg
+median: 13258 cycles/ticks
+average: 13332 cycles/ticks
+
+poly_frommsg
+median: 1512 cycles/ticks
+average: 1525 cycles/ticks
+
+poly_tobytes
+median: 62 cycles/ticks
+average: 62 cycles/ticks
+
+poly_frombytes
+median: 44 cycles/ticks
+average: 44 cycles/ticks
+
+polyvec_compress
+median: 5434 cycles/ticks
+average: 5462 cycles/ticks
+
+polyvec_decompress
+median: 7600 cycles/ticks
+average: 7640 cycles/ticks
+
+encode_bw32
+median: 92 cycles/ticks
+average: 93 cycles/ticks
+
+decode_bw32
+median: 1534 cycles/ticks
+average: 1552 cycles/ticks
+
+indcpa_keypair_derand
+median: 275560 cycles/ticks
+average: 283282 cycles/ticks
+
+indcpa_enc
+median: 282924 cycles/ticks
+average: 290086 cycles/ticks
+
+indcpa_dec
+median: 24608 cycles/ticks
+average: 24747 cycles/ticks
+
+crypto_kem_keypair
+median: 279432 cycles/ticks
+average: 287364 cycles/ticks
+
+crypto_kem_enc
+median: 293318 cycles/ticks
+average: 298071 cycles/ticks
+
+crypto_kem_dec
+median: 347368 cycles/ticks
+average: 352054 cycles/ticks
+
+kex_init_a
+median: 561464 cycles/ticks
+average: 568084 cycles/ticks
+
+kex_init_b
+median: 560778 cycles/ticks
+average: 565439 cycles/ticks
+
+kex_generate_pass1_msg_a
+median: 292844 cycles/ticks
+average: 296538 cycles/ticks
+
+kex_generate_pass2_msg_b
+median: 641558 cycles/ticks
+average: 646655 cycles/ticks
+
+kex_generate_pass3_msg_a
+median: 620388 cycles/ticks
+average: 626510 cycles/ticks
+
+kex_generate_pass4_msg_b
+median: 274560 cycles/ticks
+average: 280626 cycles/ticks
+
+kex_derive_ss_a
+median: 6 cycles/ticks
+average: 6 cycles/ticks
+
+kex_derive_ss_b
+median: 6 cycles/ticks
+average: 6 cycles/ticks
+

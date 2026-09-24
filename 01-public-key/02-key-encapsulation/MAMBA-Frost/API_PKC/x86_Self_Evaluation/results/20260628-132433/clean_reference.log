@@ -1,0 +1,32 @@
+==> cd API_PKC && make clean
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128'
+rm -rf KAT_KEM test_kem_api output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192'
+rm -rf KAT_KEM test_kem_api output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256'
+rm -rf KAT_KEM test_kem_api output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384'
+rm -rf KAT_KEM test_kem_api output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512'
+rm -rf KAT_KEM test_kem_api output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128'
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192'
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256'
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384'
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512'
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe output output.first
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512'
+rm -f Test_Vectors/KAT_KEM_MAMBA-Frost-*.txt

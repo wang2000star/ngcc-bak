@@ -1,0 +1,36 @@
+{
+	"Algorithms overview":	{
+		"Algorithm_name":	"Iphe-768-Resource",
+		"Developed by":	"ICCS",
+		"Block size":	152,
+		"Digest Length":	96
+	},
+	"Functional test report":	{
+		"long input":	true,
+		"short input":	true
+	},
+	"Performance evaluation":	{
+		"Hash perf evaluation":	{
+			"Cycle measurement":	{
+				"avg_cycles":	416841.945,
+				"min_cycles":	377366,
+				"max_cycles":	9766150
+			},
+			"Throughput":	{
+				"throuput":	"232.74 Mbps",
+				"run_times":	1000
+			}
+		}
+	},
+	"Memory evaluation":	{
+		"Static segments":	{
+			"text_size":	912,
+			"data_size":	336,
+			"bss_size":	0
+		},
+		"Dynamic usage":	{
+			"heap_peak":	4603904,
+			"stack_peak":	733184
+		}
+	}
+}

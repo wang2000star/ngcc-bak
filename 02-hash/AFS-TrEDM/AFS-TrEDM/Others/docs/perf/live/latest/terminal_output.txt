@@ -1,0 +1,85 @@
+Cycles per Byte Comparison (cpb)
+Implementation                                    64B     192B    1KB     1536B   64KB    1MB   
+------------------------------------------------  ------  ------  ------  ------  ------  ------
+AFS-TrEDM-S6 Reference 512                        192.69  126.19  106.04  104.23   96.16   97.86
+AFS-TrEDM-S6 Reference 768                        338.18  337.90  231.67  240.21  226.03  224.35
+AFS-TrEDM-S6 Reference 1024                       773.61  500.78  403.44  394.59  378.80  379.95
+AFS-TrEDM-S6 Optimized opt64 512                   23.74   15.78   12.95   12.58   11.66   11.90
+AFS-TrEDM-S6 Optimized opt64 768                   39.20   38.75   26.22   27.03   25.78   25.40
+AFS-TrEDM-S6 Optimized opt64 1024                  93.51   61.72   48.84   48.06   46.02   46.01
+AFS-TrEDM-S6 Optimized AVX2 hybrid 512             18.13   12.16    9.94    9.51    8.68    8.89
+AFS-TrEDM-S6 Optimized AVX2 hybrid 768             30.03   29.45   20.32   20.86   19.64   19.68
+AFS-TrEDM-S6 Optimized AVX2 hybrid 1024            68.50   45.41   37.08   35.47   33.95   33.91
+AFS-TrEDM-S6 Batch16 AVX512 norm 512                6.81    4.48    3.70    3.50    3.29    3.21
+AFS-TrEDM-S6 Batch16 AVX512 norm 768               11.00   10.50    7.32    7.30    6.88    6.94
+AFS-TrEDM-S6 Batch16 AVX512 norm 1024              25.81   16.99   13.20   12.72   12.35   12.41
+SHA3-512 Reference C (XKCP readable)              170.39  174.48  162.73  157.06  151.49  151.59
+SHA3-512 XKCP CompactFIPS202 (XKCP more-compact)  191.17  191.41  178.67  175.06  170.49  170.23
+SHA3-512 OpenSSL EVP                               17.90   11.00    7.91    7.56    6.92    6.92
+
+Cycles per Hash Comparison
+Implementation                                    64B       192B      1KB        1536B      64KB         1MB         
+------------------------------------------------  --------  --------  ---------  ---------  -----------  ------------
+AFS-TrEDM-S6 Reference 512                        12332.17  24228.15  108582.70  160096.67   6301893.58  102616852.50
+AFS-TrEDM-S6 Reference 768                        21643.72  64877.11  237232.52  368962.52  14812945.68  235247102.00
+AFS-TrEDM-S6 Reference 1024                       49511.35  96148.89  413122.00  606090.19  24824760.52  398404558.83
+AFS-TrEDM-S6 Optimized opt64 512                   1519.57   3029.49   13263.54   19329.69    764142.48   12481266.46
+AFS-TrEDM-S6 Optimized opt64 768                   2508.85   7439.38   26849.39   41523.24   1689469.74   26634539.33
+AFS-TrEDM-S6 Optimized opt64 1024                  5984.63  11849.59   50011.67   73827.64   3015761.44   48244335.17
+AFS-TrEDM-S6 Optimized AVX2 hybrid 512             1160.10   2334.47   10176.09   14602.04    568991.45    9320702.81
+AFS-TrEDM-S6 Optimized AVX2 hybrid 768             1922.17   5653.55   20805.77   32044.05   1287363.37   20631880.08
+AFS-TrEDM-S6 Optimized AVX2 hybrid 1024            4383.93   8719.58   37974.32   54487.92   2225263.31   35561777.42
+AFS-TrEDM-S6 Batch16 AVX512 norm 512                436.11    859.89    3784.37    5370.76    215806.97    3367059.18
+AFS-TrEDM-S6 Batch16 AVX512 norm 768                703.93   2015.68    7495.69   11213.40    450732.58    7277285.68
+AFS-TrEDM-S6 Batch16 AVX512 norm 1024              1651.87   3263.01   13514.61   19542.76    809323.81   13014967.98
+SHA3-512 Reference C (XKCP readable)              10905.21  33500.34  166630.69  241244.40   9927929.37  158949551.50
+SHA3-512 XKCP CompactFIPS202 (XKCP more-compact)  12234.82  36750.07  182957.49  268889.73  11172935.01  178502343.68
+SHA3-512 OpenSSL EVP                               1145.29   2112.80    8102.30   11609.19    453778.69    7260473.45
+
+Throughput Comparison (MB/s)
+Implementation                                    64B      192B     1KB      1536B    64KB     1MB    
+------------------------------------------------  -------  -------  -------  -------  -------  -------
+AFS-TrEDM-S6 Reference 512                         12.954   19.780   23.539   23.947   25.957   25.506
+AFS-TrEDM-S6 Reference 768                          7.381    7.387   10.774   10.391   11.044   11.125
+AFS-TrEDM-S6 Reference 1024                         3.226    4.985    6.187    6.326    6.589    6.569
+AFS-TrEDM-S6 Optimized opt64 512                  105.128  158.193  192.707  198.347  214.074  209.701
+AFS-TrEDM-S6 Optimized opt64 768                   63.674   64.420   95.197   92.332   96.824   98.268
+AFS-TrEDM-S6 Optimized opt64 1024                  26.694   40.445   51.108   51.932   54.243   54.251
+AFS-TrEDM-S6 Optimized AVX2 hybrid 512            137.703  205.291  251.175  262.564  287.496  280.808
+AFS-TrEDM-S6 Optimized AVX2 hybrid 768             83.109   84.769  122.849  119.647  127.067  126.858
+AFS-TrEDM-S6 Optimized AVX2 hybrid 1024            36.439   54.962   67.308   70.364   73.511   73.600
+AFS-TrEDM-S6 Batch16 AVX512 norm 512              366.303  557.340  675.406  713.861  758.005  777.332
+AFS-TrEDM-S6 Batch16 AVX512 norm 768              226.938  237.759  340.994  341.910  362.926  359.657
+AFS-TrEDM-S6 Batch16 AVX512 norm 1024              96.708  146.872  189.127  196.184  202.122  201.101
+SHA3-512 Reference C (XKCP readable)               14.649   14.306   15.339   15.892   16.477   16.466
+SHA3-512 XKCP CompactFIPS202 (XKCP more-compact)   13.057   13.041   13.970   14.259   14.641   14.663
+SHA3-512 OpenSSL EVP                              139.483  226.830  315.464  330.253  360.491  360.490
+
+Latency Comparison (milliseconds)
+Implementation                                    64B          192B         1KB          1536B        64KB         1MB          
+------------------------------------------------  -----------  -----------  -----------  -----------  -----------  -------------
+AFS-TrEDM-S6 Reference 512                        0.004940620  0.009706500  0.043501500  0.064139370  2.524724600   41.111330190
+AFS-TrEDM-S6 Reference 768                        0.008671120  0.025991580  0.095042390  0.147816840  5.934488770   94.246824580
+AFS-TrEDM-S6 Reference 1024                       0.019835670  0.038519980  0.165508670  0.242817550  9.945511820  159.612417220
+AFS-TrEDM-S6 Optimized opt64 512                  0.000608780  0.001213700  0.005313750  0.007744040  0.306137460    5.000352860
+AFS-TrEDM-S6 Optimized opt64 768                  0.001005120  0.002980430  0.010756670  0.016635470  0.676850230   10.670582450
+AFS-TrEDM-S6 Optimized opt64 1024                 0.002397620  0.004747290  0.020036080  0.029577500  1.208199560   19.328077630
+AFS-TrEDM-S6 Optimized AVX2 hybrid 512            0.000464770  0.000935260  0.004076830  0.005850000  0.227953870    3.734144070
+AFS-TrEDM-S6 Optimized AVX2 hybrid 768            0.000770080  0.002264980  0.008335400  0.012837770  0.515756380    8.265728750
+AFS-TrEDM-S6 Optimized AVX2 hybrid 1024           0.001756330  0.003493310  0.015213630  0.021829460  0.891505930   14.247079690
+AFS-TrEDM-S6 Batch16 AVX512 norm 512              0.000174719  0.000344494  0.001516125  0.002151680  0.086458437    1.348941406
+AFS-TrEDM-S6 Batch16 AVX512 norm 768              0.000282016  0.000807541  0.003002988  0.004492406  0.180576875    2.915488281
+AFS-TrEDM-S6 Batch16 AVX512 norm 1024             0.000661788  0.001307259  0.005414337  0.007829375  0.324238750    5.214171875
+SHA3-512 Reference C (XKCP readable)              0.004368940  0.013421170  0.066756960  0.096649380  3.977414970   63.679775600
+SHA3-512 XKCP CompactFIPS202 (XKCP more-compact)  0.004901630  0.014723120  0.073298060  0.107724960  4.476200040   71.513187890
+SHA3-512 OpenSSL EVP                              0.000458840  0.000846450  0.003246010  0.004650970  0.181796250    2.908748390
+
+Notes:
+- MB/s uses decimal bytes per second.
+- 1KB, 64KB, and 1MB labels correspond to binary byte counts in metadata: 1024, 65536, and 1048576 bytes.
+- AFS-TrEDM-S6 Batch16 AVX512 norm is a multi-buffer normalized throughput backend. Its latency, cycles/hash, and cpb are normalized per message across a 16-message batch and must not be interpreted as single-message latency.
+- SHA3-512 Reference C (XKCP readable) uses official XKCP Standalone/CompactFIPS202/C/Keccak-readable-and-compact.c unless otherwise noted.
+- SHA3-512 XKCP CompactFIPS202 (XKCP more-compact) is a separate compact XKCP baseline using official Keccak-more-compact.c.
+- SHA3-512 OpenSSL EVP is a single-message deployment baseline.
+- SHA3-512 Reference C and XKCP CompactFIPS202 are external baselines, not AFS-TrEDM implementations.
+- None of these SHA3 baselines is part of AFS-TrEDM's Reference_Implementation or Optimized_Implementation.

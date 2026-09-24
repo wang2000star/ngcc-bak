@@ -1,0 +1,91 @@
+==> cd API_PKC && make kats
+make -C Implementations/Reference_Implementation/MAMBA-Frost-128 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-192 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-256 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-384 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-512 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-128 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-192 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-256 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-384 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384'
+make -C Implementations/Reference_Implementation/MAMBA-Frost-CC-512 all
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-128'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-192'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-256'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-384'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-512'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-128'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-192'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-256'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-384'
+make[1]: Entering directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512'
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+make[1]: Leaving directory '/workspace/Frost/API_PKC/Implementations/Reference_Implementation/MAMBA-Frost-CC-512'

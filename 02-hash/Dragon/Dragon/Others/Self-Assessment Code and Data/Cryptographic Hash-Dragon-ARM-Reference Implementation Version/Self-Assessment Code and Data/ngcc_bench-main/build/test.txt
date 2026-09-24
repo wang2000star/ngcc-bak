@@ -1,0 +1,31 @@
+./ngcc_bench \
+  --lib ../../Dragon_X86/API_CryptHash/Implementations/Optimized_Implementation/Dragon512/libDragon512Opt.so \
+  --test hash \
+  --mode memory \
+  --digest-len-bits 512 \
+  --json-out full_report.json
+  
+  
+  ./ngcc_bench   --lib ../../Dragon_X86/API_CryptHash/Implementations/Optimized_Implementation/Dragon512/libDragon512Opt.so   --test hash   --mode correctness   --digest-len-bits 512   --kat ../../Dragon_X86/API_CryptHash/Test_Vector/Dragon512   --json-out full_report.json
+  
+    
+  ./ngcc_bench  \
+  --lib ../../Dragon_X86/API_CryptHash/Implementations/Reference_Implementation/Dragon512/libDragon512ref.so \
+  --test hash   --mode all   --digest-len-bits 512  \
+  --kat ../../Dragon_X86/API_CryptHash/Test_Vector/Dragon512 \
+  --json-out full_report.json
+  
+  
+    ./ngcc_bench   --lib ../../Dragon_X86/API_CryptHash/Implementations/Reference_Implementation/Dragon512/libDragon512ref.so   --test hash   --mode correctness   --digest-len-bits 512   --kat ../../Dragon_X86/API_CryptHash/Test_Vector/Dragon512   --json-out full_report.json
+    
+    
+      ./ngcc_bench   --lib ../../Dragon_X86/API_CryptHash/Implementations/Optimized_Implementation/Dragon512/libDragon512Opt.so   --test hash   --mode all   --digest-len-bits 512   --kat ../../Dragon_X86/API_CryptHash/Test_Vector/Dragon512   --json-out full_report.json
+      
+      
+      
+ sudo       rm -rf    SHA3512*.json.* 
+  sudo     ./ngcc_bench   --lib ../../SHA3512/libSHA3512.so   --test hash   --mode all   --digest-len-bits 512   --kat ../../Dragon_X86/API_CryptHash/Test_Vector/Dragon512   --json-out SHA3512_report.json
+  chmod 777 SHA3*
+  
+  
+  sudo  ./ngcc_bench   --lib ../../SHA3512/libSHA3512.so   --test hash   --mode performance   --digest-len-bits 512    --json-out SHA3512_report.json

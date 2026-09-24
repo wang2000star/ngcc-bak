@@ -1,0 +1,38 @@
+set(IPHE_OPTIMIZED_DIR ${PROJECT_SOURCE_DIR}/Implementations/Optimized_Implementation)
+
+set(IPHE_PERFORMANCE_FLAGS
+    -O3 -march=x86-64 -mavx2 -mtune=native -flto -ffat-lto-objects
+    -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra
+)
+set(IPHE_RESOURCE_FLAGS
+    -Os -march=x86-64 -mavx2 -flto -ffat-lto-objects
+    -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra
+)
+
+foreach(IPHE_BITS IN ITEMS 512 768 1024)
+    set(IPHE_PERF_TARGET iphe_${IPHE_BITS}_perf)
+    add_library(${IPHE_PERF_TARGET}
+        ${IPHE_OPTIMIZED_DIR}/Performance_Implementation/Iphe-${IPHE_BITS}/CryptHash_AlgorithmInstance.c
+    )
+    target_include_directories(${IPHE_PERF_TARGET} PRIVATE
+        ${IPHE_OPTIMIZED_DIR}/Performance_Implementation/Iphe-${IPHE_BITS}
+    )
+    target_compile_definitions(${IPHE_PERF_TARGET} PRIVATE
+        CryptHash=CryptHash_iphe${IPHE_BITS}_perf
+        CryptHash_AlgorithmInstance_permutation=CryptHash_AlgorithmInstance_permutation_iphe${IPHE_BITS}_perf
+    )
+    target_compile_options(${IPHE_PERF_TARGET} PRIVATE ${IPHE_PERFORMANCE_FLAGS})
+
+    set(IPHE_RES_TARGET iphe_${IPHE_BITS}_res)
+    add_library(${IPHE_RES_TARGET}
+        ${IPHE_OPTIMIZED_DIR}/Resource_Implementation/Iphe-${IPHE_BITS}/CryptHash_AlgorithmInstance.c
+    )
+    target_include_directories(${IPHE_RES_TARGET} PRIVATE
+        ${IPHE_OPTIMIZED_DIR}/Resource_Implementation/Iphe-${IPHE_BITS}
+    )
+    target_compile_definitions(${IPHE_RES_TARGET} PRIVATE
+        CryptHash=CryptHash_iphe${IPHE_BITS}_res
+        CryptHash_AlgorithmInstance_permutation=CryptHash_AlgorithmInstance_permutation_iphe${IPHE_BITS}_res
+    )
+    target_compile_options(${IPHE_RES_TARGET} PRIVATE ${IPHE_RESOURCE_FLAGS})
+endforeach()

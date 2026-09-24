@@ -1,0 +1,107 @@
+instance: AFS_KEX_C512
+implementation: reference
+
+gen_matrix
+median: 1327922 cycles/ticks
+average: 1327724 cycles/ticks
+
+poly_getnoise_eta1
+median: 21810 cycles/ticks
+average: 21935 cycles/ticks
+
+poly_getnoise_eta2
+median: 21782 cycles/ticks
+average: 21912 cycles/ticks
+
+poly_ntt
+median: 21718 cycles/ticks
+average: 21695 cycles/ticks
+
+poly_invntt_tomont
+median: 13512 cycles/ticks
+average: 13572 cycles/ticks
+
+polyvec_basemul_acc_montgomery
+median: 44650 cycles/ticks
+average: 44933 cycles/ticks
+
+poly_tomsg
+median: 49764 cycles/ticks
+average: 50077 cycles/ticks
+
+poly_frommsg
+median: 3112 cycles/ticks
+average: 3130 cycles/ticks
+
+poly_tobytes
+median: 810 cycles/ticks
+average: 827 cycles/ticks
+
+poly_frombytes
+median: 620 cycles/ticks
+average: 621 cycles/ticks
+
+polyvec_compress
+median: 10820 cycles/ticks
+average: 10865 cycles/ticks
+
+polyvec_decompress
+median: 5804 cycles/ticks
+average: 5845 cycles/ticks
+
+indcpa_keypair_derand
+median: 1920612 cycles/ticks
+average: 1919477 cycles/ticks
+
+indcpa_enc
+median: 1938552 cycles/ticks
+average: 1937956 cycles/ticks
+
+indcpa_dec
+median: 204380 cycles/ticks
+average: 205845 cycles/ticks
+
+crypto_kem_keypair
+median: 1970066 cycles/ticks
+average: 1969665 cycles/ticks
+
+crypto_kem_enc
+median: 1978932 cycles/ticks
+average: 1978502 cycles/ticks
+
+crypto_kem_dec
+median: 2301364 cycles/ticks
+average: 2301073 cycles/ticks
+
+kex_init_a
+median: 3932522 cycles/ticks
+average: 3934228 cycles/ticks
+
+kex_init_b
+median: 3931420 cycles/ticks
+average: 3931931 cycles/ticks
+
+kex_generate_pass1_msg_a
+median: 1980508 cycles/ticks
+average: 1979848 cycles/ticks
+
+kex_generate_pass2_msg_b
+median: 4322200 cycles/ticks
+average: 4326859 cycles/ticks
+
+kex_generate_pass3_msg_a
+median: 4259612 cycles/ticks
+average: 4259868 cycles/ticks
+
+kex_generate_pass4_msg_b
+median: 1900964 cycles/ticks
+average: 1900195 cycles/ticks
+
+kex_derive_ss_a
+median: 10 cycles/ticks
+average: 10 cycles/ticks
+
+kex_derive_ss_b
+median: 10 cycles/ticks
+average: 10 cycles/ticks
+

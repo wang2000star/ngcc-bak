@@ -1,0 +1,81 @@
+==> cd API_PKC && make optimized-all
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost128.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost128.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost128.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost192.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost192.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost192.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost256.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost256.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost256.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost384.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost384.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost384.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost512.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost512.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost/src/frost512.c ./Frost/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc128.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc128.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc128.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc192.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc192.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc192.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc256.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc256.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc256.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc384.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc384.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc384.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”
+cc -std=c99 -Wpedantic -Wall -Wextra -O2 -march=x86-64 ../check_avx2.c  -lm -o check_avx2
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer KAT_KEM.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc512.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o KAT_KEM
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer test_kem_api.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc512.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o test_kem_api
+cc -I. -DNIX -D_AMD64_ -D_FAST_ -D_AES128_FOR_A_ -DFROST_USE_E8_CODE -std=c99 -Wpedantic -Wall -Wextra -O3 -march=x86-64 -mavx2 -maes -mtune=native -flto -fomit-frame-pointer ../test_perf.c KEM_AlgorithmInstance.c randombytes_adapter.c drng.c auxfunc.c ./Frost-CC/src/frostcc512.c ./Frost-CC/src/util.c ./common/sha3/fips202.c ./common/aes/aes_ni.c  -lm -o perf_kem_api
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”

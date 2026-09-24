@@ -1,0 +1,23 @@
+add_library(sm3
+    SM3/sm3.c
+)
+
+target_include_directories(sm3 PUBLIC
+    SM3/include
+)
+
+set(IPHE_REFERENCE_DIR ${PROJECT_SOURCE_DIR}/Implementations/Reference_Implementation)
+
+foreach(IPHE_BITS IN ITEMS 512 768 1024)
+    set(IPHE_TARGET iphe_${IPHE_BITS})
+    add_library(${IPHE_TARGET}
+        ${IPHE_REFERENCE_DIR}/Iphe-${IPHE_BITS}/CryptHash_AlgorithmInstance.c
+    )
+    target_include_directories(${IPHE_TARGET} PRIVATE
+        ${IPHE_REFERENCE_DIR}/Iphe-${IPHE_BITS}
+    )
+    target_compile_definitions(${IPHE_TARGET} PRIVATE
+        CryptHash=CryptHash_iphe${IPHE_BITS}
+        CryptHash_AlgorithmInstance_permutation=CryptHash_AlgorithmInstance_permutation_iphe${IPHE_BITS}
+    )
+endforeach()

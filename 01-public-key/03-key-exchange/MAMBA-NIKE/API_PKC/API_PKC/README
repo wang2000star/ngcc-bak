@@ -1,0 +1,53 @@
+MAMBA-NIKE — NGCC API_PKC KEX Package
+======================================
+
+This directory contains the five submitted MAMBA-NIKE KEX instances,
+their Reference and x86-64 Optimized implementations, canonical KATs,
+and API conformance tests.
+
+Algorithm Summary
+-----------------
+  Type:           responder-static one-pass KEX
+  Ring:           Z_q[x]/(x^n + 1)
+  Modulus:        q = 2^13 = 8192
+  Reconciliation: NewHope-style D4 helper data
+  KDF:            SHAKE256("MAMBA-NIKE-KDF20" || nu || pk_B || M1)
+
+Multiplication Backends
+-----------------------
+  Reference:
+    portable coefficient-domain Toom-Cook-4 negacyclic convolution.
+
+  Optimized AVX2:
+    fixed-loop direct negacyclic accumulation in 16-bit AVX2 lanes via
+    poly_mul_small().  The final q-1 mask is exact after modulo-2^16 lane
+    wraparound because q divides 2^16.  The implementation never skips
+    zero secret coefficients.  Non-AVX2 builds use the Toom-Cook fallback.
+
+Submitted Instances
+-------------------
+  Instance          n     eta   t_pk  t_u  pk     sk_api  M1    ss   KAT suffix
+  MAMBA-NIKE-128   1024     2      9   10  1184   3232   1568   32   2752
+  MAMBA-NIKE-192   1024     3     10   10  1312   3360   1568   32   2880
+  MAMBA-NIKE-256   1024     7     10   10  1312   3360   1568   32   2880
+  MAMBA-NIKE-384   2048     2     11   11  2848   6944   3360   48   6208
+  MAMBA-NIKE-512   2048     5     11   11  2848   6944   3360   64   6208
+
+The values above document the already frozen profile headers.  The current
+optimization does not modify parameters.json or any params.h file.
+
+Directory Layout
+----------------
+  Implementations/
+    Reference_Implementation/MAMBA-NIKE-{128,192,256,384,512}/
+    Optimized_Implementation/MAMBA-NIKE-{128,192,256,384,512}/
+  KAT/MAMBA-NIKE-*/PQCkexKAT_*.{req,rsp}
+  Test_Vectors/KAT_KEX_MAMBA-NIKE-*.txt
+  Internal_Tests/NGCC_API/api_check.c
+
+KAT Generation
+--------------
+  bash generate_all_kats.sh
+
+Reference is the canonical KAT source.  Optimized builds must match the
+corresponding Reference raw KAT file byte for byte.

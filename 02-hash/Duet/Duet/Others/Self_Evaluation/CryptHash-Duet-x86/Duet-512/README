@@ -1,0 +1,9 @@
+# Duet-512 AVX2
+
+Status: retained for Duet-512 v2 on x86 AVX2.
+
+Rows pack the three Duet-512 columns into AVX2 lanes. The permutation uses the
+v2 S-box, AVX2 row rotations, precomputed `l64` rotate-count tables, AVX2
+complete-block byte-swap loads, and a fused `C1` handoff from `f1` to `f2`.
+
+See `../Evaluation_Report.md` for validation commands and benchmark results.

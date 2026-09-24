@@ -1,0 +1,25 @@
+=== host arm64-macos-host : extracting + running (CC=clang) ===
+host=arm64 cc=clang freq_kHz=0  start=2026-06-23T21:01:07Z
+==== DKEM ====
+[DKEM-128 | Reference] KAT=PASS | | static(text=32768 data=16384 bss=0 total=49152)
+[DKEM-256 | Reference] KAT=PASS | | static(text=32768 data=16384 bss=0 total=49152)
+[DKEM-512 | Reference] KAT=PASS | | static(text=32768 data=16384 bss=0 total=49152)
+[DKEM-128 | NEON] KAT=PASS | | static(text=49152 data=16384 bss=0 total=65536)
+[DKEM-256 | NEON] KAT=PASS | | static(text=49152 data=16384 bss=0 total=65536)
+[DKEM-512 | NEON] KAT=PASS | | static(text=49152 data=16384 bss=0 total=65536)
+==== ADKEX ====
+[ADKEX-128 | Reference] KAT=PASS | | static(text=49152 data=16384 bss=0 total=65536)
+[ADKEX-256 | Reference] KAT=PASS | | static(text=49152 data=16384 bss=0 total=65536)
+[ADKEX-512 | Reference] KAT=PASS | | static(text=32768 data=16384 bss=0 total=49152)
+[ADKEX-128 | NEON] KAT=PASS | | static(text=49152 data=16384 bss=0 total=65536)
+[ADKEX-256 | NEON] KAT=PASS | | static(text=49152 data=16384 bss=0 total=65536)
+[ADKEX-512 | NEON] KAT=PASS | | static(text=49152 data=16384 bss=0 total=65536)
+==== DKEX ====
+[DKEX-128 | Reference] KAT=PASS | | static(text=65536 data=16384 bss=0 total=81920)
+[DKEX-256 | Reference] KAT=PASS | | static(text=65536 data=16384 bss=0 total=81920)
+[DKEX-512 | Reference] KAT=PASS | | static(text=65536 data=16384 bss=0 total=81920)
+[DKEX-128 | NEON] KAT=PASS | | static(text=98304 data=16384 bss=0 total=114688)
+[DKEX-256 | NEON] KAT=PASS | | static(text=114688 data=16384 bss=0 total=131072)
+[DKEX-512 | NEON] KAT=PASS | | static(text=114688 data=16384 bss=0 total=131072)
+end=2026-06-23T21:02:11Z
+__RC=0

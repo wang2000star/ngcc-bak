@@ -1,0 +1,13 @@
+implementation,instance,function,loops,countergap,cycles,sink,cc,cflags
+Optimized,NTRE-128,hash_G,10000,22,13755,6102,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-128,hash_H,10000,22,19784,163457473040034971,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-128,hash_F,10000,22,1925,163457473040059016,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-128,sample_psi1,10000,22,5589,163162468976316818,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-256,hash_G,10000,21,26777,2118,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-256,hash_H,10000,21,35874,9329600520867833988,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-256,hash_F,10000,21,5761,9329600520777359139,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-256,sample_psi1,10000,21,10051,2919908055678240729,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-512,hash_G,10000,21,48302,1052,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-512,hash_H,10000,21,90214,16902742483506356380,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-512,hash_F,10000,21,13338,16902751406589306360,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"
+Optimized,NTRE-512,sample_psi1,10000,21,16342,12240126772068281003,"gcc","-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result"

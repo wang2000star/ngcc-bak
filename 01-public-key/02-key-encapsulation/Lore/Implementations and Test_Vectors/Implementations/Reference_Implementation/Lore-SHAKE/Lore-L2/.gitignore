@@ -1,0 +1,15 @@
+
+*.o
+*.o_*
+*.so
+obj/
+
+
+test_lore_*
+test_speed_*
+test_vectors_*
+
+
+PQCgenKAT_pke_*
+kat/*.req
+kat/*.rsp

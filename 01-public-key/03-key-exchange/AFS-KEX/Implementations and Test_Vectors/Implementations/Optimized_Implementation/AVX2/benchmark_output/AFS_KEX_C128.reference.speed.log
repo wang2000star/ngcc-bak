@@ -1,0 +1,107 @@
+instance: AFS_KEX_C128
+implementation: reference
+
+gen_matrix
+median: 116780 cycles/ticks
+average: 117718 cycles/ticks
+
+poly_getnoise_eta1
+median: 22268 cycles/ticks
+average: 22378 cycles/ticks
+
+poly_getnoise_eta2
+median: 18628 cycles/ticks
+average: 18749 cycles/ticks
+
+poly_ntt
+median: 5608 cycles/ticks
+average: 5581 cycles/ticks
+
+poly_invntt_tomont
+median: 8780 cycles/ticks
+average: 8710 cycles/ticks
+
+polyvec_basemul_acc_montgomery
+median: 7020 cycles/ticks
+average: 7082 cycles/ticks
+
+poly_tomsg
+median: 4256 cycles/ticks
+average: 4283 cycles/ticks
+
+poly_frommsg
+median: 1040 cycles/ticks
+average: 1042 cycles/ticks
+
+poly_tobytes
+median: 396 cycles/ticks
+average: 396 cycles/ticks
+
+poly_frombytes
+median: 304 cycles/ticks
+average: 304 cycles/ticks
+
+polyvec_compress
+median: 2836 cycles/ticks
+average: 2851 cycles/ticks
+
+polyvec_decompress
+median: 1628 cycles/ticks
+average: 1641 cycles/ticks
+
+indcpa_keypair_derand
+median: 223300 cycles/ticks
+average: 224581 cycles/ticks
+
+indcpa_enc
+median: 260598 cycles/ticks
+average: 262550 cycles/ticks
+
+indcpa_dec
+median: 35074 cycles/ticks
+average: 35406 cycles/ticks
+
+crypto_kem_keypair
+median: 228272 cycles/ticks
+average: 230088 cycles/ticks
+
+crypto_kem_enc
+median: 262062 cycles/ticks
+average: 264153 cycles/ticks
+
+crypto_kem_dec
+median: 312904 cycles/ticks
+average: 315161 cycles/ticks
+
+kex_init_a
+median: 471408 cycles/ticks
+average: 474498 cycles/ticks
+
+kex_init_b
+median: 472170 cycles/ticks
+average: 475788 cycles/ticks
+
+kex_generate_pass1_msg_a
+median: 267428 cycles/ticks
+average: 269405 cycles/ticks
+
+kex_generate_pass2_msg_b
+median: 584668 cycles/ticks
+average: 588357 cycles/ticks
+
+kex_generate_pass3_msg_a
+median: 544334 cycles/ticks
+average: 547220 cycles/ticks
+
+kex_generate_pass4_msg_b
+median: 225772 cycles/ticks
+average: 226823 cycles/ticks
+
+kex_derive_ss_a
+median: 8 cycles/ticks
+average: 8 cycles/ticks
+
+kex_derive_ss_b
+median: 10 cycles/ticks
+average: 9 cycles/ticks
+

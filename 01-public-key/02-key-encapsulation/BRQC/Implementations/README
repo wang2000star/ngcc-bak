@@ -1,0 +1,29 @@
+BRQC - Key Encapsulation Mechanism (KEM)
+
+This directory contains the implementation of the BRQC KEM scheme.
+
+Directory structure:
+  Reference_Implementation/     Reference implementation (pure C, no platform-specific instructions)
+    BRQC-128/                   BRQC-128 (128-bit classical security)
+    BRQC-256/                   BRQC-256 (256-bit classical security)
+    BRQC-512/                   BRQC-512 (512-bit classical security)
+
+  Optimized_Implementation/     Optimized implementation (AVX2/PCLMUL instruction set)
+    BRQC-128/                   BRQC-128 (128-bit classical security)
+    BRQC-256/                   BRQC-256 (256-bit classical security)
+    BRQC-512/                   BRQC-512 (512-bit classical security)
+
+Each instance directory contains:
+  KEM_BRQC-{sec}.h/c       KEM programming interface (API_PKC standard)
+  drng.c/h                 Deterministic random number generator (API_PKC)
+  auxfunc.c/h              Auxiliary hash functions (API_PKC)
+  KAT_KEM.c                Known answer test vector generator (API_PKC)
+  src/                     Algorithm implementation sources
+  lib/                     Internal dependencies
+  Makefile                 Build script
+  README                   Instance documentation
+
+Programming interface:
+  The implementation uses the programming interface provided by ICCS (KEM_BRQC-{sec}.h).
+  Cryptographic hashing uses the provided auxiliary functions (auxfunc.h).
+  Random number generation uses the provided DRNG (drng.h).

@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libmock_mldsa.so -o tests/mock/libmock_mldsa.so CMakeFiles/mock_mldsa.dir/tests/mock/mock_mldsa.c.o 

@@ -1,0 +1,233 @@
+ADKEX — Authenticated Ding Key Exchange (KEX, one-sided / KEMTLS-style)
+================================================================
+A one-sided authenticated key-exchange protocol built on the DKEM KEM using the KEMTLS
+design (no signatures in the handshake). Algorithm instances ADKEX-128 / ADKEX-256 /
+ADKEX-512.
+
+API_PKC Compliance
+----------------------------------------------------------------
+drng.c/.h and auxfunc.c/.h are taken VERBATIM from the official API_PKC
+template (byte-for-byte unchanged). KAT_KEX.c is based on the official interface and
+adapted for the multi-pass handshake as permitted by template Note 6 (which explicitly
+allows modifying KAT_KEX.c). Per req 3.4(5), ALL hashing/XOF go through the auxiliary
+functions: the KEX KDF calls sm3hash / pseudoXOF, and the DKE-core matrix generation /
+noise sampling call pseudoXOF. The hand-vectorized parallel-SM3 noise-sampling code
+(sm3x8 / sm3x4) has been physically removed from the sources; AVX2 is used only for the
+NTT / polynomial arithmetic. The algorithm is implemented through the programming
+interface in KEX_AlgorithmInstance.h; the build scripts use -fcommon.
+
+Folder Structure
+----------------------------------------------------------------
+Implementations/{Reference,Optimized}_Implementation/ADKEX-{128,256,512}/
+Implementations/Additional_Implementation/AArch64_NEON/ADKEX-{128,256,512}/  (ARM64; see its README)
+Implementations/Additional_Implementation/Cortex-M4/ADKEX-{128,256,512}/     (Cortex-M4; see its README)
+Implementations/README        (this file; README_CN is the additional Chinese version)
+Test_Vectors/KAT_KEX_ADKEX-{128,256,512}.txt   (reference and optimized outputs match)
+
+Contents of each instance folder
+----------------------------------------------------------------
+build.sh                    Automated build script; the KAT is written to output/.
+KEX_AlgorithmInstance.c/.h  API_PKC KEX programming interface (multi-pass handshake).
+adkex_derand.c/.h           Derandomized protocol state machine; its KDF calls auxfunc.
+ADKEX_parameters.h          Protocol parameters (labels, transcript, state/key lengths).
+KAT_KEX.c                   KAT vector generator (contains main; adapted for multi-pass
+                            per Note 6).
+ntt/poly/polyvec/dkecpa/dkecca/...  DKE KEM cryptographic core (flat at root; same as DKEM).
+drng.* auxfunc.*  [official template files; unmodified].
+avx2*/ avx2-dkek/ avx2-512p/ avx2-512/ avx2-linux/
+                            (optimized only) DKE-core AVX2 NTT kernels.
+
+Build: enter an instance folder and run `bash build.sh`. The reference implementation
+uses -DDKE_FORCE_SCALAR; the optimized implementation uses
+-DDKE_AVX2_NTT256_ASM -DDKE_NTT512_PACKED. Compile macros:
+DKE_MODE/ADKEX_MODE=128/256/512, DKE_HASH=0, with -fcommon. The reference and optimized
+KATs are byte-identical.
+
+
+File Manifest — brief description of every file (Submission Requirements 3.4(6))
+----------------------------------------------------------------
+The three instance folders of each variant (e.g. DKEM-128 / DKEM-256 / DKEM-512)
+contain the IDENTICAL set of files, differing only in the DKE_MODE parameter; each
+distinct file is therefore described once below.
+
+Per-instance source files — present in each Reference_Implementation/<inst>/, Optimized_Implementation/<inst>/, and the Additional .../<inst>/ root (identical across the -128/-256/-512 instances except the DKE_MODE parameter):
+    ADKEX_parameters.h                 Protocol parameter sizes (bits) for the KEX/handshake.
+    KAT_KEX.c                          Official API_PKC KAT vector generator for KEX (unmodified).
+    KEM_AlgorithmInstance.c / KEM_AlgorithmInstance.h ICCS KEM API instance: kem_keygen/kem_enc/kem_dec entry points.
+    KEX_AlgorithmInstance.c / KEX_AlgorithmInstance.h ICCS KEX API instance: initiator/responder entry points.
+    adkex_derand.c / adkex_derand.h    Derandomized KEX driver (explicit coins, no live RNG) for deterministic KATs.
+    auxfunc.c / auxfunc.h              Official API_PKC auxiliary functions: SM3 / pseudoXOF / pseudohash (unmodified).
+    build.sh                           Automated build + KAT-generation script for the instance (Submission Req. 3.4(2)).
+    dke_hash.c / dke_hash.h            Hash abstraction; routes all hashing/XOF to the auxfunc SM3 (DKE_HASH=0).
+    dke_sm3.c / dke_sm3.h              SM3-based hash/XOF helper wrappers used by the scheme.
+    dke_utils.c / dke_utils.h          Miscellaneous byte/bit utility helpers.
+    dkecca.c                           IND-CCA KEM via the Fujisaki-Okamoto transform (implicit rejection).
+    dkecca.h                           IND-CCA KEM interface header (FO transform).
+    dkecpa.c / dkecpa.h                IND-CPA public-key encryption (keygen / encrypt / decrypt).
+    drng.c / drng.h                    Official API_PKC deterministic RNG (byte-identical to template; unmodified).
+    fips202.h                          SHA-3/SHAKE header; used only by the DKEX ML-DSA path, gated off in the DKE core.
+    fips202x4.h                        4-way SHAKE header; used only by the ML-DSA path, gated off in the DKE core.
+    ntt.c / ntt.h                      Number-Theoretic Transform: forward/inverse NTT, zeta tables, base multiply.
+    packing.c / packing.h              Serialize/deserialize public keys, secret keys and ciphertexts.
+    parameters.h                       Unified parameter header; all sizes derived from DKE_MODE (128/256/512).
+    poly.c / poly.h                    Single-polynomial arithmetic (add/sub, NTT domain, compress/decompress, CBD).
+    polyvec.c / polyvec.h              Vector-of-polynomials arithmetic (basemul-accumulate, compress/decompress).
+    random_sampling.c / random_sampling.h Noise / uniform sampling (centered-binomial, rejection).
+    randombytes.c / randombytes.h      RNG interface used by the KAT driver (seeded via the API_PKC DRNG).
+    reduce.c / reduce.h                Modular reduction (Montgomery / Barrett).
+    sm3.c / sm3.h                      SM3 hash core.
+    verify.c / verify.h                Constant-time comparison and conditional move (FO transform).
+
+Optimized_Implementation/<inst>/avx2/ — x86-64 AVX2 C kernels & constants:
+    consts512_avx2.c                   AVX2 constant tables for the N=512 ring.
+    consts_avx2.c                      AVX2 zeta/twiddle constant tables (from pq-crystals/mlkem).
+    consts_dkek.h                      Header for the vendored DKEK NTT constants.
+    ntt_avx2.c                         AVX2 forward-NTT C glue (vendored ML-KEM).
+    poly_avx2.c                        AVX2 polynomial helpers (adapted from pq-crystals/mlkem).
+    rejsample_avx2.c                   AVX2 rejection sampling (ported from ML-KEM rejsample.c).
+    verify_avx2.c                      AVX2 constant-time verify / conditional move.
+
+Optimized_Implementation/<inst>/{avx2-512, avx2-512p, avx2-dkek}/ — x86-64 AVX2 assembly NTT backends (packed-512 & vendored DKEK):
+    align.h                            Memory-alignment macros.
+    basemul.S                          AVX2 assembly: pointwise base multiplication.
+    consts.c                           AVX2 constant tables (zetas / Montgomery factors) for this NTT backend.
+    consts.h                           Header for the AVX2 constant tables.
+    fq.S                               AVX2 assembly: Montgomery reduction kernel.
+    fq.inc                             AVX2 reduction macro include.
+    invntt.S                           AVX2 assembly: inverse NTT kernel.
+    ntt.S                              AVX2 assembly: forward NTT kernel.
+    ntt512.S                           AVX2 assembly: N=512 forward NTT.
+    p512_consts.h                      Packed-512 AVX2 constant declarations.
+    p512_fq.inc                        Packed-512 AVX2 reduction macro include.
+    p512_params.h                      Packed-512 AVX2 parameters.
+    p512_shuffle.inc                   Packed-512 AVX2 shuffle macro include.
+    params.h                           Parameters for the vendored AVX2 NTT backend.
+    reduce.h                           Packed-domain Montgomery reduction (from pq-crystals/PQClean).
+    shuffle.S                          AVX2 assembly: vector lane shuffle helpers.
+    shuffle.inc                        AVX2 shuffle macro include.
+
+Optimized_Implementation/<inst>/avx2-linux/ — x86-64 NTT assembly (DKE-original by proposal-team member Liu Rui（刘锐）; the *_dkek_*.S and ntt_tobytes_avx2.S files are pq-crystals ML-KEM ports — third-party, OUTSIDE B.3):
+    basemul512_avx2.S                  AVX2 assembly: base multiplication (N=512).
+    basemul_avx2.S                     AVX2 assembly: base multiplication (N=256).
+    basemul_dkek_avx2.S                AVX2 assembly: base multiplication — PORTED from pq-crystals ML-KEM (third-party, OUTSIDE B.3).
+    dke_fq.inc                         AVX2 reduction macro include.
+    invntt256_avx2.S                   AVX2 assembly: N=256 inverse NTT.
+    invntt512_avx2.S                   AVX2 assembly: N=512 inverse NTT.
+    invntt_dkek_avx2.S                 AVX2 assembly: inverse NTT — PORTED from pq-crystals ML-KEM (third-party, OUTSIDE B.3).
+    ntt256_avx2.S                      AVX2 assembly: N=256 forward NTT (team-original).
+    ntt512_avx2.S                      AVX2 assembly: N=512 forward NTT.
+    ntt_avx2_asm.h                     Prototypes for the avx2-linux assembly routines.
+    ntt_dkek_avx2.S                    AVX2 assembly: forward NTT — PORTED from pq-crystals ML-KEM (third-party, OUTSIDE B.3).
+    ntt_large512_avx2.S                AVX2 assembly: large-coefficient N=512 NTT variant.
+    ntt_large_avx2.S                   AVX2 assembly: large-coefficient NTT variant.
+    ntt_tobytes_avx2.S                 AVX2 assembly: NTT (de)serialization — PORTED from pq-crystals ML-KEM (third-party, OUTSIDE B.3).
+    ntt_unrolled_avx2.S                AVX2 assembly: unrolled NTT variant.
+    poly_ops_avx2.S                    AVX2 assembly: polynomial add/sub/reduce helpers.
+
+Additional_Implementation/AArch64_NEON/<inst>/aarch64/ — NEON-intrinsic C kernels:
+    fips202x2_neon.h                   2-way SHAKE (NEON) header.
+    neon_params.h                      NEON build parameters.
+    ntt_neon.c                         NEON-intrinsic NTT.
+    poly_neon.c                        NEON-intrinsic polynomial arithmetic.
+    poly_pack_neon.c                   NEON-intrinsic (de)serialization.
+    polyvec_neon.c                     NEON-intrinsic polynomial-vector arithmetic.
+    rejsample_neon.c                   NEON-intrinsic rejection sampling.
+    verify_neon.c                      NEON-intrinsic constant-time verify/cmov.
+
+Additional_Implementation/AArch64_NEON/<inst>/aarch64-native/ — AArch64 NTT assembly (adapted from mlkem-native):
+    basemul_k2_native.S                AArch64 assembly: base multiplication (k=2).
+    basemul_k4_native.S                AArch64 assembly: base multiplication (k=4).
+    dke_aarch64_zetas.c                AArch64 NTT zeta constant tables.
+    dke_native.h                       Prototypes/macros for the AArch64 native assembly (mlkem-native based).
+    dke_rej_uniform_table.c            Rejection-sampling lookup table.
+    fips202x4_aarch64.h                4-way SHAKE (AArch64) header.
+    intt_native.S                      AArch64 assembly: inverse NTT (mlkem-native).
+    mulcache_native.S                  AArch64 assembly: multiplication-cache precompute.
+    ntt512_compiler.S                  AArch64 assembly: N=512 NTT (GNU-as syntax).
+    ntt_native.S                       AArch64 assembly: forward NTT (adapted from mlkem-native).
+    poly_reduce_native.S               AArch64 assembly: polynomial reduction.
+    poly_tobytes_native.S              AArch64 assembly: polynomial serialization.
+    poly_tomont_native.S               AArch64 assembly: to-Montgomery conversion.
+    rej_uniform_native.S               AArch64 assembly: uniform rejection sampling.
+
+Additional_Implementation/Cortex-M4/<inst>/cortex-m4/ — Cortex-M4 driver & headers:
+    dke_cortex_m4.h                    Cortex-M4 build header / prototypes.
+    dke_m4_plantard.c                  Cortex-M4 Plantard-arithmetic NTT/poly driver.
+    sm3_compress_asm_m4.S              Cortex-M4 SM3 compression assembly (optional; the compliant build hashes via the auxfunc C SM3).
+
+Additional_Implementation/Cortex-M4/<inst>/cortex-m4/plantard/ — Plantard-arithmetic NTT assembly (Junhao Huang, ePrint 2022/956):
+    macros.i                           Plantard assembly macro include.
+    matacc.i                           matacc assembly macro include (N=256).
+    matacc512.i                        matacc assembly macro include (N=512).
+    plantard512_fastaddsub.S           Cortex-M4 assembly: Plantard add/sub butterflies (N=512).
+    plantard512_fastbasemul.S          Cortex-M4 assembly: Plantard base multiplication (N=512).
+    plantard512_fastinvntt.S           Cortex-M4 assembly: Plantard inverse NTT (N=512).
+    plantard512_fastntt.S              Cortex-M4 assembly: Plantard forward NTT (N=512).
+    plantard512_matacc_asm.S           Cortex-M4 assembly: fused matrix generate-and-multiply (N=512).
+    plantard512_poly_asm.S             Cortex-M4 assembly: Plantard polynomial helpers (N=512).
+    plantard512_reduce_asm.S           Cortex-M4 assembly: Plantard modular reduction (N=512).
+    plantard_fastaddsub.S              Cortex-M4 assembly: Plantard add/sub butterflies (N=256).
+    plantard_fastbasemul.S             Cortex-M4 assembly: Plantard base multiplication (N=256).
+    plantard_fastinvntt.S              Cortex-M4 assembly: Plantard inverse NTT (N=256).
+    plantard_fastntt.S                 Cortex-M4 assembly: Plantard forward NTT (N=256), Junhao Huang.
+    plantard_matacc_asm.S              Cortex-M4 assembly: fused matrix generate-and-multiply (N=256).
+    plantard_poly_asm.S                Cortex-M4 assembly: Plantard polynomial helpers (N=256).
+    plantard_reduce_asm.S              Cortex-M4 assembly: Plantard modular reduction (N=256).
+    plantard_zetas.c                   Plantard-domain zeta constant tables.
+
+Additional_Implementation/Cortex-M4/<inst>/qemu/ — bare-metal QEMU self-test harness:
+    netduino.ld                        Linker script (QEMU netduinoplus2 memory map).
+    qemu_kex.c                         Bare-metal QEMU self-test harness (KEX handshake round-trip).
+    startup_qemu.S                     Cortex-M4 startup / vector table (netduinoplus2).
+    syscalls.c                         Minimal bare-metal syscalls + static-arena heap (malloc/free) for -nostdlib.
+
+Additional_Implementation/ — build notes:
+    README.txt                         Additional-implementations build & verification notes (English).
+    README_CN.txt                      Additional-implementations build & verification notes (Chinese).
+
+Implementations/ root:
+    README                             This file (overview, API_PKC compliance, folder structure, file manifest, third-party disclosure).
+    README_CN.txt                      Chinese version of this README.
+
+Third-party code - provenance and IP scope (Optimized AVX2 / Additional NEON & M4)
+----------------------------------------------------------------
+On the ring shared with the standardized ML-KEM (FIPS 203), the optimized and additional
+implementations reuse or adapt several low-level building blocks from public third-party
+code. Each is attributed inline at the top of its file:
+  Optimized (x86-64 AVX2):
+    avx2/consts_avx2.c, avx2/ntt_avx2.c,
+    avx2/poly_avx2.c, avx2/rejsample_avx2.c   AVX2 constants / forward NTT / polynomial
+                                              helpers / rejection sampling, from
+                                              pq-crystals/mlkem.
+    avx2-512p/consts.c, p512_consts.h,
+    avx2-512p/reduce.h                        packed-domain constants + Montgomery reduce,
+                                              from pq-crystals/mlkem and PQClean (mlkem-768).
+    random_sampling.c                         AVX2 centered-binomial (CBD) sampling, from
+                                              the ML-KEM AVX2 reference.
+    avx2-dkek/                                parameters/glue for the vendored ML-KEM /
+                                              ntt256 AVX2 NTT asm.
+  Additional (arm64 NEON):
+    Additional_Implementation/.../aarch64-native/   NTT/inverse-NTT/basemul/reduce assembly
+                                              adapted from the mlkem-native project (Arm
+                                              Limited / Hanno Becker / Amin Abdulrahman /
+                                              Matthias Kannwischer et al.), Apache-2.0 OR
+                                              ISC OR MIT.
+  Additional (Cortex-M4):
+    Additional_Implementation/.../cortex-m4/  Plantard NTT assembly by proposal-team member
+                                              Junhao Huang (ePrint 2022/956), Apache-2.0.
+License: each component's license identifier is noted inline above and in its source-file
+header; full license texts are available from the named upstream projects (and, for the
+self-assessment package, the Dependency Statement / 依赖说明).
+IP scope - B.3 ownership statement:
+  * OUTSIDE B.3 (external third-party, upstream authors retain copyright): the AVX2 blocks
+    above from pq-crystals / PQClean, the arm64 NEON assembly from mlkem-native, and the avx2-linux/ *_dkek_*.S + ntt_tobytes_avx2.S ports of pq-crystals ML-KEM. These
+    are standardized, openly published components, not an original contribution of this
+    submission and not claimed as such.
+  * WITHIN B.3 (original to the proposal team): the DKE algorithm design, the portable
+    Reference implementation, the hand-written DKE-specific x86-64 NTT assembly under avx2-linux/
+    (ntt/invntt/basemul/poly_ops, by proposal-team member Liu Rui（刘锐）; the avx2-linux/
+    *_dkek_*.S and ntt_tobytes_avx2.S there are pq-crystals ML-KEM ports — OUTSIDE B.3),
+    the Cortex-M4 Plantard NTT assembly (by proposal-team
+    member Junhao Huang, ePrint 2022/956), and the protocol / KEX glue.
+The portable Reference implementation contains NO external third-party code (plain ISO C99).
+Replacing these kernels with another conforming implementation does not change the algorithm.

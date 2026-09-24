@@ -1,0 +1,31 @@
+NGCC-AFS-KEX-C Implementations Directory
+
+Directory structure
+- Reference_Implementation/AFS_KEX_C128
+  - Reference implementation of the KEX algorithm instance AFS_KEX_C128.
+- Reference_Implementation/AFS_KEX_C256
+  - Reference implementation of the KEX algorithm instance AFS_KEX_C256.
+- Reference_Implementation/AFS_KEX_C512
+  - Reference implementation of the KEX algorithm instance AFS_KEX_C512.
+- Optimized_Implementation
+  - Reserved for optimized implementation (currently empty).
+- Additional_Implementation
+  - Reserved for additional implementation variants (currently empty).
+
+Reference_Implementation/AFS_KEX_C128/AFS_KEX_C256/AFS_KEX_C512 main files
+- KEX_AlgorithmInstance.h/.c: API-required KEX interface wrappers.
+- KAT_KEX.c: KEX KAT test driver.
+- drng.h/.c: deterministic random generator used by KAT.
+- randombytes_api.c: randombytes bridge to DRNG context.
+- kem.c, indcpa.c, poly*.c, ntt.c, cbd.c, reduce.c, verify.c, symmetric-iccs.c, BWcoding.c:
+  AFS-KEX core implementation used by this instance.
+- Makefile: local build script for the `kat_kex` executable.
+
+Build and verify
+- cd Reference_Implementation/AFS_KEX_C128  # or AFS_KEX_C256 / AFS_KEX_C512
+- make clean && make
+- make kat
+- The KAT file will be written to `../../../Test_Vector/KAT_KEX_<instance>.txt`.
+
+Notes
+- This workspace currently keeps KEX-related vectors only.

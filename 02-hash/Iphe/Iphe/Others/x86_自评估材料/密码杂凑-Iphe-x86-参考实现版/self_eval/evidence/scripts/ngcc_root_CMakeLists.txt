@@ -1,0 +1,63 @@
+PROJECT(PQC_BENCH DESCRIPTION "Test KEM/SIG/PKE Post-Quantum Cryptographic Algorithms")
+
+cmake_minimum_required(VERSION 3.16)
+
+set(CMAKE_C_STANDARD 11)
+
+option(PKC_OPTIMIZED_IMPL "Decide whether use the optimized implementation or not." OFF)
+
+if(PKC_OPTIMIZED_IMPL)
+    set(CMAKE_C_FLAGS "-O3 -march=native -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra")
+    enable_language(ASM)
+    set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -march=native -mavx2")
+else()
+    set(CMAKE_C_FLAGS "-std=c99 -Wpedantic -Wall -Wextra -O2")
+endif()
+
+option(CIPHER_OPTIMIZED_IMPL "Decide whether use the optimized implementation or not." OFF)
+
+if(CIPHER_OPTIMIZED_IMPL)
+    set(CMAKE_C_FLAGS "-O3 -march=native -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra")
+    enable_language(ASM)
+    set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -march=native -mavx2")
+else()
+    set(CMAKE_C_FLAGS "-std=c99 -Wpedantic -Wall -Wextra -O2")
+endif()
+
+option(HASH_OPTIMIZED_IMPL "Decide whether use the optimized implementation or not." OFF)
+
+if(HASH_OPTIMIZED_IMPL)
+    set(CMAKE_C_FLAGS "-O3 -march=native -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra")
+    enable_language(ASM)
+    set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -march=native -mavx2")
+else()
+    set(CMAKE_C_FLAGS "-std=c99 -Wpedantic -Wall -Wextra -O2")
+endif()
+
+include_directories(
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/adapter/include
+)
+
+add_subdirectory(adapter)
+add_subdirectory(bench)
+add_subdirectory(API_PKC)
+add_subdirectory(API_BlockCipher)
+add_subdirectory(API_CryptHash)
+
+add_executable(ngcc_bench
+    src/main.c
+    src/parse_option.c
+    src/print_banner.c
+    src/registry.c
+)
+
+target_link_libraries(ngcc_bench
+    adapter
+    benchlib
+)
+
+if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    target_link_options(ngcc_bench PRIVATE -flto)
+    target_link_options(bench_worker PRIVATE -flto)
+endif()

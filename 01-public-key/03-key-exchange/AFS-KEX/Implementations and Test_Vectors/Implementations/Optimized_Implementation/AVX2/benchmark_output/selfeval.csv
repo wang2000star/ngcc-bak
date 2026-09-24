@@ -1,0 +1,10 @@
+instance,version,function,ntests,func_kat,rounds,cycles_keygen,cycles_enc,cycles_dec,cycles_kex,ops_keygen,ops_enc,ops_dec,ops_kex,static_static_total,peak_rss_bytes,size_pk,size_sk,size_ct,size_ss,size_msg1,size_msg2,size_msg3,size_msg4,size_msg_total
+AFS_KEX_C128,reference,KEX,1000,PASS,4,,,,1643408,,,,1579.23,41544,2695168,1568,3170,,16,768,784,16,0,1568
+AFS_KEX_C128_AVX2,performance-optimized,KEX,1000,PASS,4,,,,381674,,,,6778.09,75623,2805760,1568,3170,,16,768,784,16,0,1568
+AFS_KEX_C128_AVX2,resource-optimized,KEX,1000,PASS,4,,,,701708,,,,3669.79,38071,2764800,1568,3170,,16,768,784,16,0,1568
+AFS_KEX_C256,reference,KEX,1000,PASS,4,,,,3673292,,,,708.26,49027,2711552,3136,6338,,32,1440,1472,32,0,2944
+AFS_KEX_C256_AVX2,performance-optimized,KEX,1000,PASS,4,,,,724698,,,,3571.40,81592,2732032,3136,6338,,32,1440,1472,32,0,2944
+AFS_KEX_C256_AVX2,resource-optimized,KEX,1000,PASS,4,,,,1904504,,,,1357.16,42546,2793472,3136,6338,,32,1440,1472,32,0,2944
+AFS_KEX_C512,reference,KEX,1000,PASS,4,,,,12485876,,,,208.32,49907,2715648,6272,12674,,64,2944,3008,64,0,6016
+AFS_KEX_C512_AVX2,performance-optimized,KEX,1000,PASS,4,,,,1976372,,,,1316.86,99784,2801664,6272,12674,,64,2944,3008,64,0,6016
+AFS_KEX_C512_AVX2,resource-optimized,KEX,1000,PASS,4,,,,6489194,,,,396.13,70513,2723840,6272,12674,,64,2944,3008,64,0,6016

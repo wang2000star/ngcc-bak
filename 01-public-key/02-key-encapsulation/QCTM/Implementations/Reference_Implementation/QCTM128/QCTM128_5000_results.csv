@@ -1,0 +1,2 @@
+run,status,attempts_used,support_rejects,goppa_poly_rejects,systematic_form_rejects,goppa_init_rejects,elapsed_ms
+1,0,1,0,0,0,0,11906.303

@@ -1,0 +1,80 @@
+Implementations Directory Structure
+===================================
+
+Algorithm: COMPASS-KEM (Key Encapsulation Mechanism)
+
+This directory contains reference, optimized, and additional implementations
+of the COMPASS-KEM algorithm for the Next-generation Commercial Cryptographic
+Algorithms Program (NGCC).
+
+Directory Overview
+------------------
+
+Reference_Implementation/
+    Reference implementation in ISO C (C99), without platform-specific
+    instruction set dependencies. This implementation prioritizes clarity
+    and correctness over performance.
+
+    Algorithm Instances:
+      - COMPASS-KEM-128  (128-bit classical security, K=2, N=256, Q=3329)
+      - COMPASS-KEM-256  (256-bit classical security, K=4, N=256, Q=3329)
+      - COMPASS-KEM-384  (384-bit classical security, K=3, N=512, Q=7681)
+      - COMPASS-KEM-512  (512-bit classical security, K=4, N=512, Q=7681)
+
+Optimized_Implementation/
+    Optimized implementation targeting mainstream 64-bit PC processors.
+    Uses AVX2 vector instructions and platform-specific optimizations.
+
+Additional_Implementation/
+    Reserved for additional platform implementations (e.g., 32-bit embedded
+    systems, hardware implementations).
+
+File Descriptions (Common Source Files)
+----------------------------------------
+
+Core KEM:
+    kem.h / kem.c               CCA-secure KEM: key generation, encapsulation,
+                                decapsulation (Fujisaki-Okamoto transform)
+    indcpa.h / indcpa.c         IND-CPA-secure public key encryption scheme
+
+Polynomial Arithmetic:
+    poly.h / poly.c             Polynomial operations: compression, decompression,
+                                NTT, inverse NTT, message encoding/decoding
+    polyvec.h / polyvec.c       Polynomial vector operations: pointwise multiply,
+                                addition, compression, decompression
+    ntt.h / ntt.c               Number Theoretic Transform (NTT) implementation
+    reduce.h / reduce.c         Barrett and Montgomery modular reduction
+    cbd.h / cbd.c               Centered Binomial Distribution (CBD) sampling
+
+Symmetric Primitives:
+    symmetric.h                 Symmetric operation macros (hash, XOF, PRF)
+    symmetric-shake.c           SHAKE-based PRF implementations
+
+Auxiliary:
+    fips202.h / fips202.c       FIPS 202 (SHA3 / SHAKE / Keccak) implementation
+    verify.h / verify.c         Constant-time comparison and conditional move
+    randombytes.h / randombytes.c  Platform-specific random byte generation
+
+NGCC Submission Framework Files (provided by ICCS, DO NOT MODIFY):
+    drng.h / drng.c             Deterministic Random Number Generator (SM3-based)
+    auxfunc.h / auxfunc.c       Auxiliary hash/XOF functions (SM3-based)
+    KAT_KEM.c                   Known Answer Test (KAT) vector generation tool
+
+NGCC API Adapter (modified by submitter):
+    KEM_AlgorithmInstance.h     NGCC programming interface (kem_keygen/enc/dec)
+    KEM_AlgorithmInstance.c     API bridge: maps NGCC API to internal KEM API
+    params.h                    Algorithm parameters for all security levels
+    api.h                       Internal API size constants and function prototypes
+
+Build and Test:
+    Makefile                    Automated build script (test, speed, KAT generation)
+    README.txt                  NGCC framework usage instructions
+    test/                       Test and benchmark programs
+
+Notes
+-----
+- This submission targets the NGCC program (商用密码标准研究院).
+- Cryptographic hash and XOF functions use the ICCS-provided auxiliary
+  functions (auxfunc.h/c) in compliance with submission requirements.
+- The DRNG (drng.h/c) is used for deterministic test vector generation.
+- All code is written in ISO C99 with GCC/Clang compatibility.

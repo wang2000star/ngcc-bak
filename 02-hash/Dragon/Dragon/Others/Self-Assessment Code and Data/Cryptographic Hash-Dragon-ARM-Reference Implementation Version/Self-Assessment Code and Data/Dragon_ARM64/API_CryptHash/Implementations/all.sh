@@ -1,0 +1,20 @@
+find . -name "*.so" -delete
+cd Reference_Implementation/Dragon512/
+sh build.sh
+cd ../Dragon768/
+sh build.sh
+cd ../Dragon1024/
+sh build.sh
+cd ../../Optimized_Implementation/Dragon512/
+sh build.sh
+cd ../Dragon768/
+sh build.sh
+cd ../Dragon1024/
+sh build.sh 
+cd ../../Additional_Implementation/Dragon512/
+sh build.sh
+cd ../Dragon768/
+sh build.sh
+cd ../Dragon1024/
+sh build.sh
+ cd  ../../

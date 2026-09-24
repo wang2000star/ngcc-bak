@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libmock_ngcc.so -o tests/mock/libmock_ngcc.so CMakeFiles/mock_ngcc.dir/tests/mock/mock_ngcc.c.o 

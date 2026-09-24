@@ -1,0 +1,70 @@
+# This file.
+./README
+
+# Additional implementation of Laurus
+#(Currently, there is no additional code implementations)
+./Additional_Implementation/
+
+# Optimized implementation of Laurus-512
+./Optimized_Implementation/Laurus-512/laurus_512.c
+./Optimized_Implementation/Laurus-512/laurus_512.h
+./Optimized_Implementation/Laurus-512/main.c
+./Optimized_Implementation/Laurus-512/README.txt
+
+# Optimized implementation of Laurus-768
+./Optimized_Implementation/Laurus-768/laurus_768.c
+./Optimized_Implementation/Laurus-768/laurus_768.h
+./Optimized_Implementation/Laurus-768/main.c
+./Optimized_Implementation/Laurus-768/README.txt
+
+# Optimized implementation of Laurus-1024
+./Optimized_Implementation/Laurus-1024/laurus_1024.c
+./Optimized_Implementation/Laurus-1024/laurus_1024.h
+./Optimized_Implementation/Laurus-1024/main.c
+./Optimized_Implementation/Laurus-1024/README.txt
+
+# Optimized implementation of Laurus-XOF
+./Optimized_Implementation/Laurus-XOF/laurus_xof.c
+./Optimized_Implementation/Laurus-XOF/laurus_xof.h
+./Optimized_Implementation/Laurus-XOF/main.c
+./Optimized_Implementation/Laurus-XOF/README.txt
+
+# Reference implementation of Laurus-512
+./Reference_Implementation/Laurus-512/CryptHash_AlgorithmInstance.c
+./Reference_Implementation/Laurus-512/CryptHash_AlgorithmInstance.h
+./Reference_Implementation/Laurus-512/drng.c
+./Reference_Implementation/Laurus-512/drng.h
+./Reference_Implementation/Laurus-512/KAT_CryptHash.c
+./Reference_Implementation/Laurus-512/laurus_512.c
+./Reference_Implementation/Laurus-512/laurus_512.h
+./Reference_Implementation/Laurus-512/README.txt
+
+# Reference implementation of Laurus-768
+./Reference_Implementation/Laurus-768/CryptHash_AlgorithmInstance.c
+./Reference_Implementation/Laurus-768/CryptHash_AlgorithmInstance.h
+./Reference_Implementation/Laurus-768/drng.c
+./Reference_Implementation/Laurus-768/drng.h
+./Reference_Implementation/Laurus-768/KAT_CryptHash.c
+./Reference_Implementation/Laurus-768/laurus_768.c
+./Reference_Implementation/Laurus-768/laurus_768.h
+./Reference_Implementation/Laurus-768/README.txt
+
+# Reference implementation of Laurus-1024
+./Reference_Implementation/Laurus-1024/CryptHash_AlgorithmInstance.c
+./Reference_Implementation/Laurus-1024/CryptHash_AlgorithmInstance.h
+./Reference_Implementation/Laurus-1024/drng.c
+./Reference_Implementation/Laurus-1024/drng.h
+./Reference_Implementation/Laurus-1024/KAT_CryptHash.c
+./Reference_Implementation/Laurus-1024/laurus_1024.c
+./Reference_Implementation/Laurus-1024/laurus_1024.h
+./Reference_Implementation/Laurus-1024/README.txt
+
+# Reference implementation of Laurus-XOF
+./Reference_Implementation/Laurus-XOF/CryptHash_AlgorithmInstance.c
+./Reference_Implementation/Laurus-XOF/CryptHash_AlgorithmInstance.h
+./Reference_Implementation/Laurus-XOF/drng.c
+./Reference_Implementation/Laurus-XOF/drng.h
+./Reference_Implementation/Laurus-XOF/KAT_CryptHash.c
+./Reference_Implementation/Laurus-XOF/laurus_xof.c
+./Reference_Implementation/Laurus-XOF/laurus_xof.h
+./Reference_Implementation/Laurus-XOF/README.txt

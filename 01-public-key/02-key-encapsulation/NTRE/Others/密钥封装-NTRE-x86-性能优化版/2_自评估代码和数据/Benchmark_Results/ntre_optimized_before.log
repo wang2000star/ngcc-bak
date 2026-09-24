@@ -1,0 +1,90 @@
+phase=before
+root=/home/link/NTRE-2.0
+loops=10000
+rounds=3
+cc=gcc
+gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+
+[doc/Reference/NTRE-128]
+dir=/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-128
+flags=-O2 -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-128,972,1976,972,64,10000,19,92748,72906,70668
+round=2 raw=NTRE-128,972,1976,972,64,10000,21,90194,72252,69873
+round=3 raw=NTRE-128,972,1976,972,64,10000,22,91545,72589,70007
+
+[doc/Optimized/NTRE-128]
+dir=/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-128
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-128,972,1976,972,64,10000,23,84956,63668,55517
+round=2 raw=NTRE-128,972,1976,972,64,10000,22,87110,59776,53570
+round=3 raw=NTRE-128,972,1976,972,64,10000,21,84132,59066,51524
+
+[same_flags/Reference/NTRE-128]
+dir=/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-128
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-128,972,1976,972,64,10000,22,86021,59336,53214
+round=2 raw=NTRE-128,972,1976,972,64,10000,21,84991,58703,53821
+round=3 raw=NTRE-128,972,1976,972,64,10000,22,86522,58129,53363
+
+[same_flags/Optimized/NTRE-128]
+dir=/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-128
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-128,972,1976,972,64,10000,21,85134,59306,52131
+round=2 raw=NTRE-128,972,1976,972,64,10000,19,85722,59088,51526
+round=3 raw=NTRE-128,972,1976,972,64,10000,22,86124,58537,51188
+
+[doc/Reference/NTRE-256]
+dir=/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-256
+flags=-O2 -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-256,1944,3920,1944,64,10000,21,158022,131064,133658
+round=2 raw=NTRE-256,1944,3920,1944,64,10000,24,156121,130107,134644
+round=3 raw=NTRE-256,1944,3920,1944,64,10000,22,157760,128898,133153
+
+[doc/Optimized/NTRE-256]
+dir=/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-256
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-256,1944,3920,1944,64,10000,22,120005,81895,67446
+round=2 raw=NTRE-256,1944,3920,1944,64,10000,21,118901,84605,68067
+round=3 raw=NTRE-256,1944,3920,1944,64,10000,23,118840,81870,66766
+
+[same_flags/Reference/NTRE-256]
+dir=/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-256
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-256,1944,3920,1944,64,10000,21,129866,95556,90073
+round=2 raw=NTRE-256,1944,3920,1944,64,10000,22,128183,96175,89891
+round=3 raw=NTRE-256,1944,3920,1944,64,10000,22,129863,96496,90313
+
+[same_flags/Optimized/NTRE-256]
+dir=/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-256
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-256,1944,3920,1944,64,10000,21,118988,81783,67023
+round=2 raw=NTRE-256,1944,3920,1944,64,10000,23,117780,81851,66591
+round=3 raw=NTRE-256,1944,3920,1944,64,10000,23,117589,82035,66544
+
+[doc/Reference/NTRE-512]
+dir=/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-512
+flags=-O2 -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-512,3456,6944,3456,64,10000,21,377478,353121,360255
+round=2 raw=NTRE-512,3456,6944,3456,64,10000,21,383701,352135,362079
+round=3 raw=NTRE-512,3456,6944,3456,64,10000,22,378275,354770,364014
+
+[doc/Optimized/NTRE-512]
+dir=/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-512
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-512,3456,6944,3456,64,10000,21,214584,174708,149060
+round=2 raw=NTRE-512,3456,6944,3456,64,10000,22,216047,173333,147302
+round=3 raw=NTRE-512,3456,6944,3456,64,10000,23,217278,170799,146174
+
+[same_flags/Reference/NTRE-512]
+dir=/home/link/NTRE-2.0/Implementations/Reference_Implementation/NTRE-512
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-512,3456,6944,3456,64,10000,22,258505,223877,210405
+round=2 raw=NTRE-512,3456,6944,3456,64,10000,21,264952,224695,212421
+round=3 raw=NTRE-512,3456,6944,3456,64,10000,19,261841,223671,211540
+
+[same_flags/Optimized/NTRE-512]
+dir=/home/link/NTRE-2.0/Implementations/Optimized_Implementation/NTRE-512
+flags=-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra -Wno-unused-parameter -Wno-unused-result
+round=1 raw=NTRE-512,3456,6944,3456,64,10000,21,214433,174112,148890
+round=2 raw=NTRE-512,3456,6944,3456,64,10000,21,217344,171622,146505
+round=3 raw=NTRE-512,3456,6944,3456,64,10000,21,212450,170778,145705

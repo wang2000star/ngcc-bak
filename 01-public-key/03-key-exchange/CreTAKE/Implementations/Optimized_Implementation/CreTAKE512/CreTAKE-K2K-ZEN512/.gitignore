@@ -1,0 +1,8 @@
+*.o
+test_correctness
+test_efficiency
+KAT_KEX
+*.exe
+output/
+KAT_KEX
+output/

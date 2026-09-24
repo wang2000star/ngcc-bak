@@ -1,0 +1,6 @@
+## kat
+   text	   data	    bss	    dec	    hex	filename
+  19097	   1136	      8	  20241	   4f11	/home/ktjia/eijen-submit/密码杂凑-Eijen-x86-提交包/x86_Self_Assessment/密码杂凑-Eijen-x86-性能优化版/build/kat
+## bench
+   text	   data	    bss	    dec	    hex	filename
+   8405	    792	     16	   9213	   23fd	/home/ktjia/eijen-submit/密码杂凑-Eijen-x86-提交包/x86_Self_Assessment/密码杂凑-Eijen-x86-性能优化版/build/bench

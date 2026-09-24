@@ -1,0 +1,10 @@
+category,implementation,instance,flags_profile,text,data,bss,total_dec,total_hex,peak_rss_kb
+NTRE,Reference,NTRE-128,reference_O2,26828,696,208,27732,6c54,1836
+NTRE,Reference,NTRE-256,reference_O2,27532,696,208,28436,6f14,1836
+NTRE,Reference,NTRE-512,reference_O2,28500,696,208,29404,72dc,1836
+NTRE,Optimized,NTRE-128,optimized_O3_AVX2,63411,704,232,64347,fb5b,1836
+NTRE,Optimized,NTRE-256,optimized_O3_AVX2,58708,704,232,59644,e8fc,1836
+NTRE,Optimized,NTRE-512,optimized_O3_AVX2,56251,704,232,57187,df63,1836
+NTRUplus,Baseline,NTRUplus-768,fair_O3_AVX2,66227,704,232,67163,1065b,1836
+NTRUplus,Baseline,NTRUplus-864,fair_O3_AVX2,87643,704,232,88579,15a03,1836
+NTRUplus,Baseline,NTRUplus-1152,fair_O3_AVX2,72491,704,232,73427,11ed3,1704

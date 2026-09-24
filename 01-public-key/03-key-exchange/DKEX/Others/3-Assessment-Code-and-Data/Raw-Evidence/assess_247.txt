@@ -1,0 +1,25 @@
+=== host arm64-ubuntu-host : extracting + running (CC=gcc) ===
+host=aarch64 cc=gcc freq_kHz=2808000  start=2026-06-23T21:01:00Z
+==== DKEM ====
+[DKEM-128 | Reference] KAT=PASS | avg_us keygen=56.70 enc=64.69 dec=72.59 avg_cyc keygen=NA enc=NA dec=NA peak_rss_kb=1764 | static(text=28851 data=824 bss=176 total=29851)
+[DKEM-256 | Reference] KAT=PASS | avg_us keygen=154.43 enc=159.47 dec=169.17 avg_cyc keygen=NA enc=NA dec=NA peak_rss_kb=1768 | static(text=29475 data=824 bss=176 total=30475)
+[DKEM-512 | Reference] KAT=PASS | avg_us keygen=542.38 enc=564.49 dec=586.17 avg_cyc keygen=NA enc=NA dec=NA peak_rss_kb=1772 | static(text=30635 data=824 bss=176 total=31635)
+[DKEM-128 | NEON] KAT=PASS | avg_us keygen=39.05 enc=42.14 dec=43.32 avg_cyc keygen=NA enc=NA dec=NA peak_rss_kb=1772 | static(text=39804 data=800 bss=176 total=40780)
+[DKEM-256 | NEON] KAT=PASS | avg_us keygen=134.25 enc=138.08 dec=139.44 avg_cyc keygen=NA enc=NA dec=NA peak_rss_kb=1772 | static(text=39576 data=800 bss=176 total=40552)
+[DKEM-512 | NEON] KAT=PASS | avg_us keygen=501.63 enc=512.78 dec=517.89 avg_cyc keygen=NA enc=NA dec=NA peak_rss_kb=1776 | static(text=34020 data=800 bss=176 total=34996)
+==== ADKEX ====
+[ADKEX-128 | Reference] KAT=PASS | avg_us handshake=359.79 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=32825 data=816 bss=176 total=33817)
+[ADKEX-256 | Reference] KAT=PASS | avg_us handshake=990.97 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=33465 data=816 bss=176 total=34457)
+[ADKEX-512 | Reference] KAT=PASS | avg_us handshake=3810.66 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=34641 data=816 bss=176 total=35633)
+[ADKEX-128 | NEON] KAT=PASS | avg_us handshake=281.64 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=39796 data=800 bss=176 total=40772)
+[ADKEX-256 | NEON] KAT=PASS | avg_us handshake=806.69 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=40076 data=800 bss=176 total=41052)
+[ADKEX-512 | NEON] KAT=PASS | avg_us handshake=3025.32 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=40912 data=800 bss=176 total=41888)
+==== DKEX ====
+[DKEX-128 | Reference] KAT=PASS | avg_us handshake=730.11 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=54966 data=824 bss=192 total=55982)
+[DKEX-256 | Reference] KAT=PASS | avg_us handshake=1577.93 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=55654 data=824 bss=192 total=56670)
+[DKEX-512 | Reference] KAT=PASS | avg_us handshake=2491.25 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=56750 data=824 bss=192 total=57766)
+[DKEX-128 | NEON] KAT=PASS | avg_us handshake=410.73 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=67174 data=816 bss=192 total=68182)
+[DKEX-256 | NEON] KAT=PASS | avg_us handshake=965.74 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=67690 data=816 bss=192 total=68698)
+[DKEX-512 | NEON] KAT=PASS | avg_us handshake=2040.24 avg_cyc handshake=NA peak_rss_kb=1776 | static(text=65973 data=808 bss=192 total=66973)
+end=2026-06-23T21:01:57Z
+__RC=0

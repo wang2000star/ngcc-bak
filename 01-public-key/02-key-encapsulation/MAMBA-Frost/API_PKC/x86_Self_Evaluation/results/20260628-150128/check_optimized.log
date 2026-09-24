@@ -1,0 +1,101 @@
+==> cd API_PKC && make optimized-check
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-128: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-192: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-256: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-384: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-512: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-CC-128: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-CC-192: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-CC-256: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-CC-384: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./test_kem_api 1000
+MAMBA-Frost-CC-512: 1000 keypair/encaps/decaps rounds passed.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”

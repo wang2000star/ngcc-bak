@@ -1,0 +1,51 @@
+==> cd API_PKC && make optimized-clean
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-128.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-192.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-256.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-384.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-512.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-CC-128.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-CC-192.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-CC-256.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-CC-384.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”
+rm -rf KAT_KEM KAT_KEM.exe test_kem_api test_kem_api.exe \
+	perf_kem_api perf_kem_api.exe check_avx2 check_avx2.exe \
+	output output.first perf_MAMBA-Frost-CC-512.csv
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”

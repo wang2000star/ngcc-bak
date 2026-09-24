@@ -1,0 +1,11 @@
+AXIS Implementation Code
+
+This folder follows the submission layout required for hash algorithms:
+
+- Reference_Implementation: ISO C reference implementations for AXIS-512, AXIS-768, and AXIS-1024.
+- Optimized_Implementation: 64-bit PC build implementations for AXIS-512, AXIS-768, and AXIS-1024.
+- Additional_Implementation: reserved for future 32-bit, hardware, or other platform ports.
+
+Each algorithm instance is placed in its own folder and includes the ICCS
+CryptHash API wrapper, AXIS core implementation, DRNG support code, KAT driver,
+Makefile, and README.

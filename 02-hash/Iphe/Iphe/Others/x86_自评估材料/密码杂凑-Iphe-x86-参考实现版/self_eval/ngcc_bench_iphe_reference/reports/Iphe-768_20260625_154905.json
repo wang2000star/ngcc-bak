@@ -1,0 +1,12 @@
+{
+  "algorithm": "iphe-768",
+  "name": "Iphe-768",
+  "input_bytes": 8192,
+  "times": 1000,
+  "average_cycles": 918193.019000,
+  "min_cycles": 551613,
+  "max_cycles": 58095510,
+  "throughput_mbps": 232.952615,
+  "digest_bits": 768,
+  "library_path": "API_CryptHash/libiphe_768.a"
+}

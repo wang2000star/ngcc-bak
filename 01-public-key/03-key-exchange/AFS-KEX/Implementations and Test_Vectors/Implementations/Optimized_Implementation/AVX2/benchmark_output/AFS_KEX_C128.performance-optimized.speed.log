@@ -1,0 +1,107 @@
+instance: AFS_KEX_C128
+implementation: optimized
+
+gen_matrix
+median: 49746 cycles/ticks
+average: 50104 cycles/ticks
+
+poly_getnoise_eta1
+median: 15248 cycles/ticks
+average: 15323 cycles/ticks
+
+poly_getnoise_eta2
+median: 12972 cycles/ticks
+average: 13028 cycles/ticks
+
+poly_ntt
+median: 228 cycles/ticks
+average: 230 cycles/ticks
+
+poly_invntt_tomont
+median: 248 cycles/ticks
+average: 250 cycles/ticks
+
+polyvec_basemul_acc_montgomery
+median: 222 cycles/ticks
+average: 224 cycles/ticks
+
+poly_tomsg
+median: 1256 cycles/ticks
+average: 1277 cycles/ticks
+
+poly_frommsg
+median: 118 cycles/ticks
+average: 116 cycles/ticks
+
+poly_tobytes
+median: 58 cycles/ticks
+average: 57 cycles/ticks
+
+poly_frombytes
+median: 46 cycles/ticks
+average: 45 cycles/ticks
+
+polyvec_compress
+median: 1950 cycles/ticks
+average: 1962 cycles/ticks
+
+polyvec_decompress
+median: 2492 cycles/ticks
+average: 2504 cycles/ticks
+
+indcpa_keypair_derand
+median: 44090 cycles/ticks
+average: 44471 cycles/ticks
+
+indcpa_enc
+median: 58574 cycles/ticks
+average: 59138 cycles/ticks
+
+indcpa_dec
+median: 4664 cycles/ticks
+average: 4691 cycles/ticks
+
+crypto_kem_keypair
+median: 45380 cycles/ticks
+average: 46502 cycles/ticks
+
+crypto_kem_enc
+median: 60874 cycles/ticks
+average: 61488 cycles/ticks
+
+crypto_kem_dec
+median: 80338 cycles/ticks
+average: 80883 cycles/ticks
+
+kex_init_a
+median: 96286 cycles/ticks
+average: 98912 cycles/ticks
+
+kex_init_b
+median: 96134 cycles/ticks
+average: 98937 cycles/ticks
+
+kex_generate_pass1_msg_a
+median: 63798 cycles/ticks
+average: 64337 cycles/ticks
+
+kex_generate_pass2_msg_b
+median: 146564 cycles/ticks
+average: 147509 cycles/ticks
+
+kex_generate_pass3_msg_a
+median: 126004 cycles/ticks
+average: 126832 cycles/ticks
+
+kex_generate_pass4_msg_b
+median: 42860 cycles/ticks
+average: 43256 cycles/ticks
+
+kex_derive_ss_a
+median: 4 cycles/ticks
+average: 5 cycles/ticks
+
+kex_derive_ss_b
+median: 4 cycles/ticks
+average: 4 cycles/ticks
+

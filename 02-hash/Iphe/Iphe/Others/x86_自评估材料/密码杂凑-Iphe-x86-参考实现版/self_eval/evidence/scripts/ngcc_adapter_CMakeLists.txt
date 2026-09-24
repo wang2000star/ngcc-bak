@@ -1,0 +1,40 @@
+add_library(adapter
+    kem/mlkem_adapter.c
+    crypthash/sm3_adapter.c
+    crypthash/iphe_adapter.c
+    crypthash/iphe_adapter.c
+    blockcipher/sm4_adapter.c
+    ${PROJECT_SOURCE_DIR}/src/registry.c
+)
+
+if(PKC_OPTIMIZED_IMPL)
+    target_compile_definitions(adapter PRIVATE "USE_OPTIMIZED_IMPL")
+    target_include_directories(adapter PUBLIC
+        ${PROJECT_SOURCE_DIR}/API_PKC/Implementations/Optimized_Implementation/kem/mlkem/include
+        ${PROJECT_SOURCE_DIR}/adapter/include
+        )
+else()
+    target_include_directories(adapter PUBLIC
+        ${PROJECT_SOURCE_DIR}/API_PKC/Implementations/Reference_Implementation/kem/mlkem/include
+        ${PROJECT_SOURCE_DIR}/API_BlockCipher/Implementations/Reference_Implementation/SM4/include
+        ${PROJECT_SOURCE_DIR}/API_CryptHash/Implementations/Reference_Implementation/SM3/include
+        ${PROJECT_SOURCE_DIR}/adapter/include
+        )
+endif()
+
+target_link_libraries(adapter
+    mlkem_768
+    mlkem_512
+    mlkem_1024
+    sm3
+    iphe_512
+    iphe_768
+    iphe_1024
+    iphe_512_perf
+    iphe_768_perf
+    iphe_1024_perf
+    iphe_512_res
+    iphe_768_res
+    iphe_1024_res
+    sm4
+)

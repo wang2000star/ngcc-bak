@@ -1,0 +1,445 @@
+desc: --stacks=yes
+cmd: ./lwekem128-test_basic
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=639101
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=1249849
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=1758614
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=2568538
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=3010330
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=3875407
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=4511307
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=5376458
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=6087690
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=7003097
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=7613870
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=8025608
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=8646319
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=9568669
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20232
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=10187465
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=20456
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=10702236
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=18472
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=11325291
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22720
+heap_tree=detailed
+n2: 822 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 799 0x4003226: pseudoXOF (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+  n2: 799 0x4004A99: kem_light_ref_gen_matrix (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+   n1: 799 0x4004EAB: kem_light_ref_indcpa_enc (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+    n1: 799 0x400165A: kem_light_ref_kem_enc (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+     n1: 799 0x4006644: basic_run.isra.0 (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+      n0: 799 0x400115B: main (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 0 in 6 places, all below massif's threshold (1.00%)
+ n0: 23 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=18
+#-----------
+time=11839341
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=21848
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=12353102
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=21848
+heap_tree=detailed
+n2: 822 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 799 0x4003226: pseudoXOF (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+  n2: 799 0x4004A99: kem_light_ref_gen_matrix (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+   n1: 799 0x4004EAB: kem_light_ref_indcpa_enc (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+    n1: 799 0x400165A: kem_light_ref_kem_enc (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+     n1: 799 0x4006644: basic_run.isra.0 (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+      n0: 799 0x400115B: main (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 0 in 6 places, all below massif's threshold (1.00%)
+ n0: 23 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=13156013
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=14133190
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=14722207
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=15699413
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=16676715
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=17265602
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=18048940
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=18441427
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=21640
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=19418019
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=20201063
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=20786619
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=21372326
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=22072
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=21956502
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=20024
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=22418939
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=24592
+heap_tree=peak
+n2: 822 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 799 0x4003226: pseudoXOF (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+  n2: 799 0x4004A99: kem_light_ref_gen_matrix (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+   n2: 799 0x4004EAB: kem_light_ref_indcpa_enc (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+    n1: 799 0x400173D: kem_light_ref_kem_dec (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+     n1: 799 0x4006667: basic_run.isra.0 (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+      n0: 799 0x400115B: main (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 0 in 10 places, all below massif's threshold (1.00%)
+ n0: 23 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=34
+#-----------
+time=23287573
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=24162647
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=24818512
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=25256958
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=25912897
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=26349632
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=27007311
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=27663247
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=28319090
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=28755950
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=29407835
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=23512
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=30282379
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=31157409
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=detailed
+n2: 822 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 799 0x4003226: pseudoXOF (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+  n2: 799 0x4004A99: kem_light_ref_gen_matrix (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+   n2: 799 0x4004EAB: kem_light_ref_indcpa_enc (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+    n1: 799 0x400173D: kem_light_ref_kem_dec (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+     n1: 799 0x4006667: basic_run.isra.0 (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+      n0: 799 0x400115B: main (in /home/harry/Projects/PhD/SENG-PQ/LWE-KEM/build/lwekem128-test_basic)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 0 in 10 places, all below massif's threshold (1.00%)
+ n0: 23 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=47
+#-----------
+time=32032585
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=32688521
+mem_heap_B=822
+mem_heap_extra_B=26
+mem_stacks_B=23944
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=33118060
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=21896
+heap_tree=empty

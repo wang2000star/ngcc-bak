@@ -1,0 +1,131 @@
+==> cd API_PKC && make optimized-kats
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-128.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-192.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-256.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-384.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-512.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-512”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-CC-128.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-128”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-CC-192.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-192”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-CC-256.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-256”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-CC-384.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-384”
+make[1]: 进入目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”
+./check_avx2
+CPU feature check: AVX2 and AES-NI available.
+ulimit -s unlimited; ./KAT_KEM
+
+Files have been saved in the 'output' folder within the working directory.
+mkdir -p ../../../Test_Vectors
+cp output/KAT_KEM_MAMBA-Frost-CC-512.txt ../../../Test_Vectors/
+make[1]: 离开目录“/home/ubuntu/桌面/NGCC/Frost/API_PKC/Implementations/Optimized_Implementation/MAMBA-Frost-CC-512”

@@ -1,0 +1,295 @@
+OAEP-NTRU Implementations README
+================================
+
+This README describes the contents of this directory. The tree below is rooted
+at this directory.
+
+Directory tree
+==============
+
+README
+|-- Reference_Implementation/
+|   |-- OAEP-NTRU-648/
+|   |   |-- KAT_KEM.c
+|   |   |-- KEM_AlgorithmInstance.c
+|   |   |-- KEM_AlgorithmInstance.h
+|   |   |-- Makefile
+|   |   |-- README.txt
+|   |   |-- auxfunc.c
+|   |   |-- auxfunc.h
+|   |   |-- drng.c
+|   |   |-- drng.h
+|   |   |-- ntt.c
+|   |   |-- ntt.h
+|   |   |-- params.h
+|   |   |-- poly.c
+|   |   |-- poly.h
+|   |   |-- reduce.h
+|   |   |-- symmetric.c
+|   |   `-- symmetric.h
+|   |-- OAEP-NTRU-1296/
+|   |   |-- KAT_KEM.c
+|   |   |-- KEM_AlgorithmInstance.c
+|   |   |-- KEM_AlgorithmInstance.h
+|   |   |-- Makefile
+|   |   |-- README.txt
+|   |   |-- auxfunc.c
+|   |   |-- auxfunc.h
+|   |   |-- drng.c
+|   |   |-- drng.h
+|   |   |-- ntt.c
+|   |   |-- ntt.h
+|   |   |-- params.h
+|   |   |-- poly.c
+|   |   |-- poly.h
+|   |   |-- reduce.h
+|   |   |-- symmetric.c
+|   |   `-- symmetric.h
+|   `-- OAEP-NTRU-2592/
+|       |-- KAT_KEM.c
+|       |-- KEM_AlgorithmInstance.c
+|       |-- KEM_AlgorithmInstance.h
+|       |-- Makefile
+|       |-- README.txt
+|       |-- auxfunc.c
+|       |-- auxfunc.h
+|       |-- drng.c
+|       |-- drng.h
+|       |-- ntt.c
+|       |-- ntt.h
+|       |-- params.h
+|       |-- poly.c
+|       |-- poly.h
+|       |-- reduce.h
+|       |-- symmetric.c
+|       `-- symmetric.h
+|
+|-- Additional_Implementation/
+|   |-- OAEP-NTRU-648/
+|   |   |-- KAT_KEM.c
+|   |   |-- KEM_AlgorithmInstance.c
+|   |   |-- KEM_AlgorithmInstance.h
+|   |   |-- Makefile
+|   |   |-- README.txt
+|   |   |-- auxfunc.c
+|   |   |-- auxfunc.h
+|   |   |-- drng.c
+|   |   |-- drng.h
+|   |   |-- ntt.c
+|   |   |-- ntt.h
+|   |   |-- params.h
+|   |   |-- poly.c
+|   |   |-- poly.h
+|   |   |-- reduce.h
+|   |   |-- symmetric.c
+|   |   `-- symmetric.h
+|   |-- OAEP-NTRU-1296/
+|   |   |-- KAT_KEM.c
+|   |   |-- KEM_AlgorithmInstance.c
+|   |   |-- KEM_AlgorithmInstance.h
+|   |   |-- Makefile
+|   |   |-- README.txt
+|   |   |-- auxfunc.c
+|   |   |-- auxfunc.h
+|   |   |-- drng.c
+|   |   |-- drng.h
+|   |   |-- ntt.c
+|   |   |-- ntt.h
+|   |   |-- params.h
+|   |   |-- poly.c
+|   |   |-- poly.h
+|   |   |-- reduce.h
+|   |   |-- symmetric.c
+|   |   `-- symmetric.h
+|   `-- OAEP-NTRU-2592/
+|       |-- KAT_KEM.c
+|       |-- KEM_AlgorithmInstance.c
+|       |-- KEM_AlgorithmInstance.h
+|       |-- Makefile
+|       |-- README.txt
+|       |-- auxfunc.c
+|       |-- auxfunc.h
+|       |-- drng.c
+|       |-- drng.h
+|       |-- ntt.c
+|       |-- ntt.h
+|       |-- params.h
+|       |-- poly.c
+|       |-- poly.h
+|       |-- reduce.h
+|       |-- symmetric.c
+|       `-- symmetric.h
+|
+`-- Optimized_Implementation/
+    |-- OAEP-NTRU-648/
+    |   |-- asm/
+    |   |   |-- baseadd_full.s
+    |   |   |-- baseinv_full.s
+    |   |   |-- basemul_full.s
+    |   |   |-- invntt_full.s
+    |   |   `-- ntt_full.s
+    |   |-- KAT_KEM.c
+    |   |-- KEM_AlgorithmInstance.c
+    |   |-- KEM_AlgorithmInstance.h
+    |   |-- Makefile
+    |   |-- README.txt
+    |   |-- auxfunc.c
+    |   |-- auxfunc.h
+    |   |-- avx2.c
+    |   |-- avx2.h
+    |   |-- drng.c
+    |   |-- drng.h
+    |   |-- ntt.h
+    |   |-- ntt_asm_consts.c
+    |   |-- params.h
+    |   |-- poly.c
+    |   |-- poly.h
+    |   |-- reduce.h
+    |   |-- symmetric.c
+    |   `-- symmetric.h
+    |-- OAEP-NTRU-1296/
+    |   |-- asm/
+    |   |   |-- baseadd_full.s
+    |   |   |-- baseinv_full.s
+    |   |   |-- basemul_full.s
+    |   |   |-- invntt_full.s
+    |   |   `-- ntt_full.s
+    |   |-- KAT_KEM.c
+    |   |-- KEM_AlgorithmInstance.c
+    |   |-- KEM_AlgorithmInstance.h
+    |   |-- Makefile
+    |   |-- README.txt
+    |   |-- auxfunc.c
+    |   |-- auxfunc.h
+    |   |-- avx2.c
+    |   |-- avx2.h
+    |   |-- drng.c
+    |   |-- drng.h
+    |   |-- ntt.c
+    |   |-- ntt.h
+    |   |-- ntt_asm_consts.c
+    |   |-- params.h
+    |   |-- poly.c
+    |   |-- poly.h
+    |   |-- reduce.h
+    |   |-- symmetric.c
+    |   `-- symmetric.h
+    `-- OAEP-NTRU-2592/
+        |-- asm/
+        |   |-- baseadd_full.s
+        |   |-- baseinv_full.s
+        |   |-- basemul_full.s
+        |   |-- invntt_full.s
+        |   `-- ntt_full.s
+        |-- KAT_KEM.c
+        |-- KEM_AlgorithmInstance.c
+        |-- KEM_AlgorithmInstance.h
+        |-- Makefile
+        |-- README.txt
+        |-- auxfunc.c
+        |-- auxfunc.h
+        |-- avx2.c
+        |-- avx2.h
+        |-- drng.c
+        |-- drng.h
+        |-- ntt.c
+        |-- ntt.h
+        |-- ntt_asm_consts.c
+        |-- params.h
+        |-- poly.c
+        |-- poly.h
+        |-- reduce.h
+        |-- symmetric.c
+        `-- symmetric.h
+
+File notes
+==========
+
+Reference_Implementation contains portable C implementations for the three
+OAEP-NTRU parameter sets.
+
+Optimized_Implementation contains optimized implementations for the same three
+parameter sets. These directories include AVX2 source files and handwritten
+assembly source files under asm/.
+
+Additional_Implementation contains modified versions of the reference
+implementations for the same three parameter sets. These variants keep the
+same implementation structure but obtain random bytes from an operating-system
+randomness source instead of using the deterministic submission DRNG. 
+
+
+KAT_KEM.c                  Source file for generating KEM known-answer tests.
+KEM_AlgorithmInstance.c    Source file implementing the KEM API functions.
+KEM_AlgorithmInstance.h    Header defining the KEM interface and algorithm
+                           instance macros.
+Makefile                   Build rules for the implementation directory.
+README.txt                 Submission framework instructions.
+auxfunc.c                  Source file of auxiliary functions.
+auxfunc.h                  Header file of auxiliary functions.
+drng.c                     Randomness provider used by the KEM and KAT code.
+                           In the reference and optimized implementations this
+                           is the deterministic submission DRNG; in the
+                           additional implementations it is backed by an
+                           operating-system randomness source.
+drng.h                     Header file for the randomness provider interface.
+params.h                   Parameter settings for the selected OAEP-NTRU
+                           instance.
+poly.c                     Polynomial arithmetic implementation.
+poly.h                     Polynomial type definitions and declarations.
+ntt.c                      C implementation or wrapper for NTT operations.
+ntt.h                      Header for NTT declarations and constants.
+reduce.h                   Modular reduction helpers.
+symmetric.c                Hash and XOF wrapper implementation.
+symmetric.h                Hash and XOF wrapper declarations.
+avx2.c                     AVX2 optimized polynomial and arithmetic routines.
+avx2.h                     Header for AVX2 optimized routines.
+ntt_asm_consts.c           Constants used by handwritten NTT assembly.
+asm/*.s                    Handwritten assembly routines used by optimized
+                           implementations.
+
+Third-party license notices
+===========================
+
+This project includes portions of code modified from the NTRU+ implementation.
+
+NTRU+
+-----
+
+Upstream project: NTRU+
+Upstream URL: https://www.ntruplus.org/
+Local source directory: ./ntruplus
+License: MIT License
+
+The NTRU+-derived portions in this repository are limited to files named:
+
+ntt.c
+ntt.h
+poly.c
+poly.h
+reduce.h
+
+No other files are identified here as modified from the NTRU+ implementation.
+
+The license text below is copied from ./ntruplus/LICENSE.
+
+The MIT License
+
+Copyright (c) 2024–2026 NTRU+ TEAM (https://www.ntruplus.org/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

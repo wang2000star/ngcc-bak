@@ -1,0 +1,11 @@
+implementation,instance,level,pk_bytes,sk_bytes,ss_bytes,ct_bytes,status
+Reference,MAMBA-Viper-128,128,608,1424,16,736,PASS
+Reference,MAMBA-Viper-192,192,992,2200,24,1088,PASS
+Reference,MAMBA-Viper-256,256,1312,2912,32,1472,PASS
+Reference,MAMBA-Viper-384,384,2496,5488,48,2656,PASS
+Reference,MAMBA-Viper-512,512,3200,7040,64,3456,PASS
+Optimized,MAMBA-Viper-128,128,608,1424,16,736,PASS
+Optimized,MAMBA-Viper-192,192,992,2200,24,1088,PASS
+Optimized,MAMBA-Viper-256,256,1312,2912,32,1472,PASS
+Optimized,MAMBA-Viper-384,384,2496,5488,48,2656,PASS
+Optimized,MAMBA-Viper-512,512,3200,7040,64,3456,PASS

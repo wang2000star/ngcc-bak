@@ -1,0 +1,241 @@
+# NTRE Optimized Implementation Self-Evaluation Code and Data
+
+This directory contains the self-evaluation code and data for the NTRE x86 optimized implementation package.
+
+It is used to support functional verification, performance benchmarking, before/after optimization comparison, resource measurement, engineering reference comparison, and microbenchmark analysis for the NTRE performance-optimized implementation.
+
+## Directory Layout
+
+The current directory is organized as follows:
+
+```text
+.
+├── Benchmark_Results/
+├── microbenchmarks/
+├── scripts/
+└── README
+```
+
+## 1. Benchmark Results
+
+The `Benchmark_Results/` directory stores benchmark results, functional verification logs, resource measurement data, engineering reference data, and microbenchmark summaries.
+
+The files currently included are:
+
+```text
+Benchmark_Results/
+├── ntre_auxfunc_microbench_summary.md
+├── ntre_auxfunc_microbench.csv
+├── ntre_auxfunc_microbench.log
+├── ntre_optimized_after.csv
+├── ntre_optimized_after.log
+├── ntre_optimized_before.csv
+├── ntre_optimized_before.log
+├── ntre_optimized_summary.md
+├── ntre_poly_microbench_summary.md
+├── ntre_poly_microbench.csv
+├── ntre_poly_microbench.log
+├── ntre_symmetric_microbench_summary.md
+├── ntre_symmetric_microbench.csv
+├── ntre_symmetric_microbench.log
+├── ntruplus_ntre_fair_baseline.csv
+├── x86_self_eval_functional.log
+└── x86_self_eval_resource.csv
+```
+
+The main files are described below:
+
+| File                                   | Description                                                                                            |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `ntre_optimized_before.csv`            | Raw benchmark data before the current optimization stage                                               |
+| `ntre_optimized_before.log`            | Build and run log corresponding to `ntre_optimized_before.csv`                                         |
+| `ntre_optimized_after.csv`             | Raw benchmark data after the current optimization stage                                                |
+| `ntre_optimized_after.log`             | Build and run log corresponding to `ntre_optimized_after.csv`                                          |
+| `ntre_optimized_summary.md`            | Summary of the optimization benchmark results                                                          |
+| `ntruplus_ntre_fair_baseline.csv`      | Engineering reference benchmark data comparing NTRE and the NTRU+ baseline under the same test harness |
+| `x86_self_eval_functional.log`         | Functional verification log, including build, KAT execution, and output comparison records             |
+| `x86_self_eval_resource.csv`           | Static size and process-level peak RSS measurement results                                             |
+| `ntre_poly_microbench.csv`             | Raw microbenchmark data for polynomial-arithmetic related functions                                    |
+| `ntre_poly_microbench.log`             | Build and run log for polynomial microbenchmarks                                                       |
+| `ntre_poly_microbench_summary.md`      | Summary of polynomial microbenchmark results                                                           |
+| `ntre_symmetric_microbench.csv`        | Raw microbenchmark data for symmetric primitive related functions                                      |
+| `ntre_symmetric_microbench.log`        | Build and run log for symmetric primitive microbenchmarks                                              |
+| `ntre_symmetric_microbench_summary.md` | Summary of symmetric primitive microbenchmark results                                                  |
+| `ntre_auxfunc_microbench.csv`          | Raw microbenchmark data for auxiliary functions                                                        |
+| `ntre_auxfunc_microbench.log`          | Build and run log for auxiliary-function microbenchmarks                                               |
+| `ntre_auxfunc_microbench_summary.md`   | Summary of auxiliary-function microbenchmark results                                                   |
+
+## 2. Microbenchmark Source Code
+
+The `microbenchmarks/` directory contains the C source files used for local function-level microbenchmarking.
+
+```text
+microbenchmarks/
+├── ntre_auxfunc_microbench.c
+├── ntre_poly_microbench.c
+└── ntre_symmetric_microbench.c
+```
+
+The files are used as follows:
+
+| File                          | Description                                                            |
+| ----------------------------- | ---------------------------------------------------------------------- |
+| `ntre_poly_microbench.c`      | Microbenchmark source code for polynomial-arithmetic related functions |
+| `ntre_symmetric_microbench.c` | Microbenchmark source code for symmetric primitive related functions   |
+| `ntre_auxfunc_microbench.c`   | Microbenchmark source code for auxiliary functions                     |
+
+These files are self-evaluation test code and are not part of the NTRE algorithm source implementation.
+
+## 3. Scripts
+
+The `scripts/` directory contains shell scripts used to run the benchmark and microbenchmark tests.
+
+```text
+scripts/
+├── run_ntre_auxfunc_microbenchmarks.sh
+├── run_ntre_benchmarks.sh
+├── run_ntre_poly_microbenchmarks.sh
+└── run_ntre_symmetric_microbenchmarks.sh
+```
+
+The scripts are used as follows:
+
+| Script                                  | Description                                                                         |
+| --------------------------------------- | ----------------------------------------------------------------------------------- |
+| `run_ntre_benchmarks.sh`                | Runs the main NTRE benchmark and generates before/after optimization benchmark data |
+| `run_ntre_poly_microbenchmarks.sh`      | Runs polynomial-arithmetic microbenchmarks                                          |
+| `run_ntre_symmetric_microbenchmarks.sh` | Runs symmetric primitive microbenchmarks                                            |
+| `run_ntre_auxfunc_microbenchmarks.sh`   | Runs auxiliary-function microbenchmarks                                             |
+
+## 4. How to Run
+
+Run the following command from this directory:
+
+```sh
+chmod +x scripts/*.sh
+```
+
+To run the main NTRE benchmark:
+
+```sh
+./scripts/run_ntre_benchmarks.sh
+```
+
+To run the polynomial-arithmetic microbenchmarks:
+
+```sh
+./scripts/run_ntre_poly_microbenchmarks.sh
+```
+
+To run the symmetric primitive microbenchmarks:
+
+```sh
+./scripts/run_ntre_symmetric_microbenchmarks.sh
+```
+
+To run the auxiliary-function microbenchmarks:
+
+```sh
+./scripts/run_ntre_auxfunc_microbenchmarks.sh
+```
+
+The generated results are written to the `Benchmark_Results/` directory.
+
+## 5. Expected Output Files
+
+After running the main benchmark script, the following files may be generated or updated:
+
+```text
+Benchmark_Results/ntre_optimized_before.csv
+Benchmark_Results/ntre_optimized_before.log
+Benchmark_Results/ntre_optimized_after.csv
+Benchmark_Results/ntre_optimized_after.log
+Benchmark_Results/ntre_optimized_summary.md
+Benchmark_Results/ntruplus_ntre_fair_baseline.csv
+```
+
+After running the microbenchmark scripts, the following files may be generated or updated:
+
+```text
+Benchmark_Results/ntre_poly_microbench.csv
+Benchmark_Results/ntre_poly_microbench.log
+Benchmark_Results/ntre_poly_microbench_summary.md
+Benchmark_Results/ntre_symmetric_microbench.csv
+Benchmark_Results/ntre_symmetric_microbench.log
+Benchmark_Results/ntre_symmetric_microbench_summary.md
+Benchmark_Results/ntre_auxfunc_microbench.csv
+Benchmark_Results/ntre_auxfunc_microbench.log
+Benchmark_Results/ntre_auxfunc_microbench_summary.md
+```
+
+The functional verification and resource measurement evidence files are:
+
+```text
+Benchmark_Results/x86_self_eval_functional.log
+Benchmark_Results/x86_self_eval_resource.csv
+```
+
+## 6. Benchmark Data Description
+
+The main benchmark data are organized around the following operations:
+
+* `KeyGen`
+* `Encaps`
+* `Decaps`
+
+The files `ntre_optimized_before.csv` and `ntre_optimized_after.csv` record benchmark data before and after the current optimization stage. The corresponding `.log` files record the build and execution process.
+
+The file `ntre_optimized_summary.md` summarizes the benchmark results and can be used as supporting material for the performance analysis section of the self-evaluation report.
+
+The file `ntruplus_ntre_fair_baseline.csv` provides engineering reference data against the NTRU+ baseline under the same benchmark harness.
+
+## 7. Microbenchmark Data Description
+
+The microbenchmark files are used to analyze local function-level costs.
+
+The polynomial microbenchmark files are:
+
+```text
+Benchmark_Results/ntre_poly_microbench.csv
+Benchmark_Results/ntre_poly_microbench.log
+Benchmark_Results/ntre_poly_microbench_summary.md
+```
+
+The symmetric primitive microbenchmark files are:
+
+```text
+Benchmark_Results/ntre_symmetric_microbench.csv
+Benchmark_Results/ntre_symmetric_microbench.log
+Benchmark_Results/ntre_symmetric_microbench_summary.md
+```
+
+The auxiliary-function microbenchmark files are:
+
+```text
+Benchmark_Results/ntre_auxfunc_microbench.csv
+Benchmark_Results/ntre_auxfunc_microbench.log
+Benchmark_Results/ntre_auxfunc_microbench_summary.md
+```
+
+## 8. Reproducibility Notes
+
+For reproducible results, it is recommended to:
+
+1. Run the scripts on an x86-64 platform.
+2. Keep the directory structure unchanged.
+3. Run the scripts from this directory.
+4. Avoid running other CPU-intensive workloads during benchmarking.
+5. Use the same compiler and build configuration as described in the self-evaluation report.
+6. Preserve all generated `.csv`, `.log`, and `.md` files under `Benchmark_Results/`.
+
+The benchmark and microbenchmark data in this directory are intended to serve as reproducible technical evidence for the NTRE x86 performance-optimized implementation self-evaluation.
+
+## 9. Notes
+
+This README describes only the self-evaluation code and data in the performance-optimized implementation package.
+
+The NTRE algorithm source code is provided separately in `1_算法源代码/`.
+
+The formal self-evaluation report is provided separately as `3_自评估报告.pdf`.
+
+The dependency statement is provided separately as `4_依赖说明.md`.

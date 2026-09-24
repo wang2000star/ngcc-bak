@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libmock_hash_only.so -o tests/mock/libmock_hash_only.so CMakeFiles/mock_hash_only.dir/tests/mock/mock_hash_only.c.o 
