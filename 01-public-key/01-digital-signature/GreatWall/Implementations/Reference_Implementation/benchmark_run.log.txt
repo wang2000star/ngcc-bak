@@ -1,0 +1,26 @@
+==> GreatWall128f: build bench_sig
+==> GreatWall128f: ./bench_sig 100
+GreatWall128f,100,64,36,36,3396,1.215,27.973,19.568,2938564.040,67671127.950,47338257.650,823.242,35.749,51.105
+==> GreatWall128s: build bench_sig
+==> GreatWall128s: ./bench_sig 100
+GreatWall128s,100,64,36,36,2758,1.268,111.114,89.599,3067665.720,268806663.730,216756946.130,788.600,9.000,11.161
+==> GreatWall192f: build bench_sig
+==> GreatWall192f: ./bench_sig 100
+GreatWall192f,100,64,50,50,8012,3.147,90.280,57.219,7613873.740,218406461.530,138424312.850,317.735,11.077,17.477
+==> GreatWall192s: build bench_sig
+==> GreatWall192s: ./bench_sig 100
+GreatWall192s,100,64,50,50,6804,3.112,304.655,266.985,7527902.480,737020944.470,645889125.480,321.362,3.282,3.746
+==> GreatWall256f: build bench_sig
+==> GreatWall256f: ./bench_sig 100
+GreatWall256f,100,64,66,66,14260,5.045,208.265,129.961,12204822.920,503834330.650,314401747.100,198.216,4.802,7.695
+==> GreatWall256s: build bench_sig
+==> GreatWall256s: ./bench_sig 100
+GreatWall256s,100,64,66,66,12236,5.013,565.605,480.228,12127549.160,1368311011.470,1161767145.930,199.479,1.768,2.082
+==> GreatWall512f: build bench_sig
+==> GreatWall512f: ./bench_sig 100
+GreatWall512f,100,64,132,132,57812,19.786,2424.320,1466.726,47866666.060,5864917039.210,3548305252.700,50.540,0.412,0.682
+==> GreatWall512s: build bench_sig
+==> GreatWall512s: ./bench_sig 100
+GreatWall512s,100,64,132,132,50012,19.993,6087.004,5156.342,48366025.040,14725685327.420,12474227892.500,50.019,0.164,0.194
+Benchmark results written to /mnt/d/VsCode/AIMer/faest-one-tree-field-full/API_PKC/Implementations/Reference_Implementation/benchmark_results.csv
+Full benchmark log written to /mnt/d/VsCode/AIMer/faest-one-tree-field-full/API_PKC/Implementations/Reference_Implementation/benchmark_run.log.txt

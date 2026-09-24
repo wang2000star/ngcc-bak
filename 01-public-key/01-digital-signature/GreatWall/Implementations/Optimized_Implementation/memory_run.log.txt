@@ -1,0 +1,218 @@
+==> GreatWall128f: size bench_sig
+==> GreatWall128f: /usr/bin/time -v ./bench_sig 100
+GreatWall128f,100,64,36,36,3396,0.533,0.975,1.164,1290145.130,2357966.400,2815012.190,1875.106,1025.964,859.385
+	Command being timed: "./bench_sig 100"
+	User time (seconds): 0.26
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.27
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2304
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 4
+	Minor (reclaiming a frame) page faults: 315
+	Voluntary context switches: 13
+	Involuntary context switches: 2
+	Swaps: 0
+	File system inputs: 272
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+GreatWall128f,100,119635,712,200,120547,2359296
+==> GreatWall128s: size bench_sig
+==> GreatWall128s: /usr/bin/time -v ./bench_sig 100
+GreatWall128s,100,64,36,36,2758,0.534,4.479,6.641,1291248.220,10836297.700,16065851.000,1873.521,223.249,150.580
+	Command being timed: "./bench_sig 100"
+	User time (seconds): 1.17
+	System time (seconds): 0.00
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.16
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6868
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 4
+	Minor (reclaiming a frame) page faults: 2123
+	Voluntary context switches: 13
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 280
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+GreatWall128s,100,121531,712,200,122443,7032832
+==> GreatWall192f: size bench_sig
+==> GreatWall192f: /usr/bin/time -v ./bench_sig 100
+GreatWall192f,100,64,50,50,8012,1.397,2.622,2.769,3378548.390,6342353.330,6698732.260,716.040,381.435,361.142
+	Command being timed: "./bench_sig 100"
+	User time (seconds): 0.67
+	System time (seconds): 0.00
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.68
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2516
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 5
+	Minor (reclaiming a frame) page faults: 33480
+	Voluntary context switches: 14
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 360
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+GreatWall192f,100,164663,712,200,165575,2576384
+==> GreatWall192s: size bench_sig
+==> GreatWall192s: /usr/bin/time -v ./bench_sig 100
+GreatWall192s,100,64,50,50,6804,1.381,11.705,17.544,3339991.320,28316521.960,42443622.270,724.299,85.434,56.998
+	Command being timed: "./bench_sig 100"
+	User time (seconds): 2.91
+	System time (seconds): 0.16
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.07
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 10648
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 5
+	Minor (reclaiming a frame) page faults: 231578
+	Voluntary context switches: 15
+	Involuntary context switches: 5
+	Swaps: 0
+	File system inputs: 360
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+GreatWall192s,100,165811,712,200,166723,10903552
+==> GreatWall256f: size bench_sig
+==> GreatWall256f: /usr/bin/time -v ./bench_sig 100
+GreatWall256f,100,64,66,66,14260,1.861,4.174,4.055,4501900.700,10097061.840,9809397.080,537.369,239.594,246.620
+	Command being timed: "./bench_sig 100"
+	User time (seconds): 1.01
+	System time (seconds): 0.00
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.01
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7644
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 7
+	Minor (reclaiming a frame) page faults: 2046
+	Voluntary context switches: 15
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 400
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+GreatWall256f,100,182235,720,200,183155,7827456
+==> GreatWall256s: size bench_sig
+==> GreatWall256s: /usr/bin/time -v ./bench_sig 100
+GreatWall256s,100,64,66,66,12236,1.855,14.750,22.058,4486717.430,35682793.430,53361803.920,539.188,67.797,45.336
+	Command being timed: "./bench_sig 100"
+	User time (seconds): 3.86
+	System time (seconds): 0.02
+	Percent of CPU this job got: 83%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:04.64
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 49876
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 7
+	Minor (reclaiming a frame) page faults: 16003
+	Voluntary context switches: 15
+	Involuntary context switches: 5
+	Swaps: 0
+	File system inputs: 400
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+GreatWall256s,100,182939,720,200,183859,51073024
+==> GreatWall512f: size bench_sig
+==> GreatWall512f: /usr/bin/time -v ./bench_sig 100
+GreatWall512f,100,64,132,132,57812,16.462,80.043,74.369,39824699.940,193640688.790,179913206.190,60.746,12.493,13.446
+	Command being timed: "./bench_sig 100"
+	User time (seconds): 17.08
+	System time (seconds): 0.13
+	Percent of CPU this job got: 102%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:16.87
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 25360
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 10
+	Minor (reclaiming a frame) page faults: 176315
+	Voluntary context switches: 19
+	Involuntary context switches: 17
+	Swaps: 0
+	File system inputs: 720
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+GreatWall512f,100,350583,720,200,351503,25968640
+==> GreatWall512s: size bench_sig
+==> GreatWall512s: /usr/bin/time -v ./bench_sig 100
+GreatWall512s,100,64,132,132,50012,16.971,390.640,477.427,41056942.010,945036354.800,1154992806.200,58.923,2.560,2.095
+	Command being timed: "./bench_sig 100"
+	User time (seconds): 87.40
+	System time (seconds): 1.49
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:29.08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 205568
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 10
+	Minor (reclaiming a frame) page faults: 1607862
+	Voluntary context switches: 19
+	Involuntary context switches: 120
+	Swaps: 0
+	File system inputs: 720
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+GreatWall512s,100,350839,720,200,351759,210501632
+Memory results written to /mnt/d/VsCode/AIMer/faest-one-tree-field-full/API_PKC/Implementations/Additional_Implementation/memory_results.csv
+Full memory log written to /mnt/d/VsCode/AIMer/faest-one-tree-field-full/API_PKC/Implementations/Additional_Implementation/memory_run.log.txt

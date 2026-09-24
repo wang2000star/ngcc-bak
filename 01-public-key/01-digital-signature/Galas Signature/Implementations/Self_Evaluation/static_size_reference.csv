@@ -1,0 +1,9 @@
+implementation,instance,text_bytes,data_bytes,bss_bytes,total_dec,total_hex,file
+reference,Galas-160F,596641,1192,968,598801,92311,/tmp/bench_galas-160f
+reference,Galas-160S,596641,1192,968,598801,92311,/tmp/bench_galas-160s
+reference,Galas-256F,596641,1192,968,598801,92311,/tmp/bench_galas-256f
+reference,Galas-256S,596641,1192,968,598801,92311,/tmp/bench_galas-256s
+reference,Galas-384F,596641,1192,968,598801,92311,/tmp/bench_galas-384f
+reference,Galas-384S,596641,1192,968,598801,92311,/tmp/bench_galas-384s
+reference,Galas-512F,596641,1192,968,598801,92311,/tmp/bench_galas-512f
+reference,Galas-512S,596641,1192,968,598801,92311,/tmp/bench_galas-512s

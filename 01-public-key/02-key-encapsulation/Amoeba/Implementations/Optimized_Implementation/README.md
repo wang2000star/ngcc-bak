@@ -1,0 +1,1 @@
+We will provide optimized implementations of Amoeba in the future. Currently, the most critical performance bottleneck is the symmetric primitive plugin based on SM3.

@@ -1,0 +1,7 @@
+metric,value
+binary,./OPSsig-128-avx2/test_static_mem_OPSsig
+text_bytes,60778
+rodata_bytes,6292
+data_bytes,16
+bss_bytes,232
+static_total_bytes,67318

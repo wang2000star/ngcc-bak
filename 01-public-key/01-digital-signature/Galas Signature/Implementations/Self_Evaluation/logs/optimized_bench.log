@@ -1,0 +1,100 @@
+date=2026-06-30T18:58:00+08:00
+reps=1
+implementation=optimized
+source_dir=/mnt/c/Users/admin/Desktop/niccs/NGCC_Submit/Implementations/Optimized_Implementation/Galas-256S
+
+WARNING: Recommend using either -Dbuildtype or -Doptimization + -Ddebug. Using both is redundant since they override each other. See: https://mesonbuild.com/Builtin-options.html#build-type-options
+The Meson build system
+Version: 1.3.2
+Source dir: /mnt/c/Users/admin/Desktop/niccs/NGCC_Submit/Implementations/Optimized_Implementation/Galas-256S
+Build dir: /mnt/c/Users/admin/Desktop/niccs/NGCC_Submit/Implementations/Optimized_Implementation/Galas-256S/build_eval
+Build type: native build
+Project name: galas_opt
+Project version: 0.1.0
+C compiler for the host machine: cc (gcc 13.3.0 "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0")
+C linker for the host machine: cc ld.bfd 2.42
+C++ compiler for the host machine: c++ (gcc 13.3.0 "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0")
+C++ linker for the host machine: c++ ld.bfd 2.42
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Build targets in project: 6
+
+galas_opt 0.1.0
+
+  User defined options
+    buildtype   : release
+    optimization: 3
+
+Found ninja-1.11.1 at /usr/bin/ninja
+ninja: Entering directory `/mnt/c/Users/admin/Desktop/niccs/NGCC_Submit/Implementations/Optimized_Implementation/Galas-256S/build_eval'
+[1/15] Compiling C++ object libgalas_opt.a.p/polynomials_constants.cpp.o
+[2/15] Compiling C object libgalas_opt.a.p/randomness_randombytes.c.o
+[3/15] Compiling C object libgalas_opt.a.p/randomness_os.c.o
+[4/15] Compiling C object libngcc_aux.a.p/drng.c.o
+[5/15] Compiling C object libngcc_aux.a.p/auxfunc.c.o
+[6/15] Linking static target libngcc_aux.a
+[7/15] Compiling C++ object libgalas_opt.a.p/vector_com.cpp.o
+[8/15] Compiling C++ object libgalas_opt.a.p/small_vole.cpp.o
+[9/15] Compiling C++ object libgalas_opt.a.p/avx2_aes_impl.cpp.o
+[10/15] Compiling C++ object galas_bench.p/bench.cpp.o
+[11/15] Compiling C++ object libgalas_opt.a.p/vole_commit.cpp.o
+[12/15] Compiling C++ object libgalas_opt.a.p/faest.cpp.o
+[13/15] Compiling C++ object libgalas_opt.a.p/owf_proof.cpp.o
+[14/15] Linking static target libgalas_opt.a
+[15/15] Linking target galas_bench
+instance=Galas-160S
+reps=1 msg_len=64 pk=40 sk=40 sig=4812 peak_rss_kb=9096
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,2.018083,6588190,495.519758
+sign,516.921211,1689035127,1.934531
+verify,120.716114,394434332,8.283898
+
+instance=Galas-160F
+reps=1 msg_len=64 pk=40 sk=40 sig=5964 peak_rss_kb=9096
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,0.295736,966216,3381.394216
+sign,33.135790,108260130,30.178849
+verify,31.498278,102914317,31.747767
+
+instance=Galas-256S
+reps=1 msg_len=64 pk=64 sk=64 sig=12114 peak_rss_kb=28912
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,1.698974,5542970,588.590526
+sign,1412.076604,4613954152,0.708177
+verify,1012.721050,3309061201,0.987439
+
+instance=Galas-256F
+reps=1 msg_len=64 pk=64 sk=64 sig=15950 peak_rss_kb=28912
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,0.316586,1034304,3158.699374
+sign,79.139689,258580345,12.635885
+verify,78.966376,258004189,12.663618
+
+instance=Galas-384S
+reps=1 msg_len=64 pk=96 sk=96 sig=27784 peak_rss_kb=76000
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,2.304623,7525735,433.910449
+sign,4919.438940,16074271568,0.203275
+verify,2097.579737,6853837330,0.476740
+
+instance=Galas-384F
+reps=1 msg_len=64 pk=96 sk=96 sig=33384 peak_rss_kb=76000
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,1.052544,3438994,950.079047
+sign,344.830430,1126720507,2.899976
+verify,343.357140,1121911275,2.912419
+
+instance=Galas-512S
+reps=1 msg_len=64 pk=128 sk=128 sig=49516 peak_rss_kb=180156
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,4.563177,14891497,219.145565
+sign,15524.122474,49086057330,0.064416
+verify,4415.237021,13883196727,0.226488
+
+instance=Galas-512F
+reps=1 msg_len=64 pk=128 sk=128 sig=59416 peak_rss_kb=180156
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,2.361605,7713676,423.440838
+sign,586.197717,1915388802,1.705909
+verify,708.826706,2316084949,1.410782
+

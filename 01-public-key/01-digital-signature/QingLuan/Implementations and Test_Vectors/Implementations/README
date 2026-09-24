@@ -1,0 +1,186 @@
+QingLuan Digital Signature Scheme - Implementations
+===================================================
+
+QingLuan (青鸾) is a post-quantum DIGITAL SIGNATURE scheme built on R-SDP
+(Restricted Syndrome Decoding) + MPC-in-the-Head + Fiat-Shamir, instantiated
+entirely with SM3 (GB/T 32905) and the SM3 Hash-DRBG (GM/T 0005). It contains
+no RSA / ECC / DH / lattice component.
+
+
+Overview
+--------
+
+Per algorithm-requirements item (6), this `Implementations/` directory contains
+ONLY the three implementation categories and this README:
+
+1. Reference_Implementation - four self-contained AlgorithmInstance folders
+   (QingLuan-128 / -256 / -384 / -512), ISO C11, platform-independent. Each
+   instance also carries its own API_PKC KAT generator under `api_pkc/`.
+2. Optimized_Implementation  - reserved (Part 2 scope); placeholder README.txt only.
+3. Additional_Implementation - reserved; placeholder README.txt only.
+4. README (this file) - directory listing + brief description of each file.
+
+Supporting material lives at the SUBMISSION ROOT (sibling of Implementations/),
+outside this directory so the layout stays compliant with item (6):
+- ../Test_Vectors/             - official KAT vectors (framework format).
+- ../Supporting_Documentation/ - protocol_reference.md, parameters.md,
+                                 security-argument.md, rsdp_estimator.py.
+- ../Qingluan Algorithm Text.pdf, ../算法基本信息样例.pdf, ../知识产权声明.pdf.
+
+
+Directory Structure
+-------------------
+
+Per item (6), each AlgorithmInstance is a single self-contained folder named
+[AlgorithmInstance]. The security level is FIXED in that folder's
+include/params.h, so the reference build needs NO compile-time -D flag.
+
+\Implementations
+  \Reference_Implementation
+    \QingLuan-128                One instance, classical 128 / quantum 64 (NIST cat-1).
+      \include
+        api.h                    Public signature API (crypto_sign_*)
+        params.h                 Parameters FIXED to this instance's level
+        hash.h                   SM3-based hash/XOF interface (multi-pipe)
+        fq_arith.h               F_p arithmetic (p = 127) declarations
+        restr.h                  Restricted-set E = <2> mod 127 operations
+        rsdp.h                   R-SDP matrix/error/syndrome operations
+        mpc.h                    MPC-in-the-Head (CROSS-RSDP) operations
+        sign.h                   Internal signature structures
+        selftest.h               Self-test interface
+        utils.h                  RNG, constant-time helpers, secure_zero
+      \src
+        fq_arith.c               Constant-time field arithmetic (Barrett)
+        restr.c                  Constant-time restricted-set arithmetic
+        hash.c                   SM3 + multi-pipe hash + XOF counter mode
+        utils.c                  System entropy + SM3 Hash-DRBG + CT utilities
+        rsdp.c                   Matrix expansion, error gen, syndrome packing
+        mpc.c                    MPC-in-the-Head core (witness genuinely shared)
+        keygen.c                 Key generation
+        sign.c                   Signature generation
+        verify.c                 Signature verification (checks R-SDP relation)
+        selftest.c               Known-answer and flow self-tests
+      \test
+        main.c                   End-to-end round-trip + tamper-rejection test
+        kat_gen.c                Internal determinism KAT (10 self-verified)
+        test_{restr,rsdp,hash,mpc,sign}.c   Unit tests
+        test_forgery.c           Public-key forgery regression gate
+        test_determinism.c       Determinism + pinned-KAT regression
+      \api_pkc                   OFFICIAL KAT generator (API_PKC framework).
+        SIG_AlgorithmInstance.c/.h   QingLuan -> API_PKC SIG adapter
+        hash_adapter.c           Multi-pipe SM3 / SM3-counter XOF on the
+                                 framework sm3hash (byte-identical to ../src/hash.c)
+        utils_adapter.c          Adapter RNG/utility layer (framework DRNG)
+        hash.h                   Adapter-private hash/XOF struct layouts
+        KAT_SIG.c                Framework KAT driver (unmodified)
+        drng.c/.h, auxfunc.c/.h  Framework support files (unmodified)
+        Makefile                 Level-fixed build; pulls ../src + ../include
+      Makefile                   Self-contained reference build (no -D; -lbcrypt on Win)
+      README.txt                 Per-instance notes
+    \QingLuan-256                Same layout, classical 256 / quantum >= 128.
+    \QingLuan-384                Same layout, classical 384 / quantum >= 192.
+    \QingLuan-512                Same layout, classical 512 / quantum >= 256.
+
+  \Optimized_Implementation      Reserved (Part 2 scope); placeholder README.txt.
+  \Additional_Implementation     Reserved; placeholder README.txt.
+
+  \README                        This file.
+
+
+Security Levels and Sizes
+-------------------------
+
+Binding security = min(key-recovery, forgery), at or above each level's
+classical target. Quantum is the conservative classical/2 full-Grover bound;
+256/384/512 meet their quantum floors (128/192/256) with no credit. The 128
+entry level is the exception: its raw quantum binding is 64-bit (= 128/2); the
+"80-bit" entry floor is met as a NIST category-1 designation (AES-128 under
+bounded-depth Grover), NOT as a literal 2^80 -- see
+Supporting_Documentation/parameters.md section 4.1 note (1).
+- QingLuan-128: classical 128-bit, quantum 64-bit (meets NIST cat-1 "80" floor)
+- QingLuan-256: classical 256-bit, quantum >= 128-bit
+- QingLuan-384: classical 384-bit, quantum >= 192-bit
+- QingLuan-512: classical 512-bit, quantum >= 256-bit
+
+Sizes (verified against compiled test/main.c; see Supporting_Documentation/
+parameters.md section 7):
+  Level         |pk|     |sk|     |sig|
+  QingLuan-128    77 B    32 B    18 720 B
+  QingLuan-256   153 B    64 B    74 248 B
+  QingLuan-384   227 B    96 B   164 940 B
+  QingLuan-512   302 B   128 B   292 816 B
+
+MPC-in-the-Head signatures are inherently large; further compression
+(seed tree / Merkle) and multi-platform tuning are Part 2 scope.
+
+
+Symmetric Primitives (pure SM3)
+-------------------------------
+
+- Hash/commitment/Fiat-Shamir: multi-pipe SM3 with domain-separated pipe
+  prefixes, output widened to 2*lambda bits (256/512/768/1024).
+  Honest claim: this widening provides preimage / second-preimage / TCR up to
+  the full width; it does NOT claim plain collision resistance above ~2^128
+  (Joux multicollision). Every collision-relying use is salted (eTCR). See
+  Supporting_Documentation/security-argument.md section 3.
+- XOF: absorb with the multi-pipe hash, squeeze via SM3(input || counter).
+- Randomness: SM3 Hash-DRBG (GM/T 0005). A 48/64-byte seed may be injected for
+  deterministic KAT reproducibility without reducing entropy.
+
+
+Build and Run (one Reference instance)
+--------------------------------------
+
+Each folder is self-contained and needs no -D flag. Example for QingLuan-128
+(replace 128 with 256/384/512 for other levels):
+
+  cd Reference_Implementation/QingLuan-128
+  make                     # builds qingluan_test and qingluan_kat
+
+Or directly with GCC (MinGW-w64; -lbcrypt only on Windows):
+  gcc -Wall -Wextra -std=c11 -O2 -Iinclude src/*.c test/main.c -o qingluan_test -lbcrypt
+
+Run:
+  ./qingluan_test          # self-test + keygen/sign/verify round-trip + tamper
+  ./qingluan_kat           # internal determinism KAT (KAT_SIG_QingLuan-<LEVEL>.txt)
+
+
+Build and Run (official KATs via api_pkc)
+-----------------------------------------
+
+Each instance's api_pkc/ folder builds the API_PKC framework + adapter against
+THAT instance's ../src and ../include (no LEVEL flag, no cross-folder paths):
+
+  cd Reference_Implementation/QingLuan-128/api_pkc
+  make run                 # generate -> output/KAT_SIG_QingLuan-128.txt
+  make verify              # validate the published root vectors via the reference
+                           # verifier (verify-only); prints "10/10 ... verify OK"
+
+These are the OFFICIAL KAT vectors (NIST/API_PKC framework format:
+Count/Seed/PK/SK/M/Sn). The adapter uses the SAME multi-pipe SM3 / SM3-counter
+XOF as the Reference (hash_adapter.c is byte-identical to ../src/hash.c), so the
+vectors reproduce the reference algorithm exactly. The canonical copies are kept
+at the submission root:
+  ../../../../Test_Vectors/KAT_SIG_QingLuan-{128,256,384,512}.txt
+
+
+Parameter Estimation
+--------------------
+
+  python ../Supporting_Documentation/rsdp_estimator.py    # self-check vs CROSS Table 5/7
+
+Reproduces the forgery (Prop 6 / Prop 7) and key-recovery cost models behind
+Supporting_Documentation/parameters.md. The 384/512 codes are linear
+extrapolations and must be re-checked with the official CROSS estimator before
+standardization.
+
+
+Notes
+-----
+
+- The four instances share identical source except include/params.h, which is
+  fixed to each level (so no -D flag is needed for the reference build). The
+  api_pkc/ build passes -DQINGLUAN_<LEVEL> only so the framework driver names
+  its output file; the algorithm itself is unaffected.
+- Built binaries, *.o, and api_pkc/output/ can be deleted safely; they are
+  regenerated on the next build/run and are git-ignored.

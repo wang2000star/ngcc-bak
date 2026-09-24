@@ -1,0 +1,9 @@
+metric,value
+iterations,100
+message_bytes,64
+public_key_bytes,6720
+secret_key_bytes,9920
+signature_bytes,12021
+peak_rss_bytes,2129920
+vmpeak_bytes,3092480
+vmhwm_bytes,1568768

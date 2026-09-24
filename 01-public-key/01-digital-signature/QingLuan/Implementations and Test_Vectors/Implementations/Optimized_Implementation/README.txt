@@ -1,0 +1,1 @@
+Reserved for Part 2 - Optimized_Implementation (architecture-specific / performance-tuned and compressed builds). No optimized build is included in the current submission; the reference code is in ../Reference_Implementation/ (see ../README for the full layout).

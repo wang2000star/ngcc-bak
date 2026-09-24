@@ -1,0 +1,24 @@
+Facto-DSA implementation package
+
+Reference_Implementation contains one the Reference Implementation version in one ISO C implementation folder per required NGCC strength level:
+  Facto-DSA-128
+  Facto-DSA-256
+  Facto-DSA-512
+
+(Performance) Optimization_Implementation contains the Performance Optimization version in one ISO C implementation folder per required NGCC strength level:
+  Facto-DSA-128
+  Facto-DSA-256
+  Facto-DSA-512
+
+  Resource_Optimization Implementation contains the Resource Optimization version in one ISO C implementation folder per required NGCC strength level:
+  Facto-DSA-128
+  Facto-DSA-256
+  Facto-DSA-512
+
+Both reference, performance and resource optimized implementation are portable ISO C and single-threaded.
+
+Each instance folder provides a Makefile. Check the README in each implementation strength level (i.e 128) folder for futher information 
+
+Run `make` and `make run` inside an instance folder to generate its KAT_SIG file under the local output/ directory.
+Run `make bench` to compile a fast test benchmark
+Call ./bench_sig <iterations> to customize number of iterations

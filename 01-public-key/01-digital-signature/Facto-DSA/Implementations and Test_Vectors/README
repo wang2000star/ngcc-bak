@@ -1,0 +1,32 @@
+Required Software:
+    cmake
+    clang
+    gcc
+    llvm-libs
+    lscpu (optional)
+
+Algorithm specification contains the algorithm specification paper and the signed electronic material.
+Implementations folder contains the Reference and Optimisations implementations (Performance and Resource optimization versions)
+ngcc_bench contains the test bench source that measures the algorithm .so library file
+self-assesment folder contains all the conducted tests folders with naming i.e "Digital Signature-Facto-DSA-128-x86-64-Performance Optimization Version". A main report.pdf is included explaining the global results.
+
+run-bench.sh compiles all the implementations into .so library files and invokes ngcc_bench to create results into "Digital Signature-Facto-DSA-...Implementation Name" folders inside "reports" folder.
+clean-folders.sh eliminates intermediate compiling sources like .o files to leave the implementation folders clean.
+
+All the implementation sources are platform aware, they adjust to the compiling platform by detecting the architecture in Makefiles.
+This is, if you compile in x86 then the implementations will compile in that platform, same for ARM and RISCV
+
+KAT vectors are included in Test_Vectors folders. To generate KAT vectors (Test_Vectors) take any implementation, for example Reference Implementation.
+Then do the following 
+
+cd "Implementations/Reference Implementation"
+cd "Facto-DSA-128"
+make clean && make kat_sig
+./kat_sig
+
+(or just make run and you are done!)
+The KAT vector result in this case, for 128, is left inside the "output" subfolder. 
+To obtain the rest KAT files, do the same for Facto-DSA-256 and Facto-DSA-512 folders.
+
+To reproduce self-assesment data, you can just run the script ./run-bench.sh
+Note that run-bench.sh sets CC variable to CC=clang, you can switch in the 1st line to CC=gcc if you want to

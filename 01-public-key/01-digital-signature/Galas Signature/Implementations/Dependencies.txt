@@ -1,0 +1,18 @@
+Galas dependency statement
+
+Reference implementation:
+- Language/profile: ISO C99 reference implementation.
+- Required tools: GNU GCC 8.5.0 or later, GNU Make.
+- Build flags: -std=c99 -Wall -Wextra -Wpedantic -O2.
+- Cryptographic dependencies: none beyond the submitted API_PKC auxiliary
+  functions included in the package.
+
+Optimized implementation:
+- Language/profile: C and C++ x86-64 performance implementation.
+- Required tools: GCC/G++ 8.5.0 or later, Meson, Ninja.
+- Target ISA: x86-64 with AVX2; AES-NI and PCLMULQDQ are enabled for the
+  vectorized paths that use them.
+- Build flags: release/O2, AVX2, AES-NI, PCLMULQDQ, native tuning, link-time
+  optimization, and frame-pointer omission as specified in meson.build.
+- Cryptographic dependencies: none beyond the submitted API_PKC auxiliary
+  functions included in the package.

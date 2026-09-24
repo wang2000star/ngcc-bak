@@ -1,0 +1,115 @@
+SYDO Implementations
+====================
+
+This directory contains the reference and optimized NGCC submission packages
+for all SYDO signature instances.
+
+
+Layout
+------
+
+```text
+Implementations/
+  README
+  NOTICE
+  Reference_Implementation/
+    sydo_160s/
+    sydo_160f/
+    sydo_256s/
+    sydo_256f/
+    sydo_512s/
+    sydo_512f/
+  Optimized_Implementation/
+    sydo_160s/
+    sydo_160f/
+    sydo_256s/
+    sydo_256f/
+    sydo_512s/
+    sydo_512f/
+```
+
+Every `sydo_*` instance directory has the same local structure:
+
+```text
+Makefile                  build file for this instance
+SIG_AlgorithmInstance.c   NGCC signature API wrapper
+SIG_AlgorithmInstance.h   NGCC signature API header
+src/                      algorithm implementation
+lib/                      auxfunc/drng and bundled primitives
+test/                     KAT and benchmark drivers
+```
+
+
+Instances
+---------
+
+| Instance | Reference package | Optimized package |
+| --- | --- | --- |
+| `sydo_160s` | `Reference_Implementation/sydo_160s` | `Optimized_Implementation/sydo_160s` |
+| `sydo_160f` | `Reference_Implementation/sydo_160f` | `Optimized_Implementation/sydo_160f` |
+| `sydo_256s` | `Reference_Implementation/sydo_256s` | `Optimized_Implementation/sydo_256s` |
+| `sydo_256f` | `Reference_Implementation/sydo_256f` | `Optimized_Implementation/sydo_256f` |
+| `sydo_512s` | `Reference_Implementation/sydo_512s` | `Optimized_Implementation/sydo_512s` |
+| `sydo_512f` | `Reference_Implementation/sydo_512f` | `Optimized_Implementation/sydo_512f` |
+
+
+Build Requirements
+------------------
+
+| Package | Requirements |
+| --- | --- |
+| Reference | POSIX `make`; ISO C compiler with C11 support, such as GCC or Clang |
+| Optimized | POSIX `make`; GCC/G++ with C23 and C++23 support; x86-64 CPU with AVX2, AES-NI, PCLMULQDQ, and SSSE3 |
+
+`taskset` from util-linux is recommended on Linux for single-core benchmarks.
+
+
+Build, Benchmark, And KAT
+------------------------
+
+Reference example:
+
+```sh
+cd Reference_Implementation/sydo_160s
+make clean
+make CC=gcc
+taskset -c 0 ./bench
+./kat_sig
+```
+
+Optimized example:
+
+```sh
+cd Optimized_Implementation/sydo_160s
+make clean
+make CC=gcc CXX=g++
+taskset -c 0 ./bench
+./kat_sig
+```
+
+Use the same idle CPU core for all benchmark runs when comparing instances.
+Each `kat_sig` run writes `output/KAT_SIG_<AlgorithmInstance>.txt`.
+
+
+Submitted Test Vectors
+----------------------
+
+```text
+../Test_Vectors/KAT_SIG_sydo_160s.txt
+../Test_Vectors/KAT_SIG_sydo_160f.txt
+../Test_Vectors/KAT_SIG_sydo_256s.txt
+../Test_Vectors/KAT_SIG_sydo_256f.txt
+../Test_Vectors/KAT_SIG_sydo_512s.txt
+../Test_Vectors/KAT_SIG_sydo_512f.txt
+```
+
+
+Primitive Interfaces
+--------------------
+
+- Transcript/hash XOF calls use the NGCC auxiliary `lib/auxfunc.c` `pseudoXOF`.
+- Randomness uses `lib/drng.c`.
+- For non-512-bit parameter sets, GGM PRG and leaf commitments use Rijndael,
+  and expand-h PRG uses AES.
+- For 512-bit parameter sets, the special-case primitive paths use the
+  BLAKE2s-derived 512-bit block-cipher primitive.

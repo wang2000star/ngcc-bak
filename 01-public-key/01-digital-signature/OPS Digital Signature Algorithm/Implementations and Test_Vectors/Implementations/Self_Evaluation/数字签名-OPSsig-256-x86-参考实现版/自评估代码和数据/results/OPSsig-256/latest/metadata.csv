@@ -1,0 +1,12 @@
+metric,value
+variant,reference
+instance,OPSsig-256
+impl_dir,./OPSsig-256
+submission_name,数字签名-OPSsig-256-x86-参考实现版
+started_at_utc,2026-06-29T13:49:24Z
+metric,value
+variant,reference
+instance,OPSsig-256
+submission_name,数字签名-OPSsig-256-x86-参考实现版
+result_dir,./自评估代码和数据/results/OPSsig-256/latest
+finished_at_utc,2026-06-29T13:50:28Z

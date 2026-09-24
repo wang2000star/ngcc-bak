@@ -1,0 +1,53 @@
+SHUTTLE signature -- NGCC Implementations
+=========================================
+
+Three implementation tiers, each covering all parameter sets
+(SHUTTLE-128, SHUTTLE-256, SHUTTLE-512):
+
+  Reference_Implementation/   Pure ISO C99 (no assembly, intrinsics, or
+                              compiler extensions).  Builds warning-clean
+                              under: gcc -std=c99 -Wpedantic -Wall -Wextra -O2.
+                              This is the correctness reference and the KAT
+                              oracle.
+
+  Optimized_Implementation/   AVX2-optimized for mainstream 64-bit x86 PCs.
+                              Vectorized NTT + N-way SM3 XOF.  Built with:
+                              gcc -O3 -march=x86-64 -mavx2 -mtune=native -flto
+                              -fomit-frame-pointer -std=c99 -Wpedantic -Wall
+                              -Wextra (a pure-AVX2 path, no AVX-512).
+
+  Additional_Implementation/  AVX-512-optimized variant (extra tier).  Same as
+                              Optimized but with the AVX-512 subsets enabled
+                              (-mavx512f/bw/dq/vl/vbmi2).  Requires an AVX-512
+                              host to run.
+
+Each SHUTTLE-<set> folder is self-contained and ships with a Makefile:
+
+  make           build the ICCS KAT generator (kat_sig).
+  make vectors   build + run it; writes output/KAT_SIG_SHUTTLE-<set>.txt.
+  make clean
+
+Per-folder file inventory:
+
+  KAT_SIG.c                 ICCS-provided KAT driver (SHALL NOT be modified).
+  SIG_AlgorithmInstance.{c,h}  NGCC programming-interface adapter for SHUTTLE
+                            (sig_keygen / sig_sign / sig_verify) and the
+                            ALGORITHM_INSTANCE / OUTPUT_BLANK_TEST_VECTORS
+                            macros.
+  drng.{c,h}, auxfunc.{c,h} ICCS-provided SM3 Hash-DRBG + auxiliary functions
+                            (SHALL NOT be modified).
+  README.txt                ICCS instructions for the infrastructure files.
+  sign.c, polyvec.c, sampler.c, sampler_u.c, irs.c, rounding.c, packing.c,
+  poly.c, poly_ntt.c, reduce.c, rans.c, approx_exp.c, approx_log.c,
+  symmetric.c, fips202.c    SHUTTLE scheme sources.
+  *.h                       SHUTTLE scheme + generated-constant headers
+                            (approx_exp_poly.h, approx_log_poly.h,
+                            rcdt_tables.h, rounding_consts.h are reproducible
+                            constant tables).
+  ntt/<qset>/ntt_ref.{c,h}  Per-set scalar NTT.
+  <qset>/ntt*.{S,c}         Per-set vectorized NTT (Optimized/Additional only).
+  test/prof.h               No-op profiling-probe header.
+  test/speed.txt            Measured end-to-end speed snapshot (this tier).
+  test/profiling.txt        Measured per-stage profiling snapshot (this tier).
+
+The matching Known-Answer-Test vectors are in ../Test_Vectors/.

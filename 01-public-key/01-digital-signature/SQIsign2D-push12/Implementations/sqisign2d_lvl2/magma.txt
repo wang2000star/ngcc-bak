@@ -1,0 +1,1226 @@
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+a:=0x4da3e051ed053abaa85506edd58ea6126704f4b925e167042ee9cb9f6452bb0f + i*0x04c6dbde5ccc92cbb15142b97425ac9f00d1e5334f516ca3016d12251a8fe98b;
+x1:=0xfffffffffffffffffffffffffffffc6d3ceb8f79aa7547fcff6d7e87c4452ebb;
+x2:=0xfffffffffffffffffffffffffffffc514b70a00587dee7fd9cc55da8f57e5d93;
+xP:=0x1d60a7bb28e9e0929c57e1316dfc4c43df8f64b82b372cdab18a7783a1161ee1 + i*0x618b766d6cef3a2028318fe6ae57f6f3ce63860aab15eae11487b26e93a34b7a;
+xP:=0x1d60a7bb28e9e0929c57e1316dfc4c43df8f64b82b372cdab18a7783a1161ee1 + i*0x618b766d6cef3a2028318fe6ae57f6f3ce63860aab15eae11487b26e93a34b7a;
+yP:=0x13b54cc8e3d1392c5d6c22501e9d330cb205d189adcda56aa4601a81ce224645 + i*0x0627dca9b2c4da969609f178bcffe0f36aaba67367bf3d862e38399bc13720cf;
+xQ:=0x60e862448d153651f9156f2a0b22a59860510ef38ab804e80fd692cb9836fcc9 + i*0x53ac2c34ac0d070f212522f7e249d42c490e195e8de672f7ce2a9d97ff594b2d;
+yQ:=0x1b227f6ec19e409bc0301dd253a069a85936bafc2a63dbdaefa7d8d69d1daa7d + i*0x5c9b22e58da3973191b9c46023ef526c13bcc68778f3175b809e45fc34bb57b9;
+xR:=0x48ed9efa5411b437ca7631a9b8e47eb621dc139a99b083d20aaef80272b27d96 + i*0x07cb9a62e91512d8dca75adc87e28fa38314ded88486ee461911d3f7196a65ca;
+yR:=0x306b8e722c0e246504c340f7e10de97e6aa10db86bf1915ce8a7f1dfafee09d3 + i*0x18fed9c6c71fa6ac3404ce5d5fba9754279db99ace0ab27f79c8734ab500ca35;
+
+
+
+E:=EllipticCurve([F2|0,a,0,1,0]);
+P:=E![xP,yP];
+Q:=E![xQ,yQ];
+R:=E![xR,yR];
+
+assert 2^131*P eq Id(E);
+assert 2^131*Q eq Id(E);
+assert 2^131*R eq Id(E);
+
+assert 2^130*P ne Id(E);
+assert 2^130*Q ne Id(E);
+assert 2^130*R ne Id(E);
+w:=WeilPairing(P,Q, 2^131);
+assert Order(w) eq 2^131;
+
+//*****compute a,b such that R=aP+bQ*****//
+ec_dlog_2:=function(P,Q,R,n);
+  assert n*P eq Id(E);
+  assert n*Q eq Id(E);
+  assert n*R eq Id(E);
+  w:=WeilPairing(P,Q, n);
+  w1:=WeilPairing(P,R, n);
+  w2:=WeilPairing(R,Q, n);
+  b:=Log(w, w1);
+  a:=Log(w, w2);
+  assert R eq a*P+b*Q;
+    return a,b;
+end function;
+a,b:=ec_dlog_2(P,Q,R, 2^131);
+IntegerToString(2^131-a,16);
+IntegerToString(b,16);
+
+/////////////////////////////////////////////////////////////////
+
+
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+a:=0x0a0c8ab37b97559d897dcfa92b6e09cde83e2a4333bf291549fa680db053d9aa + i*0x0f1a8b158ed33f9c8ad366e9fecdc1e78017b5498714f006b540682bca1e7faf;
+x:=0x0152d66f9d3ede81e002c1b59cbec918b60f;
+xP:=0x0b7d2d571639376ff390900e8c30c1676108b66ed4d0c3e1fb3a86b2816ef02b + i*0x38a43df98aed34dfa882fd4f941c23778a618d9c049590a4d4fbbab5feba2643;
+yP:=0x2bbf97cc4a0def3156c013b7375d3ac24857c0e0eea3ec0569ab9bf99e2722e7 + i*0x2822385cf57ad36d757020feb6d5bd05654ada8470f1bb8eb439e2363854ae23;
+xQ:=0x400312de2caf208ec7d7708261e73c7eb38625baaf71ae11222c2e33c6b4e09c + i*0x2e02b8ce3f9e16148fe941da8abbd83b6aa43f04e90e8d0d0ab2c2b6dc62c61d;
+yQ:=0x38ad7df8dfff97d3ba6eef3b312894700020efa4bc8d3602c2985006893e65d7 + i*0x4201a3f12811f9c88317554b349d4992d35a3e33a757c6ad17704bccfef36444;
+xR:=0x3f82ed1f0554c15703b32535483fa905ee57f86fc86895eb177b3dab77a36f24 + i*0x542e30c376a14e853aa5826cfb524b2bbcb65e9c1ab96e2b19e7a8a038b381ef;
+yR:=0x2f712195c60f252f28db1619b91c00c7153a016b6461d2d24cadd147df97a672 + i*0x42751c402db665488cf5d5636712e7ca33541eeb3bfa7583821b0766481244b1;
+
+
+E:=EllipticCurve([F2|0,a,0,1,0]);
+P:=E![xP,yP];
+Q:=E![xQ,yQ];
+R:=E![xR,yR];
+
+assert 2^131*P eq Id(E);
+assert 2^131*Q eq Id(E);
+assert 2^131*R eq Id(E);
+
+assert 2^130*P ne Id(E);
+assert 2^130*Q ne Id(E);
+assert 2^130*R ne Id(E);
+w:=WeilPairing(P,Q, 2^131);
+assert Order(w) eq 2^131;
+
+//*****compute a,b such that R=aP+bQ*****//
+ec_dlog_2:=function(P,Q,R,n);
+  assert n*P eq Id(E);
+  assert n*Q eq Id(E);
+  assert n*R eq Id(E);
+  w:=WeilPairing(P,Q, n);
+  w1:=WeilPairing(P,R, n);
+  w2:=WeilPairing(R,Q, n);
+  b:=Log(w, w1);
+  a:=Log(w, w2);
+  assert R eq a*P+b*Q;
+    return a,b;
+end function;
+a,b:=ec_dlog_2(P,Q,R, 2^131);
+w0:=0xc918b60f;
+x0:=0x160dace5f;
+w1:=0x13ede81e0;
+x1:=0xa96b37ce;
+f:=2^131;e:=2^65;f1:=2^66;e1:=2^33;f2:=2^33;
+IntegerToString(a,16);
+IntegerToString(w0+x0*e1+w1*(f2*e1)+x1*e*f2,16);
+IntegerToString(x,16);
+a:=w0+x0*e1+w1*(f2*e1)+x1*e*f2;
+
+
+
+/*Verify that the challge isogeny is correct*/
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+a:=0x11ebda9050d4cfef5722cfe5dbbc40c453cca5f102a32f2de66d924048ca766f + i*0x26b5862ba9e0f16612ca4ce5d5e0839d0e8d121355054a563c7e727308da9c6a;
+
+xP:=0x1c7b14dc18f107101902d5c1acfdfe35afccfc9019b8e977cce6a3864f0292b4 + i*0x176f396f2fbe3c7f4ec914fe1888856a82a9d9c4eb10a7870812c15dae45b109;
+yP:=20734247520637506495617417684270715259915229315656378432819346718661082909\
+    840*i + 8231720196106587033120281679641573460816212246849362266843772259800\
+    703663393;
+xQ:=0x103172e820c3b24fd06e534b37a2874fc5ae3b734f4153648759098f67859144 + i*0x4cbad194e71596c6da9fdf12f279f3d12800085937a25dab831c3cdb5f474cbd; 
+yQ:=30576217588771921849049615775797418961603002752061781247815941617004939315\
+    765*i + 4519542502621586122862619024381102445693946973026145175262733460586\
+    287567787;
+xPmQ:=0x303f0ed9c55043ff2d84dce7b18148f383a5f31aa29a7f9f4b27019724ab6a3c + i*0x047681f2fefb761c21a1da36ab92c21f0d920058ad0957410d5088d2f08da31d; 
+Ea:=EllipticCurve([F2|0,a,0,1,0]);
+//IsSquare(xQ^3+a*xQ^2+xQ);
+Pa:=Ea![xP,yP];
+Qa:=Ea![xQ,yQ];
+
+assert 2^131*Pa eq Id(Ea);
+assert 2^131*Qa eq Id(Ea);
+
+assert 2^130*Pa ne Id(Ea);
+assert 2^130*Qa ne Id(Ea);
+wa:=WeilPairing(Pa,Qa, 2^131);
+b:=0x16505edce73143567512cf7e12cbfaca0339dcd342042c78edf01cb18ef10b7d + i*0x02d094741b8923744c545d83d34ab14767243c01b0d3d2c0542d8056b74efef0; 
+Eb:=EllipticCurve([F2|0,b,0,1,0]);
+
+xP:=0x1a8e458aa1ffbd5b4664aad01112426cd144aa8041e07cd9cc9d77cd5679533a + i*0x3d25af97872fb3730266dbbd1ac4e04bc7ce58eb8f57d129bda19bb39f686d72;
+yP:=39971209149672516064073495217207727916674600205228021343250950628255180277\
+    608*i + 2694077499028955272988638148407710709963870353717866919186707925147\
+    9042553881;
+xQ:=0x06696843902992f7e01662fc5de8c2b5964421e736e7c14be23efb09f836d166 + i*0x139887225098f9c11061161b82b43cbbb3b32add89957e00ea55dc1adf97509a; 
+yQ:=27205466882020157702277984905654355579203524445622948229675558441619559252\
+    900*i + 2573308302432641118008723025365423994379732324106989094526369745336\
+    4866297563;
+Pb:=Eb![xP,yP];
+Qb:=Eb![xQ,yQ];
+assert 2^131*Pa eq Id(Eb);
+assert 2^131*Qa eq Id(Eb);
+
+assert 2^130*Pa ne Id(Eb);
+assert 2^130*Qa ne Id(Eb);
+
+wb:=WeilPairing(Pb,Qb, 2^131);
+wa^(3^78)-wb;
+
+
+
+
+
+
+
+/*Verify that the commitment and challge isogeny is correct*/
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+xP0:=0x17479ae0728581a9cef1df56311bfe23cdf540bf895075765dd609e241ceeacc + i*0x17f8389a1ae74df196ad2290fe9c68fcf55a1def421fb302950cb7d333325d18;
+xQ0:=0x1d2f440600c314e74e156fa5941684f15835325b2e4a6f3ca279babe7c122735 + i*0x12250924f3af574dcd6c3b7641483887167f5f15cfb22c0f1468da15a1e3f4e5;
+xPmQ0:=0x00cdbbe35e0a093498df1c5598d9262b51ad4449026ad94a81f19b44a7a7a84d + i*0x626c9d54bef7211c3b62a29aa86b637291eb842872890cf56e63205bf639f19b;
+E0:=EllipticCurve([F2|0,0,0,1,0]);
+yP0:=SquareRoot(xP0^3+xP0);yQ0:=SquareRoot(xQ0^3+xQ0);
+P0:=E0![xP0,yP0];
+Q0:=E0![xQ0,yQ0];
+
+R:=P0-Q0;
+if R[1] ne xPmQ0 then 
+   Q0:=-Q0;
+   R:=P0-Q0;
+end if;
+assert R[1] eq xPmQ0;
+
+
+assert 2^131*P0 eq Id(E0);
+assert 2^131*Q0 eq Id(E0);
+assert 2^130*P0 ne Id(E0);
+assert 2^130*Q0 ne Id(E0);
+w0:=WeilPairing(P0,Q0, 2^131);
+
+/**************************************************************************************************************************************************/
+
+a:=0x4e6841bcf1c5e2748c5d1ac0e8539dde67d3925cab9e26fd4c77490e22ffdf7c + i*0x26e5b639019b0e6a4f52496ca96a055961b5c654dbedc1daa7d679c315c01e3b;
+xP_com:=0x60df5f3ebb3252b8678a1b5e0833d66050b7ffd6a7ccb1dcc4b97fa9890ee9f0 + i*0x0078ce2738aba72f647a12dc8be6465b671cc579ca88f51ae7efd230540e3cfb;
+xQ_com:=0x46c3b31acfb5d98852510617ae1ccaf6455aa045bbc0d160793167c3aca233f1 + i*0x31b1568fe8f8f30a689f7338ee48b59aefe2d2e1eacdea78b0040d36ace81737;
+xPmQ_com:=0x1df3208564097bc8391a8f86fa12e5299138e46ae7872b08a221cc75d71d2abb + i*0x306c85526db43e8c602f10e10dacb533d9f9d39b3e9b1dab804a0f38c1bcd0eb;
+yP_com:=SquareRoot(xP_com^3+a*xP_com^2+xP_com);yQ_com:=SquareRoot(xQ_com^3+a*xQ_com^2+xQ_com);
+
+Ea:=EllipticCurve([F2|0,a,0,1,0]);
+
+Pa:=Ea![xP_com,yP_com];
+Qa:=Ea![xQ_com,yQ_com];
+R:=Pa-Qa;
+if R[1] ne xPmQ_com then 
+   Qa:=-Qa;
+   R:=Pa-Qa;
+end if;
+assert R[1] eq xPmQ_com;
+
+
+assert 2^131*Pa eq Id(Ea);
+assert 2^131*Qa eq Id(Ea);
+assert 2^130*Pa ne Id(Ea);
+assert 2^130*Qa ne Id(Ea);
+wa:=WeilPairing(Pa,Qa, 2^131);
+/*************************************************************************************************************************************************/
+b:=0x1ec71f007a6cfb67ae013010bba77f3301c632469d9ce2f3cee7eadcc83f71ed + i*0x45e136c91aee0975dc2d1f5c5e21f7015e423e79b011ca39df1de987b0aa344e;
+xP_chl:=0x309c670728170f9cb6596772cad65daf6e26394deaa85bcc07f12884fc2a3ffe + i*0x35eff23502bf86ee4a2046d93e78432105ca792460a535bc045ed7b53e5ed978;
+xQ_chl:=0x6160a4f2a4d5a060d1bccae7a21c5de1cfad54692de701c488c54ab9fab310d8 + i*0x54d4d6799406fbe8a7614706463486cd825943fa71c1a98e0c6ebc243fb15f68;
+xPmQ_chl:=0x5820eaa46bd3f0a01144eedde2287facaefad6076a551df46a7dc0c388773d7c + i*0x310aee3122c68d799faf87c42bfba56fd7613607f674a20c617a8c0fc2d5dda3;
+
+yP_chl:=SquareRoot(xP_chl^3+b*xP_chl^2+xP_chl);yQ_chl:=SquareRoot(xQ_chl^3+b*xQ_chl^2+xQ_chl);
+Eb:=EllipticCurve([F2|0,b,0,1,0]);
+
+Pb:=Eb![xP_chl,yP_chl];
+Qb:=Eb![xQ_chl,yQ_chl];
+R:=Pb-Qb;
+if R[1] ne xPmQ_chl then 
+   Qb:=-Qb;
+   R:=Pb-Qb;
+end if;
+assert R[1] eq xPmQ_chl;
+assert 2^131*Pb eq Id(Eb);
+assert 2^131*Qb eq Id(Eb);
+assert 2^130*Pb ne Id(Eb);
+assert 2^130*Qb ne Id(Eb);
+wb:=WeilPairing(Pb,Qb, 2^131);
+
+n_com:=(3^78)^2;
+n_chl:=(3^78)^3;
+w0^(n_com)-wa;
+w0^(n_chl)-wb;
+
+
+
+
+
+/**********Verify that the corresponding isogeny is correct*******************************************************************************************
+This can be done via the Weil pairing. Given a deterministic of E_com[2^m] as <P_com,Q_com> and compute \phi_rsp(P_com,Q_com)=P_rsp, Q_rsp, where 
+\phi_rsp is the corresponding isogeny between E_com and E_chl.  Then the computation is correct if and only if
+
+                            WeilPiairng(P_com, Q_com,m)^n=WeilPiairng(P_rsp, Q_rsp,m)
+*****************************************************************************************************************************************************/
+
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+xP0:=0x17479ae0728581a9cef1df56311bfe23cdf540bf895075765dd609e241ceeacc + i*0x17f8389a1ae74df196ad2290fe9c68fcf55a1def421fb302950cb7d333325d18;
+xQ0:=0x1d2f440600c314e74e156fa5941684f15835325b2e4a6f3ca279babe7c122735 + i*0x12250924f3af574dcd6c3b7641483887167f5f15cfb22c0f1468da15a1e3f4e5;
+xPmQ0:=0x00cdbbe35e0a093498df1c5598d9262b51ad4449026ad94a81f19b44a7a7a84d + i*0x626c9d54bef7211c3b62a29aa86b637291eb842872890cf56e63205bf639f19b;
+
+n:=1170641037317992007134132497291936080298;
+a:=0x3029109a45a4ef13647d7d015fa40477e634a76d28a519b52aa8876527c7bf6f + i*0x2a9730554997bbe8dfd2b63c94c4b1286742c36cdeaf0993fa8c1cf6e5c5ab5a;
+xP_com:=0x2ef63365b6bc8e3547f78ce217bf8915a61212a8164eba0578b1fc3f8a9352a1 + i*0x1b6c2eeb9bf518685c5605a170fc90a67ae8371da5d0dc22a6c7d7c7b2b4dc28;
+xQ_com:=0x6250e2dbb99dd2f334ab1132b11ecf78b5f1a68ebc72e8a8274db1c667afd751 + i*0x4d2c4fc482c34717a1bc0ef225f40ae9fc651e4ccff0bf0a145b4a0ec181f392;
+xPmQ_com:=0x2670ba604384cd498fc13356ad0709be58cb700d59a20cbbf68758fa0cbf19a0 + i*0x4847825eb4d4d2c1394349c4f1a2717ef839a4fc5444764cf97d782fae169100;
+
+b:=0x61b5117b3ad9205eadc18ed82c149400066dea80b16637ef489075596e0f1815 + i*0x241338fd4ff7d23c0f07f0fcbd0f1e760e88a0141974936717bc182101bca4ea;
+xP_chl:=0x16342a0e2e96e2db4af94b21bc3e7af66d3dde243d2588f23c0049f47b89331e + i*0x538fc50e2120a84dbcf8dbe4de1673026364ca02988ccdaf01937b75a6476b68;
+xQ_chl:=0x30567595cb197a71143441a5f730deba4ab7dd873a3c13e9143307a9f434874f + i*0x0edefee1f5a357b780f4c5c06f9e264a101ab4541698b100dbfa362a2a25e07d;
+xPmQ_chl:=0x092d60f6d917b848b85300e879bcd9c19274fba65a4e2150a41d5254a8b35bed + i*0x179d45f2305cf2511a5911dec23d53665e54e481d3a892479bc99dc060c036d5;
+xP_rsp:=0x521bba8e83a402f15e5ea10ace2cd3bdb019accd7e4eeaba86c2eafc9dfa5ca6 + i*0x395786e8912d0f2dbd3e91ac4d0e2ee27dcaa7672b982557f496cde3f97fee3a;
+xQ_rsp:=0x36f7f2257001e8d46d1ce1b613750cf8519f8e6f1c42dfa89db5e4e56a5f0791 + i*0x591c1c5a38156d2e503cbd540623c3d9fca4972ad7b0c0d7d5fd0e7a3e1c5980;
+xPmQ_rsp:=0x30e4239094dd1bd9446a5f33ded7edc8e733cbd250271c7fdd9ccb81f263c5cd + i*0x4d715519743936d6d692efc361ce1cad74b8e6ac65b48cd040cc646d7eb68c50;
+
+
+/*************************************************************************E0****************************************************************************/
+E0:=EllipticCurve([F2|0,0,0,1,0]);
+yP0:=SquareRoot(xP0^3+xP0);yQ0:=SquareRoot(xQ0^3+xQ0);
+P0:=E0![xP0,yP0];
+Q0:=E0![xQ0,yQ0];
+
+R:=P0-Q0;
+if R[1] ne xPmQ0 then 
+   Q0:=-Q0;
+   R:=P0-Q0;
+end if;
+assert R[1] eq xPmQ0;
+
+
+assert 2^131*P0 eq Id(E0);
+assert 2^131*Q0 eq Id(E0);
+assert 2^130*P0 ne Id(E0);
+assert 2^130*Q0 ne Id(E0);
+w0:=WeilPairing(P0,Q0, 2^131);
+
+
+
+
+
+
+/*************************************************************************E_com****************************************************************************/
+
+yP_com:=SquareRoot(xP_com^3+a*xP_com^2+xP_com);yQ_com:=SquareRoot(xQ_com^3+a*xQ_com^2+xQ_com);
+Ea:=EllipticCurve([F2|0,a,0,1,0]);
+Pa:=Ea![xP_com,yP_com];
+Qa:=Ea![xQ_com,yQ_com];
+R:=Pa-Qa;
+if R[1] ne xPmQ_com then 
+   Qa:=-Qa;
+   R:=Pa-Qa;
+end if;
+assert R[1] eq xPmQ_com;
+
+
+assert 2^131*Pa eq Id(Ea);
+assert 2^131*Qa eq Id(Ea);
+assert 2^130*Pa ne Id(Ea);
+assert 2^130*Qa ne Id(Ea);
+wa:=WeilPairing(Pa,Qa, 2^131);
+
+
+
+
+/***************************************************************E_chl**********************************************************************************/
+
+Eb:=EllipticCurve([F2|0,b,0,1,0]);
+yP_chl:=SquareRoot(xP_chl^3+b*xP_chl^2+xP_chl);yQ_chl:=SquareRoot(xQ_chl^3+b*xQ_chl^2+xQ_chl);
+Pb:=Eb![xP_chl,yP_chl];
+Qb:=Eb![xQ_chl,yQ_chl];
+R:=Pb-Qb;
+if R[1] ne xPmQ_chl then 
+   Qb:=-Qb;
+   R:=Pb-Qb;
+end if;
+assert R[1] eq xPmQ_chl;
+assert 2^131*Pb eq Id(Eb);
+assert 2^131*Qb eq Id(Eb);
+assert 2^130*Pb ne Id(Eb);
+assert 2^130*Qb ne Id(Eb);
+wb:=WeilPairing(Pb,Qb, 2^131);
+
+
+yP_rsp:=SquareRoot(xP_rsp^3+b*xP_rsp^2+xP_rsp);yQ_rsp:=SquareRoot(xQ_rsp^3+b*xQ_rsp^2+xQ_rsp);
+Prsp:=Eb![xP_rsp,yP_rsp];
+Qrsp:=Eb![xQ_rsp,yQ_rsp];
+R:=Prsp-Qrsp;
+if R[1] ne xPmQ_rsp then 
+   Qrsp:=-Qrsp;
+   R:=Prsp-Qrsp;
+end if;
+assert R[1] eq xPmQ_rsp;
+assert 2^131*Prsp eq Id(Eb);
+assert 2^131*Qrsp eq Id(Eb);
+assert 2^130*Prsp ne Id(Eb);
+assert 2^130*Qrsp ne Id(Eb);
+wc:=WeilPairing(Prsp,Qrsp, 2^131);
+wa^n-wc;
+assert(2^131 gt n); 
+/**
+*
+**
+**
+**
+高为同源
+**
+**
+**
+**
+**
+**
+**/
+
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+xP0:=0x17479ae0728581a9cef1df56311bfe23cdf540bf895075765dd609e241ceeacc + i*0x17f8389a1ae74df196ad2290fe9c68fcf55a1def421fb302950cb7d333325d18;
+xQ0:=0x1d2f440600c314e74e156fa5941684f15835325b2e4a6f3ca279babe7c122735 + i*0x12250924f3af574dcd6c3b7641483887167f5f15cfb22c0f1468da15a1e3f4e5;
+xPmQ0:=0x00cdbbe35e0a093498df1c5598d9262b51ad4449026ad94a81f19b44a7a7a84d + i*0x626c9d54bef7211c3b62a29aa86b637291eb842872890cf56e63205bf639f19b;
+
+n:=1366038387955497872491655306191901772797;
+add:=0x4595058f298fe5dc496baa83b213c5118d38cc73f18ed0e5b78e95155f84297a + i*0x35ca666c397c4e950d95667eea56c2fb66e0f98719d2dd8df6813c4f7498d9ab;
+xP_dd:=0x572cc3c51885c67752f043c6c44bdf05d01be2b2e4756e475b33be385059b32b + i*0x4c425d0bfb76bfd520264b92d572977c9164e1ff6060eba8ffa2831f002cfdf2;
+xQ_dd:=0x178ecc1490b053394284ac59120cf08e077a1918bfe6a14cce5d01b2abd96130 + i*0x18cf265954c81b0a3fa39bf3bfd55166a6ff1a21224059d9890b24250bba8e73;
+xPmQ_dd:=0x14e9d1a27ddb94e64932e9f84febae1ab9c4e442ed02d653d15b741dab0bc6c1 + i*0x048e52f3fe276ddd71adea1d4cb8051aee56ae455504049e4c697b7a3f236da0;
+
+
+
+/*************************************************************************E0****************************************************************************/
+E0:=EllipticCurve([F2|0,0,0,1,0]);
+yP0:=SquareRoot(xP0^3+xP0);yQ0:=SquareRoot(xQ0^3+xQ0);
+P0:=E0![xP0,yP0];
+Q0:=E0![xQ0,yQ0];
+
+R:=P0-Q0;
+if R[1] ne xPmQ0 then 
+   Q0:=-Q0;
+   R:=P0-Q0;
+end if;
+assert R[1] eq xPmQ0;
+
+
+assert 2^131*P0 eq Id(E0);
+assert 2^131*Q0 eq Id(E0);
+assert 2^130*P0 ne Id(E0);
+assert 2^130*Q0 ne Id(E0);
+w0:=WeilPairing(P0,Q0, 2^131);
+
+
+
+
+
+
+/*************************************************************************E0_dd****************************************************************************/
+
+yP_dd:=SquareRoot(xP_dd^3+add*xP_dd^2+xP_dd);yQ_dd:=SquareRoot(xQ_dd^3+add*xQ_dd^2+xQ_dd);
+Edd:=EllipticCurve([F2|0,add,0,1,0]);
+Pdd:=Edd![xP_dd,yP_dd];
+Qdd:=Edd![xQ_dd,yQ_dd];
+R:=Pdd-Qdd;
+if R[1] ne xPmQ_dd then 
+   Qdd:=-Qdd;
+   R:=Pdd-Qdd;
+end if;
+assert R[1] eq xPmQ_dd;
+
+
+assert 2^131*Pdd eq Id(Edd);
+assert 2^131*Qdd eq Id(Edd);
+assert 2^130*Pdd ne Id(Edd);
+assert 2^130*Qdd ne Id(Edd);
+wdd:=WeilPairing(Pdd,Qdd, 2^131);
+
+m:=(2^131-n)*n;
+w0^m;
+wdd;
+
+/******************************************************************check commitment1****************************************************************************/
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+xP0:=0x17479ae0728581a9cef1df56311bfe23cdf540bf895075765dd609e241ceeacc + i*0x17f8389a1ae74df196ad2290fe9c68fcf55a1def421fb302950cb7d333325d18;
+xQ0:=0x1d2f440600c314e74e156fa5941684f15835325b2e4a6f3ca279babe7c122735 + i*0x12250924f3af574dcd6c3b7641483887167f5f15cfb22c0f1468da15a1e3f4e5;
+xPmQ0:=0x00cdbbe35e0a093498df1c5598d9262b51ad4449026ad94a81f19b44a7a7a84d + i*0x626c9d54bef7211c3b62a29aa86b637291eb842872890cf56e63205bf639f19b;
+
+amid:=0x499ae4531afb463a17e5f4bcb709e5cda198dce62e64df932676a4fb1df26601 + i*0x62396e8174541c34ed416721ed147313e547465f91c1f629747d4906518120b6;
+xP_mid:=0x3eba43a782086b41d03373bf09b3dd5fe5b60cd8215aad444ea3bc1d565f0f69 + i*0x5255af25e1b556ed30e07f4eada77240bbd71898725c9b0832fef48e6b757ff0;
+xQ_mid:=0x25fd8848bdce45cae8bebcbe2ca986e7bb0cd03d8d6691b026f60a16b7354ac4 + i*0x218821c49c58e17df084e9bd7c0f1c9e190449644aa530071c76e1d04a51ec48;
+xPmQ_mid:=0x243e7a38a0fa114d9576937083f46d3bd796cde1fc79377d713d8ccf12f1855b + i*0x28658d2c45a33aa1a19d504012ca4b93ef5947df3454fd88643ce9ded3b59866;
+
+acom:=0x1f6a4d18bb899f4041d2b3ea5d92e0c0dbb60b278d12ecf8baf4f8b4053fde0d + i*0x4bf50f964131f961b5419502e208d4ca5638e77452cb9a944ebfa67e0a84473c;
+xP_com:=0x477e0ea453756cfcc5a847cddb09a4c1f52e5ed911d4f8846363e959dc062a6b + i*0x3089971e10740f0420740463d7efd281933e5c81d3d888d04629b419f7408df0;
+xQ_com:=0x34d82148a37d348187b1b9205c42cad9942cce2f7deb4c48f658e7f2c421c7c0 + i*0x097438293373eb81ca1d6b8d0f6db1d9971b911ac878d09f3c952d3adf01e761;
+xPmQ_com:=0x46ac71b673602fa5da6060644ba364be17c360f78cc6c769732309bc5c63c62e + i*0x149153b0b2bcace67d5c29e0269c42087deb4f517e8912993ab4c0a8b55e4cec;
+
+
+
+
+
+
+
+/***************E0*****************/
+E0:=EllipticCurve([F2|0,0,0,1,0]);
+yP0:=SquareRoot(xP0^3+xP0);yQ0:=SquareRoot(xQ0^3+xQ0);
+P0:=E0![xP0,yP0];
+Q0:=E0![xQ0,yQ0];
+
+R:=P0-Q0;
+if R[1] ne xPmQ0 then 
+   Q0:=-Q0;
+   R:=P0-Q0;
+end if;
+assert R[1] eq xPmQ0;
+
+
+assert 2^131*P0 eq Id(E0);
+assert 2^131*Q0 eq Id(E0);
+assert 2^130*P0 ne Id(E0);
+assert 2^130*Q0 ne Id(E0);
+w0:=WeilPairing(P0,Q0, 2^131);
+
+
+
+
+/****E_mid*********/
+
+yP_mid:=SquareRoot(xP_mid^3+amid*xP_mid^2+xP_mid);yQ_mid:=SquareRoot(xQ_mid^3+amid*xQ_mid^2+xQ_mid);
+Emid:=EllipticCurve([F2|0,amid,0,1,0]);
+Pmid:=Emid![xP_mid,yP_mid];
+Qmid:=Emid![xQ_mid,yQ_mid];
+R:=Pmid-Qmid;
+if R[1] ne xPmQ_mid then 
+   Qmid:=-Qmid;
+   R:=Pmid-Qmid;
+end if;
+assert R[1] eq xPmQ_mid;
+
+
+assert 2^131*Pmid eq Id(Emid);
+assert 2^131*Qmid eq Id(Emid);
+assert 2^130*Pmid ne Id(Emid);
+assert 2^130*Qmid ne Id(Emid);
+wmid:=WeilPairing(Pmid,Qmid, 2^131);
+
+
+/**************E_com*****/
+yP_com:=SquareRoot(xP_com^3+acom*xP_com^2+xP_com);yQ_com:=SquareRoot(xQ_com^3+acom*xQ_com^2+xQ_com);
+Ecom:=EllipticCurve([F2|0,acom,0,1,0]);
+Pcom:=Ecom![xP_com,yP_com];
+Qcom:=Ecom![xQ_com,yQ_com];
+R:=Pcom-Qcom;
+if R[1] ne xPmQ_com then 
+   Qcom:=-Qcom;
+   R:=Pcom-Qcom;
+end if;
+assert R[1] eq xPmQ_com;
+
+
+assert 2^131*Pcom eq Id(Ecom);
+assert 2^131*Qcom eq Id(Ecom);
+assert 2^130*Pcom ne Id(Ecom);
+assert 2^130*Qcom ne Id(Ecom);
+wcom:=WeilPairing(Pcom,Qcom, 2^131);
+
+w0^(3^78)-wmid;
+wmid^(3^78)-wcom;
+
+
+
+/**************************************************************************************************************************************************************/
+
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+
+acom:=0x12fca4a29617b343dd3cc9600d07a8e74195b9ea5164b55ad7410b1c3a9f2f20 + i*0x1ca78b524edd20bb2dc84cd8b6e175add16c76205fc73fcf896e9f6df1ceabd9;
+xP_com:=0x1c183c2bc00f7a7815b14758211706fb4494e2b92256e679eba036073aa005f3 + i*0x5f668e0470e44e9acf0088eeb497002db03af007fe8265daff3a71b25b4efcc6;
+xQ_com:=0x17cdbc4ea4539582ae47e5d5ca4c36c51983f4b62588ee6d192343d061008635 + i*0x07870a19069ecb3c1c5cfc6605c7c06cd0aa9a8a8d4ab530a3b896f26db8e0fb;
+xPmQ_com:=0x5a6506b7c64f86fd9ce105a3d6f08d627bcd97994e53ced474b388847e14728f + i*0x53aa5b7a03b1b68338c4a6f3950eef9675cd859f8505f3750f5aa0fa5f050547;
+size_d:=127;
+deg_aux_d:=151712934277963979777274803940668989603;
+xP:=0x28717aca1ae44081cecc741f82e405d833dfbf9e682eb65ab8fe459d18a63d15 + i*0x598d1b73bc39d378e5f4bb765c90430a22c6505da7a1c4f264217d8c45633d2a;
+xQ:=0x49e0eda142d60b7e0d8dbc56472a6488426fe16123435fdf03334cf9301f4945 + i*0x1aa477b43b4761fa57cc06915d62c87eddc42e5bdd1b0d9c0ffd161485559e7b;
+xPmQ:=0x2cc26ab67cc2400a67e38fbd58dbf5a77f10644d2147bfc67e90ab7ef183e629 + i*0x59056962e506999c18e48ef8767f017bbd6a03379216ea29393f663e9414e77f;
+deg_odd:=528851799563912947149474410922867433309;
+xP0:=0x01dc451b83f45a6871adb7c829d5e5e6e085d9cc12f24cf8b0edb8cdf77a6ef9 + i*0x615a125fb556cd839588f810e47edcd19628f0a923c6a8f36581752664ab64d2;
+xQ0:=0x088078232927f62fd54d4d9b1bd04ae46e20a783762a1a4398abac084330a0ef + i*0x164b3576b8aa272035c56b3c682a25a01c5e8af4471572d0f945cd02e6c138ca;
+xPmQ0:=0x246bbd39f33cb4188436cc9ee57a44a48e8593bf83791908ad37368c4f12ec71 + i*0x04f3c78831665d3ac9bd4d548ffa93d15d2fd90791dabb281a51522937b9a8f1;
+add:=0x1cb5030a384d6e72352ad7dd59aec763cc71a52215e6c4a7de3166832257355d + i*0x48fd40c0db9a013250fd724a6706e371b7f200ed2373d2e095431f5e5dbdf521;
+xP_dd:=0x5b3aef20ad1eca40a1c9323899ab96eaaaa9bcc9d5a609291eb8f4530f61145b + i*0x3de807228b1887a9d06263d94ba5d1a03b35320ea271fe2b877c287df311aa96;
+xQ_dd:=0x33c1b9fa2efe51658f273a227b42003619651f96755e6364b1a1f31216a51488 + i*0x15d864180cb22e7b1ec379c19a566d664c6e1ba13beddf4e17fee8f4cdc78667;
+xPmQ_dd:=0x32c38dc5a311c9e2a9cc43ce21ac8f9aef9757750fc47d5659402ad794677800 + i*0x0d820ae079ebc08ae48508c6dae3397adb3cfc650ccd91ce2577778e2d780f0f;
+
+ad:=0x004b0106e11f4a1532f199000e910addca4b334eb28961ddcc2f1d58b6b718e6 + i*0x25f8644758fffb752458e6036415e8cddd64a6444ddb2eaf0b6a44538ba09aef;
+amid:=0x30ca011e52280ab04cf3a78cb3946435c473b4ced0cc27e5e7e26ea8a36b13f1 + i*0x0746535e5b5e0d9bdc76d520d7c58ea4ffd66c7193f28170760e38ed4dc0b067;
+xP_mid:=0x5c07aae8fc554f8ce397932acda3f51d93c3c609c63551b850106ca8897bec44 + i*0x1c243d0f11d27986903e60fad351789796c4c43431f3d14642dfc2a22f3cae24;
+xQ_mid:=0x1f3bbfb54978ffcfd3607c3d8b1a14a9ed4a544c7c55a420b9cfb199a4c24de5 + i*0x0bf39fd4e988165cb8a50fe5b6765579de9ff00fa2692005e5261b92c0de554b;
+xPmQ_mid:=0x12c2403445950b345d654fe7be01fa76f349522ccd0882c5271783b4e7d42c70 + i*0x260c43c6ccad1f8e1b3ae1dbe1c5709390412126f98364f980a43dc47d04c40a;
+amdd:=0x373eb4ec9f59f8d1514b64ed17796bc9822b872719580e560c7ba0126c6ad193 + i*0x376ba03f70a0a812af9138e2f6221bbe8a6d225f73f131441d4bc74b5b5e9d19;
+xP_mdd:=0x483d519d8b1d0102404238aae15940ae52f927450b141120dea2fdef63e6a09c + i*0x55983d6d6948bd6750b207859bc60b54b2f635c8827335705f9d1bf2ceb162df;
+xQ_mdd:=0x3fc18759f8d76e505c8ef724461f247b6195599d47f590d9e52c3d2b480ad0bc + i*0x5f0f5129f5e616220b36d2b391cbea808ccd5925f1d664ab4aaa67bd90c0d475;
+xPmQ_mdd:=0x1639c541bfe9ebf7378bc6faa8ee35cec4a49c27d1bb8c45332c601768aec50e + i*0x37764f9b4f9f91a0c7bdb52ef023003901fa95535b69c11c4526a7fbfbedf5c5;
+
+aux:=0x136b1d53148c95d0aa067e3aee24a93bde2b9fdae5dd5ed1b912e41e8abde017 + i*0x21e020d98ee4056f699311442555518640956dbd2f7880c2762bcc0358c11e2c;
+xP_aux:=0x0f806399327387812acf41be4173d1198da6dfd0ea949b64c9e8096086f86775 + i*0x5c9381a4345f827ff725ed31d1ee412bafc8ae4c88d46a8dccb359d49eee04b8;
+xQ_aux:=0x35cdb4881c5f28946e960aab05b17aca860d4bc9dd9cc67ce2b9daeda7ae6995 + i*0x1fe17018ed383e991e02d1ea4f5e880d59eb17534350e478e1a5900fd6f25b1e;
+xPmQ_aux:=0x2f27bbae2519907556458ebe14f73fa58a2d313b65f63df3ca9b826904d4d6c1 + i*0x4ce23b772409fe4a4114da446c8528a292d030d731b5a2d51e693378db55e9e4;
+
+/***************E0*****************/
+n:=size_d+2;
+E0:=EllipticCurve([F2|0,0,0,1,0]);
+yP0:=SquareRoot(xP0^3+xP0);yQ0:=SquareRoot(xQ0^3+xQ0);
+P0:=E0![xP0,yP0];
+Q0:=E0![xQ0,yQ0];
+
+R:=P0-Q0;
+if R[1] ne xPmQ0 then 
+   Q0:=-Q0;
+   R:=P0-Q0;
+end if;
+assert R[1] eq xPmQ0;
+
+assert 2^n*P0 eq Id(E0);
+assert 2^n*Q0 eq Id(E0);
+assert 2^(n-1)*P0 ne Id(E0);
+assert 2^(n-1)*Q0 ne Id(E0);
+w0:=WeilPairing(P0,Q0, 2^n);
+
+
+
+/****E_dd*********/
+
+yP_dd:=SquareRoot(xP_dd^3+add*xP_dd^2+xP_dd);yQ_dd:=SquareRoot(xQ_dd^3+add*xQ_dd^2+xQ_dd);
+Edd:=EllipticCurve([F2|0,add,0,1,0]);
+Pdd:=Edd![xP_dd,yP_dd];
+Qdd:=Edd![xQ_dd,yQ_dd];
+R:=Pdd-Qdd;
+if R[1] ne xPmQ_dd then 
+   Qdd:=-Qdd;
+   R:=Pdd-Qdd;
+end if;
+assert R[1] eq xPmQ_dd;
+
+
+assert 2^n*Pdd eq Id(Edd);
+assert 2^n*Qdd eq Id(Edd);
+assert 2^(n-1)*Pdd ne Id(Edd);
+assert 2^(n-1)*Qdd ne Id(Edd);
+wdd:=WeilPairing(Pdd,Qdd, 2^n);
+
+
+
+/****E_mid*********/
+
+yP_mid:=SquareRoot(xP_mid^3+amid*xP_mid^2+xP_mid);yQ_mid:=SquareRoot(xQ_mid^3+amid*xQ_mid^2+xQ_mid);
+Emid:=EllipticCurve([F2|0,amid,0,1,0]);
+Pmid:=Emid![xP_mid,yP_mid];
+Qmid:=Emid![xQ_mid,yQ_mid];
+R:=Pmid-Qmid;
+if R[1] ne xPmQ_mid then 
+   Qmid:=-Qmid;
+   R:=Pmid-Qmid;
+end if;
+assert R[1] eq xPmQ_mid;
+
+
+assert 2^n*Pmid eq Id(Emid);
+assert 2^n*Qmid eq Id(Emid);
+assert 2^(n-1)*Pmid ne Id(Emid);
+assert 2^(n-1)*Qmid ne Id(Emid);
+wmid:=WeilPairing(Pmid,Qmid, 2^n);
+
+
+/****E_com*********/
+yP_com:=SquareRoot(xP_com^3+acom*xP_com^2+xP_com);yQ_com:=SquareRoot(xQ_com^3+acom*xQ_com^2+xQ_com);
+Ecom:=EllipticCurve([F2|0,acom,0,1,0]);
+Pcom:=Ecom![xP_com,yP_com];
+Qcom:=Ecom![xQ_com,yQ_com];
+R:=Pcom-Qcom;
+if R[1] ne xPmQ_com then 
+   Qcom:=-Qcom;
+   R:=Pcom-Qcom;
+end if;
+assert R[1] eq xPmQ_com;
+
+//assert 2^n*Pcom eq Id(Ecom);
+//assert 2^n*Qcom eq Id(Ecom);
+//assert 2^(n-1)*Pcom ne Id(Ecom);
+//assert 2^(n-1)*Qcom ne Id(Ecom);
+//wcom:=WeilPairing(Pcom,Qcom, 2^n);
+
+
+/**************E_mdd*****/
+yP_mdd:=SquareRoot(xP_mdd^3+amdd*xP_mdd^2+xP_mdd);yQ_mdd:=SquareRoot(xQ_mdd^3+amdd*xQ_mdd^2+xQ_mdd);
+Emdd:=EllipticCurve([F2|0,amdd,0,1,0]);
+Pmdd:=Emdd![xP_mdd,yP_mdd];
+Qmdd:=Emdd![xQ_mdd,yQ_mdd];
+R:=Pmdd-Qmdd;
+if R[1] ne xPmQ_mdd then 
+   Qmdd:=-Qmdd;
+   R:=Pmdd-Qmdd;
+end if;
+assert R[1] eq xPmQ_mdd;
+
+
+assert 2^n*Pmdd eq Id(Emdd);
+assert 2^n*Qmdd eq Id(Emdd);
+assert 2^(n-1)*Pmdd ne Id(Emdd);
+assert 2^(n-1)*Qmdd ne Id(Emdd);
+wmdd:=WeilPairing(Pmdd,Qmdd, 2^n);
+
+/****E_aux*********/
+yP_aux:=SquareRoot(xP_aux^3+aux*xP_aux^2+xP_aux);yQ_aux:=SquareRoot(xQ_aux^3+aux*xQ_aux^2+xQ_aux);
+Eaux:=EllipticCurve([F2|0,aux,0,1,0]);
+(p+1)*Random(Eaux);
+Paux:=Eaux![xP_aux,yP_aux];
+Qaux:=Eaux![xQ_aux,yQ_aux];
+R:=Paux-Qaux;
+if R[1] ne xPmQ_aux then 
+   Qaux:=-Qaux;
+   R:=Paux-Qaux;
+end if;
+//assert R[1] eq xPmQ_aux;
+
+
+Order(Paux);
+assert 2^n*Paux eq Id(Eaux);
+assert 2^n*Qaux eq Id(Eaux);
+assert 2^(n-1)*Paux ne Id(Eaux);
+assert 2^(n-1)*Qaux ne Id(Eaux);
+waux:=WeilPairing(Paux,Qaux, 2^n);
+
+
+a:=deg_aux_d*(2^size_d-deg_aux_d);
+b:=(deg_aux_d)^2;
+w0^a-wdd^b;
+wmid^a-wmdd^b;
+
+
+
+
+p:=19*2^180*3^101-1;
+c:=5*11*13*463;
+p:=35*2^508*3^319-1;
+c:=11*23*37*613;
+
+
+for c:=33 to 41 do
+for i:=100 to 160 do
+    for j:=150 to 180 do
+    p:=c*2^j*3^i-1;
+    if Log(2,p) ge 316 and Log(2,p) le 352  and IsPrime(p) then
+              printf "p:=%o*2^%o*3^%o-1;\n", c,j,i;
+              Log(2,p);  printf "\n";
+end if;
+end for;
+end for;  
+end for;  
+
+
+
+
+
+
+
+
+/****************************************************************************************************************************************************
+Check the correctness of the generation of the auxiliary isogeny
+*****************************************************************************************************************************************************/
+
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+size_d:=125;
+deg_aux_d:=13468358593607267165518754984397738991;
+aux:=0x23cbc97ff748a9654ef6927ebb6f9aba8ce071a81cb9eb0be8d1e5a192bd6746 + i*0x091fc235f29c587822e1ab188dcb5304af590a17d45aa03b81641db2f1d36645;
+xP_aux:=0x22fec090b5315b51f607efc65dedeacb63b3b0343519654aba9c5010553f65bd + i*0x51fac85e6c4ca19c011d35bd455d7190793439d9693411a6ae310c1bfc23a799;
+xQ_aux:=0x50d8f04568794ddf1911b78014aa651e515c8172a41c4a89d344026d6b251a1b + i*0x06de909931d38f4d3781db6dc36b66056412a31952f7914f8c364aac3b37d0f3;
+xPmQ_aux:=0x0ea10035aeebb3c6aa6130cc063163c75e75934082348fa9fbe8c8ea243f3b10 + i*0x28263a3893b42128bd94606b08d2eb091ecdd72ec81f3c2a958e334d74629075;
+acom:=0x262b99812450a8e4f028654939d52c7f02b77eb7bc2ac54b225e33ac22916350 + i*0x029dd5af5b04e4a41564cbaed9af2f9171ef1fadb916bc932dbec20d4f9c29e3;
+xP_com:=0x12fd3980c35ffb9e7bd2a63e219fd4280c3ef0455bf5f196a0d636be1893f438 + i*0x04bbd631926f68dc7cbe85b12fdcdd9af58d07dec263abdba839e337e45432bb;
+xQ_com:=0x2ffee724266dd438e5080e5d0e6c7e50d53abca970c67ead6bfaec64063f1941 + i*0x243e713a7623db789a0dabbcc80541ddbcfe9ec475eeebe9523c778482f1aad7;
+xPmQ_com:=0x15b16b17941e18250d326dc0e230f9689df63880ead01dfc67e77bbd0ab26648 + i*0x5ed49fee1e76b6fbb827d92bc033982ea16451d52f79c301587e97dfd176ec90;
+
+n:=size_d+2;
+
+
+
+
+/****E_com*********/
+yP_com:=SquareRoot(xP_com^3+acom*xP_com^2+xP_com);yQ_com:=SquareRoot(xQ_com^3+acom*xQ_com^2+xQ_com);
+Ecom:=EllipticCurve([F2|0,acom,0,1,0]);
+Pcom:=Ecom![xP_com,yP_com];
+Qcom:=Ecom![xQ_com,yQ_com];
+R:=Pcom-Qcom;
+if R[1] ne xPmQ_com then 
+   Qcom:=-Qcom;
+   R:=Pcom-Qcom;
+end if;
+assert R[1] eq xPmQ_com;
+
+assert 2^n*Pcom eq Id(Ecom);
+assert 2^n*Qcom eq Id(Ecom);
+assert 2^(n-1)*Pcom ne Id(Ecom);
+assert 2^(n-1)*Qcom ne Id(Ecom);
+wcom:=WeilPairing(Pcom,Qcom, 2^n);
+
+
+
+
+/****E_aux*********/
+yP_aux:=SquareRoot(xP_aux^3+aux*xP_aux^2+xP_aux);yQ_aux:=SquareRoot(xQ_aux^3+aux*xQ_aux^2+xQ_aux);
+Eaux:=EllipticCurve([F2|0,aux,0,1,0]);
+Paux:=Eaux![xP_aux,yP_aux];
+Qaux:=Eaux![xQ_aux,yQ_aux];
+R:=Paux-Qaux;
+if R[1] ne xPmQ_aux then 
+   Qaux:=-Qaux;
+   R:=Paux-Qaux;
+end if;
+assert R[1] eq xPmQ_aux;
+
+assert 2^n*Paux eq Id(Eaux);
+assert 2^n*Qaux eq Id(Eaux);
+assert 2^(n-1)*Paux ne Id(Eaux);
+assert 2^(n-1)*Qaux ne Id(Eaux);
+waux:=WeilPairing(Paux,Qaux, 2^n);
+
+wcom^(2^size_d-deg_aux_d)-waux;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************************************check the verfy **********************************************************************************/
+
+
+
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+
+deg_rsp:=212985964292543621034968304561386044215;
+deg_aux_d:=127296402628394842428406302870382167241;
+achl:=0x1d913f3eec7a0fd0472aa0746660bff48a5f60daff90ec0dc1b900c63736274d + i*0x2742eb800cfd8520861c8d33c4a1f492d8af6e77a369a240125b42b2ad48754a;
+size_d:=128;
+aux:=0x46928fb3f2dce1f7f7ad0bcbc2fd266f3790e272799828debe85bee60cbbcc74 + i*0x183f704311472e3024304d87030a08e2913d8a1e8527975a435929dc95423e4a;
+acom:=0x403065600b75dec24186e45bba295d832b817f5f7ec04d5318cd3140dab19ba0 + i*0x44fe55071b64b51e05463b76816b6c6dd038c6190d6d30da065280026f639b12;
+xP_com:=0x135e72e81c57a2c8edbdf663a5f46571fab58c197708486db7213e14f438c88b + i*0x526d350cf20628be394694e8c63a7295d039c6914c9d536b8bea680722027234;
+xQ_com:=0x4db935b113da0c51f3ea85574506cc0485ac9e03adaf0ee805a9f21730c26892 + i*0x5461e3588713b1396ed58d448f49bb1af171d829efe461bce6b6e5e858e61d27;
+xPmQ_com:=0x323319137565e38ec4fa1cd1c3309bab05745b2f9432915b2f5e4d4097baf0fc + i*0x05286765e51c93ead6ba2d378fed6f17f83498b155dc5e6444f9ae5c6320bb42;
+xP_aux:=0x2aa5d2a9f9927c2e964885ec2a2693d663d1301ce0568553219e5fb84c58de6a + i*0x1d951bffc169769397b353823fe18b3d2507d4c1ccd7415dea649ff6ba2336dd;
+xQ_aux:=0x3a705e3029b529608ec709143171acf974007da8c26f64e5f928d9c99da6f95d + i*0x2cb4f9f7f333d5a6b2818114bd274e33668a3eaad1f53c8030d101874d94996a;
+xPmQ_aux:=0x30a6c5fcfe4615fc887ebfd1ab7d1379f76ce7f7d31c2b588b4466ce7b8c8c45 + i*0x2bfa0b21e645e822cab13df649f497535b830844cb9828310fda0a6da4b02e2d;
+
+xP_chl:=0x5cbd51ad1973846c47ef944e25a3a81e0e599aa87de8721363c727df957e692c + i*0x58859a0c4928d097137ca54b18c6360c33c3e2443cc4a6f583550dbb7747ceba;
+xQ_chl:=0x61ac9e43112bd485f70cddc62acad4a2a838f6916f4fce4c15d18bf51abbf54c + i*0x0c23ec8f21bbf9124d65756d3aca9437d8bba6fb240a7c16aad795e533585396;
+xPmQ_chl:=0x3c93f2f7aff3c34feb0b3772cd90211279bf5dbb410fdb2c02c6835a773ac6d9 + i*0x501a665dd99baec4d3866180f47744f3c3bf7b710a914f4b0be24e66f7729fae;
+n:=size_d+2;
+
+2^size_d-deg_rsp;
+
+
+
+/****E_com*********/
+yP_com:=SquareRoot(xP_com^3+acom*xP_com^2+xP_com);yQ_com:=SquareRoot(xQ_com^3+acom*xQ_com^2+xQ_com);
+Ecom:=EllipticCurve([F2|0,acom,0,1,0]);
+Pcom:=Ecom![xP_com,yP_com];
+Qcom:=Ecom![xQ_com,yQ_com];
+R:=Pcom-Qcom;
+if R[1] ne xPmQ_com then 
+   Qcom:=-Qcom;
+   R:=Pcom-Qcom;
+end if;
+assert R[1] eq xPmQ_com;
+
+assert 2^n*Pcom eq Id(Ecom);
+assert 2^n*Qcom eq Id(Ecom);
+assert 2^(n-1)*Pcom ne Id(Ecom);
+assert 2^(n-1)*Qcom ne Id(Ecom);
+wcom:=WeilPairing(Pcom,Qcom, 2^n);
+
+
+/***************************************************************E_chl**********************************************************************************/
+b:=achl;
+Eb:=EllipticCurve([F2|0,b,0,1,0]);
+yP_chl:=SquareRoot(xP_chl^3+b*xP_chl^2+xP_chl);yQ_chl:=SquareRoot(xQ_chl^3+b*xQ_chl^2+xQ_chl);
+Pb:=Eb![xP_chl,yP_chl];
+Qb:=Eb![xQ_chl,yQ_chl];
+R:=Pb-Qb;
+if R[1] ne xPmQ_chl then 
+   Qb:=-Qb;
+   R:=Pb-Qb;
+end if;
+assert R[1] eq xPmQ_chl;
+
+wb:=WeilPairing(2*Pb,2*Qb, 2^n);
+
+/****E_aux*********/
+yP_aux:=SquareRoot(xP_aux^3+aux*xP_aux^2+xP_aux);yQ_aux:=SquareRoot(xQ_aux^3+aux*xQ_aux^2+xQ_aux);
+Eaux:=EllipticCurve([F2|0,aux,0,1,0]);
+Paux:=Eaux![xP_aux,yP_aux];
+Qaux:=Eaux![xQ_aux,yQ_aux];
+R:=Paux-Qaux;
+if R[1] ne xPmQ_aux then 
+   Qaux:=-Qaux;
+   R:=Paux-Qaux;
+end if;
+assert R[1] eq xPmQ_aux;
+
+assert 2^n*Paux eq Id(Eaux);
+assert 2^n*Qaux eq Id(Eaux);
+assert 2^(n-1)*Paux ne Id(Eaux);
+assert 2^(n-1)*Qaux ne Id(Eaux);
+waux:=WeilPairing(Paux,Qaux, 2^n);
+
+wcom^(deg_aux_d)-waux;
+wcom^(deg_rsp)-wb;
+
+Pb:=deg_aux_d*Pb;
+Qb:=deg_aux_d*Qb;
+wb:=WeilPairing(Pb,Qb, 2^n);
+wb-waux^((2^size_d-deg_rsp)*deg_rsp);
+
+
+
+
+
+
+
+/*Verify that the commitment and challge isogeny is correct*/
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+xP0:=0x17479ae0728581a9cef1df56311bfe23cdf540bf895075765dd609e241ceeacc + i*0x17f8389a1ae74df196ad2290fe9c68fcf55a1def421fb302950cb7d333325d18;
+xQ0:=0x1d2f440600c314e74e156fa5941684f15835325b2e4a6f3ca279babe7c122735 + i*0x12250924f3af574dcd6c3b7641483887167f5f15cfb22c0f1468da15a1e3f4e5;
+xPmQ0:=0x00cdbbe35e0a093498df1c5598d9262b51ad4449026ad94a81f19b44a7a7a84d + i*0x626c9d54bef7211c3b62a29aa86b637291eb842872890cf56e63205bf639f19b;
+E0:=EllipticCurve([F2|0,0,0,1,0]);
+yP0:=SquareRoot(xP0^3+xP0);yQ0:=SquareRoot(xQ0^3+xQ0);
+P0:=E0![xP0,yP0];
+Q0:=E0![xQ0,yQ0];
+
+R:=P0-Q0;
+if R[1] ne xPmQ0 then 
+   Q0:=-Q0;
+   R:=P0-Q0;
+end if;
+assert R[1] eq xPmQ0;
+
+
+assert 2^131*P0 eq Id(E0);
+assert 2^131*Q0 eq Id(E0);
+assert 2^130*P0 ne Id(E0);
+assert 2^130*Q0 ne Id(E0);
+
+n:=11068699700003654406195374706278682890142480848877110031107227987710636379826694313818647360249176295202016994260;
+a0:=-47391470183453271216591257522319782377193267227801793018956604076199212412787628621914996986465788503671206775777807983777373125926933015830019213255590575481986326538215311934235219712898878296632576751755948605911765800230;
+a1:=-118460302741045795926561776138567980029101075738280797266143252942441799445909245325863536980530903963409076363787670051487786148330902699138821862739772311033871093229636009829998567113845149489980346985840922731707126471060;
+a2:=-440006868230614232519979827195557442093163131772310855796692914418726770876017821070903082262991658335882631991574020677397283112123257671608105770708390367931672134633151702992000991920; 
+a3:=668196451408642469715746769743449001169588339437702501589685353004153101338676013653225122585478884353088034458533065001226798688393432650832602181515951686782085419813694056927217522910; 
+m00:=2564146415104296493726428232985158747537; m01:=1182555073003737732016430651082441287155; 
+m10:=568641664061073823206167717631468466135; m11:= 1620901215535709822551600694651838360072; 
+assert Abs(a0) mod (n div 2) eq 0;
+assert Abs(a1) mod (n div 2) eq 0;
+assert Abs(a2) mod (n div 2) eq 0;
+assert Abs(a3) mod (n div 2) eq 0;
+n1:= n div 2;
+a0:=a0 div n1;
+a1:=a1 div n1;
+a2:=a2 div n1;
+a3:=a3 div n1;
+P1:=E0![-P0[1],i*P0[2]];
+P2:=E0![P0[1]^p,P0[2]^p];
+P3:=E0![-P0[1]^p,i*P0[2]^p];
+Q1:=E0![-Q0[1],i*Q0[2]];
+Q2:=E0![Q0[1]^p,Q0[2]^p];
+Q3:=E0![-Q0[1]^p,i*Q0[2]^p];
+
+R1:=E0![-R[1],i*R[2]];
+R2:=E0![R[1]^p,R[2]^p];
+R3:=E0![-R[1]^p,i*R[2]^p];
+eP0:=a0*P0+a1*P1+a2*P2+a3*P3;
+mP0:=m00*P0+m10*Q0;
+mP0:=2*mP0;
+eP0[1]-mP0[1];
+
+eQ0:=a0*Q0+a1*Q1+a2*Q2+a3*Q3;
+mQ0:=m01*P0+m11*Q0;
+mQ0:=2*mQ0;
+eQ0[1]-mQ0[1];
+
+
+
+
+/*Verify that 2^n part*/
+p:=2^131*3^78-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+aux:=0x0d306df73b1ab40762397fb28e06c32fb434c9d12024131ff6ca7d4bd50e4c06 + i*0x29e1ba1e76423cea9ae18b915cd87add791f5307c2afee50c0330e054403221a;
+achl:=0x02108901591edd7b0e2b04cb12f39189b89b77d7dbc23e12cffb04c108c9d247 + i*0x4066eb96bc9ee79249e53cc6af681d9e926f5ddf0bcb1ea619e4cd547298ba50;
+xP_chl:=0x15053d0466ffddb4ca1e97568d177b352ef70d93c5ede461b432ace4216b2edd + i*0x5087772a70151f1b1fa62e312eef9094ae5a32c74862373b08221ddfad3f019d;
+xQ_chl:=0x0972f5d72a1f5dd519caa3d36d424b1cea17dacbf27c15353775715049e12164 + i*0x3fdd3dec7e047fe384e90a95e3f2739d660ea458e377d664de19696e419af193;
+xPmQ_chl:=0x3a7f48b54578529e63afc52168e64de739e6841ad42a4ef191d432f43aad19ed + i*0x04e8220aa4add616a4a430997782cba30a49225219bd4d29472ef253aa446e2a;
+xP_aux:=0x484eb9924d76807c50558df4156b6f3791ccdd79b18207b55dea005dc14d1d16 + i*0x05b6d2fb61b3e0616fcd08f3fc479a5ad961672e1ef7e8336d87728c7d96966b;
+xQ_aux:=0x151ce5f2c71c9601c9744ba966c0dc6592ab3ea2d9745f58030c7ca7c3725d43 + i*0x4ccf22d05a0b7a9b7f8bb864e5ff23ccf498fd74e502628f8ed1f137d29b3363;
+xPmQ_aux:=0x088f7328fccbb631470a51f9bdac0ae7af805404ee4b06a358ea3bccae382afb + i*0x552dc1df62f43f941bde7c7ffe13acd0503488ac688458372d6484b06fe1d9dd;
+
+size_d:=128;
+d1:=231897694215800626872561990137227559525;
+n:=size_d+2-1;
+
+
+achl:=0x527495970fb4fb64aa557a28ad627d219d845ab9b3ba087d1f6c5009d9f8215f + i*0x2a924b12fb01353c1f7ec03d305a863d2e1b5e6a0fb2e4324b17d974f7306346;
+aux:=0x178bb75573bdf5cdba3b315e0792e3657dbc546e6a266a44a150e5b5c0391e0f + i*0x347903e945a742ba7850fe37d278cb6d27aadce7248cab48821a6f3faf63f99b;
+xP_chl:=0x46ccfe14b0ea807d736de59f544148f05294d4f246da3ea97316c6251f06f8ed + i*0x3155aa7b39cd9a603f92ec114760df9e1c56c883551c4e435745ce2821123b2c;
+xQ_chl:=0x3f6545d1b46ecde4d72d8633ac3ea63d1b20249c9eb010af4ff8dd1d44f5e5eb + i*0x4f12de35387e222358d9361446aa532f91c792be187acd2df656801bbe5bd203;
+xPmQ_chl:=0x2bd535cae3be1a45796bdf8baf02bb89cc3d81f44ec29ea472dbb9390fee5a26 + i*0x612ebb45153c83b07c814a0c0d7861006b013a193f5502ab6f0d0ba641051ab5;
+xP_aux:=0x5e2d092e374b5167cc837d17b937310cdf12df28391905c0c9a673166b59934a + i*0x0b2fcf2e36ef283ca5c45a196835132a3814991a7f7f7526987c1411f95d0b65;
+xQ_aux:=0x46b86bd9c56357bb3c6e033d6185506b9127ffdf74eeede492b005c86f0fc0b1 + i*0x3c68dcf361473c7b7a0e4f073fe671bce7cb407b37f549f79cf522c3ef54b61d;
+xPmQ_aux:=0x5073c32b76249305210c2e422eee208a448f9abe062d2f858058ae9bfae97cf4 + i*0x43b89d3d36115748e29c2b4d19569c5c1295b39b923accc9366c6876a4932476;
+
+size_d:=129;
+d1:=473303770422144432130275569928846620935;
+n:=size_d+2;
+/***************************************************************E_chl**********************************************************************************/
+chl:=achl;
+Echl:=EllipticCurve([F2|0,chl,0,1,0]);
+yP_chl:=SquareRoot(xP_chl^3+chl*xP_chl^2+xP_chl);yQ_chl:=SquareRoot(xQ_chl^3+chl*xQ_chl^2+xQ_chl);
+Pchl:=Echl![xP_chl,yP_chl];
+Qchl:=Echl![xQ_chl,yQ_chl];
+R:=Pchl-Qchl;
+if R[1] ne xPmQ_chl then 
+   Qchl:=-Qchl;
+   R:=Pchl-Qchl;
+end if;
+assert R[1] eq xPmQ_chl;
+
+assert 2^n*Pchl eq Id(Echl);
+assert 2^n*Qchl eq Id(Echl);
+assert 2^(n-1)*Pchl ne Id(Echl);
+assert 2^(n-1)*Qchl ne Id(Echl);
+
+wchl:=WeilPairing(Pchl,Qchl, 2^n);
+
+
+/****E_aux*********/
+yP_aux:=SquareRoot(xP_aux^3+aux*xP_aux^2+xP_aux);yQ_aux:=SquareRoot(xQ_aux^3+aux*xQ_aux^2+xQ_aux);
+Eaux:=EllipticCurve([F2|0,aux,0,1,0]);
+Paux:=Eaux![xP_aux,yP_aux];
+Qaux:=Eaux![xQ_aux,yQ_aux];
+R:=Paux-Qaux;
+if R[1] ne xPmQ_aux then 
+   Qaux:=-Qaux;
+   R:=Paux-Qaux;
+end if;
+assert R[1] eq xPmQ_aux;
+
+assert 2^n*Paux eq Id(Eaux);
+assert 2^n*Qaux eq Id(Eaux);
+assert 2^(n-1)*Paux ne Id(Eaux);
+assert 2^(n-1)*Qaux ne Id(Eaux);
+waux:=WeilPairing(Paux,Qaux, 2^n);
+
+
+d2:=2^(n-2)-d1;
+wchl^(d2)-waux^d1;
+
+1;
+
+/*Verify 2^n*/
+p:=2^191*3^118-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+nrsp:=1;
+ 
+size_d:=189;
+deg_aux_d:=621138320726173148001963341734730282046840924213067299481;
+achl:=0x00a82ffcce8bea25eed29269cb2dab887ad3380bba145463156d3ae2f77810bcef886bde6a543c623be1091d66ff26c0 + i*0x0213506b496d624953e4dffd6f5f8a64b3f2746ec9e29e51de436e99a5b21cc6dca02a5ca9ee01e2943e188f5caedd4b;
+
+xP_chl:=0x002dc7b2a0f904deea67f5c5f195a47b6a81a1cc4763ffb23402b59c11131012e33727edcace039a286742743d83bb06 + i*0x02a9e78def681a5de18b41bba4b52fe05cd64be2dbde8b1c37bc83a71bb0be48288fdcb53dcad48f508bd130a5e18f37;
+xQ_chl:=0x00fee55374b776ce101459507cf871ba40058b27f0d7c4c4e3d3cc000c1dd96523f42ab7576e0bbbe960054b9865520e + i*0x00168ce2bf8c6c3dfa30bc76f6a8ace16affe2bfdd1ee4ff943a2d8d8c7447fd25cb3ca93edf279eea8e06ee47c5f896;
+xPmQ_chl:=0x01d6bd26def58c5b9988521eebf81a06bc8e323ef0a5f9e5acb43420cecbb12d6f913c981ee19d8c57d1c6c3bd3587bf + i*0x03b5ceec0c68a06d841d32c1bc3cb6eb878ea2e8243d3c38641adab3bfdc62fec91c9cc265f24becc47e8f3f4e79755a;
+xP_aux:=0x02df37e0a2f66b9b43de02c4835199a8e713af6a472993ad8b475f3625104904e08ab403c858e5a4176562c702fc81fb + i*0x006bb93185763f2dcbaac59cd5335049c4bc34f249357c2a8103e7bc4fb09e939549db73600abfdb0f79cba594591532;
+xQ_aux:=0x0005c661a67c3bbb2b00fedb7ec67e149e1f637d2c0d5753e7e42f2d455147b7c139bf68dff1e1ac072cf1451a20e182 + i*0x01e4c64ace2fc2783ea25910f86849860a7c70914422ec00beba9a7d2302e6321816cd3a1b1a639d17c273bb4975622e;
+xPmQ_aux:=0x003c4e9ef76d3566fb7e97b2d989e34f4fb9a4e28a0e598e3abffa1f25b4662964e9ebc822b9a52db003024420027da0 + i*0x02fb73d152b889356fa4bbd53288d486b4a445fae7168217514ddfe474b3fbbea210585e1ad052d00b98972bdb53c1c1;
+n:=size_d+2-nrsp;
+/***************************************************************E_chl**********************************************************************************/
+chl:=achl;
+Echl:=EllipticCurve([F2|0,chl,0,1,0]);
+yP_chl:=SquareRoot(xP_chl^3+chl*xP_chl^2+xP_chl);yQ_chl:=SquareRoot(xQ_chl^3+chl*xQ_chl^2+xQ_chl);
+Pchl:=Echl![xP_chl,yP_chl];
+Qchl:=Echl![xQ_chl,yQ_chl];
+R:=Pchl-Qchl;
+if R[1] ne xPmQ_chl then 
+   Qchl:=-Qchl;
+   R:=Pchl-Qchl;
+end if;
+assert R[1] eq xPmQ_chl;
+
+assert 2^n*Pchl eq Id(Echl);
+assert 2^n*Qchl eq Id(Echl);
+assert 2^(n-1)*Pchl ne Id(Echl);
+assert 2^(n-1)*Qchl ne Id(Echl);
+
+wchl:=WeilPairing(Pchl,Qchl, 2^n);
+
+
+/****E_aux*********/
+yP_aux:=SquareRoot(xP_aux^3+aux*xP_aux^2+xP_aux);yQ_aux:=SquareRoot(xQ_aux^3+aux*xQ_aux^2+xQ_aux);
+Eaux:=EllipticCurve([F2|0,aux,0,1,0]);
+Paux:=Eaux![xP_aux,yP_aux];
+Qaux:=Eaux![xQ_aux,yQ_aux];
+R:=Paux-Qaux;
+if R[1] ne xPmQ_aux then 
+   Qaux:=-Qaux;
+   R:=Paux-Qaux;
+end if;
+assert R[1] eq xPmQ_aux;
+
+assert 2^n*Paux eq Id(Eaux);
+assert 2^n*Qaux eq Id(Eaux);
+assert 2^(n-1)*Paux ne Id(Eaux);
+assert 2^(n-1)*Qaux ne Id(Eaux);
+waux:=WeilPairing(Paux,Qaux, 2^n);
+
+
+d2:=2^(n-2)-d1;
+wchl^d2-waux^d1;
+
+1;
+
+
+/*Verify 2^n*/
+p:=2^191*3^118-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+nrsp:=4;
+size_d:=189;
+d1:=766284521080971999688104931172675418940059064914924872599;
+aux:=0x02735ce7194cfaf34443e39a72ce9d7e89902e5040376108926ec0661364c2d920eb8da983a53d2f87cf4b1a9426ccd8 + i*0x038fce520d93d77d8a6b31b2872909380531fd9a69c96b48bb2a6d9e88c7975467831a3ae0d7069cd2b7b7c4f1966d35;
+achl:=0x0090e7f4b508c3d7e1c8758f2d0f36e149b2a8b580aecdb8ad2aa935da3f91447915f93c93b180cd8cff59909e1b164a + i*0x027c4a0e5558fdaaa9701f2bce96722712302e281d49b0a37e24e62573583a66aa6eba8d3c8ef5859cee5211a5897806;
+
+xP_chl:=0x03813457c144380f506833d308f803854872fa150c04fafe41047ec3654c5cd3043c15634d36f6e2cae915fd79f7d747 + i*0x032d00e518594da0955e21ec928fee597fca8db705aa28123531f24d07be9ac364188427b4acffcde66e0e3eb69cdc78;
+xQ_chl:=0x00f4f0009d62d76e7529dd771692d2a4e49ab45c3576e57899b0b2dd191c655215186bfbff1212f9ccdb8e31727367fd + i*0x014bec21ddfe54ff342e572ce7be7929fdec749e9681023ba2d33965a0fa03cc015dee2dd284b32c01380faf260b291d;
+xPmQ_chl:=0x0340b7eac86811b2954f615889c36401c6f77c4f55ac15637ba647ccc3f142e028691af8c22a3dee9694f9148f71db2d + i*0x01e42b980acde47a6300daeff70109f34374a7e179a95bb023b614be6c2a6b0d674b505c39b038b00520a68471c6dc9a;
+xP_aux:=0x0095551317d2bf6d9c8058c5e7a1c364ccaa7c5356e530c07e14e0757330bcbbb36606ef376c37120f0a4fe8af731a86 + i*0x01489fc5717e34926489787037e4dbbcb0e549d3f41dae0f40d1eebd5e6261bd68ccb07dabd04778efb7d7f0dc1b36ee;
+xQ_aux:=0x021846f729058a56e75f4420e8ff317971406951d94c417aa2180cd8baae7c4be0b86cd367c1fcb08029517fdb4b2692 + i*0x00cc4a3ea09af74d9f008634c8aeefc35a14ae35ec8288eda99f5fb91adb21aede2dbe175e006c3d49133ef76c3316ab;
+xPmQ_aux:=0x01cde43f4cc389c2a8c9529085ebc95f132f1c03f1130f17e04b9e6203e117598f92f41f1fab47e129c77f4a8eb5ea83 + i*0x01ade559e22bc13273af2bff3816e33f5708a2d4c98b5ce5670855da84528fe89bf4c1c5ff455ebb084f361ba803309f;
+
+n:=size_d+2-nrsp;
+/***************************************************************E_chl**********************************************************************************/
+chl:=achl;
+Echl:=EllipticCurve([F2|0,chl,0,1,0]);
+yP_chl:=SquareRoot(xP_chl^3+chl*xP_chl^2+xP_chl);yQ_chl:=SquareRoot(xQ_chl^3+chl*xQ_chl^2+xQ_chl);
+Pchl:=Echl![xP_chl,yP_chl];
+Qchl:=Echl![xQ_chl,yQ_chl];
+R:=Pchl-Qchl;
+if R[1] ne xPmQ_chl then 
+   Qchl:=-Qchl;
+   R:=Pchl-Qchl;
+end if;
+assert R[1] eq xPmQ_chl;
+
+assert 2^n*Pchl eq Id(Echl);
+assert 2^n*Qchl eq Id(Echl);
+assert 2^(n-1)*Pchl ne Id(Echl);
+assert 2^(n-1)*Qchl ne Id(Echl);
+
+wchl:=WeilPairing(Pchl,Qchl, 2^n);
+
+
+/****E_aux*********/
+yP_aux:=SquareRoot(xP_aux^3+aux*xP_aux^2+xP_aux);yQ_aux:=SquareRoot(xQ_aux^3+aux*xQ_aux^2+xQ_aux);
+Eaux:=EllipticCurve([F2|0,aux,0,1,0]);
+Paux:=Eaux![xP_aux,yP_aux];
+Qaux:=Eaux![xQ_aux,yQ_aux];
+R:=Paux-Qaux;
+if R[1] ne xPmQ_aux then 
+   Qaux:=-Qaux;
+   R:=Paux-Qaux;
+end if;
+assert R[1] eq xPmQ_aux;
+
+assert 2^n*Paux eq Id(Eaux);
+assert 2^n*Qaux eq Id(Eaux);
+assert 2^(n-1)*Paux ne Id(Eaux);
+assert 2^(n-1)*Qaux ne Id(Eaux);
+waux:=WeilPairing(Paux,Qaux, 2^n);
+
+
+d2:=2^size_d-d1;
+wchl^d2-waux^d1;
+
+
+
+
+p:=2^527*3^324-1;
+Fp:=GF(p);
+F2<i>:=ExtensionField<Fp,i|i^2+1>;
+
+xP0:=0x00d9fd3159cf402eb8d1cd2ec4873278021691a9e0673c0b8299292aa5ac059cd1392f3b3ec817ac06a412b656c3a8a589c2e2a3b6fbfd4269dffae2acbaed20e3bb803dbf8972914e9f48a1c65cb0bfd45ef43ebadaa1468ce5be993aabe17403da511e3de1690ade2440651e70b46e205f85263c407bf72587f37757762240dface3 + i*0x00043938dc294e9ed9291ab3bb7ed3bd2834c032991e3282343bb3a8ee63dc627da5775703b943049a9e8b8721d6ab50d27d3c11880ff1b62cd9382f05bd489d1b68482ab0781757ee6bb403f58afd88fc05c5e60738e15d4f5a21ac245310d90faf2e321b23b539c1fd57d0b87815230584ef61a33e9d01493c4da30b01ab3bec7ee2;
+xQ0:=0x0038412f71e69d6e8f2a0ea7776404ff376353ee25e913dcb8572d8aa41bd5509f64b50aa52c33700b68e631b7a71514d677ebb585c758cce3a01c54e0d3b53f7e83865b2dc280b5d7150cbf2cc6547f3b596f2eeecd4d3b70cb54d3095fed386131be5f5cefd5bcde977cdae719f35bee2d1633ce4bede2e78cd6937212cadc17217b + i*0x0162ec0ae038eb4cee32b1d0c2d2519ccea84adbf6320c6f20bfce6cb8a71f5c067e3b2b6562b351889d7b852e99f3b75ddb8f683b40f7565a9b185f2a4a0a0dbf647fc82b0cb8724530235f3b95d06b2f2afeac286c96d682d4cdeeb161a89866ea4c431fd4a79087c7f016b47f004c2b706008ffd34369ea05e43996ccd39ac1a4a2;
+xPmQ0:=0x0093241c37fa715789b4e1e7178a185bef678a14f87a4190243bfc4ccd390927f1730f20d536e6270d7b043c3c7e33b6d0ab23ee25ead1f5bd74bbe7068a1718811f0287ad784b00e188a0e08aed813ad75e10a07f6c99f6911757254d1d87ec8fc34642fbe6b67da315b0e429da4f2281ea566489007518625b81a3e9ae88355e6837 + i*0x01174507c7e7ba162cc14bd9d21f36d00afe5c4b040ae26576ee74efbb2a5704e327ada8aafe3257dd00781b967651be0abe021cda82d23ed69b43ea21ba35bd1dd7dcbbe86e3e8d1dab235da332838617de1c0fe4b9fe3c09563e62cdfe079f960ac35ab1c1ac33e7b52e5ae3c11a60b534071fada39d1dbce9823d72d1245e06d1b8;
+xR:=0x00c73519af16035d9397aab7fd86a093234a3dfff5a3cb24713f886c424fa3b45bf4543cef0c04526b4e3ee7740b022661b9d587f2cc75e76e9dd4aaf3b0670040354f7368a99acd811e27112f962a1e951c76985f5d1d1e54c725d8628e67f8e276d028b94a40fe032021c3641b2734cf860b1c9418b33f52495c5570c79bfaf0b392 + i*0x008425f1ae29213eaac33b2527c0911ac1143a550004454fd5d8e34b857290c48ff1b823ff3c91e13b082a7d3feb616aa4141b45bf2a77a12682df49e5f4c66a769ab044cd7f6967f236f53ce5fdc5a0f8bb6a2680654a353ef8311afe0d2a75c9cb98a78e440660562f2fefed50b8ce45b233278e63953b83d221bd88926b6fe8bfa8;
+a:=0x014a7ada9fc2b4d890ecc9b365a1740df2d8f1f257df19d2a3ca7c708d70615299b861846d4897693b68222bfef8cc059863fccb7b20e399cf05ff7a84763f491783e217ddeef9dbc695c4e3a13dabbbc9e23483b31da724f7b6c39297cc3d78b00b8a7efd2b25e0f4be6e6635d9f8c54866e72fafdece138a4ec43e3f714f151579a4 + i*0x01275a9e9739d98badd71ac8b9168e6bd7a3a90ea1c0583ead78217ba4c76e528394b52dd1620301b927f51d7f2e5edf4bb5af1252ebc1df171045b66e2e0aaf45fcf14c033cd62faa99687a287a4c854d4ea875de370cb4b60fb8f6ff0b517c27215dbba2233bae2f1b16c4056920f56c42d6aafb5ed74d88f2c01978678c5705b661;
+w0:=0x6e63b69455c09e0f;
+w1:=0x6f85a1a7d2733e65;
+x0:=0x3ac8bf26b4c83c37;
+x1:=0x0a1e3d67c5388bd1;
+y0:=0x315bf2eed1aabb1e;
+y1:=0x13bfce0811053e4c;
+z0:=0x52fbaed4bd81d0ab;
+z1:=0x49d866151e00e0b2;
+a0:=0x68632c40276ee8f2;
+a1:=0x28e2513b045f3066;
+b0:=0x8de235d967e2784a;
+b1:=0x668120192a4b6d20;
+c0:=0x224c7a914e0d25ef;
+c1:=0x255e8eda1856683a;
+d0:=0x94e25ac9886300bf;
+d1:=0x45d2c5e4e365eb83;
+e0:=0x0000000000000021;
+e1:=0x0000000000000014;
+w1:=0x6f85a1a7d2733e65;
+x1:=0x0a1e3d67c5388bd1;
+y1:=0x13bfce0811053e4c;
+z1:=0x49d866151e00e0b2;
+
+E0:=EllipticCurve([F2|0,a,0,1,0]);
+
+yP0:=SquareRoot(xP0^3+a*xP0^2+xP0);yQ0:=SquareRoot(xQ0^3+a*xQ0^2+xQ0);
+yR:=SquareRoot(xR^3+a*xR^2+xR);
+P0:=E0![xP0,yP0];
+Q0:=E0![xQ0,yQ0];
+R:=E0![xR,yR];
+PmQ0:=P0-Q0;
+if PmQ0[1] ne xPmQ0 then 
+   Q0:=-Q0;
+   PmQ0:=P0-Q0;
+end if;
+assert PmQ0[1] eq xPmQ0;
+
+A:=w0+x0*3^40+y0*3^80+z0*3^120+a0*3^160+b0*3^200+c0*3^240+d0*3^280+e0*3^320;
+B:=w1+x1*3^40+y1*3^80+z1*3^120+a1*3^160+b1*3^200+c1*3^240+d1*3^280+e1*3^320;
+H:=A*P0+B*Q0;
+H[1]-R[1];

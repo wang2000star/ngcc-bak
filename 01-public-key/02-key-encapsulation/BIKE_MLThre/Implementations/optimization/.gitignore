@@ -1,0 +1,8 @@
+/build_kat_*/
+/.build/
+*.o
+*.a
+api-pkc-kat
+kat_bike_kem_*
+__pycache__/
+*.pyc

@@ -1,0 +1,42 @@
+Implementations Directory Overview
+
+Reference_Implementation/OPSsig-128
+  ISO C reference implementation for the 128-bit OPS signature parameter set.
+  Includes the ICCS SIG API adapter, build script, correctness test, speed
+  benchmark, memory benchmark, optional NTT/vector regression tests, KAT
+  generator and self-evaluation export targets.
+
+Reference_Implementation/OPSsig-256
+  ISO C reference implementation for the 256-bit OPS signature parameter set.
+  Includes the ICCS SIG API adapter, build script, correctness test, speed
+  benchmark, memory benchmark, KAT generator and self-evaluation export
+  targets.
+
+Reference_Implementation/OPSsig-512
+  ISO C reference implementation for the 512-bit OPS signature parameter set.
+  Includes the ICCS SIG API adapter, build script, correctness test, speed
+  benchmark, memory benchmark, optional NTT/vector regression tests, KAT
+  generator and self-evaluation export targets.
+
+Optimized_Implementation/OPSsig-128-avx2
+  AVX2-optimized implementation for the 128-bit OPS signature parameter set.
+  Includes the ICCS SIG API adapter, build script, correctness test, speed
+  benchmark, memory benchmark, NTT/vector regression tests, KAT generator and
+  self-evaluation export targets.
+
+Optimized_Implementation/OPSsig-256-avx2
+  AVX2-optimized implementation for the 256-bit OPS signature parameter set.
+  Includes the ICCS SIG API adapter, build script, correctness test, speed
+  benchmark, memory benchmark, NTT/vector regression tests, KAT generator and
+  self-evaluation export targets.
+
+Optimized_Implementation/OPSsig-512-avx2
+  AVX2-optimized implementation for the 512-bit OPS signature parameter set.
+  Includes the ICCS SIG API adapter, build script, correctness test, speed
+  benchmark, memory benchmark, NTT/vector regression tests, KAT generator and
+  self-evaluation export targets.
+
+Self_Evaluation
+  Shared self-evaluation framework containing environment collection, memory
+  export, report/dependency templates.
+

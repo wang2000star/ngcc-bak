@@ -1,0 +1,15 @@
+key,value
+timestamp_utc,2026-06-29T13:55:22Z
+architecture,x86_64
+cpu_model,Intel(R) Xeon(R) Platinum 8575C
+cpu_mhz,2800.000
+logical_cores,4
+memory_total_kb,15698744
+avx2_support,yes
+os,Ubuntu 22.04.5 LTS
+kernel,5.15.0-71-generic
+gcc,gcc (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0
+cmake,cmake version 3.22.1
+make,GNU Make 4.3
+unavailable
+time,time (GNU Time) UNKNOWN

@@ -1,0 +1,28 @@
+# Discover parameter-set directories named FAMILY_LEVEL (e.g. TSUOV_128).
+function(sig_discover_implementations IMPL_ROOT OUT_VAR)
+    set(_found "")
+    if(NOT IS_DIRECTORY "${IMPL_ROOT}")
+        message(FATAL_ERROR "Implementation root not found: ${IMPL_ROOT}")
+    endif()
+    file(GLOB _children RELATIVE "${IMPL_ROOT}" "${IMPL_ROOT}/*")
+    foreach(_name ${_children})
+        if(IS_DIRECTORY "${IMPL_ROOT}/${_name}" AND _name MATCHES "^(.+)_[0-9]+$")
+            list(APPEND _found "${_name}")
+        endif()
+    endforeach()
+    list(SORT _found)
+    if(NOT _found)
+        message(FATAL_ERROR
+            "No algorithm folders found under ${IMPL_ROOT}. "
+            "Expected directories named FAMILY_LEVEL (e.g. TSUOV_128).")
+    endif()
+    set(${OUT_VAR} ${_found} PARENT_SCOPE)
+endfunction()
+
+function(sig_parse_folder_name FOLDER OUT_FAMILY OUT_LEVEL)
+    if(NOT FOLDER MATCHES "^(.+)_([0-9]+)$")
+        message(FATAL_ERROR "Invalid algorithm folder name: ${FOLDER}")
+    endif()
+    set(${OUT_FAMILY} "${CMAKE_MATCH_1}" PARENT_SCOPE)
+    set(${OUT_LEVEL} "${CMAKE_MATCH_2}" PARENT_SCOPE)
+endfunction()

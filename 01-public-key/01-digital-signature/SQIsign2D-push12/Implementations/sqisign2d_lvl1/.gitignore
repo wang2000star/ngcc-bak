@@ -1,0 +1,6 @@
+build/
+html/
+latex/
+.vscode
+.idea/*
+*.DS_Store

@@ -1,0 +1,1432 @@
+NGCC ReSolveD-alpha Submission
+==============================
+
+Algorithm: ReSolveD-alpha, a post-quantum digital signature scheme based on
+the VOLE-in-the-head framework.
+
+This package combines the portable reference implementation and the optimized
+x86-64 implementation required by the NGCC public-key algorithm submission
+instructions.
+
+Directory Structure:
+resolved-alpha/
+|-- Implementations/
+|   |-- Reference_Implementation/
+|   |   |-- ReSolveD-alpha-160f/
+|   |   |   |-- sha3/
+|   |   |   |   |-- armv8a-neon/
+|   |   |   |   |   |-- KeccakP-1600-armv8a-neon.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- avx2/
+|   |   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- SIMD256-config.h
+|   |   |   |   |-- fips202-ref/
+|   |   |   |   |   |-- fips202.c
+|   |   |   |   |   `-- fips202.h
+|   |   |   |   |-- opt64/
+|   |   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |   |-- KeccakP-1600-opt64-config.h
+|   |   |   |   |   |-- KeccakP-1600-opt64.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- plain32/
+|   |   |   |   |   |-- KeccakP-1600-inplace32BI.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- s390_cpacf.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- bavc.c
+|   |   |   |-- bavc.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- enc.c
+|   |   |   |-- enc.h
+|   |   |   |-- endian_compat.h
+|   |   |   |-- fields.c
+|   |   |   |-- fields.h
+|   |   |   |-- hash_shake.h
+|   |   |   |-- instances.c
+|   |   |   |-- instances.h
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- macros.h
+|   |   |   |-- Makefile
+|   |   |   |-- parameters.h
+|   |   |   |-- prg.c
+|   |   |   |-- prg.h
+|   |   |   |-- quicksilver.c
+|   |   |   |-- quicksilver.h
+|   |   |   |-- random_oracle.c
+|   |   |   |-- random_oracle.h
+|   |   |   |-- rsd.c
+|   |   |   |-- rsd.h
+|   |   |   |-- SIG_AlgorithmInstance.c
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- tccr.c
+|   |   |   |-- tccr.h
+|   |   |   |-- universal_hashing.c
+|   |   |   |-- universal_hashing.h
+|   |   |   |-- utils.c
+|   |   |   |-- utils.h
+|   |   |   |-- vole.c
+|   |   |   |-- vole.h
+|   |   |   |-- voleith_impl.c
+|   |   |   |-- voleith_impl.h
+|   |   |   `-- xof.h
+|   |   |-- ReSolveD-alpha-160s/
+|   |   |   |-- sha3/
+|   |   |   |   |-- armv8a-neon/
+|   |   |   |   |   |-- KeccakP-1600-armv8a-neon.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- avx2/
+|   |   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- SIMD256-config.h
+|   |   |   |   |-- fips202-ref/
+|   |   |   |   |   |-- fips202.c
+|   |   |   |   |   `-- fips202.h
+|   |   |   |   |-- opt64/
+|   |   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |   |-- KeccakP-1600-opt64-config.h
+|   |   |   |   |   |-- KeccakP-1600-opt64.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- plain32/
+|   |   |   |   |   |-- KeccakP-1600-inplace32BI.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- s390_cpacf.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- bavc.c
+|   |   |   |-- bavc.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- enc.c
+|   |   |   |-- enc.h
+|   |   |   |-- endian_compat.h
+|   |   |   |-- fields.c
+|   |   |   |-- fields.h
+|   |   |   |-- hash_shake.h
+|   |   |   |-- instances.c
+|   |   |   |-- instances.h
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- macros.h
+|   |   |   |-- Makefile
+|   |   |   |-- parameters.h
+|   |   |   |-- prg.c
+|   |   |   |-- prg.h
+|   |   |   |-- quicksilver.c
+|   |   |   |-- quicksilver.h
+|   |   |   |-- random_oracle.c
+|   |   |   |-- random_oracle.h
+|   |   |   |-- rsd.c
+|   |   |   |-- rsd.h
+|   |   |   |-- SIG_AlgorithmInstance.c
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- tccr.c
+|   |   |   |-- tccr.h
+|   |   |   |-- universal_hashing.c
+|   |   |   |-- universal_hashing.h
+|   |   |   |-- utils.c
+|   |   |   |-- utils.h
+|   |   |   |-- vole.c
+|   |   |   |-- vole.h
+|   |   |   |-- voleith_impl.c
+|   |   |   |-- voleith_impl.h
+|   |   |   `-- xof.h
+|   |   |-- ReSolveD-alpha-256f/
+|   |   |   |-- sha3/
+|   |   |   |   |-- armv8a-neon/
+|   |   |   |   |   |-- KeccakP-1600-armv8a-neon.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- avx2/
+|   |   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- SIMD256-config.h
+|   |   |   |   |-- fips202-ref/
+|   |   |   |   |   |-- fips202.c
+|   |   |   |   |   `-- fips202.h
+|   |   |   |   |-- opt64/
+|   |   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |   |-- KeccakP-1600-opt64-config.h
+|   |   |   |   |   |-- KeccakP-1600-opt64.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- plain32/
+|   |   |   |   |   |-- KeccakP-1600-inplace32BI.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- s390_cpacf.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- bavc.c
+|   |   |   |-- bavc.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- enc.c
+|   |   |   |-- enc.h
+|   |   |   |-- endian_compat.h
+|   |   |   |-- fields.c
+|   |   |   |-- fields.h
+|   |   |   |-- hash_shake.h
+|   |   |   |-- instances.c
+|   |   |   |-- instances.h
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- macros.h
+|   |   |   |-- Makefile
+|   |   |   |-- parameters.h
+|   |   |   |-- prg.c
+|   |   |   |-- prg.h
+|   |   |   |-- quicksilver.c
+|   |   |   |-- quicksilver.h
+|   |   |   |-- random_oracle.c
+|   |   |   |-- random_oracle.h
+|   |   |   |-- rsd.c
+|   |   |   |-- rsd.h
+|   |   |   |-- SIG_AlgorithmInstance.c
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- tccr.c
+|   |   |   |-- tccr.h
+|   |   |   |-- universal_hashing.c
+|   |   |   |-- universal_hashing.h
+|   |   |   |-- utils.c
+|   |   |   |-- utils.h
+|   |   |   |-- vole.c
+|   |   |   |-- vole.h
+|   |   |   |-- voleith_impl.c
+|   |   |   |-- voleith_impl.h
+|   |   |   `-- xof.h
+|   |   |-- ReSolveD-alpha-256s/
+|   |   |   |-- sha3/
+|   |   |   |   |-- armv8a-neon/
+|   |   |   |   |   |-- KeccakP-1600-armv8a-neon.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- avx2/
+|   |   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- SIMD256-config.h
+|   |   |   |   |-- fips202-ref/
+|   |   |   |   |   |-- fips202.c
+|   |   |   |   |   `-- fips202.h
+|   |   |   |   |-- opt64/
+|   |   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |   |-- KeccakP-1600-opt64-config.h
+|   |   |   |   |   |-- KeccakP-1600-opt64.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- plain32/
+|   |   |   |   |   |-- KeccakP-1600-inplace32BI.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- s390_cpacf.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- bavc.c
+|   |   |   |-- bavc.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- enc.c
+|   |   |   |-- enc.h
+|   |   |   |-- endian_compat.h
+|   |   |   |-- fields.c
+|   |   |   |-- fields.h
+|   |   |   |-- hash_shake.h
+|   |   |   |-- instances.c
+|   |   |   |-- instances.h
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- macros.h
+|   |   |   |-- Makefile
+|   |   |   |-- parameters.h
+|   |   |   |-- prg.c
+|   |   |   |-- prg.h
+|   |   |   |-- quicksilver.c
+|   |   |   |-- quicksilver.h
+|   |   |   |-- random_oracle.c
+|   |   |   |-- random_oracle.h
+|   |   |   |-- rsd.c
+|   |   |   |-- rsd.h
+|   |   |   |-- SIG_AlgorithmInstance.c
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- tccr.c
+|   |   |   |-- tccr.h
+|   |   |   |-- universal_hashing.c
+|   |   |   |-- universal_hashing.h
+|   |   |   |-- utils.c
+|   |   |   |-- utils.h
+|   |   |   |-- vole.c
+|   |   |   |-- vole.h
+|   |   |   |-- voleith_impl.c
+|   |   |   |-- voleith_impl.h
+|   |   |   `-- xof.h
+|   |   |-- ReSolveD-alpha-384f/
+|   |   |   |-- sha3/
+|   |   |   |   |-- armv8a-neon/
+|   |   |   |   |   |-- KeccakP-1600-armv8a-neon.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- avx2/
+|   |   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- SIMD256-config.h
+|   |   |   |   |-- fips202-ref/
+|   |   |   |   |   |-- fips202.c
+|   |   |   |   |   `-- fips202.h
+|   |   |   |   |-- opt64/
+|   |   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |   |-- KeccakP-1600-opt64-config.h
+|   |   |   |   |   |-- KeccakP-1600-opt64.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- plain32/
+|   |   |   |   |   |-- KeccakP-1600-inplace32BI.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- s390_cpacf.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- bavc.c
+|   |   |   |-- bavc.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- enc.c
+|   |   |   |-- enc.h
+|   |   |   |-- endian_compat.h
+|   |   |   |-- fields.c
+|   |   |   |-- fields.h
+|   |   |   |-- hash_shake.h
+|   |   |   |-- instances.c
+|   |   |   |-- instances.h
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- macros.h
+|   |   |   |-- Makefile
+|   |   |   |-- parameters.h
+|   |   |   |-- prg.c
+|   |   |   |-- prg.h
+|   |   |   |-- quicksilver.c
+|   |   |   |-- quicksilver.h
+|   |   |   |-- random_oracle.c
+|   |   |   |-- random_oracle.h
+|   |   |   |-- rsd.c
+|   |   |   |-- rsd.h
+|   |   |   |-- SIG_AlgorithmInstance.c
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- tccr.c
+|   |   |   |-- tccr.h
+|   |   |   |-- universal_hashing.c
+|   |   |   |-- universal_hashing.h
+|   |   |   |-- utils.c
+|   |   |   |-- utils.h
+|   |   |   |-- vole.c
+|   |   |   |-- vole.h
+|   |   |   |-- voleith_impl.c
+|   |   |   |-- voleith_impl.h
+|   |   |   `-- xof.h
+|   |   |-- ReSolveD-alpha-384s/
+|   |   |   |-- sha3/
+|   |   |   |   |-- armv8a-neon/
+|   |   |   |   |   |-- KeccakP-1600-armv8a-neon.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- avx2/
+|   |   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- SIMD256-config.h
+|   |   |   |   |-- fips202-ref/
+|   |   |   |   |   |-- fips202.c
+|   |   |   |   |   `-- fips202.h
+|   |   |   |   |-- opt64/
+|   |   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |   |-- KeccakP-1600-opt64-config.h
+|   |   |   |   |   |-- KeccakP-1600-opt64.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- plain32/
+|   |   |   |   |   |-- KeccakP-1600-inplace32BI.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- s390_cpacf.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- bavc.c
+|   |   |   |-- bavc.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- enc.c
+|   |   |   |-- enc.h
+|   |   |   |-- endian_compat.h
+|   |   |   |-- fields.c
+|   |   |   |-- fields.h
+|   |   |   |-- hash_shake.h
+|   |   |   |-- instances.c
+|   |   |   |-- instances.h
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- macros.h
+|   |   |   |-- Makefile
+|   |   |   |-- parameters.h
+|   |   |   |-- prg.c
+|   |   |   |-- prg.h
+|   |   |   |-- quicksilver.c
+|   |   |   |-- quicksilver.h
+|   |   |   |-- random_oracle.c
+|   |   |   |-- random_oracle.h
+|   |   |   |-- rsd.c
+|   |   |   |-- rsd.h
+|   |   |   |-- SIG_AlgorithmInstance.c
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- tccr.c
+|   |   |   |-- tccr.h
+|   |   |   |-- universal_hashing.c
+|   |   |   |-- universal_hashing.h
+|   |   |   |-- utils.c
+|   |   |   |-- utils.h
+|   |   |   |-- vole.c
+|   |   |   |-- vole.h
+|   |   |   |-- voleith_impl.c
+|   |   |   |-- voleith_impl.h
+|   |   |   `-- xof.h
+|   |   |-- ReSolveD-alpha-512f/
+|   |   |   |-- sha3/
+|   |   |   |   |-- armv8a-neon/
+|   |   |   |   |   |-- KeccakP-1600-armv8a-neon.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- avx2/
+|   |   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- SIMD256-config.h
+|   |   |   |   |-- fips202-ref/
+|   |   |   |   |   |-- fips202.c
+|   |   |   |   |   `-- fips202.h
+|   |   |   |   |-- opt64/
+|   |   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |   |-- KeccakP-1600-opt64-config.h
+|   |   |   |   |   |-- KeccakP-1600-opt64.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- plain32/
+|   |   |   |   |   |-- KeccakP-1600-inplace32BI.c
+|   |   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |   |-- KeccakP-1600-times4-on1.c
+|   |   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |   `-- PlSnP-Fallback.inc
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- s390_cpacf.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- bavc.c
+|   |   |   |-- bavc.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- enc.c
+|   |   |   |-- enc.h
+|   |   |   |-- endian_compat.h
+|   |   |   |-- fields.c
+|   |   |   |-- fields.h
+|   |   |   |-- hash_shake.h
+|   |   |   |-- instances.c
+|   |   |   |-- instances.h
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- macros.h
+|   |   |   |-- Makefile
+|   |   |   |-- parameters.h
+|   |   |   |-- prg.c
+|   |   |   |-- prg.h
+|   |   |   |-- quicksilver.c
+|   |   |   |-- quicksilver.h
+|   |   |   |-- random_oracle.c
+|   |   |   |-- random_oracle.h
+|   |   |   |-- rsd.c
+|   |   |   |-- rsd.h
+|   |   |   |-- SIG_AlgorithmInstance.c
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- tccr.c
+|   |   |   |-- tccr.h
+|   |   |   |-- universal_hashing.c
+|   |   |   |-- universal_hashing.h
+|   |   |   |-- utils.c
+|   |   |   |-- utils.h
+|   |   |   |-- vole.c
+|   |   |   |-- vole.h
+|   |   |   |-- voleith_impl.c
+|   |   |   |-- voleith_impl.h
+|   |   |   `-- xof.h
+|   |   `-- ReSolveD-alpha-512s/
+|   |       |-- sha3/
+|   |       |   |-- armv8a-neon/
+|   |       |   |   |-- KeccakP-1600-armv8a-neon.s
+|   |       |   |   |-- KeccakP-1600-SnP.h
+|   |       |   |   |-- KeccakP-1600-times4-on1.c
+|   |       |   |   |-- KeccakP-1600-times4-SnP.h
+|   |       |   |   `-- PlSnP-Fallback.inc
+|   |       |   |-- avx2/
+|   |       |   |   |-- KeccakP-1600-AVX2.s
+|   |       |   |   |-- KeccakP-1600-SnP.h
+|   |       |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |       |   |   |-- KeccakP-1600-times4-SnP.h
+|   |       |   |   |-- KeccakP-1600-unrolling.macros
+|   |       |   |   `-- SIMD256-config.h
+|   |       |   |-- fips202-ref/
+|   |       |   |   |-- fips202.c
+|   |       |   |   `-- fips202.h
+|   |       |   |-- opt64/
+|   |       |   |   |-- KeccakP-1600-64.macros
+|   |       |   |   |-- KeccakP-1600-opt64-config.h
+|   |       |   |   |-- KeccakP-1600-opt64.c
+|   |       |   |   |-- KeccakP-1600-SnP.h
+|   |       |   |   |-- KeccakP-1600-times4-on1.c
+|   |       |   |   |-- KeccakP-1600-times4-SnP.h
+|   |       |   |   |-- KeccakP-1600-unrolling.macros
+|   |       |   |   `-- PlSnP-Fallback.inc
+|   |       |   |-- plain32/
+|   |       |   |   |-- KeccakP-1600-inplace32BI.c
+|   |       |   |   |-- KeccakP-1600-SnP.h
+|   |       |   |   |-- KeccakP-1600-times4-on1.c
+|   |       |   |   |-- KeccakP-1600-times4-SnP.h
+|   |       |   |   `-- PlSnP-Fallback.inc
+|   |       |   |-- align.h
+|   |       |   |-- brg_endian.h
+|   |       |   |-- config.h
+|   |       |   |-- KeccakHash.c
+|   |       |   |-- KeccakHash.h
+|   |       |   |-- KeccakHashtimes4.c
+|   |       |   |-- KeccakHashtimes4.h
+|   |       |   |-- KeccakSponge.c
+|   |       |   |-- KeccakSponge.h
+|   |       |   |-- KeccakSponge.inc
+|   |       |   |-- KeccakSpongetimes4.c
+|   |       |   |-- KeccakSpongetimes4.h
+|   |       |   |-- KeccakSpongetimes4.inc
+|   |       |   |-- s390_cpacf.h
+|   |       |   `-- SnP-Relaned.h
+|   |       |-- auxfunc.c
+|   |       |-- auxfunc.h
+|   |       |-- bavc.c
+|   |       |-- bavc.h
+|   |       |-- drng.c
+|   |       |-- drng.h
+|   |       |-- enc.c
+|   |       |-- enc.h
+|   |       |-- endian_compat.h
+|   |       |-- fields.c
+|   |       |-- fields.h
+|   |       |-- hash_shake.h
+|   |       |-- instances.c
+|   |       |-- instances.h
+|   |       |-- KAT_SIG.c
+|   |       |-- macros.h
+|   |       |-- Makefile
+|   |       |-- parameters.h
+|   |       |-- prg.c
+|   |       |-- prg.h
+|   |       |-- quicksilver.c
+|   |       |-- quicksilver.h
+|   |       |-- random_oracle.c
+|   |       |-- random_oracle.h
+|   |       |-- rsd.c
+|   |       |-- rsd.h
+|   |       |-- SIG_AlgorithmInstance.c
+|   |       |-- SIG_AlgorithmInstance.h
+|   |       |-- tccr.c
+|   |       |-- tccr.h
+|   |       |-- universal_hashing.c
+|   |       |-- universal_hashing.h
+|   |       |-- utils.c
+|   |       |-- utils.h
+|   |       |-- vole.c
+|   |       |-- vole.h
+|   |       |-- voleith_impl.c
+|   |       |-- voleith_impl.h
+|   |       `-- xof.h
+|   |-- Optimized_Implementation/
+|   |   |-- ReSolveD-alpha-160f/
+|   |   |   |-- avx2/
+|   |   |   |   |-- aes_impl.cpp
+|   |   |   |   |-- aes_impl.hpp
+|   |   |   |   |-- block_impl.hpp
+|   |   |   |   |-- constants_impl.hpp
+|   |   |   |   |-- gfsmall_impl.hpp
+|   |   |   |   |-- polynomials_impl.hpp
+|   |   |   |   |-- transpose_impl.hpp
+|   |   |   |   `-- transpose_secpar_impl.hpp
+|   |   |   |-- sha3/
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |-- KeccakP-1600-times2-SIMD128.c
+|   |   |   |   |-- KeccakP-1600-times2-SnP.h
+|   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |-- KeccakP-1600-times8-on4.c
+|   |   |   |   |-- KeccakP-1600-times8-SnP.h
+|   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- PlSnP-Fallback.inc
+|   |   |   |   |-- SIMD128-config.h
+|   |   |   |   |-- SIMD256-config.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- aes.hpp
+|   |   |   |-- aes_defs.hpp
+|   |   |   |-- all.inc
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- block.hpp
+|   |   |   |-- constants.hpp
+|   |   |   |-- debug.hpp
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- hash.hpp
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- Makefile
+|   |   |   |-- ngcc_api.hpp
+|   |   |   |-- owf_proof.cpp
+|   |   |   |-- owf_proof.hpp
+|   |   |   |-- owf_proof.inc
+|   |   |   |-- parameters.hpp
+|   |   |   |-- poly2d.hpp
+|   |   |   |-- polynomials.hpp
+|   |   |   |-- polynomials_constants.cpp
+|   |   |   |-- polynomials_constants.hpp
+|   |   |   |-- prgs.hpp
+|   |   |   |-- quicksilver.hpp
+|   |   |   |-- rsd_owf.hpp
+|   |   |   |-- SIG_AlgorithmInstance.cpp
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- small_vole.cpp
+|   |   |   |-- small_vole.hpp
+|   |   |   |-- small_vole.inc
+|   |   |   |-- tccr_hash.hpp
+|   |   |   |-- transpose.hpp
+|   |   |   |-- transpose_secpar.hpp
+|   |   |   |-- universal_hash.hpp
+|   |   |   |-- util.hpp
+|   |   |   |-- vector_com.cpp
+|   |   |   |-- vector_com.hpp
+|   |   |   |-- vector_com.inc
+|   |   |   |-- vole_check.hpp
+|   |   |   |-- vole_commit.cpp
+|   |   |   |-- vole_commit.hpp
+|   |   |   |-- vole_commit.inc
+|   |   |   |-- vole_key_index_permutation.hpp
+|   |   |   |-- voleith.cpp
+|   |   |   |-- voleith.hpp
+|   |   |   |-- voleith.inc
+|   |   |   |-- voleith_keys.hpp
+|   |   |   `-- voleith_keys.inc
+|   |   |-- ReSolveD-alpha-160s/
+|   |   |   |-- avx2/
+|   |   |   |   |-- aes_impl.cpp
+|   |   |   |   |-- aes_impl.hpp
+|   |   |   |   |-- block_impl.hpp
+|   |   |   |   |-- constants_impl.hpp
+|   |   |   |   |-- gfsmall_impl.hpp
+|   |   |   |   |-- polynomials_impl.hpp
+|   |   |   |   |-- transpose_impl.hpp
+|   |   |   |   `-- transpose_secpar_impl.hpp
+|   |   |   |-- sha3/
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |-- KeccakP-1600-times2-SIMD128.c
+|   |   |   |   |-- KeccakP-1600-times2-SnP.h
+|   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |-- KeccakP-1600-times8-on4.c
+|   |   |   |   |-- KeccakP-1600-times8-SnP.h
+|   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- PlSnP-Fallback.inc
+|   |   |   |   |-- SIMD128-config.h
+|   |   |   |   |-- SIMD256-config.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- aes.hpp
+|   |   |   |-- aes_defs.hpp
+|   |   |   |-- all.inc
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- block.hpp
+|   |   |   |-- constants.hpp
+|   |   |   |-- debug.hpp
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- hash.hpp
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- Makefile
+|   |   |   |-- ngcc_api.hpp
+|   |   |   |-- owf_proof.cpp
+|   |   |   |-- owf_proof.hpp
+|   |   |   |-- owf_proof.inc
+|   |   |   |-- parameters.hpp
+|   |   |   |-- poly2d.hpp
+|   |   |   |-- polynomials.hpp
+|   |   |   |-- polynomials_constants.cpp
+|   |   |   |-- polynomials_constants.hpp
+|   |   |   |-- prgs.hpp
+|   |   |   |-- quicksilver.hpp
+|   |   |   |-- rsd_owf.hpp
+|   |   |   |-- SIG_AlgorithmInstance.cpp
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- small_vole.cpp
+|   |   |   |-- small_vole.hpp
+|   |   |   |-- small_vole.inc
+|   |   |   |-- tccr_hash.hpp
+|   |   |   |-- transpose.hpp
+|   |   |   |-- transpose_secpar.hpp
+|   |   |   |-- universal_hash.hpp
+|   |   |   |-- util.hpp
+|   |   |   |-- vector_com.cpp
+|   |   |   |-- vector_com.hpp
+|   |   |   |-- vector_com.inc
+|   |   |   |-- vole_check.hpp
+|   |   |   |-- vole_commit.cpp
+|   |   |   |-- vole_commit.hpp
+|   |   |   |-- vole_commit.inc
+|   |   |   |-- vole_key_index_permutation.hpp
+|   |   |   |-- voleith.cpp
+|   |   |   |-- voleith.hpp
+|   |   |   |-- voleith.inc
+|   |   |   |-- voleith_keys.hpp
+|   |   |   `-- voleith_keys.inc
+|   |   |-- ReSolveD-alpha-256f/
+|   |   |   |-- avx2/
+|   |   |   |   |-- aes_impl.cpp
+|   |   |   |   |-- aes_impl.hpp
+|   |   |   |   |-- block_impl.hpp
+|   |   |   |   |-- constants_impl.hpp
+|   |   |   |   |-- gfsmall_impl.hpp
+|   |   |   |   |-- polynomials_impl.hpp
+|   |   |   |   |-- transpose_impl.hpp
+|   |   |   |   `-- transpose_secpar_impl.hpp
+|   |   |   |-- sha3/
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |-- KeccakP-1600-times2-SIMD128.c
+|   |   |   |   |-- KeccakP-1600-times2-SnP.h
+|   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |-- KeccakP-1600-times8-on4.c
+|   |   |   |   |-- KeccakP-1600-times8-SnP.h
+|   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- PlSnP-Fallback.inc
+|   |   |   |   |-- SIMD128-config.h
+|   |   |   |   |-- SIMD256-config.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- aes.hpp
+|   |   |   |-- aes_defs.hpp
+|   |   |   |-- all.inc
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- block.hpp
+|   |   |   |-- constants.hpp
+|   |   |   |-- debug.hpp
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- hash.hpp
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- Makefile
+|   |   |   |-- ngcc_api.hpp
+|   |   |   |-- owf_proof.cpp
+|   |   |   |-- owf_proof.hpp
+|   |   |   |-- owf_proof.inc
+|   |   |   |-- parameters.hpp
+|   |   |   |-- poly2d.hpp
+|   |   |   |-- polynomials.hpp
+|   |   |   |-- polynomials_constants.cpp
+|   |   |   |-- polynomials_constants.hpp
+|   |   |   |-- prgs.hpp
+|   |   |   |-- quicksilver.hpp
+|   |   |   |-- rsd_owf.hpp
+|   |   |   |-- SIG_AlgorithmInstance.cpp
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- small_vole.cpp
+|   |   |   |-- small_vole.hpp
+|   |   |   |-- small_vole.inc
+|   |   |   |-- tccr_hash.hpp
+|   |   |   |-- transpose.hpp
+|   |   |   |-- transpose_secpar.hpp
+|   |   |   |-- universal_hash.hpp
+|   |   |   |-- util.hpp
+|   |   |   |-- vector_com.cpp
+|   |   |   |-- vector_com.hpp
+|   |   |   |-- vector_com.inc
+|   |   |   |-- vole_check.hpp
+|   |   |   |-- vole_commit.cpp
+|   |   |   |-- vole_commit.hpp
+|   |   |   |-- vole_commit.inc
+|   |   |   |-- vole_key_index_permutation.hpp
+|   |   |   |-- voleith.cpp
+|   |   |   |-- voleith.hpp
+|   |   |   |-- voleith.inc
+|   |   |   |-- voleith_keys.hpp
+|   |   |   `-- voleith_keys.inc
+|   |   |-- ReSolveD-alpha-256s/
+|   |   |   |-- avx2/
+|   |   |   |   |-- aes_impl.cpp
+|   |   |   |   |-- aes_impl.hpp
+|   |   |   |   |-- block_impl.hpp
+|   |   |   |   |-- constants_impl.hpp
+|   |   |   |   |-- gfsmall_impl.hpp
+|   |   |   |   |-- polynomials_impl.hpp
+|   |   |   |   |-- transpose_impl.hpp
+|   |   |   |   `-- transpose_secpar_impl.hpp
+|   |   |   |-- sha3/
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |-- KeccakP-1600-times2-SIMD128.c
+|   |   |   |   |-- KeccakP-1600-times2-SnP.h
+|   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |-- KeccakP-1600-times8-on4.c
+|   |   |   |   |-- KeccakP-1600-times8-SnP.h
+|   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- PlSnP-Fallback.inc
+|   |   |   |   |-- SIMD128-config.h
+|   |   |   |   |-- SIMD256-config.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- aes.hpp
+|   |   |   |-- aes_defs.hpp
+|   |   |   |-- all.inc
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- block.hpp
+|   |   |   |-- constants.hpp
+|   |   |   |-- debug.hpp
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- hash.hpp
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- Makefile
+|   |   |   |-- ngcc_api.hpp
+|   |   |   |-- owf_proof.cpp
+|   |   |   |-- owf_proof.hpp
+|   |   |   |-- owf_proof.inc
+|   |   |   |-- parameters.hpp
+|   |   |   |-- poly2d.hpp
+|   |   |   |-- polynomials.hpp
+|   |   |   |-- polynomials_constants.cpp
+|   |   |   |-- polynomials_constants.hpp
+|   |   |   |-- prgs.hpp
+|   |   |   |-- quicksilver.hpp
+|   |   |   |-- rsd_owf.hpp
+|   |   |   |-- SIG_AlgorithmInstance.cpp
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- small_vole.cpp
+|   |   |   |-- small_vole.hpp
+|   |   |   |-- small_vole.inc
+|   |   |   |-- tccr_hash.hpp
+|   |   |   |-- transpose.hpp
+|   |   |   |-- transpose_secpar.hpp
+|   |   |   |-- universal_hash.hpp
+|   |   |   |-- util.hpp
+|   |   |   |-- vector_com.cpp
+|   |   |   |-- vector_com.hpp
+|   |   |   |-- vector_com.inc
+|   |   |   |-- vole_check.hpp
+|   |   |   |-- vole_commit.cpp
+|   |   |   |-- vole_commit.hpp
+|   |   |   |-- vole_commit.inc
+|   |   |   |-- vole_key_index_permutation.hpp
+|   |   |   |-- voleith.cpp
+|   |   |   |-- voleith.hpp
+|   |   |   |-- voleith.inc
+|   |   |   |-- voleith_keys.hpp
+|   |   |   `-- voleith_keys.inc
+|   |   |-- ReSolveD-alpha-384f/
+|   |   |   |-- avx2/
+|   |   |   |   |-- aes_impl.cpp
+|   |   |   |   |-- aes_impl.hpp
+|   |   |   |   |-- block_impl.hpp
+|   |   |   |   |-- constants_impl.hpp
+|   |   |   |   |-- gfsmall_impl.hpp
+|   |   |   |   |-- polynomials_impl.hpp
+|   |   |   |   |-- transpose_impl.hpp
+|   |   |   |   `-- transpose_secpar_impl.hpp
+|   |   |   |-- sha3/
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |-- KeccakP-1600-times2-SIMD128.c
+|   |   |   |   |-- KeccakP-1600-times2-SnP.h
+|   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |-- KeccakP-1600-times8-on4.c
+|   |   |   |   |-- KeccakP-1600-times8-SnP.h
+|   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- PlSnP-Fallback.inc
+|   |   |   |   |-- SIMD128-config.h
+|   |   |   |   |-- SIMD256-config.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- aes.hpp
+|   |   |   |-- aes_defs.hpp
+|   |   |   |-- all.inc
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- block.hpp
+|   |   |   |-- constants.hpp
+|   |   |   |-- debug.hpp
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- hash.hpp
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- Makefile
+|   |   |   |-- ngcc_api.hpp
+|   |   |   |-- owf_proof.cpp
+|   |   |   |-- owf_proof.hpp
+|   |   |   |-- owf_proof.inc
+|   |   |   |-- parameters.hpp
+|   |   |   |-- poly2d.hpp
+|   |   |   |-- polynomials.hpp
+|   |   |   |-- polynomials_constants.cpp
+|   |   |   |-- polynomials_constants.hpp
+|   |   |   |-- prgs.hpp
+|   |   |   |-- quicksilver.hpp
+|   |   |   |-- rsd_owf.hpp
+|   |   |   |-- SIG_AlgorithmInstance.cpp
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- small_vole.cpp
+|   |   |   |-- small_vole.hpp
+|   |   |   |-- small_vole.inc
+|   |   |   |-- tccr_hash.hpp
+|   |   |   |-- transpose.hpp
+|   |   |   |-- transpose_secpar.hpp
+|   |   |   |-- universal_hash.hpp
+|   |   |   |-- util.hpp
+|   |   |   |-- vector_com.cpp
+|   |   |   |-- vector_com.hpp
+|   |   |   |-- vector_com.inc
+|   |   |   |-- vole_check.hpp
+|   |   |   |-- vole_commit.cpp
+|   |   |   |-- vole_commit.hpp
+|   |   |   |-- vole_commit.inc
+|   |   |   |-- vole_key_index_permutation.hpp
+|   |   |   |-- voleith.cpp
+|   |   |   |-- voleith.hpp
+|   |   |   |-- voleith.inc
+|   |   |   |-- voleith_keys.hpp
+|   |   |   `-- voleith_keys.inc
+|   |   |-- ReSolveD-alpha-384s/
+|   |   |   |-- avx2/
+|   |   |   |   |-- aes_impl.cpp
+|   |   |   |   |-- aes_impl.hpp
+|   |   |   |   |-- block_impl.hpp
+|   |   |   |   |-- constants_impl.hpp
+|   |   |   |   |-- gfsmall_impl.hpp
+|   |   |   |   |-- polynomials_impl.hpp
+|   |   |   |   |-- transpose_impl.hpp
+|   |   |   |   `-- transpose_secpar_impl.hpp
+|   |   |   |-- sha3/
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |-- KeccakP-1600-times2-SIMD128.c
+|   |   |   |   |-- KeccakP-1600-times2-SnP.h
+|   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |-- KeccakP-1600-times8-on4.c
+|   |   |   |   |-- KeccakP-1600-times8-SnP.h
+|   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- PlSnP-Fallback.inc
+|   |   |   |   |-- SIMD128-config.h
+|   |   |   |   |-- SIMD256-config.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- aes.hpp
+|   |   |   |-- aes_defs.hpp
+|   |   |   |-- all.inc
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- block.hpp
+|   |   |   |-- constants.hpp
+|   |   |   |-- debug.hpp
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- hash.hpp
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- Makefile
+|   |   |   |-- ngcc_api.hpp
+|   |   |   |-- owf_proof.cpp
+|   |   |   |-- owf_proof.hpp
+|   |   |   |-- owf_proof.inc
+|   |   |   |-- parameters.hpp
+|   |   |   |-- poly2d.hpp
+|   |   |   |-- polynomials.hpp
+|   |   |   |-- polynomials_constants.cpp
+|   |   |   |-- polynomials_constants.hpp
+|   |   |   |-- prgs.hpp
+|   |   |   |-- quicksilver.hpp
+|   |   |   |-- rsd_owf.hpp
+|   |   |   |-- SIG_AlgorithmInstance.cpp
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- small_vole.cpp
+|   |   |   |-- small_vole.hpp
+|   |   |   |-- small_vole.inc
+|   |   |   |-- tccr_hash.hpp
+|   |   |   |-- transpose.hpp
+|   |   |   |-- transpose_secpar.hpp
+|   |   |   |-- universal_hash.hpp
+|   |   |   |-- util.hpp
+|   |   |   |-- vector_com.cpp
+|   |   |   |-- vector_com.hpp
+|   |   |   |-- vector_com.inc
+|   |   |   |-- vole_check.hpp
+|   |   |   |-- vole_commit.cpp
+|   |   |   |-- vole_commit.hpp
+|   |   |   |-- vole_commit.inc
+|   |   |   |-- vole_key_index_permutation.hpp
+|   |   |   |-- voleith.cpp
+|   |   |   |-- voleith.hpp
+|   |   |   |-- voleith.inc
+|   |   |   |-- voleith_keys.hpp
+|   |   |   `-- voleith_keys.inc
+|   |   |-- ReSolveD-alpha-512f/
+|   |   |   |-- avx2/
+|   |   |   |   |-- aes_impl.cpp
+|   |   |   |   |-- aes_impl.hpp
+|   |   |   |   |-- block_impl.hpp
+|   |   |   |   |-- constants_impl.hpp
+|   |   |   |   |-- gfsmall_impl.hpp
+|   |   |   |   |-- polynomials_impl.hpp
+|   |   |   |   |-- transpose_impl.hpp
+|   |   |   |   `-- transpose_secpar_impl.hpp
+|   |   |   |-- sha3/
+|   |   |   |   |-- align.h
+|   |   |   |   |-- brg_endian.h
+|   |   |   |   |-- config.h
+|   |   |   |   |-- KeccakHash.c
+|   |   |   |   |-- KeccakHash.h
+|   |   |   |   |-- KeccakHashtimes4.c
+|   |   |   |   |-- KeccakHashtimes4.h
+|   |   |   |   |-- KeccakP-1600-64.macros
+|   |   |   |   |-- KeccakP-1600-AVX2.s
+|   |   |   |   |-- KeccakP-1600-SnP.h
+|   |   |   |   |-- KeccakP-1600-times2-SIMD128.c
+|   |   |   |   |-- KeccakP-1600-times2-SnP.h
+|   |   |   |   |-- KeccakP-1600-times4-SIMD256.c
+|   |   |   |   |-- KeccakP-1600-times4-SnP.h
+|   |   |   |   |-- KeccakP-1600-times8-on4.c
+|   |   |   |   |-- KeccakP-1600-times8-SnP.h
+|   |   |   |   |-- KeccakP-1600-unrolling.macros
+|   |   |   |   |-- KeccakSponge.c
+|   |   |   |   |-- KeccakSponge.h
+|   |   |   |   |-- KeccakSponge.inc
+|   |   |   |   |-- KeccakSpongetimes4.c
+|   |   |   |   |-- KeccakSpongetimes4.h
+|   |   |   |   |-- KeccakSpongetimes4.inc
+|   |   |   |   |-- PlSnP-Fallback.inc
+|   |   |   |   |-- SIMD128-config.h
+|   |   |   |   |-- SIMD256-config.h
+|   |   |   |   `-- SnP-Relaned.h
+|   |   |   |-- aes.hpp
+|   |   |   |-- aes_defs.hpp
+|   |   |   |-- all.inc
+|   |   |   |-- auxfunc.c
+|   |   |   |-- auxfunc.h
+|   |   |   |-- block.hpp
+|   |   |   |-- constants.hpp
+|   |   |   |-- debug.hpp
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- hash.hpp
+|   |   |   |-- KAT_SIG.c
+|   |   |   |-- Makefile
+|   |   |   |-- ngcc_api.hpp
+|   |   |   |-- owf_proof.cpp
+|   |   |   |-- owf_proof.hpp
+|   |   |   |-- owf_proof.inc
+|   |   |   |-- parameters.hpp
+|   |   |   |-- poly2d.hpp
+|   |   |   |-- polynomials.hpp
+|   |   |   |-- polynomials_constants.cpp
+|   |   |   |-- polynomials_constants.hpp
+|   |   |   |-- prgs.hpp
+|   |   |   |-- quicksilver.hpp
+|   |   |   |-- rsd_owf.hpp
+|   |   |   |-- SIG_AlgorithmInstance.cpp
+|   |   |   |-- SIG_AlgorithmInstance.h
+|   |   |   |-- small_vole.cpp
+|   |   |   |-- small_vole.hpp
+|   |   |   |-- small_vole.inc
+|   |   |   |-- tccr_hash.hpp
+|   |   |   |-- transpose.hpp
+|   |   |   |-- transpose_secpar.hpp
+|   |   |   |-- universal_hash.hpp
+|   |   |   |-- util.hpp
+|   |   |   |-- vector_com.cpp
+|   |   |   |-- vector_com.hpp
+|   |   |   |-- vector_com.inc
+|   |   |   |-- vole_check.hpp
+|   |   |   |-- vole_commit.cpp
+|   |   |   |-- vole_commit.hpp
+|   |   |   |-- vole_commit.inc
+|   |   |   |-- vole_key_index_permutation.hpp
+|   |   |   |-- voleith.cpp
+|   |   |   |-- voleith.hpp
+|   |   |   |-- voleith.inc
+|   |   |   |-- voleith_keys.hpp
+|   |   |   `-- voleith_keys.inc
+|   |   `-- ReSolveD-alpha-512s/
+|   |       |-- avx2/
+|   |       |   |-- aes_impl.cpp
+|   |       |   |-- aes_impl.hpp
+|   |       |   |-- block_impl.hpp
+|   |       |   |-- constants_impl.hpp
+|   |       |   |-- gfsmall_impl.hpp
+|   |       |   |-- polynomials_impl.hpp
+|   |       |   |-- transpose_impl.hpp
+|   |       |   `-- transpose_secpar_impl.hpp
+|   |       |-- sha3/
+|   |       |   |-- align.h
+|   |       |   |-- brg_endian.h
+|   |       |   |-- config.h
+|   |       |   |-- KeccakHash.c
+|   |       |   |-- KeccakHash.h
+|   |       |   |-- KeccakHashtimes4.c
+|   |       |   |-- KeccakHashtimes4.h
+|   |       |   |-- KeccakP-1600-64.macros
+|   |       |   |-- KeccakP-1600-AVX2.s
+|   |       |   |-- KeccakP-1600-SnP.h
+|   |       |   |-- KeccakP-1600-times2-SIMD128.c
+|   |       |   |-- KeccakP-1600-times2-SnP.h
+|   |       |   |-- KeccakP-1600-times4-SIMD256.c
+|   |       |   |-- KeccakP-1600-times4-SnP.h
+|   |       |   |-- KeccakP-1600-times8-on4.c
+|   |       |   |-- KeccakP-1600-times8-SnP.h
+|   |       |   |-- KeccakP-1600-unrolling.macros
+|   |       |   |-- KeccakSponge.c
+|   |       |   |-- KeccakSponge.h
+|   |       |   |-- KeccakSponge.inc
+|   |       |   |-- KeccakSpongetimes4.c
+|   |       |   |-- KeccakSpongetimes4.h
+|   |       |   |-- KeccakSpongetimes4.inc
+|   |       |   |-- PlSnP-Fallback.inc
+|   |       |   |-- SIMD128-config.h
+|   |       |   |-- SIMD256-config.h
+|   |       |   `-- SnP-Relaned.h
+|   |       |-- aes.hpp
+|   |       |-- aes_defs.hpp
+|   |       |-- all.inc
+|   |       |-- auxfunc.c
+|   |       |-- auxfunc.h
+|   |       |-- block.hpp
+|   |       |-- constants.hpp
+|   |       |-- debug.hpp
+|   |       |-- drng.c
+|   |       |-- drng.h
+|   |       |-- hash.hpp
+|   |       |-- KAT_SIG.c
+|   |       |-- Makefile
+|   |       |-- ngcc_api.hpp
+|   |       |-- owf_proof.cpp
+|   |       |-- owf_proof.hpp
+|   |       |-- owf_proof.inc
+|   |       |-- parameters.hpp
+|   |       |-- poly2d.hpp
+|   |       |-- polynomials.hpp
+|   |       |-- polynomials_constants.cpp
+|   |       |-- polynomials_constants.hpp
+|   |       |-- prgs.hpp
+|   |       |-- quicksilver.hpp
+|   |       |-- rsd_owf.hpp
+|   |       |-- SIG_AlgorithmInstance.cpp
+|   |       |-- SIG_AlgorithmInstance.h
+|   |       |-- small_vole.cpp
+|   |       |-- small_vole.hpp
+|   |       |-- small_vole.inc
+|   |       |-- tccr_hash.hpp
+|   |       |-- transpose.hpp
+|   |       |-- transpose_secpar.hpp
+|   |       |-- universal_hash.hpp
+|   |       |-- util.hpp
+|   |       |-- vector_com.cpp
+|   |       |-- vector_com.hpp
+|   |       |-- vector_com.inc
+|   |       |-- vole_check.hpp
+|   |       |-- vole_commit.cpp
+|   |       |-- vole_commit.hpp
+|   |       |-- vole_commit.inc
+|   |       |-- vole_key_index_permutation.hpp
+|   |       |-- voleith.cpp
+|   |       |-- voleith.hpp
+|   |       |-- voleith.inc
+|   |       |-- voleith_keys.hpp
+|   |       `-- voleith_keys.inc
+|   `-- README
+`-- Test_Vectors/
+    |-- KAT_SIG_ReSolveD-alpha-160f.txt
+    |-- KAT_SIG_ReSolveD-alpha-160s.txt
+    |-- KAT_SIG_ReSolveD-alpha-256f.txt
+    |-- KAT_SIG_ReSolveD-alpha-256s.txt
+    |-- KAT_SIG_ReSolveD-alpha-384f.txt
+    |-- KAT_SIG_ReSolveD-alpha-384s.txt
+    |-- KAT_SIG_ReSolveD-alpha-512f.txt
+    `-- KAT_SIG_ReSolveD-alpha-512s.txt
+
+The Test_Vectors files in this package were generated from the reference
+implementation. The optimized implementation is packaged as source code and is
+not executed by default by this top-level workflow, so this script can run on a
+host without AVX support.
+
+Build Requirements:
+  - Reference implementation: ISO C compiler and GNU Make
+  - Optimized implementation: GCC or Clang with C23 and C++20 support
+  - Optimized target: x86-64 with AES-NI, PCLMULQDQ, and AVX2 support
+  - The optimized code may also use VAES, AVX-512, and SHA-NI when available
+
+Implementation directories:
+  Reference_Implementation/ - portable ISO C implementation
+  Optimized_Implementation/ - optimized x86-64 AVX implementation
+
+Optimized NGCC API layout:
+  Each optimized instance keeps the standard KAT_SIG.c driver. KAT_SIG.c
+  includes SIG_AlgorithmInstance.h, while the per-instance parameter binding is
+  provided by SIG_AlgorithmInstance.h and SIG_AlgorithmInstance.cpp.
+
+KAT generation:
+  The final Test_Vectors directory is populated from Reference_Implementation.

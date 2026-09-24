@@ -1,0 +1,31 @@
+BAG-Piglet reference implementations
+=====================================
+
+This directory contains four self-contained C11 reference implementations:
+
+- bag_piglet128
+- bag_piglet256
+- bag_piglet384
+- bag_piglet512
+
+Each directory carries its own parameter definitions, scheme sources, FFI,
+bundled RBC arithmetic, official API support files, and official KAT adapter.
+No instance links source files from another security level.
+
+Enter an instance directory and run:
+
+    make
+
+The default target builds only the official KAT executable. For example:
+
+    cd bag_piglet128
+    make kat
+    ./build/bin/bag_piglet128-kat
+
+The generated vector is written below the instance directory:
+
+    output/KAT_KEM_bag_piglet_128.txt
+
+Local functional and benchmark sources may exist in a developer checkout, but
+they are intentionally excluded from the remote repository. See the root
+README.md and each instance README for build details and file boundaries.

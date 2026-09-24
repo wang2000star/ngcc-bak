@@ -1,0 +1,3 @@
+lvl = 2
+p = 0x412508a24fc64c3f96d653c9a6b76df21d47fd4347f03cc7fffffffffffffffffffffffffffffffffffffffffffffff
+B = 1000

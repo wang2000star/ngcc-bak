@@ -1,0 +1,29 @@
+依赖说明
+
+一、基础依赖
+1. 操作系统：Ubuntu 22.04.5 LTS（内核 5.15.0-71-generic）
+2. 编译器：gcc (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0
+3. 构建工具：GNU Make 4.3
+4. CMake：cmake version 3.22.1
+5. 系统工具：size、/usr/bin/time
+
+二、算法实现依赖
+1. 第三方密码库：无
+2. 第三方大数库：无
+3. 第三方 SIMD/汇编运行库：无
+4. 源代码语言：ISO/IEC 9899:1999 (C99)
+5. 目标实现目录：OPSsig-128-avx2
+
+三、随机数与辅助组件
+1. 随机数组件：drng.c / drng.h
+2. 辅助组件：auxfunc.c / auxfunc.h
+
+四、编译与目标平台
+1. 主要编译参数：-O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra
+2. 目标指令集：x86-64 / avx2
+3. AVX2 支持：yes
+4. 处理器型号：Intel(R) Xeon(R) Platinum 8575C
+
+五、评估时间
+1. 自评估开始时间：2026-06-29T13:52:35Z
+2. 自评估结束时间：2026-06-29T13:55:22Z

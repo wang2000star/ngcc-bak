@@ -1,0 +1,49 @@
+submit/Implementations directory layout
+
+Build automation:
+- `Makefile` is the implementation-package build entrypoint. Run it from the repository root as `make -C submit/Implementations <target>`, or from this directory as `make <target>`.
+- Main build targets: `benchmark`, `benchmark256`, `benchmark512`, `benchmark_opt`, `benchmark_opt256`, `benchmark_opt512`, `benchmark_opt_steps`, `benchmark_opt256_steps`, `benchmark_opt512_steps`, `kat_sig`, `kat_sig256`, `kat_sig512`, `kat_sig_opt`, `kat_sig_opt256`, and `kat_sig_opt512`.
+- Test-vector targets: `test_vectors`, `test_vectors256`, `test_vectors512`, `test_vectors_opt`, `test_vectors_opt256`, and `test_vectors_opt512`.
+- Generated binaries are written under `Implementations/build/`. KAT generators keep the template behavior of writing into a local `output/` directory; the Makefile then moves the generated `KAT_SIG_Sigurd*.txt` files into `../Test_Vectors/`.
+- This Makefile intentionally does not provide REF-vs-OPT comparison or randomized differential-test targets.
+
+Reference_Implementation/
+- Sigurd-128/
+  ISO C99 reference implementation for the current signature submission instance.
+  It keeps `ALGORITHM_INSTANCE = Sigurd128_REF` and emits `KAT_SIG_Sigurd128_REF.txt`.
+  Key files:
+  - SIG_AlgorithmInstance.c/.h: template-facing API and serialization layer
+  - sig_core.c/.h: protocol core ported from signature/main.cpp
+  - rsencode.c/.h and rsencode_common.c/.h: C Reed-Solomon support
+  - drng.c/.h, auxfunc.c/.h, KAT_SIG.c: template-provided files kept as-is
+- Sigurd-256/
+  ISO C99 reference implementation for the new 256-bit signature instance.
+  It keeps the same template-facing API shape as Sigurd-128, but uses:
+  - `M=2748`, `K=1564`, `M_K=1184`
+  - degree-16 extension-field arithmetic over `F_(2^16)`
+  - balanced parameters `1/R=8`, `opennum=171`, `total_groups=6`, `group_size=868`
+  - `ALGORITHM_INSTANCE = Sigurd256_REF`
+  - dedicated KAT output `KAT_SIG_Sigurd256_REF.txt`
+- Sigurd-512/
+  ISO C99 reference implementation for the higher-security signature instance.
+  It keeps the same template-facing API shape as Sigurd-256, but uses:
+  - `M=5676`, `K=3230`, `M_K=2446`
+  - degree-32 extension-field arithmetic over `F_(2^16)`
+  - selected parameters `1/R=16`, `opennum=256`, `total_groups=8`, `group_size=2478`
+  - `ALGORITHM_INSTANCE = Sigurd512_REF`
+  - dedicated KAT output `KAT_SIG_Sigurd512_REF.txt`
+
+Optimized_Implementation/
+- Sigurd-128/
+  AVX2-oriented optimized implementation for the 128-bit instance.
+  It keeps `ALGORITHM_INSTANCE = Sigurd128_OPT` and emits `KAT_SIG_Sigurd128_OPT.txt`
+  directly during test-vector generation.
+- Sigurd-256/
+  AVX2-oriented optimized implementation for the 256-bit instance.
+  It keeps `ALGORITHM_INSTANCE = Sigurd256_OPT` and emits `KAT_SIG_Sigurd256_OPT.txt`.
+- Sigurd-512/
+  AVX2-oriented optimized implementation for the 512-bit instance.
+  It keeps `ALGORITHM_INSTANCE = Sigurd512_OPT` and emits `KAT_SIG_Sigurd512_OPT.txt`.
+
+Additional_Implementation/
+- Reserved for optional extra implementations on other platforms.

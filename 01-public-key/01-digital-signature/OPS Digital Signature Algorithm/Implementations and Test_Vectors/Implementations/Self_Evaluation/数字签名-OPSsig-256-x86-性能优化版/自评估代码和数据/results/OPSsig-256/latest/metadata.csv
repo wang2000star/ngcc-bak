@@ -1,0 +1,12 @@
+metric,value
+variant,avx2
+instance,OPSsig-256
+impl_dir,./OPSsig-256-avx2
+submission_name,数字签名-OPSsig-256-x86-性能优化版
+started_at_utc,2026-06-29T13:55:22Z
+metric,value
+variant,avx2
+instance,OPSsig-256
+submission_name,数字签名-OPSsig-256-x86-性能优化版
+result_dir,./自评估代码和数据/results/OPSsig-256/latest
+finished_at_utc,2026-06-29T13:56:08Z

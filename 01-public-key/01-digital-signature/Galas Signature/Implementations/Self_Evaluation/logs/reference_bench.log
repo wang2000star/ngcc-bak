@@ -1,0 +1,71 @@
+date=2026-06-30T18:55:24+08:00
+reps=1
+implementation=reference
+source_dir=/mnt/c/Users/admin/Desktop/niccs/NGCC_Submit/Implementations/Reference_Implementation/Galas-256S
+
+make: Entering directory '/mnt/c/Users/admin/Desktop/niccs/NGCC_Submit/Implementations/Reference_Implementation/Galas-256S'
+=== galas-160s ===
+instance=Galas-160S
+reps=1 msg_len=64 pk=40 sk=40 sig=4812 peak_rss_kb=7580
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,5.387162,16121758,185.626495
+sign,690.116112,2067032145,1.449032
+verify,407.581592,1220781988,2.453496
+
+=== galas-160f ===
+instance=Galas-160F
+reps=1 msg_len=64 pk=40 sk=40 sig=5964 peak_rss_kb=5280
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,5.073368,15194852,197.107720
+sign,537.390240,1609587079,1.860845
+verify,298.761336,894847715,3.347153
+
+=== galas-256s ===
+instance=Galas-256S
+reps=1 msg_len=64 pk=64 sk=64 sig=12114 peak_rss_kb=24316
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,14.282553,42768042,70.015494
+sign,3249.952165,9734251066,0.307697
+verify,2107.889828,6313541664,0.474408
+
+=== galas-256f ===
+instance=Galas-256F
+reps=1 msg_len=64 pk=64 sk=64 sig=15950 peak_rss_kb=12320
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,11.677385,34975122,85.635611
+sign,2325.180951,6964385696,0.430074
+verify,1147.833937,3437992315,0.871206
+
+=== galas-384s ===
+instance=Galas-384S
+reps=1 msg_len=64 pk=96 sk=96 sig=27784 peak_rss_kb=63124
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,30.360056,90929694,32.938016
+sign,10379.492461,31088643244,0.096344
+verify,6066.710752,18171015656,0.164834
+
+=== galas-384f ===
+instance=Galas-384F
+reps=1 msg_len=64 pk=96 sk=96 sig=33384 peak_rss_kb=36960
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,37.524935,112390008,26.648947
+sign,8562.503276,25646418152,0.116788
+verify,3627.620163,10865450339,0.275663
+
+=== galas-512s ===
+instance=Galas-512S
+reps=1 msg_len=64 pk=128 sk=128 sig=49516 peak_rss_kb=132256
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,60.097143,179995417,16.639726
+sign,23050.792162,69946484245,0.043382
+verify,12224.362353,39943090550,0.081804
+
+=== galas-512f ===
+instance=Galas-512F
+reps=1 msg_len=64 pk=128 sk=128 sig=59416 peak_rss_kb=82400
+operation,avg_ms,avg_cycles,ops_per_second
+keygen,49.870678,149369784,20.051863
+sign,19957.958053,59777825373,0.050105
+verify,9887.327301,29615907456,0.101140
+
+make: Leaving directory '/mnt/c/Users/admin/Desktop/niccs/NGCC_Submit/Implementations/Reference_Implementation/Galas-256S'

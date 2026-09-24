@@ -1,0 +1,150 @@
+# This file.
+./README
+
+# Additional implementation of CS
+#(Currently, there is no additional code implementations)
+./Additional_Implementation/
+
+# Optimized implementation of CS-128
+./Optimized_Implementation/CS-128/auxfunc.c(powered by ICCS)
+./Optimized_Implementation/CS-128/auxfunc.h(powered by ICCS)
+./Optimized_Implementation/CS-128/bits-hints.c
+./Optimized_Implementation/CS-128/bits-hints.h
+./Optimized_Implementation/CS-128/conversion.c
+./Optimized_Implementation/CS-128/conversion.h
+./Optimized_Implementation/CS-128/cs.c
+./Optimized_Implementation/CS-128/cs.h
+./Optimized_Implementation/CS-128/drng.c(powered by ICCS)
+./Optimized_Implementation/CS-128/drng.h(powered by ICCS)
+./Optimized_Implementation/CS-128/encodings.c
+./Optimized_Implementation/CS-128/encodings.h
+./Optimized_Implementation/CS-128/ntt.c
+./Optimized_Implementation/CS-128/ntt.h
+./Optimized_Implementation/CS-128/params.h
+./Optimized_Implementation/CS-128/rans.h
+./Optimized_Implementation/CS-128/README.txt
+./Optimized_Implementation/CS-128/sampling.c
+./Optimized_Implementation/CS-128/sampling.h
+./Optimized_Implementation/CS-128/Speed_SIG.c
+./Optimized_Implementation/CS-128/symmetric.h
+
+# Optimized implementation of CS-256
+./Optimized_Implementation/CS-256/auxfunc.c(powered by ICCS)
+./Optimized_Implementation/CS-256/auxfunc.h(powered by ICCS)
+./Optimized_Implementation/CS-256/bits-hints.c
+./Optimized_Implementation/CS-256/bits-hints.h
+./Optimized_Implementation/CS-256/conversion.c
+./Optimized_Implementation/CS-256/conversion.h
+./Optimized_Implementation/CS-256/cs.c
+./Optimized_Implementation/CS-256/cs.h
+./Optimized_Implementation/CS-256/drng.c(powered by ICCS)
+./Optimized_Implementation/CS-256/drng.h(powered by ICCS)
+./Optimized_Implementation/CS-256/encodings.c
+./Optimized_Implementation/CS-256/encodings.h
+./Optimized_Implementation/CS-256/ntt.c
+./Optimized_Implementation/CS-256/ntt.h
+./Optimized_Implementation/CS-256/params.h
+./Optimized_Implementation/CS-256/rans.h
+./Optimized_Implementation/CS-256/README.txt
+./Optimized_Implementation/CS-256/sampling.c
+./Optimized_Implementation/CS-256/sampling.h
+./Optimized_Implementation/CS-256/Speed_SIG.c
+./Optimized_Implementation/CS-256/symmetric.h
+
+# Optimized implementation of CS-512
+./Optimized_Implementation/CS-512/auxfunc.c(powered by ICCS)
+./Optimized_Implementation/CS-512/auxfunc.h(powered by ICCS)
+./Optimized_Implementation/CS-512/bits-hints.c
+./Optimized_Implementation/CS-512/bits-hints.h
+./Optimized_Implementation/CS-512/conversion.c
+./Optimized_Implementation/CS-512/conversion.h
+./Optimized_Implementation/CS-512/cs.c
+./Optimized_Implementation/CS-512/cs.h
+./Optimized_Implementation/CS-512/drng.c(powered by ICCS)
+./Optimized_Implementation/CS-512/drng.h(powered by ICCS)
+./Optimized_Implementation/CS-512/encodings.c
+./Optimized_Implementation/CS-512/encodings.h
+./Optimized_Implementation/CS-512/ntt.c
+./Optimized_Implementation/CS-512/ntt.h
+./Optimized_Implementation/CS-512/params.h
+./Optimized_Implementation/CS-512/rans.h
+./Optimized_Implementation/CS-512/README.txt
+./Optimized_Implementation/CS-512/sampling.c
+./Optimized_Implementation/CS-512/sampling.h
+./Optimized_Implementation/CS-512/Speed_SIG.c
+./Optimized_Implementation/CS-512/symmetric.h
+
+# Reference implementation of CS-128
+./Reference_Implementation/CS-128/auxfunc.c(powered by ICCS)
+./Reference_Implementation/CS-128/auxfunc.h(powered by ICCS)
+./Reference_Implementation/CS-128/bits-hints.c
+./Reference_Implementation/CS-128/bits-hints.h
+./Reference_Implementation/CS-128/conversion.c
+./Reference_Implementation/CS-128/conversion.h
+./Reference_Implementation/CS-128/cs.c
+./Reference_Implementation/CS-128/cs.h
+./Reference_Implementation/CS-128/drng.c(powered by ICCS)
+./Reference_Implementation/CS-128/drng.h(powered by ICCS)
+./Reference_Implementation/CS-128/encodings.c
+./Reference_Implementation/CS-128/encodings.h
+./Reference_Implementation/CS-128/KAT_SIG.c(powered by ICCS)
+./Reference_Implementation/CS-128/ntt.c
+./Reference_Implementation/CS-128/ntt.h
+./Reference_Implementation/CS-128/params.h
+./Reference_Implementation/CS-128/rans.h
+./Reference_Implementation/CS-128/README.txt
+./Reference_Implementation/CS-128/sampling.c
+./Reference_Implementation/CS-128/sampling.h
+./Reference_Implementation/CS-128/SIG_AlgorithmInstance.c(powered by ICCS)
+./Reference_Implementation/CS-128/SIG_AlgorithmInstance.h(powered by ICCS)
+./Reference_Implementation/CS-128/symmetric.h
+                                        
+# Reference implementation of CS-256
+./Reference_Implementation/CS-256/auxfunc.c(powered by ICCS)
+./Reference_Implementation/CS-256/auxfunc.h(powered by ICCS)
+./Reference_Implementation/CS-256/bits-hints.c
+./Reference_Implementation/CS-256/bits-hints.h
+./Reference_Implementation/CS-256/conversion.c
+./Reference_Implementation/CS-256/conversion.h
+./Reference_Implementation/CS-256/cs.c
+./Reference_Implementation/CS-256/cs.h
+./Reference_Implementation/CS-256/drng.c(powered by ICCS)
+./Reference_Implementation/CS-256/drng.h(powered by ICCS)
+./Reference_Implementation/CS-256/encodings.c
+./Reference_Implementation/CS-256/encodings.h
+./Reference_Implementation/CS-256/KAT_SIG.c(powered by ICCS)
+./Reference_Implementation/CS-256/ntt.c
+./Reference_Implementation/CS-256/ntt.h
+./Reference_Implementation/CS-256/params.h
+./Reference_Implementation/CS-256/rans.h
+./Reference_Implementation/CS-256/README.txt
+./Reference_Implementation/CS-256/sampling.c
+./Reference_Implementation/CS-256/sampling.h
+./Reference_Implementation/CS-256/SIG_AlgorithmInstance.c(powered by ICCS)
+./Reference_Implementation/CS-256/SIG_AlgorithmInstance.h(powered by ICCS)
+./Reference_Implementation/CS-256/symmetric.h
+
+# Reference implementation of CS-512
+./Reference_Implementation/CS-512/auxfunc.c(powered by ICCS)
+./Reference_Implementation/CS-512/auxfunc.h(powered by ICCS)
+./Reference_Implementation/CS-512/bits-hints.c
+./Reference_Implementation/CS-512/bits-hints.h
+./Reference_Implementation/CS-512/conversion.c
+./Reference_Implementation/CS-512/conversion.h
+./Reference_Implementation/CS-512/cs.c
+./Reference_Implementation/CS-512/cs.h
+./Reference_Implementation/CS-512/drng.c(powered by ICCS)
+./Reference_Implementation/CS-512/drng.h(powered by ICCS)
+./Reference_Implementation/CS-512/encodings.c
+./Reference_Implementation/CS-512/encodings.h
+./Reference_Implementation/CS-512/KAT_SIG.c(powered by ICCS)
+./Reference_Implementation/CS-512/ntt.c
+./Reference_Implementation/CS-512/ntt.h
+./Reference_Implementation/CS-512/params.h
+./Reference_Implementation/CS-512/rans.h
+./Reference_Implementation/CS-512/README.txt
+./Reference_Implementation/CS-512/sampling.c
+./Reference_Implementation/CS-512/sampling.h
+./Reference_Implementation/CS-512/SIG_AlgorithmInstance.c(powered by ICCS)
+./Reference_Implementation/CS-512/SIG_AlgorithmInstance.h(powered by ICCS)
+./Reference_Implementation/CS-512/symmetric.h

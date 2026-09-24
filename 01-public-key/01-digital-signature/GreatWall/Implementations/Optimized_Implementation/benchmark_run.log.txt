@@ -1,0 +1,34 @@
+==> GreatWall128f: build bench_sig
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+==> GreatWall128f: ./bench_sig 100
+GreatWall128f,100,64,36,36,3396,0.544,1.038,1.262,1317196.010,2510795.680,3052800.080,1836.594,963.516,792.448
+==> GreatWall128s: build bench_sig
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+==> GreatWall128s: ./bench_sig 100
+GreatWall128s,100,64,36,36,2758,0.595,4.592,6.873,1438849.010,11107863.500,16626507.960,1681.281,217.791,145.502
+==> GreatWall192f: build bench_sig
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+==> GreatWall192f: ./bench_sig 100
+GreatWall192f,100,64,50,50,8012,1.342,2.578,2.627,3245611.430,6236818.970,6356043.460,745.368,387.890,380.614
+==> GreatWall192s: build bench_sig
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+==> GreatWall192s: ./bench_sig 100
+GreatWall192s,100,64,50,50,6804,1.347,12.084,18.113,3257493.280,29233323.810,43819544.380,742.650,82.755,55.208
+==> GreatWall256f: build bench_sig
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+==> GreatWall256f: ./bench_sig 100
+GreatWall256f,100,64,66,66,14260,1.881,4.268,4.132,4550639.880,10325795.540,9997154.170,531.615,234.286,241.988
+==> GreatWall256s: build bench_sig
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+==> GreatWall256s: ./bench_sig 100
+GreatWall256s,100,64,66,66,12236,1.863,14.576,23.100,4507725.230,35263239.080,55884444.520,536.676,68.604,43.289
+==> GreatWall512f: build bench_sig
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+==> GreatWall512f: ./bench_sig 100
+GreatWall512f,100,64,132,132,57812,17.061,80.905,74.266,41274684.010,195726318.210,179664345.640,58.612,12.360,13.465
+==> GreatWall512s: build bench_sig
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+==> GreatWall512s: ./bench_sig 100
+GreatWall512s,100,64,132,132,50012,16.796,392.832,478.593,40632352.170,950338976.830,1157813117.630,59.539,2.546,2.089
+Benchmark results written to /mnt/d/VsCode/AIMer/faest-one-tree-field-full/API_PKC/Implementations/Additional_Implementation/benchmark_results.csv
+Full benchmark log written to /mnt/d/VsCode/AIMer/faest-one-tree-field-full/API_PKC/Implementations/Additional_Implementation/benchmark_run.log.txt

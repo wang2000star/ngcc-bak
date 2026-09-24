@@ -1,0 +1,141 @@
+# Implementations
+
+## Directory Structure
+
+```
+Implementations/
+├── Reference_Implementation/
+│   ├── UVW-128/              Reference implementation of UVW-128 signature scheme
+│   │   └── output/           Generated KAT test vectors (after `make`)
+│   ├── UVW-256/              Reference implementation of UVW-256 signature scheme
+│   │   └── output/           Generated KAT test vectors (after `make`)
+│   └── UVW-512/              Reference implementation of UVW-512 signature scheme
+│       └── output/           Generated KAT test vectors (after `make`)
+├── Optimized_Implementation/
+│   ├── UVW-128/              Optimized implementation of UVW-128 (AVX2/SIMD)
+│   ├── UVW-256/              Optimized implementation of UVW-256 (AVX2/SIMD)
+│   └── UVW-512/              Optimized implementation of UVW-512 (AVX2/SIMD)
+├── Test_Vectors/             Known Answer Test vector files for all instances
+└── README                    This file
+```
+
+## Descriptions
+
+### Reference_Implementation/UVW-128
+
+Reference implementation of the **UVW-128** post-quantum digital signature scheme based on generalized (U+V, U+W) codes over F3. This implementation uses ISO C99 without platform-specific instructions to ensure cross-platform portability.
+
+**Parameters (Level-1):**
+- n = 9700, k = 4850, k1 = 3250, k2 = 1600, w = 8633
+- Security level: 128-bit
+
+**Source Files:**
+
+| File | Description |
+|------|-------------|
+| `uvw.c/h` | Core UVW signature algorithm (keygen, sign, verify) |
+| `gauss.c/h` | Gaussian elimination and matrix inversion over F3 |
+| `SIG_AlgorithmInstance.c/h` | API_PKC compliant interface (crypto_sign/verify) |
+| `auxfunc.c/h` | Auxiliary functions (SM3-based hash/XOF, serialization) |
+| `drng.c/h` | Deterministic Random Number Generator (SM3-based) |
+| `KAT_SIG.c` | Known Answer Test vector generation program |
+| `fq_arithmetic/vf3.c/h` | Ternary vector operations (wave representation) |
+| `fq_arithmetic/mf3.c/h` | Ternary matrix operations |
+| `fq_arithmetic/dp.c/h` | Dense polynomial arithmetic |
+| `csprng.h`, `macros.h` | Common headers |
+
+**Build (using Makefile):**
+```bash
+cd Reference_Implementation
+make          # Build all instances and generate test vectors to ../Test_Vectors/
+make clean    # Remove built binaries and output directories
+```
+
+**Build (manual, per instance):**
+```bash
+gcc -DUSE_API_PKC -O2 -Wall -Wextra -o KAT_SIG KAT_SIG.c SIG_AlgorithmInstance.c uvw.c gauss.c auxfunc.c drng.c fq_arithmetic/vf3.c fq_arithmetic/mf3.c fq_arithmetic/dp.c
+./KAT_SIG
+```
+
+### Reference_Implementation/UVW-256
+
+Reference implementation of the **UVW-256** post-quantum digital signature scheme based on generalized (U+V, U+W) codes over F3.
+
+**Parameters (Level-1):**
+- n = 19200, k = 9600, k1 = 6433, k2 = 3167, w = 17088
+- Security level: 256-bit
+
+**Source Files:** Same structure as UVW-128, only parameter values differ in `uvw.c`.
+
+### Reference_Implementation/UVW-512
+
+Reference implementation of the **UVW-512** post-quantum digital signature scheme based on generalized (U+V, U+W) codes over F3.
+
+**Parameters (Level-1):**
+- n = 39000, k = 19500, k1 = 13066, k2 = 6434, w = 34710
+- Security level: 512-bit
+
+**Source Files:** Same structure as UVW-128, only parameter values differ in `uvw.c`.
+
+---
+
+### Optimized_Implementation/UVW-128
+
+Optimized implementation of **UVW-128** targeting mainstream 64-bit x64 processors. This implementation introduces SIMD (AVX2) optimizations for core F3 arithmetic operations: vector addition, subtraction, and multiplication using AVX2's 256-bit vector instructions.
+
+**Parameters:** Same as Reference_Implementation/UVW-128.
+
+**Key Differences from Reference Implementation:**
+
+| Aspect | Reference | Optimized |
+|--------|-----------|-----------|
+| Platform target | Cross-platform (ISO C99) | x86-64 (AVX2) |
+| F3 vector ops | Scalar | AVX2 SIMD (4× 64-bit words/cycle) |
+| Private key format | Full matrices | seed(16B) + serialized_sti |
+| Compilation flags | `-O2 -Wall -Wextra` | `-O3 -march=native -mtune=native` |
+
+**Source Files:** Same file set as reference implementation, with SIMD-optimized versions in `fq_arithmetic/`.
+
+**Build (using Makefile):**
+```bash
+cd Optimized_Implementation
+make          # Build all instances and generate test vectors to ../Test_Vectors/
+make clean    # Remove built binaries and output directories
+```
+
+### Optimized_Implementation/UVW-256
+
+Optimized implementation of **UVW-256** with AVX2 SIMD optimizations. Private key uses a 32-byte seed with serialized sti matrix.
+
+**Parameters:** Same as Reference_Implementation/UVW-256.
+**Source Files & Build:** Same structure as Optimized_Implementation/UVW-128.
+
+### Optimized_Implementation/UVW-512
+
+Optimized implementation of **UVW-512** with AVX2 SIMD optimizations. Private key uses a 64-byte seed with serialized sti matrix.
+
+**Parameters:** Same as Reference_Implementation/UVW-512.
+**Source Files & Build:** Same structure as Optimized_Implementation/UVW-128.
+
+---
+
+## Test_Vectors/
+
+Directory containing Known Answer Test (KAT) vector files generated by `KAT_SIG` for each algorithm instance. These files are automatically generated by running `make` in either `Reference_Implementation/` or `Optimized_Implementation/`.
+
+| File | Instance | Description |
+|------|----------|-------------|
+| `KAT_SIG_UVW-128.txt` | UVW-128 | KAT test vectors for 128-bit security level |
+| `KAT_SIG_UVW-256.txt` | UVW-256 | KAT test vectors for 256-bit security level |
+| `KAT_SIG_UVW-512.txt` | UVW-512 | KAT test vectors for 512-bit security level |
+
+Each KAT file contains multiple test cases with deterministic keygen/sign/verify results, generated using the provided DRNG (SM3-based Deterministic RNG).
+
+## Notes
+
+1. The following files **SHALL NOT be modified**: `drng.c`, `drng.h`, `auxfunc.c`, `auxfunc.h`, `KAT_SIG.c`, `KAT_KEM.c`, `KAT_KEX.c`.
+2. The following files are the primary modification targets for algorithm implementations: `SIG_AlgorithmInstance.c`, `SIG_AlgorithmInstance.h`.
+3. All implementations use the API_PKC programming interface defined in `SIG_AlgorithmInstance.h`.
+4. The cryptographic hash function and XOF use the auxiliary functions (`auxfunc.c/h`). These may be replaced with new algorithms in subsequent evaluation rounds.
+5. The system assumes little-endian byte order for multi-byte values. Non-byte-aligned data operations follow MSB-first convention.
+6. All implementations are configured to use the official SM3-based auxiliary functions (`auxfunc.c` and `drng.c`) via the `USE_API_PKC` compile-time flag. 

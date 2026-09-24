@@ -1,0 +1,137 @@
+{
+  "schema_version": 4,
+  "timestamp": "2026-06-22T07:20:17+0000",
+  "library": "./libfactodsa256-ref.so",
+  "report_metadata": {
+    "generator": "ngcc_bench",
+    "generator_version": "1.0.0",
+    "json_out_path": "/home/debian/qfacto/reports/Digital Signature-Facto-DSA-x86_64-Reference Implementation Version/Intel Core Processor (Haswell, no TSX)/facto-dsa-256.json"
+  },
+  "environment": {
+    "hostname": "vps-6c78fc5e",
+    "cwd": "/home/debian/qfacto/ngcc_bench/build",
+    "sysname": "Linux",
+    "release": "7.0.12+deb14.1-cloud-amd64",
+    "version": "#1 SMP PREEMPT_DYNAMIC Debian 7.0.12-2 (2026-06-12)",
+    "machine": "x86_64"
+  },
+  "options": {
+    "tests": "sig",
+    "modes": "performance",
+    "duration_hours": 6.000000,
+    "stability_max_cases": 3000,
+    "stability_sample_ms": 1.000000,
+    "stability_thresholds": {
+      "throughput_cv_percent": 5.000000,
+      "cycles_cv_percent": 5.000000,
+      "time_cv_percent": 5.000000,
+      "stable_heap_growth_percent": 1.000000,
+      "stable_heap_growth_abs_bytes": 100000,
+      "stable_rss_growth_percent": 1.000000,
+      "stable_rss_growth_abs_bytes": 100000,
+      "error_rate_percent": 0.000000
+    },
+    "kat_path": null
+  },
+  "test_results": {
+    "hash": {
+      "selected": false,
+      "correctness": "SKIPPED",
+      "performance": "SKIPPED",
+      "stability": "SKIPPED",
+      "kat": null,
+      "performance_metrics": null,
+      "stability_metrics": null,
+      "memory_metrics": null
+    },
+    "sig": {
+      "selected": true,
+      "correctness": "PASS",
+      "performance": "PASS",
+      "stability": "SKIPPED",
+      "kat": null,
+      "performance_metrics": {
+        "keygen": {
+          "bytes_per_op": 468622.000000,
+          "iterations": 1000,
+          "warmup_iterations": 10,
+          "elapsed_ms": 43740.177076,
+          "cycles_per_op_mean": 104970820.656000,
+          "cycles_stddev": 6457552.772541,
+          "cycles_min": 98868720.000000,
+          "cycles_max": 162457641.000000,
+          "cycles_median": 103388811.000000,
+          "cycles_cv_percent": 6.151760,
+          "ops_per_sec": 22.862276,
+          "time_ms_mean": 43.739609,
+          "time_ms_median": 43.080248,
+          "time_ms_stddev": 2.690701,
+          "time_ms_cv_percent": 6.151635
+        },
+        "sign": {
+          "bytes_per_op": 64.000000,
+          "iterations": 1000,
+          "warmup_iterations": 10,
+          "elapsed_ms": 5489.187080,
+          "cycles_per_op_mean": 13171202.481000,
+          "cycles_stddev": 11354486.330134,
+          "cycles_min": 1340580.000000,
+          "cycles_max": 79896309.000000,
+          "cycles_median": 9372267.000000,
+          "cycles_cv_percent": 86.206907,
+          "ops_per_sec": 182.176338,
+          "time_ms_mean": 5.488845,
+          "time_ms_median": 3.906093,
+          "time_ms_stddev": 4.731554,
+          "time_ms_cv_percent": 86.203090
+        },
+        "verify": {
+          "bytes_per_op": 64.000000,
+          "iterations": 1000,
+          "warmup_iterations": 10,
+          "elapsed_ms": 4009.353101,
+          "cycles_per_op_mean": 9620560.899000,
+          "cycles_stddev": 986765.656770,
+          "cycles_min": 8800935.000000,
+          "cycles_max": 22614405.000000,
+          "cycles_median": 9443559.000000,
+          "cycles_cv_percent": 10.256841,
+          "ops_per_sec": 249.416795,
+          "time_ms_mean": 4.009142,
+          "time_ms_median": 3.935447,
+          "time_ms_stddev": 0.411285,
+          "time_ms_cv_percent": 10.258683
+        }
+      },
+      "stability_metrics": null,
+      "memory_metrics": {
+        "status": "PASS",
+        "static_memory_bytes": 69632,
+        "peak_memory_bytes": 1105920
+      }
+    },
+    "kem": {
+      "selected": false,
+      "correctness": "SKIPPED",
+      "performance": "SKIPPED",
+      "stability": "SKIPPED",
+      "kat": null,
+      "performance_metrics": null,
+      "stability_metrics": null,
+      "memory_metrics": null
+    },
+    "kex": {
+      "selected": false,
+      "correctness": "SKIPPED",
+      "performance": "SKIPPED",
+      "stability": "SKIPPED",
+      "kat": null,
+      "performance_metrics": null,
+      "stability_metrics": null,
+      "memory_metrics": null
+    }
+  },
+  "overall": {
+    "status": "PASS"
+  }
+}
