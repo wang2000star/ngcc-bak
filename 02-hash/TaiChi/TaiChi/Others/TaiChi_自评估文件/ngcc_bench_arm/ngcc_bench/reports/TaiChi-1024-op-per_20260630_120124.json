@@ -1,0 +1,121 @@
+{
+	"Algorithms overview":	{
+		"Algorithm_name":	"TaiChi-1024-op-per",
+		"Developed by":	"TaiChi",
+		"Block size":	112,
+		"Digest Length":	128
+	},
+	"Functional test report":	{
+		"long input":	true,
+		"short input":	true
+	},
+	"Performance evaluation":	[{
+			"level":	"S1",
+			"input_size_bytes":	32,
+			"Cycle measurement":	{
+				"avg_cycles":	6131.75,
+				"min_cycles":	5974,
+				"max_cycles":	8634
+			},
+			"Throughput":	{
+				"throughput":	"14.51 MB/s",
+				"run_times":	1000
+			}
+		}, {
+			"level":	"S2",
+			"input_size_bytes":	128,
+			"Cycle measurement":	{
+				"avg_cycles":	8500.573,
+				"min_cycles":	8316,
+				"max_cycles":	12799
+			},
+			"Throughput":	{
+				"throughput":	"40.82 MB/s",
+				"run_times":	1000
+			}
+		}, {
+			"level":	"S3",
+			"input_size_bytes":	512,
+			"Cycle measurement":	{
+				"avg_cycles":	13054.922,
+				"min_cycles":	12878,
+				"max_cycles":	15300
+			},
+			"Throughput":	{
+				"throughput":	"112.31 MB/s",
+				"run_times":	1000
+			}
+		}, {
+			"level":	"S4",
+			"input_size_bytes":	1024,
+			"Cycle measurement":	{
+				"avg_cycles":	23902.096,
+				"min_cycles":	23642,
+				"max_cycles":	28421
+			},
+			"Throughput":	{
+				"throughput":	"121.71 MB/s",
+				"run_times":	1000
+			}
+		}, {
+			"level":	"S5",
+			"input_size_bytes":	4096,
+			"Cycle measurement":	{
+				"avg_cycles":	74642.796,
+				"min_cycles":	74210,
+				"max_cycles":	75539
+			},
+			"Throughput":	{
+				"throughput":	"154.77 MB/s",
+				"run_times":	1000
+			}
+		}, {
+			"level":	"S6",
+			"input_size_bytes":	8192,
+			"Cycle measurement":	{
+				"avg_cycles":	146918.998,
+				"min_cycles":	146330,
+				"max_cycles":	148914
+			},
+			"Throughput":	{
+				"throughput":	"158.15 MB/s",
+				"run_times":	1000
+			}
+		}, {
+			"level":	"S7",
+			"input_size_bytes":	16384,
+			"Cycle measurement":	{
+				"avg_cycles":	286682.161,
+				"min_cycles":	285806,
+				"max_cycles":	291066
+			},
+			"Throughput":	{
+				"throughput":	"162.31 MB/s",
+				"run_times":	1000
+			}
+		}, {
+			"level":	"S8",
+			"input_size_bytes":	65536,
+			"Cycle measurement":	{
+				"avg_cycles":	1131141.357,
+				"min_cycles":	1129179,
+				"max_cycles":	1133433
+			},
+			"Throughput":	{
+				"throughput":	"164.71 MB/s",
+				"run_times":	1000
+			}
+		}],
+	"Memory evaluation":	{
+		"Static segments":	{
+			"text_size":	5692,
+			"data_size":	984,
+			"bss_size":	8
+		},
+		"Dynamic usage":	{
+			"heap_peak":	65664,
+			"stack_peak":	2256
+		},
+		"Peak total bytes":	74604
+	}
+}

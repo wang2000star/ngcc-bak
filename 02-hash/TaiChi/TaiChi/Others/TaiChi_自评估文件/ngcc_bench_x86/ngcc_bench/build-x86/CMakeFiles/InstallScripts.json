@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/makko/ngcc_bench/build-x86/cmake_install.cmake",
+		"/home/makko/ngcc_bench/build-x86/API_CryptHash/cmake_install.cmake",
+		"/home/makko/ngcc_bench/build-x86/API_CryptHash/Implementations/Reference_Implementation/cmake_install.cmake",
+		"/home/makko/ngcc_bench/build-x86/API_CryptHash/Implementations/Optimized_Implementation/cmake_install.cmake",
+		"/home/makko/ngcc_bench/build-x86/adapter/cmake_install.cmake",
+		"/home/makko/ngcc_bench/build-x86/bench/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

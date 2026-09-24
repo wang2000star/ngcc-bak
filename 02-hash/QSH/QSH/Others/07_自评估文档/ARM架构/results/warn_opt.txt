@@ -1,0 +1,3 @@
+/home/shichangw879/QSH_run_arm/Implementations/Additional_Implementation_WithinPerm/QSH-512/CryptHash_AlgorithmInstance.c:136:13: warning: ‘E3_32s’ defined but not used [-Wunused-function]
+  136 | static void E3_32s(uint32_t*s){
+      |             ^~~~~~

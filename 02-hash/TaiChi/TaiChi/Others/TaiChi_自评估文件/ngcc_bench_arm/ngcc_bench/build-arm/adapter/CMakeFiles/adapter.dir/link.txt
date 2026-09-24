@@ -1,0 +1,2 @@
+/usr/bin/ar qc libadapter.a CMakeFiles/adapter.dir/crypthash/taichi_adapter.c.o CMakeFiles/adapter.dir/__/src/registry.c.o
+/usr/bin/ranlib libadapter.a

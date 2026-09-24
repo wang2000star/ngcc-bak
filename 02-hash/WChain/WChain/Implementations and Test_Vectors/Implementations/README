@@ -1,0 +1,35 @@
+WChain API_CryptHash implementation layout
+==========================================
+
+This directory follows the structure requested by the CryptHash submission
+template.
+
+Reference_Implementation/
+  WChain-V1-512/
+  WChain-V2-1024/
+
+Optimized_Implementation/
+  WChain-V1-512/
+  WChain-V2-1024/
+
+Each instance directory contains:
+
+  CryptHash_AlgorithmInstance.h
+      Instance name, digest length, and the CryptHash prototype.
+
+  CryptHash_AlgorithmInstance.c
+      Thin API adapter. It calls the WChain C implementation in the same
+      AlgorithmInstance directory through wchain_crypt_hash_c().
+
+  wchain_c.c, wchain_c.h
+      WChain reference/optimized implementation core used by the API adapter.
+
+  KAT_CryptHash.c, drng.c, drng.h
+      Unmodified files copied from API_CryptHash.zip.
+
+  build_kat.sh
+      Linux/GCC build script for the official KAT generator.
+
+Reference builds define WCHAIN_DISABLE_SIMD and use ISO C99 scalar code.
+Optimized builds use the same public CryptHash API and enable native compiler
+optimization flags.

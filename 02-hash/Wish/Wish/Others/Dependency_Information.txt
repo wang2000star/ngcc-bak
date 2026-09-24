@@ -1,0 +1,29 @@
+Dependencies
+============
+
+Build toolchain
+---------------
+- A C99-capable C compiler (GCC or Clang).
+- GNU Make.
+
+Hardware AES (required for the optimized builds)
+-----------------------------------------------
+The performance-optimized and resource-optimized versions rely on hardware
+AES acceleration. They must be compiled with the AES feature enabled:
+
+  - x86-64 : -maes               (AES-NI)
+  - AArch64: -march=...+aes      (ARMv8 AES crypto extension)
+
+These instruction-set extensions are present on the vast majority of modern
+CPUs, so enabling them makes best use of widely available hardware support
+while keeping the binaries portable across common machines. The reference
+implementation does not use these flags and stays fully portable C99.
+
+AVX2 / SVE (not required)
+-------------------------
+Our implementation does NOT require the wide vector extensions AVX2 (x86) or
+SVE (ARM); the algorithm runs correctly without them. Enabling these flags
+(-mavx2 on x86, +sve on ARM) does, however, have some effect on performance.
+They are provided only as optional build variants and are not needed for
+correct or efficient operation. Details are discussed in the algorithm
+information document (Basic_Algorithm_Information.pdf).

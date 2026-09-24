@@ -1,0 +1,13 @@
+date            : Mon Jun 29 15:08:39 UTC 2026
+uname           : Linux 6.12.90+deb13.1-cloud-amd64 x86_64
+os-release      : Debian GNU/Linux 13 (trixie)
+cpu             : Intel(R) Xeon(R) CPU @ 2.80GHz
+cpu-MHz(cur)    : 2799.998
+gcc             : gcc (Debian 14.2.0-19) 14.2.0
+cmake           : cmake version 3.31.6
+governor        : 
+no_turbo        : 
+pinned core     : 0
+third-party deps: none (only the official ICCS drng.c / KAT_CryptHash.c, unmodified)
+RNG method      : DRNG from API_CryptHash (SM3 Hash-DRBG); KAT messages seeded per official harness
+ISA / opt       : x86-64 + AVX2; within-permutation SIMD (perf), SIMD core + O(log Pi) CV-stack at -O3 (resource)

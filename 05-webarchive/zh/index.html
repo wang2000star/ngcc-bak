@@ -1,0 +1,431 @@
+<html>
+<head>
+  <base href="/symmbzyjy/" /> 
+  <meta name="SiteName" content="商用密码标准研究院" /> 
+  <meta name="SiteDomain" content="http://223.193.40.42:9003" /> 
+  <meta name="SiteIDCode" content="" /> 
+  <meta name="HtmlGenerateTime" content="2026-09-14 11:23:08" /> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1300">
+<meta name="format-detection" content="telephone=no">
+<title>商用密码标准研究院</title>
+<link rel="shortcut icon" href="/symmbzyjy/pc2025/images/icon.png" type="image/png">
+<link rel="stylesheet" href="/symmbzyjy/pc2025/css/reset.css">
+<link rel="stylesheet" href="/symmbzyjy/pc2025/css/index.css">
+
+<script type="text/javascript" src="/symmbzyjy/default/libs/jquery.min.js"></script>
+<script type="text/javascript" src="/symmbzyjy/pc2025/js/config.js"></script>
+<script type="text/javascript" src="/symmbzyjy/pc2025/js/commonApi.js"></script>
+<script src="/symmbzyjy/default/jquery.SuperSlide.js"></script>
+
+<style>
+  /* 菜单样式 */
+  .menu li { width: 256px; background: url(/niccs/pc2025/images/menu_bg.jpg) no-repeat top left; }
+  .menu li.cur, .menu li:hover { width: 256px; background: url(/niccs/pc2025/images/menu_cur.jpg) no-repeat left top; }
+  .content { width: 994px; }
+  .top, .list { width: 410px; }
+
+  /* 算法评议提示框样式 */
+  .proposal-box {
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: left;
+  }
+  .proposal-box p { text-indent: 2rem; }
+  .proposal-scroll-area {
+    max-height: 315px;
+    overflow-y: auto;
+    padding-right: 10px; /* 防止滚动条遮挡文字 */
+    /* Firefox 滚动条样式 */
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+  }
+  /* Chrome/Safari/Edge 滚动条样式 */
+  .proposal-scroll-area::-webkit-scrollbar {
+    width: 8px;
+  }
+  .proposal-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .proposal-scroll-area::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  .proposal-scroll-area p {
+    text-indent: 2rem;
+    margin-bottom: 10px;
+  }
+  .proposal-check-area { margin-top: 15px; text-indent: 2rem; }
+  .proposal-check-area input { margin: 0; }
+  .proposal-btn-area { margin-top: 20px; text-align: center; }
+  .proposal-btn {
+    padding: 10px 50px;
+    margin: 0 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .proposal-back-btn { background-color: #a9141e; }
+  .proposal-confirm-btn { background-color: #ccc; cursor: not-allowed; }
+  .proposal-confirm-btn.btn-enabled { background-color: #a9141e; cursor: pointer; }
+  #proposal-timer-text { font-size: 16px; color: #c2c2c2cc; }
+</style>
+
+<script>
+  var websiteCode = 'symmbzyjy';
+  var websiteId = '1937414891327983616';
+</script>
+</head>
+
+<body>
+<!--header Start-->
+<script type="text/javascript" src="/symmbzyjy/pc2025/js/header.js"></script>
+<div class="header">
+  <div class="box">
+    
+    <div class="logo">
+      <a href="/symmbzyjy/index.html"><img src="/symmbzyjy/pc2025/images/logo.png" /></a>
+    </div>
+    <div class="logo_wz">
+      <img src="/symmbzyjy/pc2025/images/logo_wz.png" />
+    </div>
+    <a href="/niccs/index.html" class="cn">Engilsh</a>
+    <div class="search">
+      <input type="text" class="searchinput">
+      <a href="javascripr:;" onclick="doSearch()"><img src="/symmbzyjy/pc2025/images/search_btn.png"></a>
+    </div>
+  </div>
+</div>
+
+<!--header End-->
+
+<div class="main">
+  <div class="box clearfix">
+    <!-- 左侧菜单 -->
+    <div class="menu">
+      <ul>
+        <li class="cur">首页</li>
+        <li style="position: relative;">
+          通知公告
+          <span id="menu-notice-icon" style="display:none;position: absolute;top: 20px;left: 175px;">
+            <img src="/niccs/pc2025/images/new1.gif">
+          </span>
+        </li>
+        <!-- 算法提案（直接加图标） -->
+        <li style="position: relative;">
+          <a href="/niccs/Proposal/pc/list.html">算法提案</a>
+          <span id="menu-proposal-icon" style="position: absolute;top: 20px;left: 175px;">
+            <img src="/niccs/pc2025/images/new2.gif">
+          </span>
+        </li>
+        <!-- 算法评议（直接加图标） -->
+        <li style="position: relative;">
+          <a href="/niccs/EmailList/pc/list.html">算法评议</a>
+          <span id="menu-review-icon" style="position: absolute;top: 20px;left: 175px;">
+            <img src="/niccs/pc2025/images/new2.gif">
+          </span>
+        </li>
+        <li>研讨会议</li>
+        <li style="position: relative;">
+          资料下载
+          <span id="menu-download-icon" style="display:none;position: absolute;top: 20px;left: 175px;">
+            <img src="/niccs/pc2025/images/new1.gif">
+          </span>
+        </li>
+        <li>关于我们</li>
+      </ul>
+    </div>
+
+    <!-- 内容区域 -->
+    <!-- 首页 -->
+    <div class="content home" style="display:block;">
+      <div class="pic" id="index-data-homeimg">
+        <a href="" target="_blank"><img src="images/pic_001.jpg"></a>
+      </div>
+      <div class="top" id="index-data-hometop">
+        <h2><a href="" target="_blank">Announcement on Launching the…</a></h2>
+        <div class="txt">
+          In response to the threat of quantum computing
+          uting and to promote the standardization of the next-generation commercial…<a href="" class="more" target="_blank">more+</a>
+        </div>
+      </div>
+      <ul class="list" id="index-data-home"></ul>
+      <a href="/symmbzyjy/tzgg/pc/list.html" target="_blank" class="more">更多+</a>
+    </div>
+
+    <!-- 通知公告 -->
+    <div class="content notice">
+      <div class="top" id="index-data-noticetop">
+        <h2><a href="" target="_blank">The Application Scope of Commercial Cryptography</a></h2>
+        <div class="txt">
+          According to Article 8 of The Cryptography Law of the People’s Republic of China, “commercial cryptography shall be used to protect the information that does not involve…<a href="notice-content.html" class="more" target="_blank">more+</a>
+        </div>
+      </div>
+      <ul class="list" id="index-data-notice"></ul>
+      <a href="/symmbzyjy/tzgg/pc/list.html" target="_blank" class="more">更多+</a>
+    </div>
+
+    <!-- 算法提案（保持原样） -->
+    <div class="content proposal">
+      
+    </div>
+
+    <!-- 算法评议 -->
+    <div class="content email">
+    </div>
+
+    <!-- 研讨会议 -->
+    <div class="content seminar">
+      <p class="jqgz">敬请关注！</p>
+    </div>
+
+    <!-- 资料下载 -->
+    <div class="content download">
+      <ul class="list download_list" id="index-data-download"></ul>
+      <a href="/symmbzyjy/zlxz/pc/list.html" target="_blank" class="more">更多+</a>
+    </div>
+
+    <!-- 关于我们 -->
+    <div class="content aboutus clearfix">
+      <div class="fl about_jdt">
+        <div class="focusBox" id="index-data-aboutPic">
+          <ul class="pic imgZoom"></ul>
+          <div class="txt-bg"></div>
+          <ul class="num"></ul>
+        </div>
+      </div>
+      <div class="fr about_fr" id="index-data-aboutCon"></div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="links">
+      <span>友情链接</span>
+      <a href="http://www.gmbz.org.cn/main/index.html" target="_blank" class="imgZoom"><img src="images/index_links1.jpg"></a>
+      <a href="https://www.cacrnet.org.cn/" target="_blank" class="imgZoom"><img src="images/index_links2.jpg"></a>
+      <a href="https://www.scctc.org.cn/" target="_blank" class="imgZoom"><img src="images/index_links3.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<!--footer Start-->
+
+<div class="footer">
+  <div class="box">
+    <img src="/symmbzyjy/pc2025/images/footer_logo.png" alt="" class="footer_logo">
+    <div>
+      <p class="w5" style="width: 36%;">© 2025 商用密码标准研究院版权所有</p>
+      <p style="width: 43%;">办公地址：北京市丰台区南四环西路188号17区10号楼</p>
+      <p style="width: 20%;text-align: right;">访问量：<span id="viewid_site_site"></span></p>
+      <p class="w5" style="width: 36%;">京ICP备2024100746号</p>
+      <p style="width: 43%;">电子邮箱：svr@niccs.org.cn</p>
+      <p class="w5" style="width: 36%;">
+        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010602201790" target="_blank" style="font-size: 16px;color: #fff;">
+          <img src="/symmbzyjy/pc2025/images/10684500.png" style="width: 16px;height: 16px; margin-top: 3px; margin-right: 5px;">京公网安备11010602201790号
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+<script language="JavaScript" charset="utf-8" src="/report/showview.jsp?website=10000005&action=site&viewid=site"></script>
+<script language="javascript">
+var _yfx_trackdata = _yfx_trackdata || [];		//事件采集
+var _yfx_website = "10000005";			//站点编号（不可更改）
+(function() {
+    var yfxjs = document.createElement("script");
+    yfxjs.charset = "utf-8";
+    yfxjs.src = "/count/yeefxcount.js";
+    var yfxjs_t = document.getElementsByTagName("script")[0];
+    yfxjs_t.parentNode.insertBefore(yfxjs, yfxjs_t);
+})();
+</script>
+<!--footer End-->
+
+<script>
+  // 服务端标签生成的列表数据（保留）
+  var articleLists = {
+    'home': [{"summary":"","classify":0,"images":[{"cover":"/symmbzyjy/首页/pic_002.jpg","fileName":"pic_002.jpg","domainName":"http://223.193.40.42:9003","filePath":"/symmbzyjy/首页/pic_002.jpg","delFlag":0,"type":"1","fileId":"1943642338705297408"}],"relationUrl":"/symmbzyjy/sy/relation/1937419157677543424-RelationArticle.json","redirectUrl":"https://www.niccs.org.cn/symmbzyjy/tzgg/pc/content/1937422988373135360/content_1937422988373135360.html","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于开展新一代商用密码算法征集活动的公告","type":0,"pubDate":"2025-02-05 15:54","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/sy/pc/content/1937419157677543424/content_1937419157677543424.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>关于开展新一代商用密码算法征集活动的公告</p>","topStatus":0,"archiveStatus":0,"sortNum":17387420400032277,"articleFiles":[{}],"id":"1937419157677543424"}],
+    'notice': [{"summary":"商用密码标准研究院（ICCS）依据《公钥密码算法提交要求》对收到的公钥密码算法提案组织了形式审查，现公布进入第一轮评估的84个候选公钥密码算法名单，预计于2027年6月完成第一轮评估。欢迎各界积极参与算法公开评议。","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/2100859557292625920-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于公布新一代商用密码算法全球征集活动公钥密码算法第一轮候选算法名单的通知","type":0,"pubDate":"2026-09-20 10:15","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/2100859557292625920/content_2100859557292625920.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>关于公布新一代商用密码算法全球征集活动</p>\n<p>公钥密码算法第一轮候选算法名单的通知</p>","topStatus":0,"archiveStatus":0,"sortNum":17898705000044941,"articleFiles":[{}],"id":"2100859557292625920"},{"summary":"商用密码标准研究院（ICCS）依据《密码杂凑算法提交要求》对收到的密码杂凑算法提案组织了形式审查，现公布进入第一轮评估的35个候选密码杂凑算法名单，预计于2027年6月完成第一轮评估。欢迎各界积极参与算法公开评议。","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/2100870458917867520-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于公布新一代商用密码算法全球征集活动密码杂凑算法第一轮候选算法名单的通知","type":0,"pubDate":"2026-09-20 10:13","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/2100870458917867520/content_2100870458917867520.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>关于公布新一代商用密码算法全球征集活动</p>\n<p>密码杂凑算法第一轮候选算法名单的通知</p>","topStatus":0,"archiveStatus":0,"sortNum":17898703800034939,"articleFiles":[{}],"id":"2100870458917867520"},{"summary":"我院现面向全球对《分组密码算法提交要求（征求意见稿）》和《分组密码算法评估准则（征求意见稿）》征求意见。有关意见请于2026年9月24日前通过电子邮件方式反馈，逾期不再受理。","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/2095697272613974016-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于对《分组密码算法提交要求（征求意见稿）》和《分组密码算法评估准则（征求意见稿）》征求意见的通知","type":0,"pubDate":"2026-09-04 09:59","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/2095697272613974016/content_2095697272613974016.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>关于对《分组密码算法提交要求（征求意见稿）》和《分组密码算法评估准则（征求意见稿）》征求意见的通知</p>","topStatus":0,"archiveStatus":0,"sortNum":17884871400048779,"articleFiles":[{}],"id":"2095697272613974016"},{"summary":"为引导新一代商用密码算法（公钥密码算法、密码杂凑算法）提交者有效开展算法实现自评估工作，我院现发布x86、ARM、FPGA和ASIC四种实现环境的算法实现自评估指引。","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/2066796358054449152-RelationArticle.json","attDownloadType":0,"title":"关于发布新一代商用密码算法实现自评估指引的通知","type":0,"pubDate":"2026-06-16 16:01","relation":0,"urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/2066796358054449152/content_2066796358054449152.html\"}","contentSource":"商用密码标准研究院","showTitle":"关于发布新一代商用密码算法实现自评估指引的通知","topStatus":0,"archiveStatus":0,"sortNum":17815968600048576,"id":"2066796358054449152","articleFiles":[{}]},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/1976155884915003392-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于征集新一代公钥密码算法提案的通知","type":0,"pubDate":"2025-10-09 10:00","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/1976155884915003392/content_1976155884915003392.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>关于征集新一代公钥密码算法提案的通知</p>","topStatus":0,"archiveStatus":0,"sortNum":17599752000033722,"articleFiles":[{}],"id":"1976155884915003392"},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/1976158633115258880-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于征集新一代密码杂凑算法提案的通知","type":0,"pubDate":"2025-10-09 10:00","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/1976158633115258880/content_1976158633115258880.html\"}","contentSource":"商用密码标准研究院","showTitle":"关于征集新一代密码杂凑算法提案的通知","topStatus":0,"archiveStatus":0,"sortNum":17599752000010010,"articleFiles":[{}],"id":"1976158633115258880"},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/1937424616706805760-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"“商用密码”适用范围","type":0,"pubDate":"2025-03-17 16:16","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/1937424616706805760/content_1937424616706805760.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>“商用密码”适用范围</p>","topStatus":0,"archiveStatus":0,"sortNum":17421993600034962,"articleFiles":[{}],"id":"1937424616706805760"},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/1937424224048648192-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"中国商用密码算法标准概况","type":0,"pubDate":"2025-03-17 16:10","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/1937424224048648192/content_1937424224048648192.html\"}","contentSource":"商用密码标准研究院","showTitle":"中国商用密码算法标准概况","topStatus":0,"archiveStatus":0,"sortNum":17421990000079806,"articleFiles":[{}],"id":"1937424224048648192"},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/1937422988373135360-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于开展新一代商用密码算法征集活动的公告","type":0,"pubDate":"2025-02-05 16:09","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/1937422988373135360/content_1937422988373135360.html\"}","contentSource":"商用密码标准研究院","showTitle":"关于开展新一代商用密码算法征集活动的公告","topStatus":0,"archiveStatus":0,"sortNum":17387429400088017,"articleFiles":[{}],"id":"1937422988373135360"},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/1937422518061633536-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于对《公钥密码算法提交要求（征求意见稿）》和《公钥密码算法评估准则（征求意见稿）》征求意见的通知","type":0,"pubDate":"2025-02-05 16:06","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/1937422518061633536/content_1937422518061633536.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>关于对《公钥密码算法提交要求（征求意见稿）》和《公钥密码算法评估准则（征求意见稿）》征求意见的通知</p>","topStatus":0,"archiveStatus":0,"sortNum":17387427600057406,"articleFiles":[{}],"id":"1937422518061633536"},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/tzgg/relation/1937421649937174528-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于对《密码杂凑算法提交要求（征求意见稿）》和《密码杂凑算法评估准则（征求意见稿）》征求意见的通知","type":0,"pubDate":"2025-02-05 16:02","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/tzgg/pc/content/1937421649937174528/content_1937421649937174528.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>关于对《密码杂凑算法提交要求（征求意见稿）》和《密码杂凑算法评估准则（征求意见稿）》征求意见的通知</p>","topStatus":0,"archiveStatus":0,"sortNum":17387425200010858,"articleFiles":[{}],"id":"1937421649937174528"}],
+    'download': [{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/zlxz/relation/2095691087823319040-RelationArticle.json","redirectUrl":"https://niccs.org.cn/niccs/Download/API/API_BlockCipher.zip","irn":"","keywords":"","author":"","attDownloadType":0,"title":"API_BlockCipher.zip","type":0,"pubDate":"2026-09-04 09:48","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/zlxz/pc/content/2095691087823319040/content_2095691087823319040.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>API_BlockCipher.zip</p>","topStatus":0,"archiveStatus":0,"sortNum":17884864800029233,"articleFiles":[{"cover":"/symmbzyjy/资料下载/API_BlockCipher.zip","fileName":"API_BlockCipher.zip","domainName":"http://223.193.40.42:9003","filePath":"/symmbzyjy/资料下载/API_BlockCipher.zip","delFlag":0,"url":"/doc/ucap/1932247638865887232/document/20260223/OOG6O1DM.zip","fileId":"2095690869191495680"}],"id":"2095691087823319040"},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/zlxz/relation/1975871147851911168-RelationArticle.json","redirectUrl":"https://niccs.org.cn/niccs/Download/API/API_PKC.zip","irn":"","keywords":"","author":"","attDownloadType":0,"title":"API_PKC.zip","type":0,"pubDate":"2025-10-09 10:00","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/zlxz/pc/content/1975871147851911168/content_1975871147851911168.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>API_PKC.zip</p>","topStatus":0,"archiveStatus":0,"sortNum":17599752000086980,"articleFiles":[{"cover":"/symmbzyjy/资料下载/API_PKC.zip","fileName":"API_PKC.zip","domainName":"http://223.193.40.42:9003","filePath":"/symmbzyjy/资料下载/API_PKC.zip","delFlag":0,"url":"/doc/ucap/1932247638865887232/document/20251008/DlBpoglA.zip","fileId":"1975870430479667200"}],"id":"1975871147851911168"},{"summary":"","classify":0,"images":[{}],"relationUrl":"/symmbzyjy/zlxz/relation/1975873642976251904-RelationArticle.json","redirectUrl":"https://niccs.org.cn/niccs/Download/API/API_CryptHash.zip","irn":"","keywords":"","author":"","attDownloadType":0,"title":"API_CryptHash.zip","type":0,"pubDate":"2025-10-09 10:00","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/zlxz/pc/content/1975873642976251904/content_1975873642976251904.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>API_CryptHash.zip</p>","topStatus":0,"archiveStatus":0,"sortNum":17599752000036760,"articleFiles":[{"cover":"/symmbzyjy/资料下载/API_CryptHash.zip","fileName":"API_CryptHash.zip","domainName":"http://223.193.40.42:9003","filePath":"/symmbzyjy/资料下载/API_CryptHash.zip","delFlag":0,"url":"/doc/ucap/1932247638865887232/document/20251008/I7G4zWWk.zip","fileId":"1975873493638598656"}],"id":"1975873642976251904"}],
+    'about': [{"summary":"商用密码标准研究院主要承担商用密码标准战略研究和标准体系实施，商用密码标准制修订，标准试验验证、测试评价、宣贯培训及其科研成果推广应用，标准资源库建设与标准信息服务，以及商用密码国家标准和行业标准秘书处等工作。","classify":0,"images":[{"cover":"/symmbzyjy/关于我们/81_副本.jpg","fileName":"81_副本.jpg","domainName":"http://223.193.40.42:9003","filePath":"/symmbzyjy/关于我们/81_副本.jpg","delFlag":0,"type":"1","fileId":"1951261208215572480"},{"cover":"/symmbzyjy/关于我们/fNyhrK7p.jpg","fileName":"fNyhrK7p.jpg","domainName":"http://223.193.40.42:9003","filePath":"/symmbzyjy/关于我们/fNyhrK7p.jpg","delFlag":0,"type":"1","fileId":"1943653904376942592"},{"cover":"/symmbzyjy/关于我们/81_副本1754051908007.jpg","fileName":"81_副本1754051908007.jpg","domainName":"http://223.193.40.42:9003","filePath":"/symmbzyjy/关于我们/81_副本1754051908007.jpg","delFlag":0,"type":"1","fileId":"1951261244416610304"}],"relationUrl":"/symmbzyjy/gywm/relation/1937419664206860288-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"关于我们","type":0,"pubDate":"2025-02-05 15:56","relation":0,"tags":"","urls":"{\"pc\":\"/symmbzyjy/gywm/pc/content/1937419664206860288/content_1937419664206860288.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>关于我们</p>","topStatus":0,"archiveStatus":0,"sortNum":17387421600038811,"articleFiles":[{}],"id":"1937419664206860288"}],
+  };
+
+  (function() {
+    'use strict';
+
+    // 工具函数：判断是否显示NEW图标（基于发布时间）
+    function getNewIcon(pubDateStr) {
+      var now = new Date();
+      var pubDate = new Date(pubDateStr.replace(/-/g, '/'));
+      var yearDiff = now.getFullYear() - pubDate.getFullYear();
+      var monthDiff = now.getMonth() - pubDate.getMonth();
+      var dayDiff = now.getDate() - pubDate.getDate();
+      var totalMonths = yearDiff * 12 + monthDiff;
+      if (dayDiff < 0) totalMonths -= 1;
+
+      if (totalMonths < 1) {
+        return '<img src="/niccs/pc2025/images/new2.gif" style="display:inline-block" />';
+      } else if (totalMonths === 1) {
+        return '<img src="/niccs/pc2025/images/new1.gif" style="display:inline-block" />';
+      } else {
+        return '';
+      }
+    }
+
+    // ================= 数据渲染 =================
+    function renderHome() {
+      commonApi.addArticleList(articleLists.home, { pageSize: 1 }, {
+        listDom: '#index-data-homeimg',
+        createHtml: function(item) {
+          return '<a href="' + item._url + '" target="_blank"><img src="' + item.images[0].cover + '"></a>';
+        }
+      });
+      commonApi.addArticleList(articleLists.home, { pageSize: 1 }, {
+        listDom: '#index-data-hometop',
+        createHtml: function(item) {
+          return '<h2><a href="' + item._url + '" target="_blank">' + item.title + '</a></h2>' +
+                 '<div class="txt">' + item.summary + '<a href="' + item._url + '" class="more" target="_blank">查看全文+</a></div>';
+        }
+      });
+    }
+
+    function renderNotice() {
+      // 首页下方列表（引用通知公告）
+      commonApi.addArticleList(articleLists.notice, { pageSize: 5 }, {
+        listDom: '#index-data-home',
+        createHtml: function(item) {
+          return '<li><a class="elli-s" href="' + item._url + '" target="_blank">' + item.title + '</a>' + getNewIcon(item.pubDate) + '</li>';
+        },
+        callback: function() {
+          var $firstIcon = $('#index-data-home img').first();
+          if ($firstIcon.length > 0) {
+            $('#menu-notice-icon img').attr('src', $firstIcon.attr('src'));
+            $('#menu-notice-icon').show();
+          }
+        }
+      });
+
+      // 通知公告顶部
+      commonApi.addArticleList(articleLists.notice, { pageSize: 1 }, {
+        listDom: '#index-data-noticetop',
+        createHtml: function(item) {
+          return '<h2><a href="' + item._url + '" target="_blank">' + item.title + '</a>' + getNewIcon(item.pubDate) + '</h2>' +
+                 '<div class="txt">' + item.summary + '<a href="' + item._url + '" class="more" target="_blank">查看全文+</a></div>';
+        }
+      });
+
+      // 通知公告列表
+      commonApi.addArticleList(articleLists.notice, { startIndex: 1, pageSize: 8 }, {
+        listDom: '#index-data-notice',
+        createHtml: function(item) {
+          return '<li><span class="time">' + item._time.yyyyMMdd + '</span>' +
+                 '<a class="elli-s" href="' + item._url + '" target="_blank">' + item.title + '</a>' + getNewIcon(item.pubDate) + '</li>';
+        },
+        callback: function() {
+          var $firstIcon = $('#index-data-notice img').first();
+          if ($firstIcon.length > 0) {
+            $('#menu-notice-icon img').attr('src', $firstIcon.attr('src'));
+            $('#menu-notice-icon').show();
+          }
+        }
+      });
+    }
+
+    function renderDownload() {
+      commonApi.addArticleList(articleLists.download, { pageSize: 10 }, {
+        listDom: '#index-data-download',
+        createHtml: function(item) {
+          // 将new图标放在标题后面
+          return '<li><p>' + item.title + getNewIcon(item.pubDate) + '</p>' +
+                 '<a target="_blank" href="' + item._url + '" download="' + item.articleFiles[0].fileName + '">下载</a>' +
+                 '<span class="time">' + item._time.yyyyMMdd + '</span></li>';
+        },
+        callback: function() {
+          var $firstIcon = $('#index-data-download img').first();
+          if ($firstIcon.length > 0) {
+            $('#menu-download-icon img').attr('src', $firstIcon.attr('src'));
+            $('#menu-download-icon').show();
+          }
+        }
+      });
+    }
+
+    function renderAbout() {
+      commonApi.addArticleList(articleLists.about, { pageSize: 1, isContent: 1 }, {
+        listDom: '#index-data-aboutCon',
+        createHtml: function(item) {
+          return '<p>' + item.summary + '</p>';
+        }
+      });
+
+      commonApi.addArticleList(articleLists.about, { pageSize: 1, isContent: 1 }, {
+        listDom: '#index-data-aboutPic',
+        createHtml: function(item) {
+          var htm = '';
+          var num = '';
+          var img = item.images;
+          img.forEach(function(i, n) {
+            if (n < 2) {
+              htm += '<li><a href="" target="_blank"><img src="' + i.cover + '"></a></li>';
+              num += '<li><a></a><span></span></li>';
+            }
+          });
+          return '<ul class="pic1 imgZoom">' + htm + '</ul><div class="txt-bg"></div><ul class="num">' + num + '</ul>';
+        },
+        callback: function() {
+          jQuery(".focusBox").slide({ 
+            titCell: ".num li", 
+            mainCell: ".pic1", 
+            effect: "fold", 
+            autoPlay: true, 
+            trigger: "click", 
+            startFun: function(i) {
+              jQuery(".focusBox .txt li").eq(i).animate({"bottom":0}).siblings().animate({"bottom":-52});
+            }
+          });
+        }
+      });
+    }
+
+    // ================= 菜单切换 =================
+    function initMenu() {
+      $(".menu li").click(function() {
+        // 如果菜单项内有a标签，说明是外链，直接返回，不切换内容
+        if ($(this).find('a').length > 0) {
+          return;
+        }
+
+        $(this).addClass("cur").siblings("li").removeClass("cur");
+        var index = $(this).index();
+        $(".content").hide();
+        $(".content").eq(index).show();
+
+        // 算法评议特殊处理（索引为3）
+        if (index === 3) {
+          // 进入算法评议：重置并启动倒计时
+          ProposalModule.reset();
+          ProposalModule.startTimer();
+          ProposalModule.updateUI();
+          ProposalModule.bindEvents(); // 确保事件已绑定（不会重复绑定）
+        } else {
+          // 离开算法评议：重置倒计时，防止下次进入残留状态
+          ProposalModule.reset();
+        }
+      });
+    }
+
+    // 页面初始化
+    $(function() {
+      renderHome();
+      renderNotice();
+      renderDownload();
+      renderAbout();
+      initMenu();
+      ProposalModule.bindEvents(); // 预先绑定一次，避免点击时才绑定
+    });
+  })();
+</script>
+
+</body></html>

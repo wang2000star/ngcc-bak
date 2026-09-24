@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"/root/ngcc_bench/build-arm/cmake_install.cmake",
+		"/root/ngcc_bench/build-arm/API_CryptHash/cmake_install.cmake",
+		"/root/ngcc_bench/build-arm/API_CryptHash/Implementations/Reference_Implementation/cmake_install.cmake",
+		"/root/ngcc_bench/build-arm/API_CryptHash/Implementations/Optimized_Implementation/cmake_install.cmake",
+		"/root/ngcc_bench/build-arm/adapter/cmake_install.cmake",
+		"/root/ngcc_bench/build-arm/bench/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

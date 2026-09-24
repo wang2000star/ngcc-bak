@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbenchlib.a CMakeFiles/benchlib.dir/hash_bench.c.o CMakeFiles/benchlib.dir/__/src/generate_json_report.c.o CMakeFiles/benchlib.dir/__/src/get_timestamp.c.o CMakeFiles/benchlib.dir/__/src/runtime_mem_measure.c.o CMakeFiles/benchlib.dir/__/src/static_mem_parse.c.o
+/usr/bin/ranlib libbenchlib.a

@@ -1,0 +1,1 @@
+cc -O2 -std=c99 -mavx2 -I. -I"../../../lib/common" -I"../../../lib/low/ZuD-1280" -I"../../../lib/low/ZuD-1280/AVX2" KAT_CryptHash.c drng.c CryptHash_AlgorithmInstance.c ../../../lib/low/ZuD-1280/AVX2/ZuD1280-AVX2.c -o kat_crypt_hash && ./kat_crypt_hash

@@ -1,0 +1,3 @@
+   text	   data	    bss	    dec	    hex	filename
+ 123485	    704	     48	 124237	  1e54d	build_avxopt_18round/bench_v1_avxopt
+  77525	    664	     24	  78213	  13185	build_avxopt_18round/bench_v1_avxopt_nosimd

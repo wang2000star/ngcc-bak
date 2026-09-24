@@ -1,0 +1,54 @@
+NIST SP 800-22 statistical randomness test results -- QuantaSylva Hash (QSH)
+===========================================================================
+Date            : Sun Jun 28 12:07:34 UTC 2026
+Stream method   : QSH document Sec. 6.5 (hash of 8-byte LE counter 0..N-1,
+                  digests concatenated).
+Stream length   : 8000000 bits per variant   [DEMO SIZE -- regenerate at
+                  80000000 with: sh SelfAssessment/run_randomness_tests.sh]
+Tests (subset)  : Frequency(2.1), BlockFrequency(2.2), Runs(2.3),
+                  LongestRun(2.4), Serial x2(2.11), ApproxEntropy(2.12),
+                  CumulativeSums x2(2.13)  -> 9 p-values per variant.
+Significance    : alpha = 0.01 (PASS if p-value >= 0.01).
+Tool            : SelfAssessment/nist_sts_subset.py (self-contained).
+Note            : For the formal submission, also cross-check with the
+                  official NIST SP 800-22 STS ('assess').
+
+# QSH-512: 8000000 bits
+# test                      p-value  result (alpha=0.01)
+  Frequency(Monobit)       0.883070  PASS
+  BlockFrequency           0.432665  PASS
+  Runs                     0.721549  PASS
+  LongestRun               0.089194  PASS
+  Serial-1                 0.037945  PASS
+  Serial-2                 0.117999  PASS
+  ApproxEntropy            0.524452  PASS
+  Cusum-fwd                0.377425  PASS
+  Cusum-rev                0.485430  PASS
+# overall: ALL PASS
+
+# QSH-768: 8000256 bits
+# test                      p-value  result (alpha=0.01)
+  Frequency(Monobit)       0.470763  PASS
+  BlockFrequency           0.764559  PASS
+  Runs                     0.283339  PASS
+  LongestRun               0.833575  PASS
+  Serial-1                 0.519751  PASS
+  Serial-2                 0.430258  PASS
+  ApproxEntropy            0.423396  PASS
+  Cusum-fwd                0.688400  PASS
+  Cusum-rev                0.588217  PASS
+# overall: ALL PASS
+
+# QSH-1024: 8000512 bits
+# test                      p-value  result (alpha=0.01)
+  Frequency(Monobit)       0.836425  PASS
+  BlockFrequency           0.521313  PASS
+  Runs                     0.968403  PASS
+  LongestRun               0.652755  PASS
+  Serial-1                 0.120588  PASS
+  Serial-2                 0.084572  PASS
+  ApproxEntropy            0.876405  PASS
+  Cusum-fwd                0.890437  PASS
+  Cusum-rev                0.707657  PASS
+# overall: ALL PASS
+

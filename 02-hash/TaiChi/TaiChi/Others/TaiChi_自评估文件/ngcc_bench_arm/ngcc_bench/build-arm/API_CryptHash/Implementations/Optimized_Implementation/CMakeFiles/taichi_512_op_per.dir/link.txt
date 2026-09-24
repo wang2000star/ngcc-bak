@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtaichi_512_op_per.a "CMakeFiles/taichi_512_op_per.dir/TaiChi-512-op-per/CryptHash_AlgorithmInstance.c.o"
+/usr/bin/ranlib libtaichi_512_op_per.a

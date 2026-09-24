@@ -1,0 +1,37 @@
+\Implementations 
+    \Reference_Implementation 
+        \[QILIN-512]
+            drng.c                              Source file of Deterministic Random Number 
+                                                Generator
+            drng.h                              Header file of Deterministic Random Number 
+                                                Generator
+            KAT_CryptHash.c                     Source file for generating test vector files
+                                                of cryptographic hash algorithm
+            CryptHash_AlgorithmInstance.c       Source file of cryptographic hash algorithm 
+                                                instance
+            CryptHash_AlgorithmInstance.h       Header file of cryptographic hash algorithm 
+                                                instance
+            Makefile                            Makefile of generating test vector
+        \[QILIN-768]
+            ...
+        \[QILIN-1024]
+            ...
+    \Optimized_Implementation 
+        \[QILIN-512]
+            drng.c                              Source file of Deterministic Random Number 
+                                                Generator
+            drng.h                              Header file of Deterministic Random Number 
+                                                Generator
+            KAT_CryptHash.c                     Source file for generating test vector files
+                                                of cryptographic hash algorithm
+            CryptHash_AlgorithmInstance.c       Source file of cryptographic hash algorithm 
+                                                instance
+            CryptHash_AlgorithmInstance.h       Header file of cryptographic hash algorithm 
+                                                instance     
+            QilinF.h                            Header file of optimized implementation of 
+                                                permutation of QILIN
+            Makefile                            Makefile of generating test vector
+        \[QILIN-768] 
+            ...
+        \[QILIN-1024]
+            ...

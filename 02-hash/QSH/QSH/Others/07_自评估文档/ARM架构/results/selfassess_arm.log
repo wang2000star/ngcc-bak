@@ -1,0 +1,100 @@
+nohup: ignoring input
+==== [0/7] prerequisites ====
+  compiler : gcc (Debian 12.2.0-14+deb12u1) 12.2.0
+  KAT_HEAVY=0  PEAK_BIG_MIB=64  CPU_GHZ=auto
+==== [1/7] frequency governor (best effort; needs sudo) ====
+  (cannot set governor -- cloud VM? ARM cores usually run at a fixed
+   frequency, which is good for reproducible cycle counts.)
+==== [1b/7] cycle-counter setup (perf_event or frequency fallback) ====
+  WARNING: no PMU and no detectable CPU frequency. The cyc/byte columns may
+  be blank (throughput MB/s is still measured). Re-run with CPU_GHZ=<your GHz>,
+  e.g.  CPU_GHZ=3.0 sh SelfAssessment/selfassess_arm.sh
+==== [2/7] environment ====
+date            : Mon Jun 29 15:09:31 UTC 2026
+uname           : Linux 6.1.0-49-cloud-arm64 aarch64
+os-release      : Debian GNU/Linux 12 (bookworm)
+cpu             : 0
+cpu impl/part   : 0x41 / 0xd8e
+max freq (kHz)  : 
+gcc             : gcc (Debian 12.2.0-14+deb12u1) 12.2.0
+cmake           : cmake version 3.25.1
+governor        : 
+perf_paranoid   : 3 (<=2 lets userspace read CPU cycles)
+pinned core     : 0
+third-party deps: none (only the official ICCS drng.c / KAT_CryptHash.c, unmodified)
+RNG method      : DRNG from API_CryptHash (SM3 Hash-DRBG); KAT messages seeded per official harness
+ISA / opt       : AArch64; NEON within-permutation SIMD (perf), -Os CV-stack streaming (resource)
+==== [3/7] reference version (portable C99) ====
+==== version: ref  (-std=c99 -Wpedantic -Wall -Wextra -O2) ====
+  build warnings: 0
+  static memory (size ref, no -flto):
+       text	   data	    bss	    dec	    hex	filename
+       3700	      0	      0	   3700	    e74	/home/shichangw879/QSH_run_arm/SelfAssessment/results/impl_ref.o
+  [KAT] KAT_2_12 known-answer:
+    QSH-512: 4097  PASS
+    QSH-768: 4097  PASS
+    QSH-1024: 4097  PASS
+  [KAT] cross-version == reference (multi-chunk 0..300 KB): PASS
+  performance -> /home/shichangw879/QSH_run_arm/SelfAssessment/results/perf_ref.csv
+  peak RSS  1MiB x100 : Maximum resident set size (kbytes): 2088
+  peak RSS  64MiB x1: Maximum resident set size (kbytes): 70524
+==== [4/7] performance-optimized version (NEON within-permutation) ====
+==== version: opt  (-O3 -march=armv8-a -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra) ====
+  build warnings: 1
+  static memory (size opt, no -flto):
+       text	   data	    bss	    dec	    hex	filename
+      11080	      0	      0	  11080	   2b48	/home/shichangw879/QSH_run_arm/SelfAssessment/results/impl_opt.o
+  [KAT] KAT_2_12 known-answer:
+    QSH-512: 4097  PASS
+    QSH-768: 4097  PASS
+    QSH-1024: 4097  PASS
+  [KAT] cross-version == reference (multi-chunk 0..300 KB): PASS
+  [KAT] full official KAT vs Test_Vectors (incl. 2_23 / 2_33 / Loop):
+    QSH-512 KAT_2_12: PASS
+    QSH-512 KAT_2_23: PASS
+    QSH-512 KAT_2_33: PASS
+    QSH-512 KAT_Loop: PASS
+    QSH-768 KAT_2_12: PASS
+    QSH-768 KAT_2_23: PASS
+    QSH-768 KAT_2_33: PASS
+    QSH-768 KAT_Loop: PASS
+    QSH-1024 KAT_2_12: PASS
+    QSH-1024 KAT_2_23: PASS
+    QSH-1024 KAT_2_33: PASS
+    QSH-1024 KAT_Loop: PASS
+  performance -> /home/shichangw879/QSH_run_arm/SelfAssessment/results/perf_opt.csv
+  peak RSS  1MiB x100 : Maximum resident set size (kbytes): 2044
+  peak RSS  64MiB x1: Maximum resident set size (kbytes): 68484
+==== [5/7] resource-optimized version (CV-stack, -Os) ====
+==== version: res  (-O3 -march=armv8-a -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra) ====
+  build warnings: 1
+  static memory (size res, no -flto):
+       text	   data	    bss	    dec	    hex	filename
+      11844	      0	      0	  11844	   2e44	/home/shichangw879/QSH_run_arm/SelfAssessment/results/impl_res.o
+  [KAT] KAT_2_12 known-answer:
+    QSH-512: 4097  PASS
+    QSH-768: 4097  PASS
+    QSH-1024: 4097  PASS
+  [KAT] cross-version == reference (multi-chunk 0..300 KB): PASS
+  performance -> /home/shichangw879/QSH_run_arm/SelfAssessment/results/perf_res.csv
+  peak RSS  1MiB x100 : Maximum resident set size (kbytes): 2000
+  peak RSS  64MiB x1: Maximum resident set size (kbytes): 66520
+==== NEON validation verdict ====
+  PASS: NEON performance build reproduced KAT_2_12 + full official KAT.
+==== [6/7] assembling report ====
+==== [7/7] guideline 1-4 named material -> results/submission/ ====
+  created 9 named packages:
+    密码杂凑-QSH-1024-arm-参考实现版
+    密码杂凑-QSH-1024-arm-性能优化版
+    密码杂凑-QSH-1024-arm-资源优化版
+    密码杂凑-QSH-512-arm-参考实现版
+    密码杂凑-QSH-512-arm-性能优化版
+    密码杂凑-QSH-512-arm-资源优化版
+    密码杂凑-QSH-768-arm-参考实现版
+    密码杂凑-QSH-768-arm-性能优化版
+    密码杂凑-QSH-768-arm-资源优化版
+DONE.
+NEON: PASSED -- NEON validated on this CPU
+Report : /home/shichangw879/QSH_run_arm/SelfAssessment/results/Report_arm_selfassessment.md
+Named  : /home/shichangw879/QSH_run_arm/SelfAssessment/results/submission/  (zip this for submission)
+Perf   : /home/shichangw879/QSH_run_arm/SelfAssessment/results/perf_{ref,opt,res}.csv

@@ -1,0 +1,19 @@
+cd Reference_Implementation/Thunder512/
+sh build.sh
+cd ../Thunder768/
+sh build.sh
+cd ../Thunder1024/
+sh build.sh
+cd ../../Optimized_Implementation/Thunder512/
+sh build.sh
+cd ../Thunder768/
+sh build.sh
+cd ../Thunder1024/
+sh build.sh 
+cd ../../Additional_Implementation/Thunder512/
+sh build.sh
+cd ../Thunder768/
+sh build.sh
+cd ../Thunder1024/
+sh build.sh
+ cd  ../../

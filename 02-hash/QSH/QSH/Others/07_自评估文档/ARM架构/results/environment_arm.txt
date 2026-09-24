@@ -1,0 +1,14 @@
+date            : Mon Jun 29 15:09:31 UTC 2026
+uname           : Linux 6.1.0-49-cloud-arm64 aarch64
+os-release      : Debian GNU/Linux 12 (bookworm)
+cpu             : 0
+cpu impl/part   : 0x41 / 0xd8e
+max freq (kHz)  : 
+gcc             : gcc (Debian 12.2.0-14+deb12u1) 12.2.0
+cmake           : cmake version 3.25.1
+governor        : 
+perf_paranoid   : 3 (<=2 lets userspace read CPU cycles)
+pinned core     : 0
+third-party deps: none (only the official ICCS drng.c / KAT_CryptHash.c, unmodified)
+RNG method      : DRNG from API_CryptHash (SM3 Hash-DRBG); KAT messages seeded per official harness
+ISA / opt       : AArch64; NEON within-permutation SIMD (perf), -Os CV-stack streaming (resource)

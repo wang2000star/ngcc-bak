@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/ngcc_stability_profile.dir/tests/ngcc_stability_profile.c.o  -o ngcc_stability_profile  libngcc_test_support.a 

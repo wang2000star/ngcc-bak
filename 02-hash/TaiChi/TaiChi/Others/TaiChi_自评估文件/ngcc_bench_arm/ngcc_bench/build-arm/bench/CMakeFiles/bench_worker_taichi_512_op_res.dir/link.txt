@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/bench_worker_taichi_512_op_res.dir/link.d CMakeFiles/bench_worker_taichi_512_op_res.dir/bench_worker.c.o -o bench_worker_taichi_512_op_res  ../API_CryptHash/Implementations/Optimized_Implementation/libtaichi_512_op_res.a

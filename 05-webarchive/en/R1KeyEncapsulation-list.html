@@ -1,0 +1,510 @@
+<html>
+<head>
+  <base href="/niccs/" /> 
+  <meta name="SiteName" content="商用密码标准研究院英文" /> 
+  <meta name="SiteDomain" content="http://223.193.40.42:9003" /> 
+  <meta name="SiteIDCode" content="" /> 
+  <meta name="ColumnName" content="Key Encapsulation" /> 
+  <meta name="ColumnDescription" content="Key Encapsulation" /> 
+  <meta name="ColumnKeywords" content="Key Encapsulation" /> 
+  <meta name="ColumnType" content="" /> 
+  <meta name="HtmlGenerateTime" content="2026-09-20 19:37:24" /> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1300">
+<meta name="format-detection" content="telephone=no">
+<title>Key Encapsulation - Institute of Commercial Cryptography Standards</title>
+<link rel="shortcut icon" href="/niccs/pc2025/images/icon.png" type="image/png">
+<link rel="stylesheet" href="/niccs/pc2025/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/niccs/pc2025/css/list.css">
+
+<script type="text/javascript" src="/niccs/default/libs/jquery.min.js"></script>
+<script type="text/javascript" src="/niccs/pc2025/js/config.js"></script>
+<script type="text/javascript" src="/niccs/pc2025/js/commonApi.js"></script>
+<script type="text/javascript" src="/niccs/pc2025/js/sidebar.js"></script>
+
+<script type="text/javascript" src="/niccs/default/libs/jquery.pagination.js"></script>
+<!-- <script type="text/javascript" src="/niccs/pc2025/js/proposal_list.js"></script> -->
+<script type="text/javascript" src="/niccs/pc2025/js/common.js"></script>
+<style>
+.btnhui { background-color: #eee; }
+.btnhui:hover { color: #333; }
+.msg { font-size: 16px; line-height: 30px; font-weight: 400; padding: 20px 0; }
+.list_menu ul li { white-space: normal; }
+.list_menu > ul > li > span { display: block; line-height: 26px; padding: 5px 0; }
+.proposal_bg td { padding-top: 10px; padding-bottom: 10px; }
+.list-note { margin: 18px 0 6px; font-size: 16px; line-height: 22px; color: #333; }
+
+/* Round 1 candidates 的收起/展开箭头：纯 CSS 绘制（V 形） */
+#menuId_Round1Additional > i.layui-icon { position: relative; display: inline-block; width: 8px; height: 8px; margin-left: 6px; vertical-align: middle; font-size: 0; line-height: 0; border: 0; cursor: pointer; }
+#menuId_Round1Additional > i.layui-icon::before { content: ""; position: absolute; top: 50%; left: 50%; width: 7px; height: 7px; box-sizing: border-box; border-right: 2px solid #999; border-bottom: 2px solid #999; transform: translate(-70%, -50%) rotate(-45deg); transition: transform .25s ease, border-color .2s ease; }
+#menuId_Round1Additional > i.layui-icon.layui-icon-down::before { transform: translate(-50%, -70%) rotate(45deg); }
+#menuId_Round1Additional > i.layui-icon:hover::before { border-color: #f00; }
+
+sub, sup { position: relative; font-size: 75%; line-height: 0; vertical-align: baseline; }
+sub { bottom: -.25em; }
+sup { top: -.5em; }
+</style>
+<script>
+    var websiteCode = 'niccs',
+        websiteId = '1932249220348645376',
+        codeName = "R1KeyEncapsulation",
+        channelId = "1142464251042992128";
+</script><script>
+    var channelsTagSelf = {"code":"R1KeyEncapsulation","releaseTime":1789904244000,"showName":"<p>Key Encapsulation</p>","channelType":"0","childCount":0,"fileFlag":"0","articleCount":41,"sort":2,"classification":"","describes":"Key Encapsulation","parentId":"1142404359074615296","tags":"Key Encapsulation","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""},{"urls":{"pc":"/niccs/R1KeyEncapsulation/pc/list.html"},"name":"Key Encapsulation","redirectLink":""}],"name":"Key Encapsulation","showOrNot":1,"id":"1142464251042992128","aggregationChannel":"0","redirectLink":""};
+    var channelsTagSelfpub = {"code":"PublicKeyCryptograph","releaseTime":1789463067000,"showName":"<p>Public-Key Cryptographic Algor</p>","channelType":"0","childCount":1,"fileFlag":"0","articleCount":0,"sort":1,"classification":"数据发布","describes":"Public-Key Cryptographic Algorithms","parentId":"989850917845078016","tags":"Public-Key Cryptographic Algorithms","urls":"{\"pc\":\"/niccs/PublicKeyCryptograph/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""}],"children":[{"code":"Round1Additional","releaseTime":1789907949000,"showName":"<p>Round 1 candidates</p>","channelType":"0","childCount":3,"fileFlag":"0","articleCount":84,"sort":1,"classification":"","describes":"Round 1 candidates","parentId":"989851112544669696","tags":"Round 1 Additional","urls":"{\"pc\":\"/niccs/Round1Additional/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""}],"name":"Round 1 candidates","showOrNot":1,"id":"1142404359074615296","aggregationChannel":"0","redirectLink":""}],"name":"Public-Key Cryptographic Algorithms","showOrNot":1,"id":"989851112544669696","aggregationChannel":"0","redirectLink":""};
+    var channelsTagSelfcry = {"code":"CryptographicHashAlg","releaseTime":1789904245000,"showName":"<p>Cryptographic Hash Algorithms</p>","channelType":"0","childCount":1,"fileFlag":"0","articleCount":0,"sort":2,"classification":"数据发布","describes":"Cryptographic Hash Algorithms","parentId":"989850917845078016","tags":"Cryptographic Hash Algorithms","urls":"{\"pc\":\"/niccs/CryptographicHashAlg/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/CryptographicHashAlg/pc/list.html"},"name":"Cryptographic Hash Algorithms","redirectLink":""}],"children":[{"code":"Round1Submissions4","releaseTime":1789904245000,"showName":"Round 1 candidates","channelType":"0","childCount":0,"fileFlag":"0","articleCount":35,"sort":1,"classification":"数据发布","describes":"Round 1 candidates","parentId":"989851292870381568","tags":"Round 1 candidates","urls":"{\"pc\":\"/niccs/Round1Submissions4/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/CryptographicHashAlg/pc/list.html"},"name":"Cryptographic Hash Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Submissions4/pc/list.html"},"name":"Round 1 candidates","redirectLink":""}],"name":"Round 1 candidates","showOrNot":1,"id":"989853739189800960","aggregationChannel":"0","redirectLink":""}],"name":"Cryptographic Hash Algorithms","showOrNot":1,"id":"989851292870381568","aggregationChannel":"0","redirectLink":""};
+    var channelsTagSelfblock = {"code":"BlockCipherAlgorithm","showName":"<p>Block Cipher Algorithms</p>","channelType":"0","childCount":3,"fileFlag":"0","articleCount":0,"sort":3,"classification":"数据发布","describes":"Block Cipher Algorithms","parentId":"989850917845078016","tags":"Block Cipher Algorithms","urls":"","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"name":"Block Cipher Algorithms","redirectLink":""}],"name":"Block Cipher Algorithms","showOrNot":1,"id":"989851512421224448","aggregationChannel":"0","redirectLink":""};
+    var channelsTagSelfdig = {"code":"Round1Additional","releaseTime":1789907949000,"showName":"<p>Round 1 candidates</p>","channelType":"0","childCount":3,"fileFlag":"0","articleCount":84,"sort":1,"classification":"","describes":"Round 1 candidates","parentId":"989851112544669696","tags":"Round 1 Additional","urls":"{\"pc\":\"/niccs/Round1Additional/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""}],"children":[{"code":"R1DigitalSignature","showName":"<p>Digital Signature</p>","releaseTime":1789904245000,"channelType":"0","childCount":0,"fileFlag":"0","articleCount":34,"sort":1,"classification":"","describes":"Digital Signature","parentId":"1142404359074615296","tags":"Digital Signature","urls":"{\"pc\":\"/niccs/R1DigitalSignature/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""},{"urls":{"pc":"/niccs/R1DigitalSignature/pc/list.html"},"name":"Digital Signature","redirectLink":""}],"name":"Digital Signature","showOrNot":1,"id":"1142464067458306048","aggregationChannel":"0","redirectLink":""},{"code":"R1KeyEncapsulation","showName":"<p>Key Encapsulation</p>","releaseTime":1789904244000,"channelType":"0","childCount":0,"fileFlag":"0","articleCount":41,"sort":2,"classification":"","describes":"Key Encapsulation","parentId":"1142404359074615296","tags":"Key Encapsulation","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""},{"urls":{"pc":"/niccs/R1KeyEncapsulation/pc/list.html"},"name":"Key Encapsulation","redirectLink":""}],"name":"Key Encapsulation","showOrNot":1,"id":"1142464251042992128","aggregationChannel":"0","redirectLink":""},{"code":"R1KeyExchange","showName":"<p>Key Exchange</p>","releaseTime":1789904245000,"channelType":"0","childCount":0,"fileFlag":"0","articleCount":9,"sort":3,"classification":"","describes":"Key Exchange","parentId":"1142404359074615296","tags":"Key Exchange","urls":"{\"pc\":\"/niccs/R1KeyExchange/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""},{"urls":{"pc":"/niccs/R1KeyExchange/pc/list.html"},"name":"Key Exchange","redirectLink":""}],"name":"Key Exchange","showOrNot":1,"id":"1142464553611694080","aggregationChannel":"0","redirectLink":""}],"name":"Round 1 candidates","showOrNot":1,"id":"1142404359074615296","aggregationChannel":"0","redirectLink":""};
+    var channelsTagSelfkey = {};
+    var channelsTagSelfkey1 = {};
+    var channelsTagParent = [{"code":"Round1Additional","releaseTime":1789907949000,"showName":"<p>Round 1 candidates</p>","channelType":"0","childCount":3,"fileFlag":"0","articleCount":84,"sort":1,"classification":"","describes":"Round 1 candidates","parentId":"989851112544669696","tags":"Round 1 Additional","urls":"{\"pc\":\"/niccs/Round1Additional/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""}],"children":[{"code":"R1DigitalSignature","showName":"<p>Digital Signature</p>","releaseTime":1789904245000,"channelType":"0","childCount":0,"fileFlag":"0","articleCount":34,"sort":1,"classification":"","describes":"Digital Signature","parentId":"1142404359074615296","tags":"Digital Signature","urls":"{\"pc\":\"/niccs/R1DigitalSignature/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""},{"urls":{"pc":"/niccs/R1DigitalSignature/pc/list.html"},"name":"Digital Signature","redirectLink":""}],"name":"Digital Signature","showOrNot":1,"id":"1142464067458306048","aggregationChannel":"0","redirectLink":""},{"code":"R1KeyEncapsulation","showName":"<p>Key Encapsulation</p>","releaseTime":1789904244000,"channelType":"0","childCount":0,"fileFlag":"0","articleCount":41,"sort":2,"classification":"","describes":"Key Encapsulation","parentId":"1142404359074615296","tags":"Key Encapsulation","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""},{"urls":{"pc":"/niccs/R1KeyEncapsulation/pc/list.html"},"name":"Key Encapsulation","redirectLink":""}],"name":"Key Encapsulation","showOrNot":1,"id":"1142464251042992128","aggregationChannel":"0","redirectLink":""},{"code":"R1KeyExchange","showName":"<p>Key Exchange</p>","releaseTime":1789904245000,"channelType":"0","childCount":0,"fileFlag":"0","articleCount":9,"sort":3,"classification":"","describes":"Key Exchange","parentId":"1142404359074615296","tags":"Key Exchange","urls":"{\"pc\":\"/niccs/R1KeyExchange/pc/list.html\"}","crumbs":[{"urls":{"pc":"/niccs/Proposal/pc/list.html"},"name":"Proposal","redirectLink":""},{"urls":{"pc":"/niccs/PublicKeyCryptograph/pc/list.html"},"name":"Public-Key Cryptographic Algorithms","redirectLink":""},{"urls":{"pc":"/niccs/Round1Additional/pc/list.html"},"name":"Round 1 candidates","redirectLink":""},{"urls":{"pc":"/niccs/R1KeyExchange/pc/list.html"},"name":"Key Exchange","redirectLink":""}],"name":"Key Exchange","showOrNot":1,"id":"1142464553611694080","aggregationChannel":"0","redirectLink":""}],"name":"Round 1 candidates","showOrNot":1,"id":"1142404359074615296","aggregationChannel":"0","redirectLink":""}];
+    var articleList = [{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Aigis-Enc$^%2B$","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/HDMMQKVT6UFDKT56DVYCAUBTQ5GWSIFJ/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101517514145615872-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Aigis-Enc+","type":0,"pubDate":"2026-09-20 11:42","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101517514145615872.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Aigis-Enc<sup>+</sup></p>","topStatus":0,"archiveStatus":0,"sortNum":17898757200013558,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Aigis-Enc+.zip","fileName":"Aigis-Enc+.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Aigis-Enc+.zip","delFlag":0,"type":"0","fileId":"2101531409506127872"}],"id":"2101517514145615872"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Amoeba","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/OXTBKIPREWPX4YRV4BLRMLWND4R4DLTO/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101517132006772736-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Amoeba","type":0,"pubDate":"2026-09-20 11:41","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101517132006772736.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Amoeba</p>","topStatus":0,"archiveStatus":0,"sortNum":17898756600050611,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Amoeba.zip","fileName":"Amoeba.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Amoeba.zip","delFlag":0,"type":"0","fileId":"2101531280271233024"}],"id":"2101517132006772736"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: BAG-Loong","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/RIQCA4YWQIPGGI2BOXRMFEYCCHTY3NQY/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101516939177840640-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"BAG-Loong","type":0,"pubDate":"2026-09-20 11:40","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101516939177840640.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>BAG-Loong</p>","topStatus":0,"archiveStatus":0,"sortNum":17898756000089200,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BAG-Loong.zip","fileName":"BAG-Loong.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BAG-Loong.zip","delFlag":0,"type":"0","fileId":"2101531207340675072"}],"id":"2101516939177840640"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: BAG-Piglet","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/QUDRCTIJQVCLQNOYCZKNQYUMZO7PPPF6/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101516713507508224-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"BAG-Piglet","type":0,"pubDate":"2026-09-20 11:29","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101516713507508224.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>BAG-Piglet</p>","topStatus":0,"archiveStatus":0,"sortNum":17898749400034664,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BAG-Piglet.zip","fileName":"BAG-Piglet.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BAG-Piglet.zip","delFlag":0,"type":"0","fileId":"2101531048233947136"}],"id":"2101516713507508224"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: BIKE-MLThre","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/VMTRVK2D2DWBOKLWZHLFNQWRZB7USMUQ/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101513734456954880-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"BIKE-MLThre","type":0,"pubDate":"2026-09-20 11:28","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101513734456954880.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>BIKE-MLThre</p>","topStatus":0,"archiveStatus":0,"sortNum":17898748800083482,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BIKE_MLThre.zip","fileName":"BIKE_MLThre.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BIKE_MLThre.zip","delFlag":0,"type":"0","fileId":"2101530946090061824"}],"id":"2101513734456954880"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: BRA","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/MDYQUVS5YFRUAGZJAZIJFIUTX7THNM6O/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101513510208491520-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"BRA","type":0,"pubDate":"2026-09-20 11:27","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101513510208491520.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>BRA</p>","topStatus":0,"archiveStatus":0,"sortNum":17898748200081586,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BRA.zip","fileName":"BRA.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BRA.zip","delFlag":0,"type":"0","fileId":"2101530783783079936"}],"id":"2101513510208491520"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: BRQC","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/LA7GLQRH3VS64ISSPP6BPZ6QR75PAOVA/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101513287428034560-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"BRQC","type":0,"pubDate":"2026-09-20 11:26","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101513287428034560.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>BRQC</p>","topStatus":0,"archiveStatus":0,"sortNum":17898747600084529,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BRQC.zip","fileName":"BRQC.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BRQC.zip","delFlag":0,"type":"0","fileId":"2101530665088471040"}],"id":"2101513287428034560"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: BW-KEM","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/WBK2RG2XR5VZVITNS53TVFJDBGER7T7P/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101513068019798016-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"BW-KEM","type":0,"pubDate":"2026-09-20 11:25","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101513068019798016.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>BW-KEM</p>","topStatus":0,"archiveStatus":0,"sortNum":17898747000099106,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BW-KEM.zip","fileName":"BW-KEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/BW-KEM.zip","delFlag":0,"type":"0","fileId":"2101530572058808320"}],"id":"2101513068019798016"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: CheetahKEM","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/3OMMI24JGKESHSRUVA5NJANKRHTQY7RM/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101512860473053184-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"CheetahKEM","type":0,"pubDate":"2026-09-20 11:24","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101512860473053184.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>CheetahKEM</p>","topStatus":0,"archiveStatus":0,"sortNum":17898746400061755,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/CheetahKEM.zip","fileName":"CheetahKEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/CheetahKEM.zip","delFlag":0,"type":"0","fileId":"2101530448263925760"}],"id":"2101512860473053184"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: C-Multi-UR-AG","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/CDFH64HLL4OC7ABIDEASAHDTDQI4O3RU/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101512642461519872-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"C-Multi-UR-AG","type":0,"pubDate":"2026-09-20 11:23","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101512642461519872.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>C-Multi-UR-AG</p>","topStatus":0,"archiveStatus":0,"sortNum":17898745800030154,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/C-Multi-UR-AG.zip","fileName":"C-Multi-UR-AG.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/C-Multi-UR-AG.zip","delFlag":0,"type":"0","fileId":"2101530366600826880"}],"id":"2101512642461519872"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: COMPASS-KEM","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/3ZXFAPIPIO3CVJHCQJ5AQ44UNTBIY4OP/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101512022090403840-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"COMPASS-KEM","type":0,"pubDate":"2026-09-20 11:22","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101512022090403840.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>COMPASS-KEM</p>","topStatus":0,"archiveStatus":0,"sortNum":17898745200042390,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/COMPASS-KEM.zip","fileName":"COMPASS-KEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/COMPASS-KEM.zip","delFlag":0,"type":"0","fileId":"2101530102632304640"}],"id":"2101512022090403840"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: CTL Algorithm","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/XYXBZWLCJXTUZTNUFJCPYLEST5CC56AI/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101511814187143168-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"CTL Algorithm","type":0,"pubDate":"2026-09-20 11:21","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101511814187143168.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>CTL Algorithm</p>","topStatus":0,"archiveStatus":0,"sortNum":17898744600075078,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/CTL.zip","fileName":"CTL.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/CTL.zip","delFlag":0,"type":"0","fileId":"2101529889792348160"}],"id":"2101511814187143168"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: DKEM (Ding Key Encapsulation)","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/RW5BIIFSPEM2HFHQ4N226TMBIRZ7TXF5/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101511580744765440-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"DKEM (Ding Key Encapsulation)","type":0,"pubDate":"2026-09-20 11:20","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101511580744765440.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>DKEM (Ding Key Encapsulation)</p>","topStatus":0,"archiveStatus":0,"sortNum":17898744000055871,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/DKEM.zip","fileName":"DKEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/DKEM.zip","delFlag":0,"type":"0","fileId":"2101529714696933376"}],"id":"2101511580744765440"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: DTRU","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/7OIHLWTGECH3FYCUM3BEBJDAHMMLZRZK/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101511361315557376-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"DTRU","type":0,"pubDate":"2026-09-20 11:19","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101511361315557376.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>DTRU</p>","topStatus":0,"archiveStatus":0,"sortNum":17898743400012020,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/DTRU.zip","fileName":"DTRU.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/DTRU.zip","delFlag":0,"type":"0","fileId":"2101529623923806208"}],"id":"2101511361315557376"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: FLIT","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/H6SZDCUAWCTVQD7QOP7XDVHAHGWXHKHZ/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101511175910543360-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"FLIT","type":0,"pubDate":"2026-09-20 11:18","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101511175910543360.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>FLIT</p>","topStatus":0,"archiveStatus":0,"sortNum":17898742800014054,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/FLIT.zip","fileName":"FLIT.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/FLIT.zip","delFlag":0,"type":"0","fileId":"2101529471767040000"}],"id":"2101511175910543360"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: HARE","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/2Q2SLLCRMEJ2FOLOTDPGM7IUUZKUPUKF/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101510831696596992-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"HARE","type":0,"pubDate":"2026-09-20 11:17","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101510831696596992.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>HARE</p>","topStatus":0,"archiveStatus":0,"sortNum":17898742200058792,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/HARE.zip","fileName":"HARE.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/HARE.zip","delFlag":0,"type":"0","fileId":"2101529194527739904"}],"id":"2101510831696596992"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Hybrid Equivalent Punctured and Quasi-Cyclic","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/2FLYI6DJUQ3YKJZXVGFFN4IQNPKXSHWU/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101510686716284928-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Hybrid Equivalent Punctured and Quasi-Cyclic","type":0,"pubDate":"2026-09-20 11:16","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101510686716284928.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Hybrid Equivalent Punctured and Quasi-Cyclic</p>","topStatus":0,"archiveStatus":0,"sortNum":17898741600066930,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/HEP-QC.zip","fileName":"HEP-QC.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/HEP-QC.zip","delFlag":0,"type":"0","fileId":"2101528984212754432"}],"id":"2101510686716284928"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: LoongKEM","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/G7IDTLL5NJ46PSNDO6ZVKFN5L4LPRS7N/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101510548270698496-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"LoongKEM","type":0,"pubDate":"2026-09-20 11:15","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101510548270698496.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>LoongKEM</p>","topStatus":0,"archiveStatus":0,"sortNum":17898741000084540,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/LoongKEM.zip","fileName":"LoongKEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/LoongKEM.zip","delFlag":0,"type":"0","fileId":"2101527755738861568"}],"id":"2101510548270698496"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Lore","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/37LSSFEFLBIAAXOMJXYRFAAYG5DRNK4X/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101510396353007616-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Lore","type":0,"pubDate":"2026-09-20 11:14","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101510396353007616.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Lore</p>","topStatus":0,"archiveStatus":0,"sortNum":17898740400095790,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Lore.zip","fileName":"Lore.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Lore.zip","delFlag":0,"type":"0","fileId":"2101527643578978304"}],"id":"2101510396353007616"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: MAMBA-Frost","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/DZASROHH4W6G64UKMRCCQJGQEUHQO4TC/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101510166681309184-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"MAMBA-Frost","type":0,"pubDate":"2026-09-20 11:13","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101510166681309184.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>MAMBA-Frost</p>","topStatus":0,"archiveStatus":0,"sortNum":17898739800089511,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/MAMBA-Frost.zip","fileName":"MAMBA-Frost.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/MAMBA-Frost.zip","delFlag":0,"type":"0","fileId":"2101527452482293760"}],"id":"2101510166681309184"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: MAMBA-Viper","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/GVM4FAYEOQ7SAF5BDM6SKPLOTA547A5X/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101504976255275008-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"MAMBA-Viper","type":0,"pubDate":"2026-09-20 10:50","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101504976255275008.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>MAMBA-Viper</p>","topStatus":0,"archiveStatus":0,"sortNum":17898726000017129,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/MAMBA-Viper.zip","fileName":"MAMBA-Viper.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/MAMBA-Viper.zip","delFlag":0,"type":"0","fileId":"2101527267119222784"}],"id":"2101504976255275008"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Mithril","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/Z26K5NHQNMT4NHBNWZT7G6IZVVRCCZKO/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101503645129986048-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Mithril","type":0,"pubDate":"2026-09-20 10:48","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101503645129986048.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Mithril</p>","topStatus":0,"archiveStatus":0,"sortNum":17898724800092978,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Mithril.zip","fileName":"Mithril.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Mithril.zip","delFlag":0,"type":"0","fileId":"2101527146528788480"}],"id":"2101503645129986048"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Mito","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/NPRY7XDT2ABEJK5GBZS53L4FW7VDZYMZ/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101503493858217984-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Mito","type":0,"pubDate":"2026-09-20 10:47","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101503493858217984.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Mito</p>","topStatus":0,"archiveStatus":0,"sortNum":17898724200088896,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Mito.zip","fileName":"Mito.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Mito.zip","delFlag":0,"type":"0","fileId":"2101526986264432640"}],"id":"2101503493858217984"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: MORNING-Scabbard","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/4KFYAFY5ZWKVT2D47LSNZP2LKIHBGPV7/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101503284793135104-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"MORNING-Scabbard","type":0,"pubDate":"2026-09-20 10:46","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101503284793135104.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>MORNING-Scabbard</p>","topStatus":0,"archiveStatus":0,"sortNum":17898723600051664,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/MORNING-Scabbard.zip","fileName":"MORNING-Scabbard.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/MORNING-Scabbard.zip","delFlag":0,"type":"0","fileId":"2101526825635172352"}],"id":"2101503284793135104"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: NEV","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/7ZYN5QNIORSGBY3FNOE3DNCO43KZRVJA/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101503060444008448-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"NEV","type":0,"pubDate":"2026-09-20 10:45","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101503060444008448.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>NEV</p>","topStatus":0,"archiveStatus":0,"sortNum":17898723000054911,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/NEV.zip","fileName":"NEV.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/NEV.zip","delFlag":0,"type":"0","fileId":"2101526644252495872"}],"id":"2101503060444008448"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: NSS-HQC","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/P63ZUXHRI7QQZJ3YC6QXJYUXNGF5MMCO/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101502496087822336-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"NSS-HQC","type":0,"pubDate":"2026-09-20 10:43","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101502496087822336.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>NSS-HQC</p>","topStatus":0,"archiveStatus":0,"sortNum":17898721800065907,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/NSS-HQC.zip","fileName":"NSS-HQC.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/NSS-HQC.zip","delFlag":0,"type":"0","fileId":"2101526375296946176"}],"id":"2101502496087822336"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: NTRE Key Encapsulation Mechanism","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/XPRXBWG46LFNJ4SUOZOGZM44VNIUPO34/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101502307428028416-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"NTRE Key Encapsulation Mechanism","type":0,"pubDate":"2026-09-20 10:42","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101502307428028416.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>NTRE Key Encapsulation Mechanism</p>","topStatus":0,"archiveStatus":0,"sortNum":17898721200059191,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/NTRE.zip","fileName":"NTRE.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/NTRE.zip","delFlag":0,"type":"0","fileId":"2101518885645733888"}],"id":"2101502307428028416"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: OAEP-NTRU","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/LOTU4OB6M7NAVL5OSUGTQO3L35IVP4R2/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101502137470636032-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"OAEP-NTRU","type":0,"pubDate":"2026-09-20 10:41","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101502137470636032.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>OAEP-NTRU</p>","topStatus":0,"archiveStatus":0,"sortNum":17898720600011853,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/OAEP-NTRU.zip","fileName":"OAEP-NTRU.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/OAEP-NTRU.zip","delFlag":0,"type":"0","fileId":"2101518699871621120"}],"id":"2101502137470636032"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Polar-KEM","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/SUWKT64BKLBIPDQMHPOBL3FDM4MRPVBJ/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101501931157016576-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Polar-KEM","type":0,"pubDate":"2026-09-20 10:38","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101501931157016576.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Polar-KEM</p>","topStatus":0,"archiveStatus":0,"sortNum":17898718800090954,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Polar-KEM.zip","fileName":"Polar-KEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Polar-KEM.zip","delFlag":0,"type":"0","fileId":"2101518633257684992"}],"id":"2101501931157016576"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: PolarLAC","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/VWVCIBQ3M7NQOWU25P7SY3XK3PCAJT4X/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101501254599004160-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"PolarLAC","type":0,"pubDate":"2026-09-20 10:35","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101501254599004160.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>PolarLAC</p>","topStatus":0,"archiveStatus":0,"sortNum":17898717000021758,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/PolarLAC.zip","fileName":"PolarLAC.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/PolarLAC.zip","delFlag":0,"type":"0","fileId":"2101517210080006144"}],"id":"2101501254599004160"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: QIMEN-PIKE","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/IRFTQQNWEALFDR27ZBMONU4M2KTRWQRS/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101500333840224256-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"QIMEN-PIKE","type":0,"pubDate":"2026-09-20 10:34","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101500333840224256.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>QIMEN-PIKE</p>","topStatus":0,"archiveStatus":0,"sortNum":17898716400021939,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/QIMEN-PIKE.zip","fileName":"QIMEN-PIKE.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/QIMEN-PIKE.zip","delFlag":0,"type":"0","fileId":"2101516655316193280"}],"id":"2101500333840224256"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Quasi-Cyclic Twisted McEliece Key Encapsulation Mechanism","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/BKERBYXMUT27H3ZUTLBHCM7YJB5KVGZI/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101500178147659776-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Quasi-Cyclic Twisted McEliece Key Encapsulation Mechanism","type":0,"pubDate":"2026-09-20 10:33","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101500178147659776.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Quasi-Cyclic Twisted McEliece Key Encapsulation Mechanism</p>","topStatus":0,"archiveStatus":0,"sortNum":17898715800079319,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/QCTM.zip","fileName":"QCTM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/QCTM.zip","delFlag":0,"type":"0","fileId":"2101517004814962688"}],"id":"2101500178147659776"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: QUBE","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/LVEV7LW46WHONQL6REREK4ZA7TWZT3RK/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101500001315803136-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"QUBE","type":0,"pubDate":"2026-09-20 10:33","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101500001315803136.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>QUBE</p>","topStatus":0,"archiveStatus":0,"sortNum":17898715800028068,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/QUBE.zip","fileName":"QUBE.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/QUBE.zip","delFlag":0,"type":"0","fileId":"2101513826023264256"}],"id":"2101500001315803136"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Rudraksh2","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/A35C2JZDLERYJNKGAUECZ73T5Y64LCPT/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101499809782910976-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Rudraksh2","type":0,"pubDate":"2026-09-20 10:32","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101499809782910976.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Rudraksh2</p>","topStatus":0,"archiveStatus":0,"sortNum":17898715200091164,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Rudraksh2.zip","fileName":"Rudraksh2.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Rudraksh2.zip","delFlag":0,"type":"0","fileId":"2101513626462474240"}],"id":"2101499809782910976"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Scloud%2B","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/KZFYINTQPUTXVATTIXUONZ63TGNGQQ55/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101499583567319040-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Scloud+","type":0,"pubDate":"2026-09-20 10:31","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101499583567319040.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Scloud+</p>","topStatus":0,"archiveStatus":0,"sortNum":17898714600051743,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Scloud+.zip","fileName":"Scloud+.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Scloud+.zip","delFlag":0,"type":"0","fileId":"2101513387517169664"}],"id":"2101499583567319040"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: TRIKE","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/MFS7WQ3ZYDSMM4PIFN32QGZQ26BB4TGX/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101499390209904640-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"TRIKE","type":0,"pubDate":"2026-09-20 10:30","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101499390209904640.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>TRIKE</p>","topStatus":0,"archiveStatus":0,"sortNum":17898714000096763,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/TRIKE.zip","fileName":"TRIKE.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/TRIKE.zip","delFlag":0,"type":"0","fileId":"2101513148651556864"}],"id":"2101499390209904640"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: TriQ-KEM","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/BKY3EZYVJHKKT2RJKK2IRE2X5V4UN4HO/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101499199985635328-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"TriQ-KEM","type":0,"pubDate":"2026-09-20 10:29","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101499199985635328.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>TriQ-KEM</p>","topStatus":0,"archiveStatus":0,"sortNum":17898713400092109,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/TriQ-KEM.zip","fileName":"TriQ-KEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/TriQ-KEM.zip","delFlag":0,"type":"0","fileId":"2101565594476236800"}],"id":"2101499199985635328"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: UVW Key Encapsulation Mechanism","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/2N7FVNDINZAC7ZES4OC5GGHIGPQVPCWL/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101498913376260096-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"UVW Key Encapsulation Mechanism","type":0,"pubDate":"2026-09-20 10:28","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101498913376260096.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>UVW Key Encapsulation Mechanism</p>","topStatus":0,"archiveStatus":0,"sortNum":17898712800033760,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/UVW-KEM.zip","fileName":"UVW-KEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/UVW-KEM.zip","delFlag":0,"type":"0","fileId":"2101512840135331840"}],"id":"2101498913376260096"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: Weaver","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/OMIKZ7ZL4FLNNUIVD7CK7D4CGYJ5L3AD/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101498729367949312-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"Weaver","type":0,"pubDate":"2026-09-20 10:28","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101498729367949312.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>Weaver</p>","topStatus":0,"archiveStatus":0,"sortNum":17898712800015003,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Weaver.zip","fileName":"Weaver.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/Weaver.zip","delFlag":0,"type":"0","fileId":"2101512087375204352"}],"id":"2101498729367949312"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: YuanYang.KEM","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/JL5OIS2NICCPYKQGQWMHLTWTGEDK2OCW/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101498553312038912-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"YuanYang.KEM","type":0,"pubDate":"2026-09-20 10:27","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101498553312038912.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>YuanYang.KEM</p>","topStatus":0,"archiveStatus":0,"sortNum":17898712200058538,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/YuanYang.KEM.zip","fileName":"YuanYang.KEM.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/YuanYang.KEM.zip","delFlag":0,"type":"0","fileId":"2101511911579340800"}],"id":"2101498553312038912"},{"summary":"","classify":0,"images":[{}],"metadata":{"comments":"mailto:pkccomment@niccs.org.cn?cc=pkcforum@list.niccs.org.cn&amp;subject=Round1: Public Comment: ZEN","videourl":"","ippdf":"[{}]","ggpdf":"[{}]","submittername":"","viewcommen":"https://list.niccs.org.cn/archives/list/pkcforum@list.niccs.org.cn/thread/36OAZIFVEG3DLVR3ZU3TWYDA6KXOKN3T/"},"relationUrl":"/niccs/R1KeyEncapsulation/relation/2101498315453059072-RelationArticle.json","redirectUrl":"","irn":"","keywords":"","author":"","attDownloadType":0,"title":"ZEN","type":0,"pubDate":"2026-09-20 10:25","relation":0,"tags":"","urls":"{\"pc\":\"/niccs/R1KeyEncapsulation/pc/content/content_2101498315453059072.html\"}","contentSource":"商用密码标准研究院","showTitle":"<p>ZEN</p>","topStatus":0,"archiveStatus":0,"sortNum":17898711000046989,"articleFiles":[{"cover":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/ZEN.zip","fileName":"ZEN.zip","domainName":"http://223.193.40.42:9003","filePath":"/niccs/Proposal/Public-Key Cryptographic Algorithms/Round 1 candidates/Key Encapsulation/ZEN.zip","delFlag":0,"type":"0","fileId":"2101511702212268032"}],"id":"2101498315453059072"}];
+	var capdesc = "Key Encapsulation";
+</script></head>
+
+
+
+
+
+<body>
+    <!--header Start-->
+     <!-- 公共头 start -->
+
+  <script type="text/javascript" src="/niccs/pc2025/js/header.js"></script>
+<div class="header">
+  <div class="box">
+    
+    <div class="logo">
+      <a href=""><img src="/niccs/pc2025/images/en_logo.png" /></a>
+    </div>
+    <div class="logo_wz">
+      <img src="images/en_logo_wz.png" />
+    </div>
+    <a href="/symmbzyjy/index.html" class="cn">中文</a>
+    <div class="search">
+      <input type="text" class="searchinput">
+      <a href="javascripr:;" onclick="doSearch()"><img src="/niccs/pc2025/images/search_btn.png"></a>
+    </div>
+  </div>
+</div>
+<!-- 公共头 end -->
+
+    <!--header End-->
+
+    <div class="main">
+        <div class="box clearfix">
+            <div class="content">
+                <div class="top clearfix">
+                    <h2><span id="data-breadcrumbNav"></span></h2>
+                    <div class="fanye">
+                        <div class="pagination pt30 pb30"></div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div class="proposal_list">
+                        <div class="clearfix" id="data-articleList">
+                            <!-- 0818需求：删除第一段栏目介绍，恢复时取消注释
+                        	<div class="msg"></div>
+                            -->
+                            <table class="proposal_bg">
+                                <!-- 列表将由下面的 JS 动态生成 -->
+                            </table>
+                        </div>
+                        <p class="list-note">Note: The candidate algorithms for the first-round evaluation are listed in alphabetical order.</p>
+                    </div>
+                    <div class="list_right list_menu">
+                        <ul class="sidenav transition clearfix">
+                            <!-- Public-Key Cryptographic Algorithms (一级) -->
+                            <li>
+                                <span id="menuId_PublicKeyCryptograph">Public-Key Cryptographic Algorithms</span><b></b><i class="layui-icon layui-icon-right"></i>
+                                <!-- .children: Round1Additional (二级) -->
+                                <ul class="children">
+                                    <li>
+                                        <a href="/niccs/Round1Additional/pc/list.html" id="menuId_Round1Additional"><span>Round 1 candidates</span><b></b><i class="layui-icon layui-icon-right"></i></a>
+                                        <!-- .childrens: R1DigitalSignature, R1KeyEncapsulation, R1KeyExchange (三级) -->
+                                        <ul class="childrens" id="R1SubChildren"></ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Cryptographic Hash Algorithms (一级，独立顶级菜单项) -->
+                            <li>
+                                <span id="menuId_CryptographicHashAlg">Cryptographic Hash Algorithms</span><b></b><i class="layui-icon layui-icon-right"></i>
+                                <ul class="children">
+                                    <li>
+                                        <a href="/niccs/Round1Submissions4/pc/list.html" id="menuId_Round1Submissions4"><span>Round 1 candidates</span><b></b><i class="layui-icon layui-icon-right"></i></a>
+                                    </li>
+                                </ul>
+                                <!--<ul class="children" id="CryptographicHashAlg"></ul>-->
+                            </li>
+                            <!-- 0818需求：第三个算法栏目（Block Cipher Algorithms）先隐藏，恢复时去掉下方 li 的 display:none 即可 -->
+                            <li style="display:none;">
+                                <a href="/niccs/BlockCipherAlgorithm/pc/list.html" title="" id="menuId_BlockCipherAlgorithm"><span>Block Cipher Algorithms</span><b></b><i class="layui-icon layui-icon-right"></i></a>
+                                <!--<ul class="children" id="BlockCipherAlgorithm"></ul>-->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer Start-->
+    <!-- 公共尾 start -->
+<div class="footer">
+  <div class="box">
+    <img src="images/en_footer_logo.png" alt="" class="footer_logo">
+    <div>
+      <p style="width:710px;">Copyright © 2025 Institute of Commercial Cryptography Standards<br/>Address：Bldg 10, Area 17, No. 188, South 4th Ring Road West, Fengtai District, Beijing</p>
+      <p>Registration Number：<font style="color:#ffffff;">2024100746</font><br/>Email：svr@niccs.org.cn</p>
+      <p style="width:175px;text-align:right;">Visits：<span id="viewid_site_site"></span> </p>
+    </div>
+  </div>
+</div>
+<script language="JavaScript" charset="utf-8" src="/report/showview.jsp?website=10000005&action=site&viewid=site"></script>
+<script language="javascript">
+var _yfx_trackdata = _yfx_trackdata || [];		//事件采集
+var _yfx_website = "10000005";			//站点编号（不可更改）
+(function() {
+    var yfxjs = document.createElement("script");
+    yfxjs.charset = "utf-8";
+    yfxjs.src = "/count/yeefxcount.js";
+    var yfxjs_t = document.getElementsByTagName("script")[0];
+    yfxjs_t.parentNode.insertBefore(yfxjs, yfxjs_t);
+})();
+</script>
+<!-- 公共尾 end -->
+    <!--footer End-->
+
+    <script>
+    // ==================== 列表渲染 (使用服务端输出的 articleList，不再通过接口获取) ====================
+    function initList(dataList) {
+        if (!dataList || dataList.length === 0) return;
+        // 表头：已删除 Submitters 列；标题、附件两列适当放宽
+        var html = '<tr>' +
+            '<th width="30%">Algorithm</th>' +
+            '<th width="25%">Attachment</th>' +
+            '<th width="10%">Comments</th>' +
+            '</tr>';
+        dataList.forEach(function(itemObj) {
+            // 调用 commonApi.addDataAttr 重组数据（与原版 proposal_list.js 数据处理方式一致）
+            commonApi.addDataAttr(itemObj, {});
+
+            // addDataAttr 仅处理字符串类型的 metadata，服务端输出为对象时需手动补齐
+            if (itemObj.metadata && typeof itemObj.metadata === 'object' && !itemObj._metadata) {
+                itemObj._metadata = itemObj.metadata;
+            }
+
+            // ==================== 提取各字段链接 ====================
+
+            // Specification PDF 链接（当前不渲染，保留以备恢复）
+            var specPdf = '';
+            try {
+                if (itemObj._metadata && itemObj._metadata.ggpdf) {
+                    var ggpdf = itemObj._metadata.ggpdf;
+                    var ggpdfArr = (typeof ggpdf === 'string') ? JSON.parse(ggpdf) : ggpdf;
+                    specPdf = (ggpdfArr && ggpdfArr[0]) ? ggpdfArr[0].cover : '';
+                }
+            } catch (e) {}
+
+            // viewComment PDF 链接（当前不渲染，保留以备恢复）
+            var ckplPdf = '';
+            try {
+                if (itemObj._metadata && itemObj._metadata.ckpl) {
+                    var ckpl = itemObj._metadata.ckpl;
+                    var ckplArr = (typeof ckpl === 'string') ? JSON.parse(ckpl) : ckpl;
+                    ckplPdf = (ckplArr && ckplArr[0]) ? ckplArr[0].cover : '';
+                }
+            } catch (e) {}
+            var ckplPdfhtml = '';
+            if (ckplPdf != "") {
+                ckplPdfhtml = '<a class="dowan view-commentpdf" href="' + ckplPdf + '">View Comment</a>';
+            } else {
+                ckplPdfhtml = '<a class="dowan view-commentpdf btnhui">View Comment</a>';
+            }
+
+            // IP Statements PDF 链接（当前不渲染，保留以备恢复）
+            var ipPdf = '';
+            try {
+                if (itemObj._metadata && itemObj._metadata.ippdf) {
+                    var ippdf = itemObj._metadata.ippdf;
+                    var ippdfArr = (typeof ippdf === 'string') ? JSON.parse(ippdf) : ippdf;
+                    ipPdf = (ippdfArr && ippdfArr[0]) ? ippdfArr[0].cover : '';
+                }
+            } catch (e) {}
+
+            // ==================== Zip 附件：路径 + 名称 ====================
+            var zipPath = '';
+            var zipName = 'Zip File';
+            try {
+                if (itemObj.articleFiles && itemObj.articleFiles[0]) {
+                    var fileObj = itemObj.articleFiles[0];
+                    zipPath = fileObj.cover || '';
+                    // 不同 ucap 版本附件名称字段可能是 name / fileName / title / showTitle
+                    zipName = fileObj.name
+                           || fileObj.fileName
+                           || fileObj.title
+                           || fileObj.showTitle
+                           || 'Zip File';
+                }
+            } catch (e) {}
+
+            // ==================== Comments / View Comment 链接 ====================
+            var comments = '';
+            var viewComment = '';
+            try {
+                if (itemObj._metadata) {
+                    comments = itemObj._metadata.comments || '';
+                    viewComment = itemObj._metadata.viewcommen || '';
+                }
+            } catch (e) {}
+
+            // ==================== 取显示标题 ====================
+            var displayTitle = '';
+            if (itemObj.showTitle) {
+                displayTitle = itemObj.showTitle;
+            } else if (itemObj._metadata && itemObj._metadata.showTitle) {
+                displayTitle = itemObj._metadata.showTitle;
+            } else if (itemObj.metadata && itemObj.metadata.showTitle) {
+                displayTitle = itemObj.metadata.showTitle;
+            }
+
+            /* 0818需求修改，原代码备份如下（恢复时用此注释块替换下方新代码）：
+               1. 第二列只保留 Zip File，Specification / IP Statements / Website 先隐藏
+               2. 第四列按钮上下互换：View Comment（链接形式）在上，Submit Comment 在下
+               3. PDF 形式的 View Comment 按钮先隐藏，后期可能还会用到，恢复时在第四列末尾拼接 ckplPdfhtml
+            html += '<tr>\
+                        <td>' + itemObj.title + '</td>\
+                        <td><a class="dow" href="' + specPdf + '">Specification</a><br/>\
+                            <a class="dow" href="' + ipPdf + '">IP Statements</a><br/>\
+                            <a class="dow" href="' + zipPath + '">Zip File</a> <br/>\
+                            <a class="dow" href="' + itemObj._url + '">Website</a></td>\
+                        <td>' + submitter + '</td>\
+                        <td>\
+                            <a class="dowan submit-comment" href="' + comments + '">Submit Comment</a>\
+                            <a class="dowan view-comment" href="' + viewComment + '">View Comment</a>'+ ckplPdfhtml +'</td>\
+                    </tr>';
+            */
+            // 新代码：删除 Submitters 列；附件列显示真实附件名称
+            html += '<tr>\
+                        <td>' + displayTitle + '</td>\
+                        <td><a class="dow" href="' + zipPath + '">' + zipName + '</a></td>\
+                        <td>\
+                            <a class="dowan view-comment" href="' + viewComment + '">View Comment</a>\
+                            <a class="dowan submit-comment" href="' + comments + '">Submit Comment</a></td>\
+                    </tr>';
+        });
+		// 0818需求：删除第一段栏目介绍，恢复时取消下行注释
+		// $('.msg').html(capdesc);
+        $('.proposal_bg').html(html);
+    }
+
+    function getListData(){
+        var _parmas = {
+            current: 1,
+            pageSize: 200,
+            webSiteCode: [websiteCode],
+            channelCode:[codeName]
+        };
+        // var _thisFn = arguments.callee;
+        $.ajax({
+            url: ajaxUrl.sr.webSearch.queryList,
+            type: 'POST',
+            data: _parmas,
+            success: function (res) {
+                //概览页分页
+                   console.log(res,'动态稿件')
+                   console.log(articleList)
+
+               
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    }
+
+    // ==================== 自定义弹窗（替换原生 confirm） ====================
+    (function() {
+        var style = document.createElement('style');
+        style.textContent =
+            '.custom-modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);z-index:9999;justify-content:center;align-items:center;}' +
+            '.custom-modal{background:#fff;border-radius:8px;padding:24px 28px;max-width:420px;width:90%;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.15);}' +
+            '.custom-modal h3{margin:0 0 12px;font-size:18px;color:#333;}' +
+            '.custom-modal p{margin:0 0 20px;font-size:14px;color:#666;line-height:1.5;text-align:left;}' +
+            '.custom-modal-btns{display:flex;gap:12px;justify-content:center;}' +
+            '.custom-modal-btn{padding:8px 24px;border:none;border-radius:4px;font-size:14px;cursor:pointer;transition:opacity .2s;}' +
+            '.custom-modal-btn:hover{opacity:.85;}' +
+            '.custom-modal-ok{background:#3085d6;color:#fff;}' +
+            '.custom-modal-cancel{background:#d33;color:#fff;}';
+        document.head.appendChild(style);
+
+        var modalHtml =
+            '<div class="custom-modal-overlay" id="customModal">' +
+                '<div class="custom-modal">' +
+                    '<h3>Subscription Required</h3>' +
+                    '<p>To submit your comment, please subscribe to the mailing list first.</p>' +
+                    '<div class="custom-modal-btns">' +
+                        '<button class="custom-modal-btn custom-modal-cancel" id="modalCancel">Cancel</button>' +
+                        '<button class="custom-modal-btn custom-modal-ok" id="modalOk">OK</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+    })();
+
+    // ==================== 页面初始化 ====================
+    $(function () {
+        console.log('codeName:', codeName);
+        console.log('channelsTagSelfdig:', channelsTagSelfdig);
+        if (channelsTagSelfdig && channelsTagSelfdig.children) {
+            console.log('children:', channelsTagSelfdig.children);
+        }
+        getListData()
+        // 1. 渲染列表
+        if ($('#data-articleList').length > 0) {
+            initList(articleList);
+        }
+
+        // 2. 初始化侧边栏子栏目
+        console.log('调用 getSidenav 填充 #R1SubChildren');
+        console.log('channelsTagSelfdig.children:', channelsTagSelfdig.children);
+        getSidenav(channelsTagSelfdig, "#R1SubChildren", "#sidetitle");
+        getSidenav(channelsTagSelfkey, "#KeyEncapsulation", "#sidetitle");
+        getSidenav(channelsTagSelfkey1, "#KeyExchange", "#sidetitle");
+        getSidenav(channelsTagSelfcry, "#CryptographicHashAlg", "#sidetitle");
+        // 0818需求：Block Cipher Algorithms 栏目先隐藏，子栏目初始化暂不执行，恢复时取消下行注释
+        // getSidenav(channelsTagSelfblock, "#BlockCipherAlgorithm", "#sidetitle");
+
+        // 3. 菜单高亮
+        try {
+            var NORMAL_COLOR = '#333';
+
+            $('.sidenav li').removeClass('on');
+            $('.sidenav li span').css('color', '');
+
+            var $currentItem = $('#menuId_' + codeName);
+            if ($currentItem.length) {
+                var $currentLi = $currentItem.closest('li');
+
+                $currentLi.addClass('on');
+
+                // 展开当前栏目的所有父级容器，保证当前项可见
+                $currentItem.parents('.children, .childrens').css('display', 'block');
+
+                // 当前栏目下的所有子栏目文字强制恢复默认色
+                $currentLi.find('ul').find('span').css('color', NORMAL_COLOR);
+            }
+        } catch (e) {}
+
+        // ==================== 右侧菜单：全部展开 ====================
+        $('.sidenav ul.children, .sidenav ul.childrens').css('display', 'block');
+
+        $('.sidenav i.layui-icon')
+            .removeClass('layui-icon-right')
+            .addClass('layui-icon-down');
+
+        // ==================== Round 1 candidates 子栏目：保留箭头点击收起/展开 ====================
+        (function () {
+            var $link = $('#menuId_Round1Additional');
+            if (!$link.length) return;
+
+            var $subUl = $('#R1SubChildren');
+            var $icon  = $link.find('i.layui-icon').first();
+
+            function isExpanded() {
+                return $subUl.is(':visible');
+            }
+
+            function setExpanded(expand) {
+                if (expand) {
+                    $subUl.css('display', 'block');
+                    $icon.removeClass('layui-icon-right')
+                         .addClass('layui-icon-down')
+                         .attr('title', 'Collapse');
+                } else {
+                    $subUl.css('display', 'none');
+                    $icon.removeClass('layui-icon-down')
+                         .addClass('layui-icon-right')
+                         .attr('title', 'Expand');
+                }
+            }
+
+            // 只有点到右侧箭头图标时才收起/展开，点文字仍然跳转
+            $link.on('click', function (e) {
+                if ($(e.target).closest('i.layui-icon').length) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setExpanded(!isExpanded());
+                }
+            });
+
+            setExpanded(true);
+        })();
+
+        // 4. Submit Comment 弹窗事件
+        $(document).on('click', '.proposal_bg .submit-comment', function(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var modal = document.getElementById('customModal');
+            modal.style.display = 'flex';
+            document.getElementById('modalOk').onclick = function() {
+                modal.style.display = 'none';
+                window.location.href = url;
+            };
+            document.getElementById('modalCancel').onclick = function() {
+                modal.style.display = 'none';
+            };
+        });
+
+        var pageSize = 10;
+
+        function setupPagination() {
+            if (!articleList || articleList.length === 0) {
+                $('.pagination').hide();
+                return;
+            }
+
+            var currentPage = 1;
+            var totalPages = Math.ceil(articleList.length / pageSize);
+
+            var firstPageData = articleList.slice(0, pageSize);
+            initList(firstPageData);
+
+            if (totalPages <= 1) {
+                $('.pagination').hide();
+                return;
+            }
+
+            $('.pagination').show();
+            var totalItems = articleList.length;
+            
+
+            $('.pagination').pagination({
+                pageCount: totalPages,
+                current: currentPage,
+                jump: true,
+                coping: true,
+                homePage: 'Front Page',
+                endPage: 'Last Page',
+                count: 2,
+                prevContent: '<font class="none">Previous Page</font><i class="arrow arrow-left"></i>',
+                nextContent: '<font class="none">Next Page</font><i class="arrow arrow-right"></i>',
+                total: true,
+                totalData: totalItems,
+                callback: function(api) {
+                    currentPage = api.getCurrent();
+                    var startIndex = (currentPage - 1) * pageSize;
+                    var endIndex = startIndex + pageSize;
+                    var pageData = articleList.slice(startIndex, endIndex);
+
+                    initList(pageData);
+                }
+            });
+        }
+
+        setupPagination();
+    });
+    </script>
+
+</body></html>

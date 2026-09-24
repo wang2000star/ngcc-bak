@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+  11080	      0	      0	  11080	   2b48	/home/shichangw879/QSH_run_arm/SelfAssessment/results/impl_opt.o

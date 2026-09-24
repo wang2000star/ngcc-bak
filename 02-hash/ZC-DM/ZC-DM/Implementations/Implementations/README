@@ -1,0 +1,57 @@
+# `Implementations/` — Directory layout and file overview
+
+This folder contains **submission-style profiles** of the CryptHash harness.
+
+---
+
+## Top-level directories
+
+| Directory | Purpose |
+|-----------|---------|
+| **`Reference_Implementation/`** | Portable C reference profile: hash instance + KAT generator linked against plain ZC-m permutations under `lib/low/`. Intended as the baseline submission layout. |
+| **`Optimized_Implementation/`** | Same harness as reference, but permutations use **AVX2** (`lib/low/ZC-*/avx2/`). For x86-64 hosts with AVX2; not for the “reference submission” profile if rules forbid SIMD. |
+| **`Embedded32_Implementation/`** | Same harness style, but permutations use **32-bit–friendly** code paths (`lib/low/ZC-*/32bit/`, no `uint64_t` lane arithmetic). Host-side KAT build; notes in tree warn about bare-metal suitability. |
+
+---
+
+## `Reference_Implementation/ZC-DM-1280/` and `.../ZC-DM-1536/`
+
+| File | Description |
+|------|-------------|
+| **`CryptHash_AlgorithmInstance.h`** | Public API for `CryptHash()` and macros (`ALGORITHM_INSTANCE`, `DIGEST_BIT_LENGTH`, etc.). |
+| **`CryptHash_AlgorithmInstance.c`** | Hash construction: message absorption, padding/suffix rules, sponge-style updates using the chosen ZC-m permutation API. |
+| **`KAT_CryptHash.c`** | Executable harness: generates KAT files (message lengths, loop test, etc.) by calling `CryptHash()`. |
+| **`drng.h` / `drng.c`** | Deterministic RNG used by the KAT harness for seeds and long messages (submission README often marks these as **do not modify**). |
+| **`README.txt`** | ICCS-style instructions: which files are fixed vs editable, build/run notes, endianness. |
+| **`batch_usage.txt`** | One-place notes for how to compile/run KAT on this profile (e.g. include paths to lib/common and lib/low/ZC-*/plain, working directory). |
+
+---
+
+## `Optimized_Implementation/`
+
+| Path | Description |
+|------|-------------|
+| **`ZC-DM-1280/`**, **`ZC-DM-1536/`** | Same roles as reference (`CryptHash_*`, `KAT_*`, `drng.*`, `README.txt`); implementation includes `ZC-1280-avx2` / `ZC-1536-avx2` headers. |
+| **`batch_usage.txt`** | One-place notes for how to compile/run KAT on this profile (e.g. required -mavx2, include paths to lib/common and lib/low/ZC-*/AVX2, working directory). |
+
+---
+
+## `Embedded32_Implementation/`
+
+| Path | Description |
+|------|-------------|
+| **`ZC-DM-1280/`**, **`ZC-DM-1536/`** | Same harness files as reference; `CryptHash_AlgorithmInstance.c` links `ZC-1280-32bit` / `ZC1536-32bit` APIs. |
+| **`batch_usage.txt`** | One-place notes for how to compile/run KAT on this profile (e.g. required -Wall -Wextra, include paths to lib/common and lib/low/ZC-*/32bit, working directory). |
+
+---
+
+## Relationship to `lib/`
+
+All `CryptHash_AlgorithmInstance.c` variants include permutation headers from **`lib/low/ZuD-1280/`** or **`lib/low/ZuD-1536/`** (plain, `avx2`, or `32bit` subfolders). KAT compilation typically also needs **`lib/common/brg_endian.h`** for endian macros used by those low-level sources.
+
+---
+
+## Quick navigation
+
+- **Change the hash / padding / absorption logic:** edit `CryptHash_AlgorithmInstance.c` (and `.h` macros) under the profile you use.
+- **Regenerate KAT files:** build and run `KAT_CryptHash` from `Reference_Implementation` (or the matching optimized/embedded tree).

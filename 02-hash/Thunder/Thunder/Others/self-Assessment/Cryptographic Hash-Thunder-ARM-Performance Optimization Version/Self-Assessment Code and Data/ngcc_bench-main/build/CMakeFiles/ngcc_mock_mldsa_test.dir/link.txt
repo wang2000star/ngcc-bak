@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/ngcc_mock_mldsa_test.dir/tests/test_mock_mldsa.c.o  -o ngcc_mock_mldsa_test  libngcc_test_support.a 

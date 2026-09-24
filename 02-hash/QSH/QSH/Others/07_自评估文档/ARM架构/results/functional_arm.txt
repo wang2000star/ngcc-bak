@@ -1,0 +1,24 @@
+ref KAT_2_12 QSH-512: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-512.txt: matched 4097/4097 [PASS]
+ref KAT_2_12 QSH-768: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-768.txt: matched 4097/4097 [PASS]
+ref KAT_2_12 QSH-1024: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-1024.txt: matched 4097/4097 [PASS]
+ref consistency==reference: PASS
+opt KAT_2_12 QSH-512: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-512.txt: matched 4097/4097 [PASS]
+opt KAT_2_12 QSH-768: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-768.txt: matched 4097/4097 [PASS]
+opt KAT_2_12 QSH-1024: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-1024.txt: matched 4097/4097 [PASS]
+opt consistency==reference: PASS
+opt full-KAT QSH-512 KAT_2_12: PASS
+opt full-KAT QSH-512 KAT_2_23: PASS
+opt full-KAT QSH-512 KAT_2_33: PASS
+opt full-KAT QSH-512 KAT_Loop: PASS
+opt full-KAT QSH-768 KAT_2_12: PASS
+opt full-KAT QSH-768 KAT_2_23: PASS
+opt full-KAT QSH-768 KAT_2_33: PASS
+opt full-KAT QSH-768 KAT_Loop: PASS
+opt full-KAT QSH-1024 KAT_2_12: PASS
+opt full-KAT QSH-1024 KAT_2_23: PASS
+opt full-KAT QSH-1024 KAT_2_33: PASS
+opt full-KAT QSH-1024 KAT_Loop: PASS
+res KAT_2_12 QSH-512: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-512.txt: matched 4097/4097 [PASS]
+res KAT_2_12 QSH-768: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-768.txt: matched 4097/4097 [PASS]
+res KAT_2_12 QSH-1024: /home/shichangw879/QSH_run_arm/Test_Vectors/KAT_2_12_QSH-1024.txt: matched 4097/4097 [PASS]
+res consistency==reference: PASS

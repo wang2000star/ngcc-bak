@@ -1,0 +1,13 @@
+SELFTEST,scalar,ok
+SELFTEST,simd,disabled
+PERF_HEADER,target,input_or_iters,iters_or_zero,avg_ns,MBps_or_sink
+PERF,perm20_scalar,300000,309.54,1.00
+PERF,compress20_scalar,300000,420.08,342.79
+PERF,hash_scalar,32,2000000,891.71,35.89
+PERF,hash_scalar,128,1048576,892.85,143.36
+PERF,hash_scalar,512,262144,2204.70,232.23
+PERF,hash_scalar,1024,131072,3945.19,259.56
+PERF,hash_scalar,4096,32768,13095.67,312.78
+PERF,hash_scalar,8192,16384,25285.28,323.98
+PERF,hash_scalar,16384,8192,50093.28,327.07
+PERF,hash_scalar,65536,2048,198924.24,329.45

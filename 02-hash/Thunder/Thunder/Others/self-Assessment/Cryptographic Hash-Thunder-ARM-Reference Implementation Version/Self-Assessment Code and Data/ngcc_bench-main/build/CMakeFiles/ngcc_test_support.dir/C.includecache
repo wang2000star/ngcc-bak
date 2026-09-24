@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/firefly/HASHFin/ngcc_bench-main/tests/test_support.c
+unistd.h
+-
+test_support.h
+/home/firefly/HASHFin/ngcc_bench-main/tests/test_support.h
+dirent.h
+-
+errno.h
+-
+fcntl.h
+-
+limits.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+sys/stat.h
+-
+sys/types.h
+-
+sys/wait.h
+-
+unistd.h
+-
+
+/home/firefly/HASHFin/ngcc_bench-main/tests/test_support.h
+stddef.h
+-
+

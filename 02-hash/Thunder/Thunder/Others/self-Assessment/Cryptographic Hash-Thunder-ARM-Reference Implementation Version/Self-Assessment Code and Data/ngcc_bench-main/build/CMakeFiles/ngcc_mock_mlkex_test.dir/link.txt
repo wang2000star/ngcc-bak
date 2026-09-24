@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/ngcc_mock_mlkex_test.dir/tests/test_mock_mlkex.c.o  -o ngcc_mock_mlkex_test  libngcc_test_support.a 

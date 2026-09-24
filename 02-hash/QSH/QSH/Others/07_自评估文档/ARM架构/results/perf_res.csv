@@ -1,0 +1,36 @@
+# QSH-512  cyc_src=derived  freq=3.389GHz (self-calibrated)
+variant,size_bytes,iters,avg_cycles,cyc_per_byte,throughput_MBps,cyc_src
+QSH-512,32,142975,5852.7,182.90,18.5,derived
+QSH-512,128,96563,8669.5,67.73,50.0,derived
+QSH-512,512,49052,17182.9,33.56,101.0,derived
+QSH-512,1024,29687,28458.3,27.79,122.0,derived
+QSH-512,4096,8315,101606.8,24.81,136.6,derived
+QSH-512,8192,4294,197161.4,24.07,140.8,derived
+QSH-512,16384,2179,388769.1,23.73,142.8,derived
+QSH-512,65536,551,1540155.6,23.50,144.2,derived
+QSH-512,262144,138,6128863.8,23.38,145.0,derived
+QSH-512,1048576,100,24497347.2,23.36,145.1,derived
+# QSH-768  cyc_src=derived  freq=3.390GHz (self-calibrated)
+variant,size_bytes,iters,avg_cycles,cyc_per_byte,throughput_MBps,cyc_src
+QSH-768,32,73107,11492.5,359.14,9.4,derived
+QSH-768,128,73519,11423.6,89.25,38.0,derived
+QSH-768,512,37383,22582.7,44.11,76.9,derived
+QSH-768,1024,25135,33640.8,32.85,103.2,derived
+QSH-768,4096,8044,105299.7,25.71,131.9,derived
+QSH-768,8192,4259,198869.7,24.28,139.6,derived
+QSH-768,16384,2193,386962.2,23.62,143.5,derived
+QSH-768,65536,560,1514023.3,23.10,146.7,derived
+QSH-768,262144,140,6011471.0,22.93,147.8,derived
+QSH-768,1048576,100,24005333.1,22.89,148.1,derived
+# QSH-1024  cyc_src=derived  freq=3.390GHz (self-calibrated)
+variant,size_bytes,iters,avg_cycles,cyc_per_byte,throughput_MBps,cyc_src
+QSH-1024,32,72725,11551.8,360.99,9.4,derived
+QSH-1024,128,73085,11494.6,89.80,37.8,derived
+QSH-1024,512,37251,22673.5,44.28,76.6,derived
+QSH-1024,1024,25079,33712.2,32.92,103.0,derived
+QSH-1024,4096,8059,105036.1,25.64,132.2,derived
+QSH-1024,8192,4263,198579.3,24.24,139.9,derived
+QSH-1024,16384,2196,385646.1,23.54,144.0,derived
+QSH-1024,65536,562,1507478.7,23.00,147.4,derived
+QSH-1024,262144,141,5997788.6,22.88,148.2,derived
+QSH-1024,1048576,100,23961120.7,22.85,148.4,derived

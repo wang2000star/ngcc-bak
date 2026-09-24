@@ -1,0 +1,92 @@
+nohup: ignoring input
+==== [0/7] prerequisites ====
+  compiler : gcc (Debian 14.2.0-19) 14.2.0
+  KAT_HEAVY=0  PEAK_BIG_MIB=64
+==== [1/7] frequency lock (best effort; needs sudo) ====
+  (no writable turbo control -- cloud VM? rdtsc/TSC cycles are turbo-independent anyway)
+  freq-lock skipped (no permission)
+==== [2/7] environment ====
+date            : Mon Jun 29 15:08:39 UTC 2026
+uname           : Linux 6.12.90+deb13.1-cloud-amd64 x86_64
+os-release      : Debian GNU/Linux 13 (trixie)
+cpu             : Intel(R) Xeon(R) CPU @ 2.80GHz
+cpu-MHz(cur)    : 2799.998
+gcc             : gcc (Debian 14.2.0-19) 14.2.0
+cmake           : cmake version 3.31.6
+governor        : 
+no_turbo        : 
+pinned core     : 0
+third-party deps: none (only the official ICCS drng.c / KAT_CryptHash.c, unmodified)
+RNG method      : DRNG from API_CryptHash (SM3 Hash-DRBG); KAT messages seeded per official harness
+ISA / opt       : x86-64 + AVX2; within-permutation SIMD (perf), SIMD core + O(log Pi) CV-stack at -O3 (resource)
+==== [3/7] reference version ====
+==== version: ref  (-std=c99 -Wpedantic -Wall -Wextra -O2) ====
+  build warnings: 0
+  static memory (size ref, no -flto):
+       text	   data	    bss	    dec	    hex	filename
+       4369	      0	      0	   4369	   1111	/home/shichangw879/QSH_run/SelfAssessment/results/impl_ref.o
+  [KAT] KAT_2_12 known-answer:
+    QSH-512: 4097  PASS
+    QSH-768: 4097  PASS
+    QSH-1024: 4097  PASS
+  [KAT] cross-version == reference (multi-chunk 0..300 KB): PASS
+  performance -> /home/shichangw879/QSH_run/SelfAssessment/results/perf_ref.csv
+  peak RSS  1MiB x100 : Maximum resident set size (kbytes): 2352
+  peak RSS  64MiB x1: Maximum resident set size (kbytes): 70956
+==== [4/7] performance-optimized version (within-permutation AVX2) ====
+==== version: opt  (-O3 -march=x86-64 -mavx2 -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra) ====
+  build warnings: 0
+  static memory (size opt, no -flto):
+       text	   data	    bss	    dec	    hex	filename
+      15524	      0	      0	  15524	   3ca4	/home/shichangw879/QSH_run/SelfAssessment/results/impl_opt.o
+  [KAT] KAT_2_12 known-answer:
+    QSH-512: 4097  PASS
+    QSH-768: 4097  PASS
+    QSH-1024: 4097  PASS
+  [KAT] cross-version == reference (multi-chunk 0..300 KB): PASS
+  [KAT] full official KAT vs Test_Vectors (incl. 2_23 / 2_33 / Loop):
+    QSH-512 KAT_2_12: PASS
+    QSH-512 KAT_2_23: PASS
+    QSH-512 KAT_2_33: PASS
+    QSH-512 KAT_Loop: PASS
+    QSH-768 KAT_2_12: PASS
+    QSH-768 KAT_2_23: PASS
+    QSH-768 KAT_2_33: PASS
+    QSH-768 KAT_Loop: PASS
+    QSH-1024 KAT_2_12: PASS
+    QSH-1024 KAT_2_23: PASS
+    QSH-1024 KAT_2_33: PASS
+    QSH-1024 KAT_Loop: PASS
+  performance -> /home/shichangw879/QSH_run/SelfAssessment/results/perf_opt.csv
+  peak RSS  1MiB x100 : Maximum resident set size (kbytes): 2352
+  peak RSS  64MiB x1: Maximum resident set size (kbytes): 66892
+==== [5/7] resource-optimized version (CV-stack, -Os) ====
+==== version: res  (-O3 -march=x86-64 -mavx2 -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra) ====
+  build warnings: 0
+  static memory (size res, no -flto):
+       text	   data	    bss	    dec	    hex	filename
+      15524	      0	      0	  15524	   3ca4	/home/shichangw879/QSH_run/SelfAssessment/results/impl_res.o
+  [KAT] KAT_2_12 known-answer:
+    QSH-512: 4097  PASS
+    QSH-768: 4097  PASS
+    QSH-1024: 4097  PASS
+  [KAT] cross-version == reference (multi-chunk 0..300 KB): PASS
+  performance -> /home/shichangw879/QSH_run/SelfAssessment/results/perf_res.csv
+  peak RSS  1MiB x100 : Maximum resident set size (kbytes): 2312
+  peak RSS  64MiB x1: Maximum resident set size (kbytes): 66820
+==== [6/7] assembling report ====
+==== [7/7] guideline 1-4 named material -> results/submission/ ====
+  created 9 named packages:
+    密码杂凑-QSH-1024-x86-参考实现版
+    密码杂凑-QSH-1024-x86-性能优化版
+    密码杂凑-QSH-1024-x86-资源优化版
+    密码杂凑-QSH-512-x86-参考实现版
+    密码杂凑-QSH-512-x86-性能优化版
+    密码杂凑-QSH-512-x86-资源优化版
+    密码杂凑-QSH-768-x86-参考实现版
+    密码杂凑-QSH-768-x86-性能优化版
+    密码杂凑-QSH-768-x86-资源优化版
+DONE.
+Report : /home/shichangw879/QSH_run/SelfAssessment/results/Report_x86_selfassessment.md
+Named  : /home/shichangw879/QSH_run/SelfAssessment/results/submission/  (zip this for submission)
+Perf   : /home/shichangw879/QSH_run/SelfAssessment/results/perf_{ref,opt,res}.csv

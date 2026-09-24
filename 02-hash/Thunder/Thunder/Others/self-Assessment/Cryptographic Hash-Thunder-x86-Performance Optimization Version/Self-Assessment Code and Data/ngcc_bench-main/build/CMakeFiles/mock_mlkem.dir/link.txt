@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libmock_mlkem.so -o tests/mock/libmock_mlkem.so CMakeFiles/mock_mlkem.dir/tests/mock/mock_mlkem.c.o 

@@ -1,0 +1,1 @@
+cc -O2 -std=c99 -Wall -Wextra -I. -I"../../../lib/common" -I"../../../lib/low/ZuD-1280" -I"../../../lib/low/ZuD-1280/32bit" KAT_CryptHash.c drng.c CryptHash_AlgorithmInstance.c  ../../../lib/low/ZuD-1280/32bit/ZuD1280-32bit.c -o kat_crypt_hash && ./kat_crypt_hash

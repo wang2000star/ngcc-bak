@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+   3700	      0	      0	   3700	    e74	/home/shichangw879/QSH_run_arm/SelfAssessment/results/impl_ref.o

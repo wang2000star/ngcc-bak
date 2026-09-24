@@ -1,0 +1,2 @@
+/usr/bin/ar qc libngcc_test_support.a CMakeFiles/ngcc_test_support.dir/tests/test_support.c.o
+/usr/bin/ranlib libngcc_test_support.a

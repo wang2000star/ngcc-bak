@@ -1,0 +1,365 @@
+MasterCube source package
+============================
+
+Run all commands from the package root, the directory that contains both
+Implementations/ and Test_Vectors/.
+
+Directory layout
+----------------
+
+~~~text
+<package-root>/
+|-- Implementations/
+|   |-- Additional_Implementation/
+|   |   |-- MasterCube-1024/
+|   |   |   |-- ARM/
+|   |   |   |   |-- Performance_Optimized_Implementation/
+|   |   |   |   |   |-- CryptHash_AlgorithmInstance.c
+|   |   |   |   |   |-- CryptHash_AlgorithmInstance.h
+|   |   |   |   |   |-- drng.c
+|   |   |   |   |   |-- drng.h
+|   |   |   |   |   |-- KAT_CryptHash.c
+|   |   |   |   |   |-- mastercube.h
+|   |   |   |   |   |-- MasterCube-1024.c
+|   |   |   |   |   `-- sse2neon.h
+|   |   |   |   `-- Resource_Optimized_Implementation/
+|   |   |   |       |-- CryptHash_AlgorithmInstance.c
+|   |   |   |       |-- CryptHash_AlgorithmInstance.h
+|   |   |   |       |-- drng.c
+|   |   |   |       |-- drng.h
+|   |   |   |       |-- KAT_CryptHash.c
+|   |   |   |       |-- mastercube.h
+|   |   |   |       |-- MasterCube-1024.c
+|   |   |   |       `-- sse2neon.h
+|   |   |   |-- ASIC/
+|   |   |   |   |-- Parallel phase-sliced implementation/
+|   |   |   |   |   |-- mastercube.v
+|   |   |   |   |   |-- mastercube_crossmix.v
+|   |   |   |   |   |-- mastercube_globals.v
+|   |   |   |   |   |-- mastercube_mandrx.v
+|   |   |   |   |   |-- mastercube_mixcolumn.v
+|   |   |   |   |   |-- mastercube_mixrow.v
+|   |   |   |   |   |-- mastercube_round.v
+|   |   |   |   |   |-- mastercube_round_fwd.v
+|   |   |   |   |   `-- mastercube_round_inv.v
+|   |   |   |   `-- Round-sequential implementation/
+|   |   |   |       |-- mastercube.v
+|   |   |   |       |-- mastercube_crossmix.v
+|   |   |   |       |-- mastercube_globals.v
+|   |   |   |       |-- mastercube_mandrx.v
+|   |   |   |       |-- mastercube_mixcolumn.v
+|   |   |   |       |-- mastercube_mixrow.v
+|   |   |   |       |-- mastercube_round.v
+|   |   |   |       |-- mastercube_round_fwd.v
+|   |   |   |       `-- mastercube_round_inv.v
+|   |   |   `-- X86/
+|   |   |       |-- AVX512_Implementation/
+|   |   |       |   |-- CryptHash_AlgorithmInstance.c
+|   |   |       |   |-- CryptHash_AlgorithmInstance.h
+|   |   |       |   |-- drng.c
+|   |   |       |   |-- drng.h
+|   |   |       |   |-- KAT_CryptHash.c
+|   |   |       |   |-- mastercube.h
+|   |   |       |   `-- MasterCube-1024.c
+|   |   |       `-- Resource_Optimized_Implementation/
+|   |   |           |-- CryptHash_AlgorithmInstance.c
+|   |   |           |-- CryptHash_AlgorithmInstance.h
+|   |   |           |-- drng.c
+|   |   |           |-- drng.h
+|   |   |           |-- KAT_CryptHash.c
+|   |   |           |-- mastercube.h
+|   |   |           `-- MasterCube-1024.c
+|   |   |-- MasterCube-512/
+|   |   |   |-- ARM/
+|   |   |   |   |-- Performance_Optimized_Implementation/
+|   |   |   |   |   |-- CryptHash_AlgorithmInstance.c
+|   |   |   |   |   |-- CryptHash_AlgorithmInstance.h
+|   |   |   |   |   |-- drng.c
+|   |   |   |   |   |-- drng.h
+|   |   |   |   |   |-- KAT_CryptHash.c
+|   |   |   |   |   |-- mastercube.h
+|   |   |   |   |   |-- MasterCube-512.c
+|   |   |   |   |   `-- sse2neon.h
+|   |   |   |   `-- Resource_Optimized_Implementation/
+|   |   |   |       |-- CryptHash_AlgorithmInstance.c
+|   |   |   |       |-- CryptHash_AlgorithmInstance.h
+|   |   |   |       |-- drng.c
+|   |   |   |       |-- drng.h
+|   |   |   |       |-- KAT_CryptHash.c
+|   |   |   |       |-- mastercube.h
+|   |   |   |       |-- MasterCube-512.c
+|   |   |   |       `-- sse2neon.h
+|   |   |   |-- ASIC/
+|   |   |   |   |-- Parallel phase-sliced implementation/
+|   |   |   |   |   |-- mastercube.v
+|   |   |   |   |   |-- mastercube_crossmix.v
+|   |   |   |   |   |-- mastercube_globals.v
+|   |   |   |   |   |-- mastercube_mandrx.v
+|   |   |   |   |   |-- mastercube_mixcolumn.v
+|   |   |   |   |   |-- mastercube_mixrow.v
+|   |   |   |   |   |-- mastercube_round.v
+|   |   |   |   |   |-- mastercube_round_fwd.v
+|   |   |   |   |   `-- mastercube_round_inv.v
+|   |   |   |   `-- Round-sequential implementation/
+|   |   |   |       |-- mastercube.v
+|   |   |   |       |-- mastercube_crossmix.v
+|   |   |   |       |-- mastercube_globals.v
+|   |   |   |       |-- mastercube_mandrx.v
+|   |   |   |       |-- mastercube_mixcolumn.v
+|   |   |   |       |-- mastercube_mixrow.v
+|   |   |   |       |-- mastercube_round.v
+|   |   |   |       |-- mastercube_round_fwd.v
+|   |   |   |       `-- mastercube_round_inv.v
+|   |   |   `-- X86/
+|   |   |       |-- AVX512_Implementation/
+|   |   |       |   |-- CryptHash_AlgorithmInstance.c
+|   |   |       |   |-- CryptHash_AlgorithmInstance.h
+|   |   |       |   |-- drng.c
+|   |   |       |   |-- drng.h
+|   |   |       |   |-- KAT_CryptHash.c
+|   |   |       |   |-- mastercube.h
+|   |   |       |   `-- MasterCube-512.c
+|   |   |       `-- Resource_Optimized_Implementation/
+|   |   |           |-- CryptHash_AlgorithmInstance.c
+|   |   |           |-- CryptHash_AlgorithmInstance.h
+|   |   |           |-- drng.c
+|   |   |           |-- drng.h
+|   |   |           |-- KAT_CryptHash.c
+|   |   |           |-- mastercube.h
+|   |   |           `-- MasterCube-512.c
+|   |   `-- MasterCube-768/
+|   |       |-- ARM/
+|   |       |   |-- Performance_Optimized_Implementation/
+|   |       |   |   |-- CryptHash_AlgorithmInstance.c
+|   |       |   |   |-- CryptHash_AlgorithmInstance.h
+|   |       |   |   |-- drng.c
+|   |       |   |   |-- drng.h
+|   |       |   |   |-- KAT_CryptHash.c
+|   |       |   |   |-- mastercube.h
+|   |       |   |   |-- MasterCube-768.c
+|   |       |   |   `-- sse2neon.h
+|   |       |   `-- Resource_Optimized_Implementation/
+|   |       |       |-- CryptHash_AlgorithmInstance.c
+|   |       |       |-- CryptHash_AlgorithmInstance.h
+|   |       |       |-- drng.c
+|   |       |       |-- drng.h
+|   |       |       |-- KAT_CryptHash.c
+|   |       |       |-- mastercube.h
+|   |       |       |-- MasterCube-768.c
+|   |       |       `-- sse2neon.h
+|   |       |-- ASIC/
+|   |       |   |-- Parallel phase-sliced implementation/
+|   |       |   |   |-- mastercube.v
+|   |       |   |   |-- mastercube_crossmix.v
+|   |       |   |   |-- mastercube_globals.v
+|   |       |   |   |-- mastercube_mandrx.v
+|   |       |   |   |-- mastercube_mixcolumn.v
+|   |       |   |   |-- mastercube_mixrow.v
+|   |       |   |   |-- mastercube_round.v
+|   |       |   |   |-- mastercube_round_fwd.v
+|   |       |   |   `-- mastercube_round_inv.v
+|   |       |   `-- Round-sequential implementation/
+|   |       |       |-- mastercube.v
+|   |       |       |-- mastercube_crossmix.v
+|   |       |       |-- mastercube_globals.v
+|   |       |       |-- mastercube_mandrx.v
+|   |       |       |-- mastercube_mixcolumn.v
+|   |       |       |-- mastercube_mixrow.v
+|   |       |       |-- mastercube_round.v
+|   |       |       |-- mastercube_round_fwd.v
+|   |       |       `-- mastercube_round_inv.v
+|   |       `-- X86/
+|   |           |-- AVX512_Implementation/
+|   |           |   |-- CryptHash_AlgorithmInstance.c
+|   |           |   |-- CryptHash_AlgorithmInstance.h
+|   |           |   |-- drng.c
+|   |           |   |-- drng.h
+|   |           |   |-- KAT_CryptHash.c
+|   |           |   |-- mastercube.h
+|   |           |   `-- MasterCube-768.c
+|   |           `-- Resource_Optimized_Implementation/
+|   |               |-- CryptHash_AlgorithmInstance.c
+|   |               |-- CryptHash_AlgorithmInstance.h
+|   |               |-- drng.c
+|   |               |-- drng.h
+|   |               |-- KAT_CryptHash.c
+|   |               |-- mastercube.h
+|   |               `-- MasterCube-768.c
+|   |-- Optimized_Implementation/
+|   |   |-- MasterCube-1024/
+|   |   |   |-- CryptHash_AlgorithmInstance.c
+|   |   |   |-- CryptHash_AlgorithmInstance.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- KAT_CryptHash.c
+|   |   |   |-- mastercube.h
+|   |   |   `-- MasterCube-1024.c
+|   |   |-- MasterCube-512/
+|   |   |   |-- CryptHash_AlgorithmInstance.c
+|   |   |   |-- CryptHash_AlgorithmInstance.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- KAT_CryptHash.c
+|   |   |   |-- mastercube.h
+|   |   |   `-- MasterCube-512.c
+|   |   |-- MasterCube-768/
+|   |   |   |-- CryptHash_AlgorithmInstance.c
+|   |   |   |-- CryptHash_AlgorithmInstance.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- KAT_CryptHash.c
+|   |   |   |-- mastercube.h
+|   |   |   `-- MasterCube-768.c
+|   |   `-- CMakeLists.txt
+|   |-- Reference_Implementation/
+|   |   |-- MasterCube-1024/
+|   |   |   |-- CryptHash_AlgorithmInstance.c
+|   |   |   |-- CryptHash_AlgorithmInstance.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- KAT_CryptHash.c
+|   |   |   |-- mastercube.h
+|   |   |   `-- MasterCube-1024.c
+|   |   |-- MasterCube-512/
+|   |   |   |-- CryptHash_AlgorithmInstance.c
+|   |   |   |-- CryptHash_AlgorithmInstance.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- KAT_CryptHash.c
+|   |   |   |-- mastercube.h
+|   |   |   `-- MasterCube-512.c
+|   |   |-- MasterCube-768/
+|   |   |   |-- CryptHash_AlgorithmInstance.c
+|   |   |   |-- CryptHash_AlgorithmInstance.h
+|   |   |   |-- drng.c
+|   |   |   |-- drng.h
+|   |   |   |-- KAT_CryptHash.c
+|   |   |   |-- mastercube.h
+|   |   |   `-- MasterCube-768.c
+|   |   `-- CMakeLists.txt
+|   |-- CMakeLists.txt
+|   `-- README
+`-- Test_Vectors/
+    |-- KAT_2_12_MasterCube-1024.txt
+    |-- KAT_2_12_MasterCube-512.txt
+    |-- KAT_2_12_MasterCube-768.txt
+    |-- KAT_2_23_MasterCube-1024.txt
+    |-- KAT_2_23_MasterCube-512.txt
+    |-- KAT_2_23_MasterCube-768.txt
+    |-- KAT_2_33_MasterCube-1024.txt
+    |-- KAT_2_33_MasterCube-512.txt
+    |-- KAT_2_33_MasterCube-768.txt
+    |-- KAT_Loop_MasterCube-1024.txt
+    |-- KAT_Loop_MasterCube-512.txt
+    `-- KAT_Loop_MasterCube-768.txt
+~~~
+
+Official API/KAT files
+----------------------
+
+Each software C implementation leaf directory contains the official API/KAT
+file set:
+
+~~~text
+CryptHash_AlgorithmInstance.c
+CryptHash_AlgorithmInstance.h
+KAT_CryptHash.c
+drng.c
+drng.h
+~~~
+
+KAT_CryptHash.c, drng.c, and drng.h are copied unchanged from the official API
+package and are not modified. CryptHash_AlgorithmInstance.c and
+CryptHash_AlgorithmInstance.h keep the official CryptHash() interface and set
+the instance-specific ALGORITHM_INSTANCE and DIGEST_BIT_LENGTH values.
+
+Build and run
+-------------
+
+Below is the command for the "Reference implementation". To run other implementations, the word "reference" in each command should be replaced by other names following the "Implementation options" section.
+
+~~~sh
+cd <package-root>
+mkdir -p build/reference
+cd build/reference
+cmake \
+  -DMCUBE_IMPL=reference \
+  ../../Implementations
+make
+make run
+~~~
+
+To set a specific C compiler, pass it to cmake (the project is C-only;
+`CC=` environment variables are ignored once CMakeCache.txt exists):
+
+~~~sh
+cmake \
+  -DCMAKE_C_COMPILER=gcc \
+  -DMCUBE_IMPL=reference \
+  ../../Implementations
+~~~
+
+make builds one `kat_crypthash` KAT executable per digest size, each in its
+own subdirectory under the build tree:
+
+~~~text
+build/reference/MasterCube-512/kat_crypthash
+build/reference/MasterCube-768/kat_crypthash
+build/reference/MasterCube-1024/kat_crypthash
+~~~
+
+make run and make verify do the same thing: build and run each instance's
+kat_crypthash, then diff the generated KAT output files against the reference
+copies in Test_Vectors/. If any file is missing or mismatched, the command
+reports an error and exits non-zero.
+
+Run verification:
+
+~~~sh
+cd <package-root>/build/reference
+make verify
+~~~
+
+If "make verify" ends without any error, it means the implementations works as expected.
+
+Implementation options
+----------------------
+
+Use the same command pattern as above and replace reference with one of:
+
+~~~text
+x86-performance
+x86-resource
+x86-avx512
+arm-resource
+arm-performance
+~~~
+
+Compiler options selected by CMake:
+
+~~~text
+reference       -std=c99 -Wpedantic -Wall -Wextra -O2
+x86-performance -O3 -march=x86-64 -mavx2 -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra
+x86-resource    -Os -march=x86-64 -mavx2 -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra
+x86-avx512      -O3 -march=x86-64 -mavx512f -mavx512bw -mavx512vl -mtune=native -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra
+arm-resource    -Os -march=armv8-a -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra
+arm-performance -O3 -march=<auto> -flto -fomit-frame-pointer -std=c99 -Wpedantic -Wall -Wextra
+~~~
+
+For arm-performance, <auto> selects armv8.2-a+sve on ARM hosts with SVE support
+and armv8.2-a on ARMv8.2 hosts without SVE. It can be overridden with
+-DMCUBE_ARM_PERFORMANCE_MARCH=armv8.2-a+sve or
+-DMCUBE_ARM_PERFORMANCE_MARCH=armv8.2-a.
+
+Custom implementation directory:
+
+~~~sh
+cd <package-root>
+mkdir -p build/custom
+cd build/custom
+cmake \
+  -DMCUBE_IMPLDIR=<relative-implementation-path> \
+  ../../Implementations
+make
+make run
+~~~
